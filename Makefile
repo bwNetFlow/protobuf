@@ -1,5 +1,5 @@
 all: flow-messages-enriched.proto
-	mkdir cpp csharp go java js objc php python ruby
+	mkdir -p cpp csharp go java js objc php python ruby
 	protoc \
 	    --cpp_out=cpp \
 	    --csharp_out=csharp \

@@ -196,6 +196,10 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 DstIfSpeed = 98;</code>
      */
     private $DstIfSpeed = 0;
+    /**
+     * Generated from protobuf field <code>string Peer = 99;</code>
+     */
+    private $Peer = '';
 
     /**
      * Constructor.
@@ -254,6 +258,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *     @type string $DstIfName
      *     @type string $DstIfDesc
      *     @type int $DstIfSpeed
+     *     @type string $Peer
      * }
      */
     public function __construct($data = NULL) {
@@ -1163,6 +1168,28 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->DstIfSpeed = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Peer = 99;</code>
+     * @return string
+     */
+    public function getPeer()
+    {
+        return $this->Peer;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Peer = 99;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPeer($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->Peer = $var;
 
         return $this;
     }

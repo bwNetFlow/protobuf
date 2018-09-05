@@ -100,4 +100,6 @@ message FlowMessage {
   string DstIfName = 96;
   string DstIfDesc = 97;
   uint32 DstIfSpeed = 98;
+
+  string Peer = 99;
 }

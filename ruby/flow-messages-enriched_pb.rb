@@ -44,6 +44,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :DstIfName, :string, 96
     optional :DstIfDesc, :string, 97
     optional :DstIfSpeed, :uint32, 98
+    optional :Peer, :string, 99
   end
   add_enum "flowmessageenriched.FlowMessage.FlowType" do
     value :FLOWUNKNOWN, 0

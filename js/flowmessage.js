@@ -102,7 +102,8 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     srcifspeed: jspb.Message.getFieldWithDefault(msg, 95, 0),
     dstifname: jspb.Message.getFieldWithDefault(msg, 96, ""),
     dstifdesc: jspb.Message.getFieldWithDefault(msg, 97, ""),
-    dstifspeed: jspb.Message.getFieldWithDefault(msg, 98, 0)
+    dstifspeed: jspb.Message.getFieldWithDefault(msg, 98, 0),
+    peer: jspb.Message.getFieldWithDefault(msg, 99, "")
   };
 
   if (includeInstance) {
@@ -294,6 +295,10 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
     case 98:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setDstifspeed(value);
+      break;
+    case 99:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPeer(value);
       break;
     default:
       reader.skipField();
@@ -594,6 +599,13 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeUint32(
       98,
+      f
+    );
+  }
+  f = message.getPeer();
+  if (f.length > 0) {
+    writer.writeString(
+      99,
       f
     );
   }
@@ -1314,6 +1326,21 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstifspeed = function() {
 /** @param {number} value */
 proto.flowmessageenriched.FlowMessage.prototype.setDstifspeed = function(value) {
   jspb.Message.setProto3IntField(this, 98, value);
+};
+
+
+/**
+ * optional string Peer = 99;
+ * @return {string}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getPeer = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 99, ""));
+};
+
+
+/** @param {string} value */
+proto.flowmessageenriched.FlowMessage.prototype.setPeer = function(value) {
+  jspb.Message.setProto3StringField(this, 99, value);
 };
 
 

@@ -459,6 +459,20 @@ class FlowMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::std::string* release_dstifdesc();
   void set_allocated_dstifdesc(::std::string* dstifdesc);
 
+  // string Peer = 99;
+  void clear_peer();
+  static const int kPeerFieldNumber = 99;
+  const ::std::string& peer() const;
+  void set_peer(const ::std::string& value);
+  #if LANG_CXX11
+  void set_peer(::std::string&& value);
+  #endif
+  void set_peer(const char* value);
+  void set_peer(const char* value, size_t size);
+  ::std::string* mutable_peer();
+  ::std::string* release_peer();
+  void set_allocated_peer(::std::string* peer);
+
   // uint64 TimeRecvd = 2;
   void clear_timerecvd();
   static const int kTimeRecvdFieldNumber = 2;
@@ -657,6 +671,7 @@ class FlowMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::internal::ArenaStringPtr srcifdesc_;
   ::google::protobuf::internal::ArenaStringPtr dstifname_;
   ::google::protobuf::internal::ArenaStringPtr dstifdesc_;
+  ::google::protobuf::internal::ArenaStringPtr peer_;
   ::google::protobuf::uint64 timerecvd_;
   int type_;
   ::google::protobuf::uint32 sequencenum_;
@@ -1558,6 +1573,59 @@ inline void FlowMessage::set_dstifspeed(::google::protobuf::uint32 value) {
   
   dstifspeed_ = value;
   // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstIfSpeed)
+}
+
+// string Peer = 99;
+inline void FlowMessage::clear_peer() {
+  peer_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FlowMessage::peer() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.Peer)
+  return peer_.GetNoArena();
+}
+inline void FlowMessage::set_peer(const ::std::string& value) {
+  
+  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.Peer)
+}
+#if LANG_CXX11
+inline void FlowMessage::set_peer(::std::string&& value) {
+  
+  peer_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.Peer)
+}
+#endif
+inline void FlowMessage::set_peer(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.Peer)
+}
+inline void FlowMessage::set_peer(const char* value, size_t size) {
+  
+  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.Peer)
+}
+inline ::std::string* FlowMessage::mutable_peer() {
+  
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.Peer)
+  return peer_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FlowMessage::release_peer() {
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.Peer)
+  
+  return peer_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FlowMessage::set_allocated_peer(::std::string* peer) {
+  if (peer != NULL) {
+    
+  } else {
+    
+  }
+  peer_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), peer);
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.Peer)
 }
 
 #ifdef __GNUC__
