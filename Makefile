@@ -1,7 +1,7 @@
 all: regular_bindings perl_bindings
 
 regular_bindings: flow-messages-enriched.proto
-	mkdir -p cpp csharp go java js objc php python ruby
+	mkdir -p cpp csharp go java js objc php python ruby rust
 	protoc \
 	    --cpp_out=cpp \
 	    --csharp_out=csharp \
@@ -12,6 +12,7 @@ regular_bindings: flow-messages-enriched.proto
 	    --php_out=php \
 	    --python_out=python \
 	    --ruby_out=ruby \
+	    --rust_out=rust \
 	    ./flow-messages-enriched.proto
 
 perl_bindings: flow-messages-enriched.proto
