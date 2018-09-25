@@ -265,6 +265,11 @@ use Google::ProtocolBuffers;
                     Google::ProtocolBuffers::Constants::TYPE_STRING(), 
                     'RemoteCountry', 100, undef
                 ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_STRING(), 
+                    'ProtoName', 101, undef
+                ],
 
             ],
             undef,

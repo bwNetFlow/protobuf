@@ -204,6 +204,10 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string RemoteCountry = 100;</code>
      */
     private $RemoteCountry = '';
+    /**
+     * Generated from protobuf field <code>string ProtoName = 101;</code>
+     */
+    private $ProtoName = '';
 
     /**
      * Constructor.
@@ -264,6 +268,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *     @type int $DstIfSpeed
      *     @type string $Peer
      *     @type string $RemoteCountry
+     *     @type string $ProtoName
      * }
      */
     public function __construct($data = NULL) {
@@ -1217,6 +1222,28 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->RemoteCountry = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ProtoName = 101;</code>
+     * @return string
+     */
+    public function getProtoName()
+    {
+        return $this->ProtoName;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ProtoName = 101;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setProtoName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->ProtoName = $var;
 
         return $this;
     }

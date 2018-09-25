@@ -487,6 +487,20 @@ class FlowMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::std::string* release_remotecountry();
   void set_allocated_remotecountry(::std::string* remotecountry);
 
+  // string ProtoName = 101;
+  void clear_protoname();
+  static const int kProtoNameFieldNumber = 101;
+  const ::std::string& protoname() const;
+  void set_protoname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_protoname(::std::string&& value);
+  #endif
+  void set_protoname(const char* value);
+  void set_protoname(const char* value, size_t size);
+  ::std::string* mutable_protoname();
+  ::std::string* release_protoname();
+  void set_allocated_protoname(::std::string* protoname);
+
   // uint64 TimeRecvd = 2;
   void clear_timerecvd();
   static const int kTimeRecvdFieldNumber = 2;
@@ -687,6 +701,7 @@ class FlowMessage : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::internal::ArenaStringPtr dstifdesc_;
   ::google::protobuf::internal::ArenaStringPtr peer_;
   ::google::protobuf::internal::ArenaStringPtr remotecountry_;
+  ::google::protobuf::internal::ArenaStringPtr protoname_;
   ::google::protobuf::uint64 timerecvd_;
   int type_;
   ::google::protobuf::uint32 sequencenum_;
@@ -1694,6 +1709,59 @@ inline void FlowMessage::set_allocated_remotecountry(::std::string* remotecountr
   }
   remotecountry_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), remotecountry);
   // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.RemoteCountry)
+}
+
+// string ProtoName = 101;
+inline void FlowMessage::clear_protoname() {
+  protoname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& FlowMessage::protoname() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.ProtoName)
+  return protoname_.GetNoArena();
+}
+inline void FlowMessage::set_protoname(const ::std::string& value) {
+  
+  protoname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.ProtoName)
+}
+#if LANG_CXX11
+inline void FlowMessage::set_protoname(::std::string&& value) {
+  
+  protoname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.ProtoName)
+}
+#endif
+inline void FlowMessage::set_protoname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  protoname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.ProtoName)
+}
+inline void FlowMessage::set_protoname(const char* value, size_t size) {
+  
+  protoname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.ProtoName)
+}
+inline ::std::string* FlowMessage::mutable_protoname() {
+  
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.ProtoName)
+  return protoname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* FlowMessage::release_protoname() {
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.ProtoName)
+  
+  return protoname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void FlowMessage::set_allocated_protoname(::std::string* protoname) {
+  if (protoname != NULL) {
+    
+  } else {
+    
+  }
+  protoname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), protoname);
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.ProtoName)
 }
 
 #ifdef __GNUC__

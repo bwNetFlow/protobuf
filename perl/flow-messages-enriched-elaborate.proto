@@ -97,4 +97,6 @@ message FlowMessage {
 
   required string Peer = 99;
   required string RemoteCountry = 100;
+
+  required string ProtoName = 101;
 }

@@ -89,6 +89,7 @@ static GPBFileDescriptor *FlowMessagesEnrichedRoot_FileDescriptor(void) {
 @dynamic dstIfSpeed;
 @dynamic peer;
 @dynamic remoteCountry;
+@dynamic protoName;
 
 typedef struct FlowMessage__storage_ {
   uint32_t _has_storage_[2];
@@ -126,6 +127,7 @@ typedef struct FlowMessage__storage_ {
   NSString *dstIfDesc;
   NSString *peer;
   NSString *remoteCountry;
+  NSString *protoName;
   uint64_t timeRecvd;
   uint64_t samplingRate;
   uint64_t timeFlow;
@@ -510,6 +512,15 @@ typedef struct FlowMessage__storage_ {
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
+      {
+        .name = "protoName",
+        .dataTypeSpecific.className = NULL,
+        .number = FlowMessage_FieldNumber_ProtoName,
+        .hasIndex = 41,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, protoName),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[FlowMessage class]
@@ -521,10 +532,10 @@ typedef struct FlowMessage__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        ")\001D\000\002I\000\003L\000\004K\000\005H\000\006DA\000\007DA\000\010b\007\000\tE\000\nG\000\013J\000\014G\000"
+        "*\001D\000\002I\000\003L\000\004K\000\005H\000\006DA\000\007DA\000\010b\007\000\tE\000\nG\000\013J\000\014G\000"
         "\rHA\000\016DA\000\017DA\000\020F\000\021F\000\022E\000\023E\000\024E\000\025G\000\026G\000\027c\002\000\030P\000"
         "\031e\000\032d\004\000\033F\000\034F\000\035F\000\036E\000ZI\000[C\000\\J\000]I\000^I\000_J\000`I\000"
-        "aI\000bJ\000cD\000dM\000";
+        "aI\000bJ\000cD\000dM\000eI\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");

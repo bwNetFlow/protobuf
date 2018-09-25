@@ -103,4 +103,6 @@ message FlowMessage {
 
   string Peer = 99;
   string RemoteCountry = 100;
+
+  string ProtoName = 101;
 }

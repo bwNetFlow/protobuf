@@ -178,6 +178,7 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_DstIfSpeed = 98,
   FlowMessage_FieldNumber_Peer = 99,
   FlowMessage_FieldNumber_RemoteCountry = 100,
+  FlowMessage_FieldNumber_ProtoName = 101,
 };
 
 /**
@@ -279,6 +280,8 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
 @property(nonatomic, readwrite, copy, null_resettable) NSString *peer;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *remoteCountry;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *protoName;
 
 @end
 

@@ -104,7 +104,8 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     dstifdesc: jspb.Message.getFieldWithDefault(msg, 97, ""),
     dstifspeed: jspb.Message.getFieldWithDefault(msg, 98, 0),
     peer: jspb.Message.getFieldWithDefault(msg, 99, ""),
-    remotecountry: jspb.Message.getFieldWithDefault(msg, 100, "")
+    remotecountry: jspb.Message.getFieldWithDefault(msg, 100, ""),
+    protoname: jspb.Message.getFieldWithDefault(msg, 101, "")
   };
 
   if (includeInstance) {
@@ -304,6 +305,10 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
     case 100:
       var value = /** @type {string} */ (reader.readString());
       msg.setRemotecountry(value);
+      break;
+    case 101:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setProtoname(value);
       break;
     default:
       reader.skipField();
@@ -618,6 +623,13 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
   if (f.length > 0) {
     writer.writeString(
       100,
+      f
+    );
+  }
+  f = message.getProtoname();
+  if (f.length > 0) {
+    writer.writeString(
+      101,
       f
     );
   }
@@ -1368,6 +1380,21 @@ proto.flowmessageenriched.FlowMessage.prototype.getRemotecountry = function() {
 /** @param {string} value */
 proto.flowmessageenriched.FlowMessage.prototype.setRemotecountry = function(value) {
   jspb.Message.setProto3StringField(this, 100, value);
+};
+
+
+/**
+ * optional string ProtoName = 101;
+ * @return {string}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getProtoname = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 101, ""));
+};
+
+
+/** @param {string} value */
+proto.flowmessageenriched.FlowMessage.prototype.setProtoname = function(value) {
+  jspb.Message.setProto3StringField(this, 101, value);
 };
 
 

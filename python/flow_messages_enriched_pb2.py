@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='flowmessageenriched',
   syntax='proto3',
   serialized_options=_b('\n\tbwnetflowB\rFlowMessagePb'),
-  serialized_pb=_b('\n\x1c\x66low-messages-enriched.proto\x12\x13\x66lowmessageenriched\"\xd3\x08\n\x0b\x46lowMessage\x12\x37\n\x04Type\x18\x01 \x01(\x0e\x32).flowmessageenriched.FlowMessage.FlowType\x12\x11\n\tTimeRecvd\x18\x02 \x01(\x04\x12\x14\n\x0cSamplingRate\x18\x03 \x01(\x04\x12\x13\n\x0bSequenceNum\x18\x04 \x01(\r\x12\x10\n\x08TimeFlow\x18\x05 \x01(\x04\x12\r\n\x05SrcIP\x18\x06 \x01(\x0c\x12\r\n\x05\x44stIP\x18\x07 \x01(\x0c\x12:\n\tIPversion\x18\x08 \x01(\x0e\x32\'.flowmessageenriched.FlowMessage.IPType\x12\r\n\x05\x42ytes\x18\t \x01(\x04\x12\x0f\n\x07Packets\x18\n \x01(\x04\x12\x12\n\nRouterAddr\x18\x0b \x01(\x0c\x12\x0f\n\x07NextHop\x18\x0c \x01(\x0c\x12\x11\n\tNextHopAS\x18\r \x01(\r\x12\r\n\x05SrcAS\x18\x0e \x01(\r\x12\r\n\x05\x44stAS\x18\x0f \x01(\r\x12\x0e\n\x06SrcNet\x18\x10 \x01(\r\x12\x0e\n\x06\x44stNet\x18\x11 \x01(\r\x12\r\n\x05SrcIf\x18\x12 \x01(\r\x12\r\n\x05\x44stIf\x18\x13 \x01(\r\x12\r\n\x05Proto\x18\x14 \x01(\r\x12\x0f\n\x07SrcPort\x18\x15 \x01(\r\x12\x0f\n\x07\x44stPort\x18\x16 \x01(\r\x12\r\n\x05IPTos\x18\x17 \x01(\r\x12\x18\n\x10\x46orwardingStatus\x18\x18 \x01(\r\x12\r\n\x05IPTTL\x18\x19 \x01(\r\x12\x10\n\x08TCPFlags\x18\x1a \x01(\r\x12\x0e\n\x06SrcMac\x18\x1b \x01(\x04\x12\x0e\n\x06\x44stMac\x18\x1c \x01(\x04\x12\x0e\n\x06VlanId\x18\x1d \x01(\r\x12\r\n\x05\x45type\x18\x1e \x01(\r\x12\x41\n\tDirection\x18Z \x01(\x0e\x32..flowmessageenriched.FlowMessage.DirectionType\x12\x0b\n\x03\x43id\x18[ \x01(\r\x12\x43\n\nNormalized\x18\\ \x01(\x0e\x32/.flowmessageenriched.FlowMessage.NormalizedType\x12\x11\n\tSrcIfName\x18] \x01(\t\x12\x11\n\tSrcIfDesc\x18^ \x01(\t\x12\x12\n\nSrcIfSpeed\x18_ \x01(\r\x12\x11\n\tDstIfName\x18` \x01(\t\x12\x11\n\tDstIfDesc\x18\x61 \x01(\t\x12\x12\n\nDstIfSpeed\x18\x62 \x01(\r\x12\x0c\n\x04Peer\x18\x63 \x01(\t\x12\x15\n\rRemoteCountry\x18\x64 \x01(\t\";\n\x08\x46lowType\x12\x0f\n\x0b\x46LOWUNKNOWN\x10\x00\x12\x08\n\x04NFV9\x10\t\x12\t\n\x05IPFIX\x10\n\x12\t\n\x05SFLOW\x10\x05\"+\n\x06IPType\x12\r\n\tIPUNKNOWN\x10\x00\x12\x08\n\x04IPv4\x10\x04\x12\x08\n\x04IPv6\x10\x06\"8\n\rDirectionType\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08Incoming\x10\x01\x12\x0c\n\x08Outgoing\x10\x02\"!\n\x0eNormalizedType\x12\x06\n\x02No\x10\x00\x12\x07\n\x03Yes\x10\x01\x42\x1a\n\tbwnetflowB\rFlowMessagePbb\x06proto3')
+  serialized_pb=_b('\n\x1c\x66low-messages-enriched.proto\x12\x13\x66lowmessageenriched\"\xe6\x08\n\x0b\x46lowMessage\x12\x37\n\x04Type\x18\x01 \x01(\x0e\x32).flowmessageenriched.FlowMessage.FlowType\x12\x11\n\tTimeRecvd\x18\x02 \x01(\x04\x12\x14\n\x0cSamplingRate\x18\x03 \x01(\x04\x12\x13\n\x0bSequenceNum\x18\x04 \x01(\r\x12\x10\n\x08TimeFlow\x18\x05 \x01(\x04\x12\r\n\x05SrcIP\x18\x06 \x01(\x0c\x12\r\n\x05\x44stIP\x18\x07 \x01(\x0c\x12:\n\tIPversion\x18\x08 \x01(\x0e\x32\'.flowmessageenriched.FlowMessage.IPType\x12\r\n\x05\x42ytes\x18\t \x01(\x04\x12\x0f\n\x07Packets\x18\n \x01(\x04\x12\x12\n\nRouterAddr\x18\x0b \x01(\x0c\x12\x0f\n\x07NextHop\x18\x0c \x01(\x0c\x12\x11\n\tNextHopAS\x18\r \x01(\r\x12\r\n\x05SrcAS\x18\x0e \x01(\r\x12\r\n\x05\x44stAS\x18\x0f \x01(\r\x12\x0e\n\x06SrcNet\x18\x10 \x01(\r\x12\x0e\n\x06\x44stNet\x18\x11 \x01(\r\x12\r\n\x05SrcIf\x18\x12 \x01(\r\x12\r\n\x05\x44stIf\x18\x13 \x01(\r\x12\r\n\x05Proto\x18\x14 \x01(\r\x12\x0f\n\x07SrcPort\x18\x15 \x01(\r\x12\x0f\n\x07\x44stPort\x18\x16 \x01(\r\x12\r\n\x05IPTos\x18\x17 \x01(\r\x12\x18\n\x10\x46orwardingStatus\x18\x18 \x01(\r\x12\r\n\x05IPTTL\x18\x19 \x01(\r\x12\x10\n\x08TCPFlags\x18\x1a \x01(\r\x12\x0e\n\x06SrcMac\x18\x1b \x01(\x04\x12\x0e\n\x06\x44stMac\x18\x1c \x01(\x04\x12\x0e\n\x06VlanId\x18\x1d \x01(\r\x12\r\n\x05\x45type\x18\x1e \x01(\r\x12\x41\n\tDirection\x18Z \x01(\x0e\x32..flowmessageenriched.FlowMessage.DirectionType\x12\x0b\n\x03\x43id\x18[ \x01(\r\x12\x43\n\nNormalized\x18\\ \x01(\x0e\x32/.flowmessageenriched.FlowMessage.NormalizedType\x12\x11\n\tSrcIfName\x18] \x01(\t\x12\x11\n\tSrcIfDesc\x18^ \x01(\t\x12\x12\n\nSrcIfSpeed\x18_ \x01(\r\x12\x11\n\tDstIfName\x18` \x01(\t\x12\x11\n\tDstIfDesc\x18\x61 \x01(\t\x12\x12\n\nDstIfSpeed\x18\x62 \x01(\r\x12\x0c\n\x04Peer\x18\x63 \x01(\t\x12\x15\n\rRemoteCountry\x18\x64 \x01(\t\x12\x11\n\tProtoName\x18\x65 \x01(\t\";\n\x08\x46lowType\x12\x0f\n\x0b\x46LOWUNKNOWN\x10\x00\x12\x08\n\x04NFV9\x10\t\x12\t\n\x05IPFIX\x10\n\x12\t\n\x05SFLOW\x10\x05\"+\n\x06IPType\x12\r\n\tIPUNKNOWN\x10\x00\x12\x08\n\x04IPv4\x10\x04\x12\x08\n\x04IPv6\x10\x06\"8\n\rDirectionType\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08Incoming\x10\x01\x12\x0c\n\x08Outgoing\x10\x02\"!\n\x0eNormalizedType\x12\x06\n\x02No\x10\x00\x12\x07\n\x03Yes\x10\x01\x42\x1a\n\tbwnetflowB\rFlowMessagePbb\x06proto3')
 )
 
 
@@ -49,8 +49,8 @@ _FLOWMESSAGE_FLOWTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=964,
-  serialized_end=1023,
+  serialized_start=983,
+  serialized_end=1042,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWMESSAGE_FLOWTYPE)
 
@@ -75,8 +75,8 @@ _FLOWMESSAGE_IPTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1025,
-  serialized_end=1068,
+  serialized_start=1044,
+  serialized_end=1087,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWMESSAGE_IPTYPE)
 
@@ -101,8 +101,8 @@ _FLOWMESSAGE_DIRECTIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1070,
-  serialized_end=1126,
+  serialized_start=1089,
+  serialized_end=1145,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWMESSAGE_DIRECTIONTYPE)
 
@@ -123,8 +123,8 @@ _FLOWMESSAGE_NORMALIZEDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1128,
-  serialized_end=1161,
+  serialized_start=1147,
+  serialized_end=1180,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWMESSAGE_NORMALIZEDTYPE)
 
@@ -423,6 +423,13 @@ _FLOWMESSAGE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ProtoName', full_name='flowmessageenriched.FlowMessage.ProtoName', index=41,
+      number=101, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -440,7 +447,7 @@ _FLOWMESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=54,
-  serialized_end=1161,
+  serialized_end=1180,
 )
 
 _FLOWMESSAGE.fields_by_name['Type'].enum_type = _FLOWMESSAGE_FLOWTYPE
