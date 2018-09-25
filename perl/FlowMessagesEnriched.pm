@@ -260,6 +260,11 @@ use Google::ProtocolBuffers;
                     Google::ProtocolBuffers::Constants::TYPE_STRING(), 
                     'Peer', 99, undef
                 ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_STRING(), 
+                    'RemoteCountry', 100, undef
+                ],
 
             ],
             undef,

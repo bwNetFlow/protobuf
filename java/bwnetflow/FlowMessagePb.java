@@ -306,6 +306,16 @@ public final class FlowMessagePb {
      */
     com.google.protobuf.ByteString
         getPeerBytes();
+
+    /**
+     * <code>string RemoteCountry = 100;</code>
+     */
+    java.lang.String getRemoteCountry();
+    /**
+     * <code>string RemoteCountry = 100;</code>
+     */
+    com.google.protobuf.ByteString
+        getRemoteCountryBytes();
   }
   /**
    * <pre>
@@ -365,6 +375,7 @@ public final class FlowMessagePb {
       dstIfDesc_ = "";
       dstIfSpeed_ = 0;
       peer_ = "";
+      remoteCountry_ = "";
     }
 
     @java.lang.Override
@@ -599,6 +610,12 @@ public final class FlowMessagePb {
               java.lang.String s = input.readStringRequireUtf8();
 
               peer_ = s;
+              break;
+            }
+            case 802: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              remoteCountry_ = s;
               break;
             }
             default: {
@@ -1634,6 +1651,40 @@ public final class FlowMessagePb {
       }
     }
 
+    public static final int REMOTECOUNTRY_FIELD_NUMBER = 100;
+    private volatile java.lang.Object remoteCountry_;
+    /**
+     * <code>string RemoteCountry = 100;</code>
+     */
+    public java.lang.String getRemoteCountry() {
+      java.lang.Object ref = remoteCountry_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        remoteCountry_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string RemoteCountry = 100;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRemoteCountryBytes() {
+      java.lang.Object ref = remoteCountry_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        remoteCountry_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1767,6 +1818,9 @@ public final class FlowMessagePb {
       }
       if (!getPeerBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 99, peer_);
+      }
+      if (!getRemoteCountryBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 100, remoteCountry_);
       }
       unknownFields.writeTo(output);
     }
@@ -1932,6 +1986,9 @@ public final class FlowMessagePb {
       if (!getPeerBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(99, peer_);
       }
+      if (!getRemoteCountryBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(100, remoteCountry_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2024,6 +2081,8 @@ public final class FlowMessagePb {
           == other.getDstIfSpeed());
       result = result && getPeer()
           .equals(other.getPeer());
+      result = result && getRemoteCountry()
+          .equals(other.getRemoteCountry());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2122,6 +2181,8 @@ public final class FlowMessagePb {
       hash = (53 * hash) + getDstIfSpeed();
       hash = (37 * hash) + PEER_FIELD_NUMBER;
       hash = (53 * hash) + getPeer().hashCode();
+      hash = (37 * hash) + REMOTECOUNTRY_FIELD_NUMBER;
+      hash = (53 * hash) + getRemoteCountry().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2340,6 +2401,8 @@ public final class FlowMessagePb {
 
         peer_ = "";
 
+        remoteCountry_ = "";
+
         return this;
       }
 
@@ -2406,6 +2469,7 @@ public final class FlowMessagePb {
         result.dstIfDesc_ = dstIfDesc_;
         result.dstIfSpeed_ = dstIfSpeed_;
         result.peer_ = peer_;
+        result.remoteCountry_ = remoteCountry_;
         onBuilt();
         return result;
       }
@@ -2577,6 +2641,10 @@ public final class FlowMessagePb {
         }
         if (!other.getPeer().isEmpty()) {
           peer_ = other.peer_;
+          onChanged();
+        }
+        if (!other.getRemoteCountry().isEmpty()) {
+          remoteCountry_ = other.remoteCountry_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -4094,6 +4162,75 @@ public final class FlowMessagePb {
         onChanged();
         return this;
       }
+
+      private java.lang.Object remoteCountry_ = "";
+      /**
+       * <code>string RemoteCountry = 100;</code>
+       */
+      public java.lang.String getRemoteCountry() {
+        java.lang.Object ref = remoteCountry_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          remoteCountry_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string RemoteCountry = 100;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRemoteCountryBytes() {
+        java.lang.Object ref = remoteCountry_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          remoteCountry_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string RemoteCountry = 100;</code>
+       */
+      public Builder setRemoteCountry(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        remoteCountry_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RemoteCountry = 100;</code>
+       */
+      public Builder clearRemoteCountry() {
+        
+        remoteCountry_ = getDefaultInstance().getRemoteCountry();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RemoteCountry = 100;</code>
+       */
+      public Builder setRemoteCountryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        remoteCountry_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4162,7 +4299,7 @@ public final class FlowMessagePb {
   static {
     java.lang.String[] descriptorData = {
       "\n\034flow-messages-enriched.proto\022\023flowmess" +
-      "ageenriched\"\274\010\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
+      "ageenriched\"\323\010\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
       "\0162).flowmessageenriched.FlowMessage.Flow" +
       "Type\022\021\n\tTimeRecvd\030\002 \001(\004\022\024\n\014SamplingRate\030" +
       "\003 \001(\004\022\023\n\013SequenceNum\030\004 \001(\r\022\020\n\010TimeFlow\030\005" +
@@ -4184,13 +4321,13 @@ public final class FlowMessagePb {
       "lizedType\022\021\n\tSrcIfName\030] \001(\t\022\021\n\tSrcIfDes" +
       "c\030^ \001(\t\022\022\n\nSrcIfSpeed\030_ \001(\r\022\021\n\tDstIfName" +
       "\030` \001(\t\022\021\n\tDstIfDesc\030a \001(\t\022\022\n\nDstIfSpeed\030" +
-      "b \001(\r\022\014\n\004Peer\030c \001(\t\";\n\010FlowType\022\017\n\013FLOWU" +
-      "NKNOWN\020\000\022\010\n\004NFV9\020\t\022\t\n\005IPFIX\020\n\022\t\n\005SFLOW\020\005" +
-      "\"+\n\006IPType\022\r\n\tIPUNKNOWN\020\000\022\010\n\004IPv4\020\004\022\010\n\004I" +
-      "Pv6\020\006\"8\n\rDirectionType\022\013\n\007Unknown\020\000\022\014\n\010I" +
-      "ncoming\020\001\022\014\n\010Outgoing\020\002\"!\n\016NormalizedTyp" +
-      "e\022\006\n\002No\020\000\022\007\n\003Yes\020\001B\032\n\tbwnetflowB\rFlowMes" +
-      "sagePbb\006proto3"
+      "b \001(\r\022\014\n\004Peer\030c \001(\t\022\025\n\rRemoteCountry\030d \001" +
+      "(\t\";\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\010\n\004NFV9\020" +
+      "\t\022\t\n\005IPFIX\020\n\022\t\n\005SFLOW\020\005\"+\n\006IPType\022\r\n\tIPU" +
+      "NKNOWN\020\000\022\010\n\004IPv4\020\004\022\010\n\004IPv6\020\006\"8\n\rDirectio" +
+      "nType\022\013\n\007Unknown\020\000\022\014\n\010Incoming\020\001\022\014\n\010Outg" +
+      "oing\020\002\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007\n\003Yes\020" +
+      "\001B\032\n\tbwnetflowB\rFlowMessagePbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4209,7 +4346,7 @@ public final class FlowMessagePb {
     internal_static_flowmessageenriched_FlowMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_flowmessageenriched_FlowMessage_descriptor,
-        new java.lang.String[] { "Type", "TimeRecvd", "SamplingRate", "SequenceNum", "TimeFlow", "SrcIP", "DstIP", "IPversion", "Bytes", "Packets", "RouterAddr", "NextHop", "NextHopAS", "SrcAS", "DstAS", "SrcNet", "DstNet", "SrcIf", "DstIf", "Proto", "SrcPort", "DstPort", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "SrcMac", "DstMac", "VlanId", "Etype", "Direction", "Cid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "Peer", });
+        new java.lang.String[] { "Type", "TimeRecvd", "SamplingRate", "SequenceNum", "TimeFlow", "SrcIP", "DstIP", "IPversion", "Bytes", "Packets", "RouterAddr", "NextHop", "NextHopAS", "SrcAS", "DstAS", "SrcNet", "DstNet", "SrcIf", "DstIf", "Proto", "SrcPort", "DstPort", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "SrcMac", "DstMac", "VlanId", "Etype", "Direction", "Cid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "Peer", "RemoteCountry", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

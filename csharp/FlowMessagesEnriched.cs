@@ -25,7 +25,7 @@ namespace Flowmessageenriched {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxmbG93LW1lc3NhZ2VzLWVucmljaGVkLnByb3RvEhNmbG93bWVzc2FnZWVu",
-            "cmljaGVkIrwICgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
+            "cmljaGVkItMICgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
             "c3NhZ2VlbnJpY2hlZC5GbG93TWVzc2FnZS5GbG93VHlwZRIRCglUaW1lUmVj",
             "dmQYAiABKAQSFAoMU2FtcGxpbmdSYXRlGAMgASgEEhMKC1NlcXVlbmNlTnVt",
             "GAQgASgNEhAKCFRpbWVGbG93GAUgASgEEg0KBVNyY0lQGAYgASgMEg0KBURz",
@@ -44,17 +44,17 @@ namespace Flowmessageenriched {
             "b3dtZXNzYWdlZW5yaWNoZWQuRmxvd01lc3NhZ2UuTm9ybWFsaXplZFR5cGUS",
             "EQoJU3JjSWZOYW1lGF0gASgJEhEKCVNyY0lmRGVzYxheIAEoCRISCgpTcmNJ",
             "ZlNwZWVkGF8gASgNEhEKCURzdElmTmFtZRhgIAEoCRIRCglEc3RJZkRlc2MY",
-            "YSABKAkSEgoKRHN0SWZTcGVlZBhiIAEoDRIMCgRQZWVyGGMgASgJIjsKCEZs",
-            "b3dUeXBlEg8KC0ZMT1dVTktOT1dOEAASCAoETkZWORAJEgkKBUlQRklYEAoS",
-            "CQoFU0ZMT1cQBSIrCgZJUFR5cGUSDQoJSVBVTktOT1dOEAASCAoESVB2NBAE",
-            "EggKBElQdjYQBiI4Cg1EaXJlY3Rpb25UeXBlEgsKB1Vua25vd24QABIMCghJ",
-            "bmNvbWluZxABEgwKCE91dGdvaW5nEAIiIQoOTm9ybWFsaXplZFR5cGUSBgoC",
-            "Tm8QABIHCgNZZXMQAUIaCglid25ldGZsb3dCDUZsb3dNZXNzYWdlUGJiBnBy",
-            "b3RvMw=="));
+            "YSABKAkSEgoKRHN0SWZTcGVlZBhiIAEoDRIMCgRQZWVyGGMgASgJEhUKDVJl",
+            "bW90ZUNvdW50cnkYZCABKAkiOwoIRmxvd1R5cGUSDwoLRkxPV1VOS05PV04Q",
+            "ABIICgRORlY5EAkSCQoFSVBGSVgQChIJCgVTRkxPVxAFIisKBklQVHlwZRIN",
+            "CglJUFVOS05PV04QABIICgRJUHY0EAQSCAoESVB2NhAGIjgKDURpcmVjdGlv",
+            "blR5cGUSCwoHVW5rbm93bhAAEgwKCEluY29taW5nEAESDAoIT3V0Z29pbmcQ",
+            "AiIhCg5Ob3JtYWxpemVkVHlwZRIGCgJObxAAEgcKA1llcxABQhoKCWJ3bmV0",
+            "Zmxvd0INRmxvd01lc3NhZ2VQYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeRecvd", "SamplingRate", "SequenceNum", "TimeFlow", "SrcIP", "DstIP", "IPversion", "Bytes", "Packets", "RouterAddr", "NextHop", "NextHopAS", "SrcAS", "DstAS", "SrcNet", "DstNet", "SrcIf", "DstIf", "Proto", "SrcPort", "DstPort", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "SrcMac", "DstMac", "VlanId", "Etype", "Direction", "Cid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "Peer" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.IPType), typeof(global::Flowmessageenriched.FlowMessage.Types.DirectionType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType) }, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeRecvd", "SamplingRate", "SequenceNum", "TimeFlow", "SrcIP", "DstIP", "IPversion", "Bytes", "Packets", "RouterAddr", "NextHop", "NextHopAS", "SrcAS", "DstAS", "SrcNet", "DstNet", "SrcIf", "DstIf", "Proto", "SrcPort", "DstPort", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "SrcMac", "DstMac", "VlanId", "Etype", "Direction", "Cid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "Peer", "RemoteCountry" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.IPType), typeof(global::Flowmessageenriched.FlowMessage.Types.DirectionType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType) }, null)
           }));
     }
     #endregion
@@ -130,6 +130,7 @@ namespace Flowmessageenriched {
       dstIfDesc_ = other.dstIfDesc_;
       dstIfSpeed_ = other.dstIfSpeed_;
       peer_ = other.peer_;
+      remoteCountry_ = other.remoteCountry_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -614,6 +615,17 @@ namespace Flowmessageenriched {
       }
     }
 
+    /// <summary>Field number for the "RemoteCountry" field.</summary>
+    public const int RemoteCountryFieldNumber = 100;
+    private string remoteCountry_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RemoteCountry {
+      get { return remoteCountry_; }
+      set {
+        remoteCountry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as FlowMessage);
@@ -667,6 +679,7 @@ namespace Flowmessageenriched {
       if (DstIfDesc != other.DstIfDesc) return false;
       if (DstIfSpeed != other.DstIfSpeed) return false;
       if (Peer != other.Peer) return false;
+      if (RemoteCountry != other.RemoteCountry) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -713,6 +726,7 @@ namespace Flowmessageenriched {
       if (DstIfDesc.Length != 0) hash ^= DstIfDesc.GetHashCode();
       if (DstIfSpeed != 0) hash ^= DstIfSpeed.GetHashCode();
       if (Peer.Length != 0) hash ^= Peer.GetHashCode();
+      if (RemoteCountry.Length != 0) hash ^= RemoteCountry.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -886,6 +900,10 @@ namespace Flowmessageenriched {
         output.WriteRawTag(154, 6);
         output.WriteString(Peer);
       }
+      if (RemoteCountry.Length != 0) {
+        output.WriteRawTag(162, 6);
+        output.WriteString(RemoteCountry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1013,6 +1031,9 @@ namespace Flowmessageenriched {
       }
       if (Peer.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(Peer);
+      }
+      if (RemoteCountry.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(RemoteCountry);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1144,6 +1165,9 @@ namespace Flowmessageenriched {
       }
       if (other.Peer.Length != 0) {
         Peer = other.Peer;
+      }
+      if (other.RemoteCountry.Length != 0) {
+        RemoteCountry = other.RemoteCountry;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1314,6 +1338,10 @@ namespace Flowmessageenriched {
           }
           case 794: {
             Peer = input.ReadString();
+            break;
+          }
+          case 802: {
+            RemoteCountry = input.ReadString();
             break;
           }
         }

@@ -102,4 +102,5 @@ message FlowMessage {
   uint32 DstIfSpeed = 98;
 
   string Peer = 99;
+  string RemoteCountry = 100;
 }
