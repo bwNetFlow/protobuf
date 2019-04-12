@@ -7,6 +7,7 @@ namespace Flowmessageenriched;
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
+use Google\Protobuf\Internal\GPBWrapperUtils;
 
 /**
  * Flow Message needs to stay compatible to goflow's default protobuf
@@ -151,6 +152,8 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     private $DstMac = 0;
     /**
+     * 802.1q VLAN in sampled packet
+     *
      * Generated from protobuf field <code>uint32 VlanId = 29;</code>
      */
     private $VlanId = 0;
@@ -160,6 +163,58 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 Etype = 30;</code>
      */
     private $Etype = 0;
+    /**
+     * Generated from protobuf field <code>uint32 IcmpType = 31;</code>
+     */
+    private $IcmpType = 0;
+    /**
+     * Generated from protobuf field <code>uint32 IcmpCode = 32;</code>
+     */
+    private $IcmpCode = 0;
+    /**
+     * Vlan
+     *
+     * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
+     */
+    private $SrcVlan = 0;
+    /**
+     * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
+     */
+    private $DstVlan = 0;
+    /**
+     * Fragments (IPv4/IPv6)
+     *
+     * Generated from protobuf field <code>uint32 FragmentId = 35;</code>
+     */
+    private $FragmentId = 0;
+    /**
+     * Generated from protobuf field <code>uint32 FragmentOffset = 36;</code>
+     */
+    private $FragmentOffset = 0;
+    /**
+     * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
+     */
+    private $IPv6FlowLabel = 0;
+    /**
+     * VRF
+     *
+     * Generated from protobuf field <code>uint32 IngressVrfId = 38;</code>
+     */
+    private $IngressVrfId = 0;
+    /**
+     * Generated from protobuf field <code>uint32 EgressVrfId = 39;</code>
+     */
+    private $EgressVrfId = 0;
+    /**
+     * Time Flow
+     *
+     * Generated from protobuf field <code>uint64 TimeFlowStart = 40;</code>
+     */
+    private $TimeFlowStart = 0;
+    /**
+     * Generated from protobuf field <code>uint64 TimeFlowEnd = 41;</code>
+     */
+    private $TimeFlowEnd = 0;
     /**
      * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.DirectionType Direction = 90;</code>
      */
@@ -255,8 +310,24 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *           Ethernet information
      *     @type int|string $DstMac
      *     @type int $VlanId
+     *           802.1q VLAN in sampled packet
      *     @type int $Etype
      *           Layer 3 protocol (IPv4/IPv6/ARP/...)
+     *     @type int $IcmpType
+     *     @type int $IcmpCode
+     *     @type int $SrcVlan
+     *           Vlan
+     *     @type int $DstVlan
+     *     @type int $FragmentId
+     *           Fragments (IPv4/IPv6)
+     *     @type int $FragmentOffset
+     *     @type int $IPv6FlowLabel
+     *     @type int $IngressVrfId
+     *           VRF
+     *     @type int $EgressVrfId
+     *     @type int|string $TimeFlowStart
+     *           Time Flow
+     *     @type int|string $TimeFlowEnd
      *     @type int $Direction
      *     @type int $Cid
      *     @type int $Normalized
@@ -937,6 +1008,8 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * 802.1q VLAN in sampled packet
+     *
      * Generated from protobuf field <code>uint32 VlanId = 29;</code>
      * @return int
      */
@@ -946,6 +1019,8 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * 802.1q VLAN in sampled packet
+     *
      * Generated from protobuf field <code>uint32 VlanId = 29;</code>
      * @param int $var
      * @return $this
@@ -980,6 +1055,264 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->Etype = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IcmpType = 31;</code>
+     * @return int
+     */
+    public function getIcmpType()
+    {
+        return $this->IcmpType;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IcmpType = 31;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIcmpType($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->IcmpType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IcmpCode = 32;</code>
+     * @return int
+     */
+    public function getIcmpCode()
+    {
+        return $this->IcmpCode;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IcmpCode = 32;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIcmpCode($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->IcmpCode = $var;
+
+        return $this;
+    }
+
+    /**
+     * Vlan
+     *
+     * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
+     * @return int
+     */
+    public function getSrcVlan()
+    {
+        return $this->SrcVlan;
+    }
+
+    /**
+     * Vlan
+     *
+     * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setSrcVlan($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->SrcVlan = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
+     * @return int
+     */
+    public function getDstVlan()
+    {
+        return $this->DstVlan;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setDstVlan($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->DstVlan = $var;
+
+        return $this;
+    }
+
+    /**
+     * Fragments (IPv4/IPv6)
+     *
+     * Generated from protobuf field <code>uint32 FragmentId = 35;</code>
+     * @return int
+     */
+    public function getFragmentId()
+    {
+        return $this->FragmentId;
+    }
+
+    /**
+     * Fragments (IPv4/IPv6)
+     *
+     * Generated from protobuf field <code>uint32 FragmentId = 35;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setFragmentId($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->FragmentId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 FragmentOffset = 36;</code>
+     * @return int
+     */
+    public function getFragmentOffset()
+    {
+        return $this->FragmentOffset;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 FragmentOffset = 36;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setFragmentOffset($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->FragmentOffset = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
+     * @return int
+     */
+    public function getIPv6FlowLabel()
+    {
+        return $this->IPv6FlowLabel;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIPv6FlowLabel($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->IPv6FlowLabel = $var;
+
+        return $this;
+    }
+
+    /**
+     * VRF
+     *
+     * Generated from protobuf field <code>uint32 IngressVrfId = 38;</code>
+     * @return int
+     */
+    public function getIngressVrfId()
+    {
+        return $this->IngressVrfId;
+    }
+
+    /**
+     * VRF
+     *
+     * Generated from protobuf field <code>uint32 IngressVrfId = 38;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIngressVrfId($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->IngressVrfId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 EgressVrfId = 39;</code>
+     * @return int
+     */
+    public function getEgressVrfId()
+    {
+        return $this->EgressVrfId;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 EgressVrfId = 39;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setEgressVrfId($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->EgressVrfId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Time Flow
+     *
+     * Generated from protobuf field <code>uint64 TimeFlowStart = 40;</code>
+     * @return int|string
+     */
+    public function getTimeFlowStart()
+    {
+        return $this->TimeFlowStart;
+    }
+
+    /**
+     * Time Flow
+     *
+     * Generated from protobuf field <code>uint64 TimeFlowStart = 40;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTimeFlowStart($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->TimeFlowStart = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 TimeFlowEnd = 41;</code>
+     * @return int|string
+     */
+    public function getTimeFlowEnd()
+    {
+        return $this->TimeFlowEnd;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 TimeFlowEnd = 41;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTimeFlowEnd($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->TimeFlowEnd = $var;
 
         return $this;
     }

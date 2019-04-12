@@ -211,6 +211,10 @@ public final class FlowMessagePb {
     long getDstMac();
 
     /**
+     * <pre>
+     * 802.1q VLAN in sampled packet
+     * </pre>
+     *
      * <code>uint32 VlanId = 29;</code>
      */
     int getVlanId();
@@ -223,6 +227,77 @@ public final class FlowMessagePb {
      * <code>uint32 Etype = 30;</code>
      */
     int getEtype();
+
+    /**
+     * <code>uint32 IcmpType = 31;</code>
+     */
+    int getIcmpType();
+
+    /**
+     * <code>uint32 IcmpCode = 32;</code>
+     */
+    int getIcmpCode();
+
+    /**
+     * <pre>
+     * Vlan
+     * </pre>
+     *
+     * <code>uint32 SrcVlan = 33;</code>
+     */
+    int getSrcVlan();
+
+    /**
+     * <code>uint32 DstVlan = 34;</code>
+     */
+    int getDstVlan();
+
+    /**
+     * <pre>
+     * Fragments (IPv4/IPv6)
+     * </pre>
+     *
+     * <code>uint32 FragmentId = 35;</code>
+     */
+    int getFragmentId();
+
+    /**
+     * <code>uint32 FragmentOffset = 36;</code>
+     */
+    int getFragmentOffset();
+
+    /**
+     * <code>uint32 IPv6FlowLabel = 37;</code>
+     */
+    int getIPv6FlowLabel();
+
+    /**
+     * <pre>
+     * VRF
+     * </pre>
+     *
+     * <code>uint32 IngressVrfId = 38;</code>
+     */
+    int getIngressVrfId();
+
+    /**
+     * <code>uint32 EgressVrfId = 39;</code>
+     */
+    int getEgressVrfId();
+
+    /**
+     * <pre>
+     * Time Flow
+     * </pre>
+     *
+     * <code>uint64 TimeFlowStart = 40;</code>
+     */
+    long getTimeFlowStart();
+
+    /**
+     * <code>uint64 TimeFlowEnd = 41;</code>
+     */
+    long getTimeFlowEnd();
 
     /**
      * <code>.flowmessageenriched.FlowMessage.DirectionType Direction = 90;</code>
@@ -346,44 +421,17 @@ public final class FlowMessagePb {
     }
     private FlowMessage() {
       type_ = 0;
-      timeRecvd_ = 0L;
-      samplingRate_ = 0L;
-      sequenceNum_ = 0;
-      timeFlow_ = 0L;
       srcIP_ = com.google.protobuf.ByteString.EMPTY;
       dstIP_ = com.google.protobuf.ByteString.EMPTY;
       iPversion_ = 0;
-      bytes_ = 0L;
-      packets_ = 0L;
       routerAddr_ = com.google.protobuf.ByteString.EMPTY;
       nextHop_ = com.google.protobuf.ByteString.EMPTY;
-      nextHopAS_ = 0;
-      srcAS_ = 0;
-      dstAS_ = 0;
-      srcNet_ = 0;
-      dstNet_ = 0;
-      srcIf_ = 0;
-      dstIf_ = 0;
-      proto_ = 0;
-      srcPort_ = 0;
-      dstPort_ = 0;
-      iPTos_ = 0;
-      forwardingStatus_ = 0;
-      iPTTL_ = 0;
-      tCPFlags_ = 0;
-      srcMac_ = 0L;
-      dstMac_ = 0L;
-      vlanId_ = 0;
-      etype_ = 0;
       direction_ = 0;
-      cid_ = 0;
       normalized_ = 0;
       srcIfName_ = "";
       srcIfDesc_ = "";
-      srcIfSpeed_ = 0;
       dstIfName_ = "";
       dstIfDesc_ = "";
-      dstIfSpeed_ = 0;
       peer_ = "";
       remoteCountry_ = "";
       protoName_ = "";
@@ -566,6 +614,61 @@ public final class FlowMessagePb {
               etype_ = input.readUInt32();
               break;
             }
+            case 248: {
+
+              icmpType_ = input.readUInt32();
+              break;
+            }
+            case 256: {
+
+              icmpCode_ = input.readUInt32();
+              break;
+            }
+            case 264: {
+
+              srcVlan_ = input.readUInt32();
+              break;
+            }
+            case 272: {
+
+              dstVlan_ = input.readUInt32();
+              break;
+            }
+            case 280: {
+
+              fragmentId_ = input.readUInt32();
+              break;
+            }
+            case 288: {
+
+              fragmentOffset_ = input.readUInt32();
+              break;
+            }
+            case 296: {
+
+              iPv6FlowLabel_ = input.readUInt32();
+              break;
+            }
+            case 304: {
+
+              ingressVrfId_ = input.readUInt32();
+              break;
+            }
+            case 312: {
+
+              egressVrfId_ = input.readUInt32();
+              break;
+            }
+            case 320: {
+
+              timeFlowStart_ = input.readUInt64();
+              break;
+            }
+            case 328: {
+
+              timeFlowEnd_ = input.readUInt64();
+              break;
+            }
             case 720: {
               int rawValue = input.readEnum();
 
@@ -636,7 +739,7 @@ public final class FlowMessagePb {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1418,6 +1521,10 @@ public final class FlowMessagePb {
     public static final int VLANID_FIELD_NUMBER = 29;
     private int vlanId_;
     /**
+     * <pre>
+     * 802.1q VLAN in sampled packet
+     * </pre>
+     *
      * <code>uint32 VlanId = 29;</code>
      */
     public int getVlanId() {
@@ -1435,6 +1542,121 @@ public final class FlowMessagePb {
      */
     public int getEtype() {
       return etype_;
+    }
+
+    public static final int ICMPTYPE_FIELD_NUMBER = 31;
+    private int icmpType_;
+    /**
+     * <code>uint32 IcmpType = 31;</code>
+     */
+    public int getIcmpType() {
+      return icmpType_;
+    }
+
+    public static final int ICMPCODE_FIELD_NUMBER = 32;
+    private int icmpCode_;
+    /**
+     * <code>uint32 IcmpCode = 32;</code>
+     */
+    public int getIcmpCode() {
+      return icmpCode_;
+    }
+
+    public static final int SRCVLAN_FIELD_NUMBER = 33;
+    private int srcVlan_;
+    /**
+     * <pre>
+     * Vlan
+     * </pre>
+     *
+     * <code>uint32 SrcVlan = 33;</code>
+     */
+    public int getSrcVlan() {
+      return srcVlan_;
+    }
+
+    public static final int DSTVLAN_FIELD_NUMBER = 34;
+    private int dstVlan_;
+    /**
+     * <code>uint32 DstVlan = 34;</code>
+     */
+    public int getDstVlan() {
+      return dstVlan_;
+    }
+
+    public static final int FRAGMENTID_FIELD_NUMBER = 35;
+    private int fragmentId_;
+    /**
+     * <pre>
+     * Fragments (IPv4/IPv6)
+     * </pre>
+     *
+     * <code>uint32 FragmentId = 35;</code>
+     */
+    public int getFragmentId() {
+      return fragmentId_;
+    }
+
+    public static final int FRAGMENTOFFSET_FIELD_NUMBER = 36;
+    private int fragmentOffset_;
+    /**
+     * <code>uint32 FragmentOffset = 36;</code>
+     */
+    public int getFragmentOffset() {
+      return fragmentOffset_;
+    }
+
+    public static final int IPV6FLOWLABEL_FIELD_NUMBER = 37;
+    private int iPv6FlowLabel_;
+    /**
+     * <code>uint32 IPv6FlowLabel = 37;</code>
+     */
+    public int getIPv6FlowLabel() {
+      return iPv6FlowLabel_;
+    }
+
+    public static final int INGRESSVRFID_FIELD_NUMBER = 38;
+    private int ingressVrfId_;
+    /**
+     * <pre>
+     * VRF
+     * </pre>
+     *
+     * <code>uint32 IngressVrfId = 38;</code>
+     */
+    public int getIngressVrfId() {
+      return ingressVrfId_;
+    }
+
+    public static final int EGRESSVRFID_FIELD_NUMBER = 39;
+    private int egressVrfId_;
+    /**
+     * <code>uint32 EgressVrfId = 39;</code>
+     */
+    public int getEgressVrfId() {
+      return egressVrfId_;
+    }
+
+    public static final int TIMEFLOWSTART_FIELD_NUMBER = 40;
+    private long timeFlowStart_;
+    /**
+     * <pre>
+     * Time Flow
+     * </pre>
+     *
+     * <code>uint64 TimeFlowStart = 40;</code>
+     */
+    public long getTimeFlowStart() {
+      return timeFlowStart_;
+    }
+
+    public static final int TIMEFLOWEND_FIELD_NUMBER = 41;
+    private long timeFlowEnd_;
+    /**
+     * <code>uint64 TimeFlowEnd = 41;</code>
+     */
+    public long getTimeFlowEnd() {
+      return timeFlowEnd_;
     }
 
     public static final int DIRECTION_FIELD_NUMBER = 90;
@@ -1840,6 +2062,39 @@ public final class FlowMessagePb {
       if (etype_ != 0) {
         output.writeUInt32(30, etype_);
       }
+      if (icmpType_ != 0) {
+        output.writeUInt32(31, icmpType_);
+      }
+      if (icmpCode_ != 0) {
+        output.writeUInt32(32, icmpCode_);
+      }
+      if (srcVlan_ != 0) {
+        output.writeUInt32(33, srcVlan_);
+      }
+      if (dstVlan_ != 0) {
+        output.writeUInt32(34, dstVlan_);
+      }
+      if (fragmentId_ != 0) {
+        output.writeUInt32(35, fragmentId_);
+      }
+      if (fragmentOffset_ != 0) {
+        output.writeUInt32(36, fragmentOffset_);
+      }
+      if (iPv6FlowLabel_ != 0) {
+        output.writeUInt32(37, iPv6FlowLabel_);
+      }
+      if (ingressVrfId_ != 0) {
+        output.writeUInt32(38, ingressVrfId_);
+      }
+      if (egressVrfId_ != 0) {
+        output.writeUInt32(39, egressVrfId_);
+      }
+      if (timeFlowStart_ != 0L) {
+        output.writeUInt64(40, timeFlowStart_);
+      }
+      if (timeFlowEnd_ != 0L) {
+        output.writeUInt64(41, timeFlowEnd_);
+      }
       if (direction_ != bwnetflow.FlowMessagePb.FlowMessage.DirectionType.Unknown.getNumber()) {
         output.writeEnum(90, direction_);
       }
@@ -2005,6 +2260,50 @@ public final class FlowMessagePb {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(30, etype_);
       }
+      if (icmpType_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(31, icmpType_);
+      }
+      if (icmpCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(32, icmpCode_);
+      }
+      if (srcVlan_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(33, srcVlan_);
+      }
+      if (dstVlan_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(34, dstVlan_);
+      }
+      if (fragmentId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(35, fragmentId_);
+      }
+      if (fragmentOffset_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(36, fragmentOffset_);
+      }
+      if (iPv6FlowLabel_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(37, iPv6FlowLabel_);
+      }
+      if (ingressVrfId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(38, ingressVrfId_);
+      }
+      if (egressVrfId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(39, egressVrfId_);
+      }
+      if (timeFlowStart_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(40, timeFlowStart_);
+      }
+      if (timeFlowEnd_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(41, timeFlowEnd_);
+      }
       if (direction_ != bwnetflow.FlowMessagePb.FlowMessage.DirectionType.Unknown.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(90, direction_);
@@ -2061,89 +2360,110 @@ public final class FlowMessagePb {
       }
       bwnetflow.FlowMessagePb.FlowMessage other = (bwnetflow.FlowMessagePb.FlowMessage) obj;
 
-      boolean result = true;
-      result = result && type_ == other.type_;
-      result = result && (getTimeRecvd()
-          == other.getTimeRecvd());
-      result = result && (getSamplingRate()
-          == other.getSamplingRate());
-      result = result && (getSequenceNum()
-          == other.getSequenceNum());
-      result = result && (getTimeFlow()
-          == other.getTimeFlow());
-      result = result && getSrcIP()
-          .equals(other.getSrcIP());
-      result = result && getDstIP()
-          .equals(other.getDstIP());
-      result = result && iPversion_ == other.iPversion_;
-      result = result && (getBytes()
-          == other.getBytes());
-      result = result && (getPackets()
-          == other.getPackets());
-      result = result && getRouterAddr()
-          .equals(other.getRouterAddr());
-      result = result && getNextHop()
-          .equals(other.getNextHop());
-      result = result && (getNextHopAS()
-          == other.getNextHopAS());
-      result = result && (getSrcAS()
-          == other.getSrcAS());
-      result = result && (getDstAS()
-          == other.getDstAS());
-      result = result && (getSrcNet()
-          == other.getSrcNet());
-      result = result && (getDstNet()
-          == other.getDstNet());
-      result = result && (getSrcIf()
-          == other.getSrcIf());
-      result = result && (getDstIf()
-          == other.getDstIf());
-      result = result && (getProto()
-          == other.getProto());
-      result = result && (getSrcPort()
-          == other.getSrcPort());
-      result = result && (getDstPort()
-          == other.getDstPort());
-      result = result && (getIPTos()
-          == other.getIPTos());
-      result = result && (getForwardingStatus()
-          == other.getForwardingStatus());
-      result = result && (getIPTTL()
-          == other.getIPTTL());
-      result = result && (getTCPFlags()
-          == other.getTCPFlags());
-      result = result && (getSrcMac()
-          == other.getSrcMac());
-      result = result && (getDstMac()
-          == other.getDstMac());
-      result = result && (getVlanId()
-          == other.getVlanId());
-      result = result && (getEtype()
-          == other.getEtype());
-      result = result && direction_ == other.direction_;
-      result = result && (getCid()
-          == other.getCid());
-      result = result && normalized_ == other.normalized_;
-      result = result && getSrcIfName()
-          .equals(other.getSrcIfName());
-      result = result && getSrcIfDesc()
-          .equals(other.getSrcIfDesc());
-      result = result && (getSrcIfSpeed()
-          == other.getSrcIfSpeed());
-      result = result && getDstIfName()
-          .equals(other.getDstIfName());
-      result = result && getDstIfDesc()
-          .equals(other.getDstIfDesc());
-      result = result && (getDstIfSpeed()
-          == other.getDstIfSpeed());
-      result = result && getPeer()
-          .equals(other.getPeer());
-      result = result && getRemoteCountry()
-          .equals(other.getRemoteCountry());
-      result = result && getProtoName()
-          .equals(other.getProtoName());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (type_ != other.type_) return false;
+      if (getTimeRecvd()
+          != other.getTimeRecvd()) return false;
+      if (getSamplingRate()
+          != other.getSamplingRate()) return false;
+      if (getSequenceNum()
+          != other.getSequenceNum()) return false;
+      if (getTimeFlow()
+          != other.getTimeFlow()) return false;
+      if (!getSrcIP()
+          .equals(other.getSrcIP())) return false;
+      if (!getDstIP()
+          .equals(other.getDstIP())) return false;
+      if (iPversion_ != other.iPversion_) return false;
+      if (getBytes()
+          != other.getBytes()) return false;
+      if (getPackets()
+          != other.getPackets()) return false;
+      if (!getRouterAddr()
+          .equals(other.getRouterAddr())) return false;
+      if (!getNextHop()
+          .equals(other.getNextHop())) return false;
+      if (getNextHopAS()
+          != other.getNextHopAS()) return false;
+      if (getSrcAS()
+          != other.getSrcAS()) return false;
+      if (getDstAS()
+          != other.getDstAS()) return false;
+      if (getSrcNet()
+          != other.getSrcNet()) return false;
+      if (getDstNet()
+          != other.getDstNet()) return false;
+      if (getSrcIf()
+          != other.getSrcIf()) return false;
+      if (getDstIf()
+          != other.getDstIf()) return false;
+      if (getProto()
+          != other.getProto()) return false;
+      if (getSrcPort()
+          != other.getSrcPort()) return false;
+      if (getDstPort()
+          != other.getDstPort()) return false;
+      if (getIPTos()
+          != other.getIPTos()) return false;
+      if (getForwardingStatus()
+          != other.getForwardingStatus()) return false;
+      if (getIPTTL()
+          != other.getIPTTL()) return false;
+      if (getTCPFlags()
+          != other.getTCPFlags()) return false;
+      if (getSrcMac()
+          != other.getSrcMac()) return false;
+      if (getDstMac()
+          != other.getDstMac()) return false;
+      if (getVlanId()
+          != other.getVlanId()) return false;
+      if (getEtype()
+          != other.getEtype()) return false;
+      if (getIcmpType()
+          != other.getIcmpType()) return false;
+      if (getIcmpCode()
+          != other.getIcmpCode()) return false;
+      if (getSrcVlan()
+          != other.getSrcVlan()) return false;
+      if (getDstVlan()
+          != other.getDstVlan()) return false;
+      if (getFragmentId()
+          != other.getFragmentId()) return false;
+      if (getFragmentOffset()
+          != other.getFragmentOffset()) return false;
+      if (getIPv6FlowLabel()
+          != other.getIPv6FlowLabel()) return false;
+      if (getIngressVrfId()
+          != other.getIngressVrfId()) return false;
+      if (getEgressVrfId()
+          != other.getEgressVrfId()) return false;
+      if (getTimeFlowStart()
+          != other.getTimeFlowStart()) return false;
+      if (getTimeFlowEnd()
+          != other.getTimeFlowEnd()) return false;
+      if (direction_ != other.direction_) return false;
+      if (getCid()
+          != other.getCid()) return false;
+      if (normalized_ != other.normalized_) return false;
+      if (!getSrcIfName()
+          .equals(other.getSrcIfName())) return false;
+      if (!getSrcIfDesc()
+          .equals(other.getSrcIfDesc())) return false;
+      if (getSrcIfSpeed()
+          != other.getSrcIfSpeed()) return false;
+      if (!getDstIfName()
+          .equals(other.getDstIfName())) return false;
+      if (!getDstIfDesc()
+          .equals(other.getDstIfDesc())) return false;
+      if (getDstIfSpeed()
+          != other.getDstIfSpeed()) return false;
+      if (!getPeer()
+          .equals(other.getPeer())) return false;
+      if (!getRemoteCountry()
+          .equals(other.getRemoteCountry())) return false;
+      if (!getProtoName()
+          .equals(other.getProtoName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2220,6 +2540,30 @@ public final class FlowMessagePb {
       hash = (53 * hash) + getVlanId();
       hash = (37 * hash) + ETYPE_FIELD_NUMBER;
       hash = (53 * hash) + getEtype();
+      hash = (37 * hash) + ICMPTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getIcmpType();
+      hash = (37 * hash) + ICMPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getIcmpCode();
+      hash = (37 * hash) + SRCVLAN_FIELD_NUMBER;
+      hash = (53 * hash) + getSrcVlan();
+      hash = (37 * hash) + DSTVLAN_FIELD_NUMBER;
+      hash = (53 * hash) + getDstVlan();
+      hash = (37 * hash) + FRAGMENTID_FIELD_NUMBER;
+      hash = (53 * hash) + getFragmentId();
+      hash = (37 * hash) + FRAGMENTOFFSET_FIELD_NUMBER;
+      hash = (53 * hash) + getFragmentOffset();
+      hash = (37 * hash) + IPV6FLOWLABEL_FIELD_NUMBER;
+      hash = (53 * hash) + getIPv6FlowLabel();
+      hash = (37 * hash) + INGRESSVRFID_FIELD_NUMBER;
+      hash = (53 * hash) + getIngressVrfId();
+      hash = (37 * hash) + EGRESSVRFID_FIELD_NUMBER;
+      hash = (53 * hash) + getEgressVrfId();
+      hash = (37 * hash) + TIMEFLOWSTART_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeFlowStart());
+      hash = (37 * hash) + TIMEFLOWEND_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeFlowEnd());
       hash = (37 * hash) + DIRECTION_FIELD_NUMBER;
       hash = (53 * hash) + direction_;
       hash = (37 * hash) + CID_FIELD_NUMBER;
@@ -2442,6 +2786,28 @@ public final class FlowMessagePb {
 
         etype_ = 0;
 
+        icmpType_ = 0;
+
+        icmpCode_ = 0;
+
+        srcVlan_ = 0;
+
+        dstVlan_ = 0;
+
+        fragmentId_ = 0;
+
+        fragmentOffset_ = 0;
+
+        iPv6FlowLabel_ = 0;
+
+        ingressVrfId_ = 0;
+
+        egressVrfId_ = 0;
+
+        timeFlowStart_ = 0L;
+
+        timeFlowEnd_ = 0L;
+
         direction_ = 0;
 
         cid_ = 0;
@@ -2522,6 +2888,17 @@ public final class FlowMessagePb {
         result.dstMac_ = dstMac_;
         result.vlanId_ = vlanId_;
         result.etype_ = etype_;
+        result.icmpType_ = icmpType_;
+        result.icmpCode_ = icmpCode_;
+        result.srcVlan_ = srcVlan_;
+        result.dstVlan_ = dstVlan_;
+        result.fragmentId_ = fragmentId_;
+        result.fragmentOffset_ = fragmentOffset_;
+        result.iPv6FlowLabel_ = iPv6FlowLabel_;
+        result.ingressVrfId_ = ingressVrfId_;
+        result.egressVrfId_ = egressVrfId_;
+        result.timeFlowStart_ = timeFlowStart_;
+        result.timeFlowEnd_ = timeFlowEnd_;
         result.direction_ = direction_;
         result.cid_ = cid_;
         result.normalized_ = normalized_;
@@ -2540,35 +2917,35 @@ public final class FlowMessagePb {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2671,6 +3048,39 @@ public final class FlowMessagePb {
         }
         if (other.getEtype() != 0) {
           setEtype(other.getEtype());
+        }
+        if (other.getIcmpType() != 0) {
+          setIcmpType(other.getIcmpType());
+        }
+        if (other.getIcmpCode() != 0) {
+          setIcmpCode(other.getIcmpCode());
+        }
+        if (other.getSrcVlan() != 0) {
+          setSrcVlan(other.getSrcVlan());
+        }
+        if (other.getDstVlan() != 0) {
+          setDstVlan(other.getDstVlan());
+        }
+        if (other.getFragmentId() != 0) {
+          setFragmentId(other.getFragmentId());
+        }
+        if (other.getFragmentOffset() != 0) {
+          setFragmentOffset(other.getFragmentOffset());
+        }
+        if (other.getIPv6FlowLabel() != 0) {
+          setIPv6FlowLabel(other.getIPv6FlowLabel());
+        }
+        if (other.getIngressVrfId() != 0) {
+          setIngressVrfId(other.getIngressVrfId());
+        }
+        if (other.getEgressVrfId() != 0) {
+          setEgressVrfId(other.getEgressVrfId());
+        }
+        if (other.getTimeFlowStart() != 0L) {
+          setTimeFlowStart(other.getTimeFlowStart());
+        }
+        if (other.getTimeFlowEnd() != 0L) {
+          setTimeFlowEnd(other.getTimeFlowEnd());
         }
         if (other.direction_ != 0) {
           setDirectionValue(other.getDirectionValue());
@@ -3656,12 +4066,20 @@ public final class FlowMessagePb {
 
       private int vlanId_ ;
       /**
+       * <pre>
+       * 802.1q VLAN in sampled packet
+       * </pre>
+       *
        * <code>uint32 VlanId = 29;</code>
        */
       public int getVlanId() {
         return vlanId_;
       }
       /**
+       * <pre>
+       * 802.1q VLAN in sampled packet
+       * </pre>
+       *
        * <code>uint32 VlanId = 29;</code>
        */
       public Builder setVlanId(int value) {
@@ -3671,6 +4089,10 @@ public final class FlowMessagePb {
         return this;
       }
       /**
+       * <pre>
+       * 802.1q VLAN in sampled packet
+       * </pre>
+       *
        * <code>uint32 VlanId = 29;</code>
        */
       public Builder clearVlanId() {
@@ -3714,6 +4136,340 @@ public final class FlowMessagePb {
       public Builder clearEtype() {
         
         etype_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int icmpType_ ;
+      /**
+       * <code>uint32 IcmpType = 31;</code>
+       */
+      public int getIcmpType() {
+        return icmpType_;
+      }
+      /**
+       * <code>uint32 IcmpType = 31;</code>
+       */
+      public Builder setIcmpType(int value) {
+        
+        icmpType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 IcmpType = 31;</code>
+       */
+      public Builder clearIcmpType() {
+        
+        icmpType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int icmpCode_ ;
+      /**
+       * <code>uint32 IcmpCode = 32;</code>
+       */
+      public int getIcmpCode() {
+        return icmpCode_;
+      }
+      /**
+       * <code>uint32 IcmpCode = 32;</code>
+       */
+      public Builder setIcmpCode(int value) {
+        
+        icmpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 IcmpCode = 32;</code>
+       */
+      public Builder clearIcmpCode() {
+        
+        icmpCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int srcVlan_ ;
+      /**
+       * <pre>
+       * Vlan
+       * </pre>
+       *
+       * <code>uint32 SrcVlan = 33;</code>
+       */
+      public int getSrcVlan() {
+        return srcVlan_;
+      }
+      /**
+       * <pre>
+       * Vlan
+       * </pre>
+       *
+       * <code>uint32 SrcVlan = 33;</code>
+       */
+      public Builder setSrcVlan(int value) {
+        
+        srcVlan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Vlan
+       * </pre>
+       *
+       * <code>uint32 SrcVlan = 33;</code>
+       */
+      public Builder clearSrcVlan() {
+        
+        srcVlan_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int dstVlan_ ;
+      /**
+       * <code>uint32 DstVlan = 34;</code>
+       */
+      public int getDstVlan() {
+        return dstVlan_;
+      }
+      /**
+       * <code>uint32 DstVlan = 34;</code>
+       */
+      public Builder setDstVlan(int value) {
+        
+        dstVlan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 DstVlan = 34;</code>
+       */
+      public Builder clearDstVlan() {
+        
+        dstVlan_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int fragmentId_ ;
+      /**
+       * <pre>
+       * Fragments (IPv4/IPv6)
+       * </pre>
+       *
+       * <code>uint32 FragmentId = 35;</code>
+       */
+      public int getFragmentId() {
+        return fragmentId_;
+      }
+      /**
+       * <pre>
+       * Fragments (IPv4/IPv6)
+       * </pre>
+       *
+       * <code>uint32 FragmentId = 35;</code>
+       */
+      public Builder setFragmentId(int value) {
+        
+        fragmentId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Fragments (IPv4/IPv6)
+       * </pre>
+       *
+       * <code>uint32 FragmentId = 35;</code>
+       */
+      public Builder clearFragmentId() {
+        
+        fragmentId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int fragmentOffset_ ;
+      /**
+       * <code>uint32 FragmentOffset = 36;</code>
+       */
+      public int getFragmentOffset() {
+        return fragmentOffset_;
+      }
+      /**
+       * <code>uint32 FragmentOffset = 36;</code>
+       */
+      public Builder setFragmentOffset(int value) {
+        
+        fragmentOffset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 FragmentOffset = 36;</code>
+       */
+      public Builder clearFragmentOffset() {
+        
+        fragmentOffset_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int iPv6FlowLabel_ ;
+      /**
+       * <code>uint32 IPv6FlowLabel = 37;</code>
+       */
+      public int getIPv6FlowLabel() {
+        return iPv6FlowLabel_;
+      }
+      /**
+       * <code>uint32 IPv6FlowLabel = 37;</code>
+       */
+      public Builder setIPv6FlowLabel(int value) {
+        
+        iPv6FlowLabel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 IPv6FlowLabel = 37;</code>
+       */
+      public Builder clearIPv6FlowLabel() {
+        
+        iPv6FlowLabel_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int ingressVrfId_ ;
+      /**
+       * <pre>
+       * VRF
+       * </pre>
+       *
+       * <code>uint32 IngressVrfId = 38;</code>
+       */
+      public int getIngressVrfId() {
+        return ingressVrfId_;
+      }
+      /**
+       * <pre>
+       * VRF
+       * </pre>
+       *
+       * <code>uint32 IngressVrfId = 38;</code>
+       */
+      public Builder setIngressVrfId(int value) {
+        
+        ingressVrfId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * VRF
+       * </pre>
+       *
+       * <code>uint32 IngressVrfId = 38;</code>
+       */
+      public Builder clearIngressVrfId() {
+        
+        ingressVrfId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int egressVrfId_ ;
+      /**
+       * <code>uint32 EgressVrfId = 39;</code>
+       */
+      public int getEgressVrfId() {
+        return egressVrfId_;
+      }
+      /**
+       * <code>uint32 EgressVrfId = 39;</code>
+       */
+      public Builder setEgressVrfId(int value) {
+        
+        egressVrfId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 EgressVrfId = 39;</code>
+       */
+      public Builder clearEgressVrfId() {
+        
+        egressVrfId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long timeFlowStart_ ;
+      /**
+       * <pre>
+       * Time Flow
+       * </pre>
+       *
+       * <code>uint64 TimeFlowStart = 40;</code>
+       */
+      public long getTimeFlowStart() {
+        return timeFlowStart_;
+      }
+      /**
+       * <pre>
+       * Time Flow
+       * </pre>
+       *
+       * <code>uint64 TimeFlowStart = 40;</code>
+       */
+      public Builder setTimeFlowStart(long value) {
+        
+        timeFlowStart_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Time Flow
+       * </pre>
+       *
+       * <code>uint64 TimeFlowStart = 40;</code>
+       */
+      public Builder clearTimeFlowStart() {
+        
+        timeFlowStart_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long timeFlowEnd_ ;
+      /**
+       * <code>uint64 TimeFlowEnd = 41;</code>
+       */
+      public long getTimeFlowEnd() {
+        return timeFlowEnd_;
+      }
+      /**
+       * <code>uint64 TimeFlowEnd = 41;</code>
+       */
+      public Builder setTimeFlowEnd(long value) {
+        
+        timeFlowEnd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 TimeFlowEnd = 41;</code>
+       */
+      public Builder clearTimeFlowEnd() {
+        
+        timeFlowEnd_ = 0L;
         onChanged();
         return this;
       }
@@ -4371,7 +5127,7 @@ public final class FlowMessagePb {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -4436,7 +5192,7 @@ public final class FlowMessagePb {
   static {
     java.lang.String[] descriptorData = {
       "\n\034flow-messages-enriched.proto\022\023flowmess" +
-      "ageenriched\"\346\010\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
+      "ageenriched\"\306\n\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
       "\0162).flowmessageenriched.FlowMessage.Flow" +
       "Type\022\021\n\tTimeRecvd\030\002 \001(\004\022\024\n\014SamplingRate\030" +
       "\003 \001(\004\022\023\n\013SequenceNum\030\004 \001(\r\022\020\n\010TimeFlow\030\005" +
@@ -4451,21 +5207,26 @@ public final class FlowMessagePb {
       "\001(\r\022\r\n\005IPTos\030\027 \001(\r\022\030\n\020ForwardingStatus\030\030" +
       " \001(\r\022\r\n\005IPTTL\030\031 \001(\r\022\020\n\010TCPFlags\030\032 \001(\r\022\016\n" +
       "\006SrcMac\030\033 \001(\004\022\016\n\006DstMac\030\034 \001(\004\022\016\n\006VlanId\030" +
-      "\035 \001(\r\022\r\n\005Etype\030\036 \001(\r\022A\n\tDirection\030Z \001(\0162" +
-      "..flowmessageenriched.FlowMessage.Direct" +
-      "ionType\022\013\n\003Cid\030[ \001(\r\022C\n\nNormalized\030\\ \001(\016" +
-      "2/.flowmessageenriched.FlowMessage.Norma" +
-      "lizedType\022\021\n\tSrcIfName\030] \001(\t\022\021\n\tSrcIfDes" +
-      "c\030^ \001(\t\022\022\n\nSrcIfSpeed\030_ \001(\r\022\021\n\tDstIfName" +
-      "\030` \001(\t\022\021\n\tDstIfDesc\030a \001(\t\022\022\n\nDstIfSpeed\030" +
-      "b \001(\r\022\014\n\004Peer\030c \001(\t\022\025\n\rRemoteCountry\030d \001" +
-      "(\t\022\021\n\tProtoName\030e \001(\t\";\n\010FlowType\022\017\n\013FLO" +
-      "WUNKNOWN\020\000\022\010\n\004NFV9\020\t\022\t\n\005IPFIX\020\n\022\t\n\005SFLOW" +
-      "\020\005\"+\n\006IPType\022\r\n\tIPUNKNOWN\020\000\022\010\n\004IPv4\020\004\022\010\n" +
-      "\004IPv6\020\006\"8\n\rDirectionType\022\013\n\007Unknown\020\000\022\014\n" +
-      "\010Incoming\020\001\022\014\n\010Outgoing\020\002\"!\n\016NormalizedT" +
-      "ype\022\006\n\002No\020\000\022\007\n\003Yes\020\001B\032\n\tbwnetflowB\rFlowM" +
-      "essagePbb\006proto3"
+      "\035 \001(\r\022\r\n\005Etype\030\036 \001(\r\022\020\n\010IcmpType\030\037 \001(\r\022\020" +
+      "\n\010IcmpCode\030  \001(\r\022\017\n\007SrcVlan\030! \001(\r\022\017\n\007Dst" +
+      "Vlan\030\" \001(\r\022\022\n\nFragmentId\030# \001(\r\022\026\n\016Fragme" +
+      "ntOffset\030$ \001(\r\022\025\n\rIPv6FlowLabel\030% \001(\r\022\024\n" +
+      "\014IngressVrfId\030& \001(\r\022\023\n\013EgressVrfId\030\' \001(\r" +
+      "\022\025\n\rTimeFlowStart\030( \001(\004\022\023\n\013TimeFlowEnd\030)" +
+      " \001(\004\022A\n\tDirection\030Z \001(\0162..flowmessageenr" +
+      "iched.FlowMessage.DirectionType\022\013\n\003Cid\030[" +
+      " \001(\r\022C\n\nNormalized\030\\ \001(\0162/.flowmessageen" +
+      "riched.FlowMessage.NormalizedType\022\021\n\tSrc" +
+      "IfName\030] \001(\t\022\021\n\tSrcIfDesc\030^ \001(\t\022\022\n\nSrcIf" +
+      "Speed\030_ \001(\r\022\021\n\tDstIfName\030` \001(\t\022\021\n\tDstIfD" +
+      "esc\030a \001(\t\022\022\n\nDstIfSpeed\030b \001(\r\022\014\n\004Peer\030c " +
+      "\001(\t\022\025\n\rRemoteCountry\030d \001(\t\022\021\n\tProtoName\030" +
+      "e \001(\t\";\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\010\n\004NF" +
+      "V9\020\t\022\t\n\005IPFIX\020\n\022\t\n\005SFLOW\020\005\"+\n\006IPType\022\r\n\t" +
+      "IPUNKNOWN\020\000\022\010\n\004IPv4\020\004\022\010\n\004IPv6\020\006\"8\n\rDirec" +
+      "tionType\022\013\n\007Unknown\020\000\022\014\n\010Incoming\020\001\022\014\n\010O" +
+      "utgoing\020\002\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007\n\003Y" +
+      "es\020\001B\032\n\tbwnetflowB\rFlowMessagePbb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4484,7 +5245,7 @@ public final class FlowMessagePb {
     internal_static_flowmessageenriched_FlowMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_flowmessageenriched_FlowMessage_descriptor,
-        new java.lang.String[] { "Type", "TimeRecvd", "SamplingRate", "SequenceNum", "TimeFlow", "SrcIP", "DstIP", "IPversion", "Bytes", "Packets", "RouterAddr", "NextHop", "NextHopAS", "SrcAS", "DstAS", "SrcNet", "DstNet", "SrcIf", "DstIf", "Proto", "SrcPort", "DstPort", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "SrcMac", "DstMac", "VlanId", "Etype", "Direction", "Cid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "Peer", "RemoteCountry", "ProtoName", });
+        new java.lang.String[] { "Type", "TimeRecvd", "SamplingRate", "SequenceNum", "TimeFlow", "SrcIP", "DstIP", "IPversion", "Bytes", "Packets", "RouterAddr", "NextHop", "NextHopAS", "SrcAS", "DstAS", "SrcNet", "DstNet", "SrcIf", "DstIf", "Proto", "SrcPort", "DstPort", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "SrcMac", "DstMac", "VlanId", "Etype", "IcmpType", "IcmpCode", "SrcVlan", "DstVlan", "FragmentId", "FragmentOffset", "IPv6FlowLabel", "IngressVrfId", "EgressVrfId", "TimeFlowStart", "TimeFlowEnd", "Direction", "Cid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "Peer", "RemoteCountry", "ProtoName", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

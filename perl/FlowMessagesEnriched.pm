@@ -212,6 +212,61 @@ use Google::ProtocolBuffers;
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'IcmpType', 31, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'IcmpCode', 32, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'SrcVlan', 33, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'DstVlan', 34, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'FragmentId', 35, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'FragmentOffset', 36, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'IPv6FlowLabel', 37, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'IngressVrfId', 38, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'EgressVrfId', 39, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT64(), 
+                    'TimeFlowStart', 40, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT64(), 
+                    'TimeFlowEnd', 41, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     'FlowMessage::DirectionType', 
                     'Direction', 90, undef
                 ],

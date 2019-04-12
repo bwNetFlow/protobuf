@@ -167,6 +167,17 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_DstMac = 28,
   FlowMessage_FieldNumber_VlanId = 29,
   FlowMessage_FieldNumber_Etype = 30,
+  FlowMessage_FieldNumber_IcmpType = 31,
+  FlowMessage_FieldNumber_IcmpCode = 32,
+  FlowMessage_FieldNumber_SrcVlan = 33,
+  FlowMessage_FieldNumber_DstVlan = 34,
+  FlowMessage_FieldNumber_FragmentId = 35,
+  FlowMessage_FieldNumber_FragmentOffset = 36,
+  FlowMessage_FieldNumber_Ipv6FlowLabel = 37,
+  FlowMessage_FieldNumber_IngressVrfId = 38,
+  FlowMessage_FieldNumber_EgressVrfId = 39,
+  FlowMessage_FieldNumber_TimeFlowStart = 40,
+  FlowMessage_FieldNumber_TimeFlowEnd = 41,
   FlowMessage_FieldNumber_Direction = 90,
   FlowMessage_FieldNumber_Cid = 91,
   FlowMessage_FieldNumber_Normalized = 92,
@@ -254,10 +265,37 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
 
 @property(nonatomic, readwrite) uint64_t dstMac;
 
+/** 802.1q VLAN in sampled packet */
 @property(nonatomic, readwrite) uint32_t vlanId;
 
 /** Layer 3 protocol (IPv4/IPv6/ARP/...) */
 @property(nonatomic, readwrite) uint32_t etype;
+
+@property(nonatomic, readwrite) uint32_t icmpType;
+
+@property(nonatomic, readwrite) uint32_t icmpCode;
+
+/** Vlan */
+@property(nonatomic, readwrite) uint32_t srcVlan;
+
+@property(nonatomic, readwrite) uint32_t dstVlan;
+
+/** Fragments (IPv4/IPv6) */
+@property(nonatomic, readwrite) uint32_t fragmentId;
+
+@property(nonatomic, readwrite) uint32_t fragmentOffset;
+
+@property(nonatomic, readwrite) uint32_t ipv6FlowLabel;
+
+/** VRF */
+@property(nonatomic, readwrite) uint32_t ingressVrfId;
+
+@property(nonatomic, readwrite) uint32_t egressVrfId;
+
+/** Time Flow */
+@property(nonatomic, readwrite) uint64_t timeFlowStart;
+
+@property(nonatomic, readwrite) uint64_t timeFlowEnd;
 
 @property(nonatomic, readwrite) FlowMessage_DirectionType direction;
 

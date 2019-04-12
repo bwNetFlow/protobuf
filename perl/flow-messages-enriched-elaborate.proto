@@ -67,10 +67,32 @@ message FlowMessage {
   required uint64 SrcMac = 27;
   required uint64 DstMac = 28;
 
+  // 802.1q VLAN in sampled packet
   required uint32 VlanId = 29;
 
   // Layer 3 protocol (IPv4/IPv6/ARP/...)
   required uint32 Etype = 30;
+
+  required uint32 IcmpType = 31;
+  required uint32 IcmpCode = 32;
+
+  // Vlan
+  required uint32 SrcVlan = 33;
+  required uint32 DstVlan = 34;
+
+  // Fragments (IPv4/IPv6)
+  required uint32 FragmentId = 35;
+  required uint32 FragmentOffset = 36;
+
+  required uint32 IPv6FlowLabel = 37;
+
+  // VRF
+  required uint32 IngressVrfId = 38;
+  required uint32 EgressVrfId = 39;
+
+  // Time Flow
+  required uint64 TimeFlowStart = 40;
+  required uint64 TimeFlowEnd = 41;
 
   // Extensions beyond goflow's default protobuf, starting at id 90
   enum DirectionType {
