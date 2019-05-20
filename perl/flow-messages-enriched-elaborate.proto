@@ -1,0 +1,124 @@
+// Flow Message needs to stay compatible to goflow's default protobuf
+// -> never edit record id's, only ever append
+message FlowMessage {
+
+  enum FlowType {
+    FLOWUNKNOWN = 0;
+    NFV9 = 9;
+    IPFIX = 10;
+    SFLOW = 5;
+  }
+  required FlowType Type = 1;
+
+  required uint64 TimeRecvd = 2;
+  required uint64 SamplingRate = 3;
+  required uint32 SequenceNum = 4;
+
+  // Found inside packet
+  required uint64 TimeFlow = 5;
+
+  // Source/destination addresses
+  required bytes SrcIP = 6;
+  required bytes DstIP = 7;
+
+  // To be deprecated
+  enum IPType {
+    IPUNKNOWN = 0;
+    IPv4 = 4;
+    IPv6 = 6;
+  }
+  required IPType IPversion = 8;
+
+  // Size of the sampled packet
+  required uint64 Bytes = 9;
+  required uint64 Packets = 10;
+
+  // Routing information
+  required bytes RouterAddr = 11;
+  required bytes NextHop = 12;
+  required uint32 NextHopAS = 13;
+
+  // Autonomous system information
+  required uint32 SrcAS = 14;
+  required uint32 DstAS = 15;
+
+  // Prefix size
+  required uint32 SrcNet = 16;
+  required uint32 DstNet = 17;
+
+  // Interfaces
+  required uint32 SrcIf = 18;
+  required uint32 DstIf = 19;
+
+  // Layer 4 protocol
+  required uint32 Proto = 20;
+
+  // Port for UDP and TCP
+  required uint32 SrcPort = 21;
+  required uint32 DstPort = 22;
+
+  // IP and TCP special flags
+  required uint32 IPTos = 23;
+  required uint32 ForwardingStatus = 24;
+  required uint32 IPTTL = 25;
+  required uint32 TCPFlags = 26;
+
+  // Ethernet information
+  required uint64 SrcMac = 27;
+  required uint64 DstMac = 28;
+
+  // 802.1q VLAN in sampled packet
+  required uint32 VlanId = 29;
+
+  // Layer 3 protocol (IPv4/IPv6/ARP/...)
+  required uint32 Etype = 30;
+
+  required uint32 IcmpType = 31;
+  required uint32 IcmpCode = 32;
+
+  // Vlan
+  required uint32 SrcVlan = 33;
+  required uint32 DstVlan = 34;
+
+  // Fragments (IPv4/IPv6)
+  required uint32 FragmentId = 35;
+  required uint32 FragmentOffset = 36;
+
+  required uint32 IPv6FlowLabel = 37;
+
+  // VRF
+  required uint32 IngressVrfId = 38;
+  required uint32 EgressVrfId = 39;
+
+  // Time Flow
+  required uint64 TimeFlowStart = 40;
+  required uint64 TimeFlowEnd = 41;
+
+  // Extensions beyond goflow's default protobuf, starting at id 90
+  enum DirectionType {
+    Unknown = 0;
+    Incoming = 1;
+    Outgoing = 2;
+  }
+  required DirectionType Direction = 90;
+
+  required uint32 Cid = 91;
+
+  enum NormalizedType {
+    No = 0;
+    Yes = 1;
+  }
+  required NormalizedType Normalized = 92;
+
+  required string SrcIfName = 93;
+  required string SrcIfDesc = 94;
+  required uint32 SrcIfSpeed = 95;
+  required string DstIfName = 96;
+  required string DstIfDesc = 97;
+  required uint32 DstIfSpeed = 98;
+
+  required string Peer = 99;
+  required string RemoteCountry = 100;
+
+  required string ProtoName = 101;
+}
