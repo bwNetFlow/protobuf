@@ -5,88 +5,76 @@ require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("flow-messages-enriched.proto", :syntax => :proto3) do
-    add_message "flowmessageenriched.FlowMessage" do
-      optional :Type, :enum, 1, "flowmessageenriched.FlowMessage.FlowType"
-      optional :TimeRecvd, :uint64, 2
-      optional :SamplingRate, :uint64, 3
+    add_message "flowprotob.FlowMessage" do
+      optional :Type, :enum, 1, "flowprotob.FlowMessage.FlowType"
+      optional :TimeReceived, :uint64, 2
       optional :SequenceNum, :uint32, 4
-      optional :TimeFlow, :uint64, 5
-      optional :SrcIP, :bytes, 6
-      optional :DstIP, :bytes, 7
-      optional :IPversion, :enum, 8, "flowmessageenriched.FlowMessage.IPType"
+      optional :SamplingRate, :uint64, 3
+      optional :FlowDirection, :uint32, 42
+      optional :SamplerAddress, :bytes, 11
+      optional :TimeFlowStart, :uint64, 38
+      optional :TimeFlowEnd, :uint64, 5
       optional :Bytes, :uint64, 9
       optional :Packets, :uint64, 10
-      optional :RouterAddr, :bytes, 11
-      optional :NextHop, :bytes, 12
-      optional :NextHopAS, :uint32, 13
-      optional :SrcAS, :uint32, 14
-      optional :DstAS, :uint32, 15
-      optional :SrcNet, :uint32, 16
-      optional :DstNet, :uint32, 17
-      optional :SrcIf, :uint32, 18
-      optional :DstIf, :uint32, 19
+      optional :SrcAddr, :bytes, 6
+      optional :DstAddr, :bytes, 7
+      optional :Etype, :uint32, 30
       optional :Proto, :uint32, 20
       optional :SrcPort, :uint32, 21
       optional :DstPort, :uint32, 22
+      optional :SrcIf, :uint32, 18
+      optional :DstIf, :uint32, 19
+      optional :SrcMac, :uint64, 27
+      optional :DstMac, :uint64, 28
+      optional :SrcVlan, :uint32, 33
+      optional :DstVlan, :uint32, 34
+      optional :VlanId, :uint32, 29
+      optional :IngressVrfID, :uint32, 39
+      optional :EgressVrfID, :uint32, 40
       optional :IPTos, :uint32, 23
       optional :ForwardingStatus, :uint32, 24
       optional :IPTTL, :uint32, 25
       optional :TCPFlags, :uint32, 26
-      optional :SrcMac, :uint64, 27
-      optional :DstMac, :uint64, 28
-      optional :VlanId, :uint32, 29
-      optional :Etype, :uint32, 30
       optional :IcmpType, :uint32, 31
       optional :IcmpCode, :uint32, 32
-      optional :SrcVlan, :uint32, 33
-      optional :DstVlan, :uint32, 34
+      optional :IPv6FlowLabel, :uint32, 37
       optional :FragmentId, :uint32, 35
       optional :FragmentOffset, :uint32, 36
-      optional :IPv6FlowLabel, :uint32, 37
-      optional :IngressVrfId, :uint32, 38
-      optional :EgressVrfId, :uint32, 39
-      optional :TimeFlowStart, :uint64, 40
-      optional :TimeFlowEnd, :uint64, 41
-      optional :Direction, :enum, 90, "flowmessageenriched.FlowMessage.DirectionType"
-      optional :Cid, :uint32, 91
-      optional :Normalized, :enum, 92, "flowmessageenriched.FlowMessage.NormalizedType"
-      optional :SrcIfName, :string, 93
-      optional :SrcIfDesc, :string, 94
-      optional :SrcIfSpeed, :uint32, 95
-      optional :DstIfName, :string, 96
-      optional :DstIfDesc, :string, 97
-      optional :DstIfSpeed, :uint32, 98
-      optional :Peer, :string, 99
-      optional :RemoteCountry, :string, 100
-      optional :ProtoName, :string, 101
+      optional :BiFlowDirection, :uint32, 41
+      optional :SrcAS, :uint32, 14
+      optional :DstAS, :uint32, 15
+      optional :NextHop, :bytes, 12
+      optional :NextHopAS, :uint32, 13
+      optional :SrcNet, :uint32, 16
+      optional :DstNet, :uint32, 17
+      optional :Cid, :uint32, 1000
+      optional :CidString, :string, 1001
+      optional :Normalized, :enum, 1002, "flowprotob.FlowMessage.NormalizedType"
+      optional :SrcIfName, :string, 1003
+      optional :SrcIfDesc, :string, 1004
+      optional :SrcIfSpeed, :uint32, 1005
+      optional :DstIfName, :string, 1006
+      optional :DstIfDesc, :string, 1007
+      optional :DstIfSpeed, :uint32, 1008
+      optional :ProtoName, :string, 1009
+      optional :RemoteCountry, :string, 1010
     end
-    add_enum "flowmessageenriched.FlowMessage.FlowType" do
+    add_enum "flowprotob.FlowMessage.FlowType" do
       value :FLOWUNKNOWN, 0
-      value :NFV9, 9
-      value :IPFIX, 10
-      value :SFLOW, 5
+      value :SFLOW_5, 1
+      value :NETFLOW_V5, 2
+      value :NETFLOW_V9, 3
+      value :IPFIX, 4
     end
-    add_enum "flowmessageenriched.FlowMessage.IPType" do
-      value :IPUNKNOWN, 0
-      value :IPv4, 4
-      value :IPv6, 6
-    end
-    add_enum "flowmessageenriched.FlowMessage.DirectionType" do
-      value :Unknown, 0
-      value :Incoming, 1
-      value :Outgoing, 2
-    end
-    add_enum "flowmessageenriched.FlowMessage.NormalizedType" do
+    add_enum "flowprotob.FlowMessage.NormalizedType" do
       value :No, 0
       value :Yes, 1
     end
   end
 end
 
-module Flowmessageenriched
-  FlowMessage = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage").msgclass
-  FlowMessage::FlowType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.FlowType").enummodule
-  FlowMessage::IPType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.IPType").enummodule
-  FlowMessage::DirectionType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.DirectionType").enummodule
-  FlowMessage::NormalizedType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.NormalizedType").enummodule
+module Flowprotob
+  FlowMessage = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowprotob.FlowMessage").msgclass
+  FlowMessage::FlowType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowprotob.FlowMessage.FlowType").enummodule
+  FlowMessage::NormalizedType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowprotob.FlowMessage.NormalizedType").enummodule
 end

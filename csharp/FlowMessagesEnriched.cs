@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Flowmessageenriched {
+namespace Flowprotob {
 
   /// <summary>Holder for reflection information generated from flow-messages-enriched.proto</summary>
   public static partial class FlowMessagesEnrichedReflection {
@@ -24,52 +24,45 @@ namespace Flowmessageenriched {
     static FlowMessagesEnrichedReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChxmbG93LW1lc3NhZ2VzLWVucmljaGVkLnByb3RvEhNmbG93bWVzc2FnZWVu",
-            "cmljaGVkIsYKCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
-            "c3NhZ2VlbnJpY2hlZC5GbG93TWVzc2FnZS5GbG93VHlwZRIRCglUaW1lUmVj",
-            "dmQYAiABKAQSFAoMU2FtcGxpbmdSYXRlGAMgASgEEhMKC1NlcXVlbmNlTnVt",
-            "GAQgASgNEhAKCFRpbWVGbG93GAUgASgEEg0KBVNyY0lQGAYgASgMEg0KBURz",
-            "dElQGAcgASgMEjoKCUlQdmVyc2lvbhgIIAEoDjInLmZsb3dtZXNzYWdlZW5y",
-            "aWNoZWQuRmxvd01lc3NhZ2UuSVBUeXBlEg0KBUJ5dGVzGAkgASgEEg8KB1Bh",
-            "Y2tldHMYCiABKAQSEgoKUm91dGVyQWRkchgLIAEoDBIPCgdOZXh0SG9wGAwg",
-            "ASgMEhEKCU5leHRIb3BBUxgNIAEoDRINCgVTcmNBUxgOIAEoDRINCgVEc3RB",
-            "UxgPIAEoDRIOCgZTcmNOZXQYECABKA0SDgoGRHN0TmV0GBEgASgNEg0KBVNy",
-            "Y0lmGBIgASgNEg0KBURzdElmGBMgASgNEg0KBVByb3RvGBQgASgNEg8KB1Ny",
-            "Y1BvcnQYFSABKA0SDwoHRHN0UG9ydBgWIAEoDRINCgVJUFRvcxgXIAEoDRIY",
-            "ChBGb3J3YXJkaW5nU3RhdHVzGBggASgNEg0KBUlQVFRMGBkgASgNEhAKCFRD",
-            "UEZsYWdzGBogASgNEg4KBlNyY01hYxgbIAEoBBIOCgZEc3RNYWMYHCABKAQS",
-            "DgoGVmxhbklkGB0gASgNEg0KBUV0eXBlGB4gASgNEhAKCEljbXBUeXBlGB8g",
-            "ASgNEhAKCEljbXBDb2RlGCAgASgNEg8KB1NyY1ZsYW4YISABKA0SDwoHRHN0",
-            "VmxhbhgiIAEoDRISCgpGcmFnbWVudElkGCMgASgNEhYKDkZyYWdtZW50T2Zm",
-            "c2V0GCQgASgNEhUKDUlQdjZGbG93TGFiZWwYJSABKA0SFAoMSW5ncmVzc1Zy",
-            "ZklkGCYgASgNEhMKC0VncmVzc1ZyZklkGCcgASgNEhUKDVRpbWVGbG93U3Rh",
-            "cnQYKCABKAQSEwoLVGltZUZsb3dFbmQYKSABKAQSQQoJRGlyZWN0aW9uGFog",
-            "ASgOMi4uZmxvd21lc3NhZ2VlbnJpY2hlZC5GbG93TWVzc2FnZS5EaXJlY3Rp",
-            "b25UeXBlEgsKA0NpZBhbIAEoDRJDCgpOb3JtYWxpemVkGFwgASgOMi8uZmxv",
-            "d21lc3NhZ2VlbnJpY2hlZC5GbG93TWVzc2FnZS5Ob3JtYWxpemVkVHlwZRIR",
-            "CglTcmNJZk5hbWUYXSABKAkSEQoJU3JjSWZEZXNjGF4gASgJEhIKClNyY0lm",
-            "U3BlZWQYXyABKA0SEQoJRHN0SWZOYW1lGGAgASgJEhEKCURzdElmRGVzYxhh",
-            "IAEoCRISCgpEc3RJZlNwZWVkGGIgASgNEgwKBFBlZXIYYyABKAkSFQoNUmVt",
-            "b3RlQ291bnRyeRhkIAEoCRIRCglQcm90b05hbWUYZSABKAkiOwoIRmxvd1R5",
-            "cGUSDwoLRkxPV1VOS05PV04QABIICgRORlY5EAkSCQoFSVBGSVgQChIJCgVT",
-            "RkxPVxAFIisKBklQVHlwZRINCglJUFVOS05PV04QABIICgRJUHY0EAQSCAoE",
-            "SVB2NhAGIjgKDURpcmVjdGlvblR5cGUSCwoHVW5rbm93bhAAEgwKCEluY29t",
-            "aW5nEAESDAoIT3V0Z29pbmcQAiIhCg5Ob3JtYWxpemVkVHlwZRIGCgJObxAA",
-            "EgcKA1llcxABQhoKCWJ3bmV0Zmxvd0INRmxvd01lc3NhZ2VQYmIGcHJvdG8z"));
+            "ChxmbG93LW1lc3NhZ2VzLWVucmljaGVkLnByb3RvEgpmbG93cHJvdG9iIp8J",
+            "CgtGbG93TWVzc2FnZRIuCgRUeXBlGAEgASgOMiAuZmxvd3Byb3RvYi5GbG93",
+            "TWVzc2FnZS5GbG93VHlwZRIUCgxUaW1lUmVjZWl2ZWQYAiABKAQSEwoLU2Vx",
+            "dWVuY2VOdW0YBCABKA0SFAoMU2FtcGxpbmdSYXRlGAMgASgEEhUKDUZsb3dE",
+            "aXJlY3Rpb24YKiABKA0SFgoOU2FtcGxlckFkZHJlc3MYCyABKAwSFQoNVGlt",
+            "ZUZsb3dTdGFydBgmIAEoBBITCgtUaW1lRmxvd0VuZBgFIAEoBBINCgVCeXRl",
+            "cxgJIAEoBBIPCgdQYWNrZXRzGAogASgEEg8KB1NyY0FkZHIYBiABKAwSDwoH",
+            "RHN0QWRkchgHIAEoDBINCgVFdHlwZRgeIAEoDRINCgVQcm90bxgUIAEoDRIP",
+            "CgdTcmNQb3J0GBUgASgNEg8KB0RzdFBvcnQYFiABKA0SDQoFU3JjSWYYEiAB",
+            "KA0SDQoFRHN0SWYYEyABKA0SDgoGU3JjTWFjGBsgASgEEg4KBkRzdE1hYxgc",
+            "IAEoBBIPCgdTcmNWbGFuGCEgASgNEg8KB0RzdFZsYW4YIiABKA0SDgoGVmxh",
+            "bklkGB0gASgNEhQKDEluZ3Jlc3NWcmZJRBgnIAEoDRITCgtFZ3Jlc3NWcmZJ",
+            "RBgoIAEoDRINCgVJUFRvcxgXIAEoDRIYChBGb3J3YXJkaW5nU3RhdHVzGBgg",
+            "ASgNEg0KBUlQVFRMGBkgASgNEhAKCFRDUEZsYWdzGBogASgNEhAKCEljbXBU",
+            "eXBlGB8gASgNEhAKCEljbXBDb2RlGCAgASgNEhUKDUlQdjZGbG93TGFiZWwY",
+            "JSABKA0SEgoKRnJhZ21lbnRJZBgjIAEoDRIWCg5GcmFnbWVudE9mZnNldBgk",
+            "IAEoDRIXCg9CaUZsb3dEaXJlY3Rpb24YKSABKA0SDQoFU3JjQVMYDiABKA0S",
+            "DQoFRHN0QVMYDyABKA0SDwoHTmV4dEhvcBgMIAEoDBIRCglOZXh0SG9wQVMY",
+            "DSABKA0SDgoGU3JjTmV0GBAgASgNEg4KBkRzdE5ldBgRIAEoDRIMCgNDaWQY",
+            "6AcgASgNEhIKCUNpZFN0cmluZxjpByABKAkSOwoKTm9ybWFsaXplZBjqByAB",
+            "KA4yJi5mbG93cHJvdG9iLkZsb3dNZXNzYWdlLk5vcm1hbGl6ZWRUeXBlEhIK",
+            "CVNyY0lmTmFtZRjrByABKAkSEgoJU3JjSWZEZXNjGOwHIAEoCRITCgpTcmNJ",
+            "ZlNwZWVkGO0HIAEoDRISCglEc3RJZk5hbWUY7gcgASgJEhIKCURzdElmRGVz",
+            "YxjvByABKAkSEwoKRHN0SWZTcGVlZBjwByABKA0SEgoJUHJvdG9OYW1lGPEH",
+            "IAEoCRIWCg1SZW1vdGVDb3VudHJ5GPIHIAEoCSJTCghGbG93VHlwZRIPCgtG",
+            "TE9XVU5LTk9XThAAEgsKB1NGTE9XXzUQARIOCgpORVRGTE9XX1Y1EAISDgoK",
+            "TkVURkxPV19WORADEgkKBUlQRklYEAQiIQoOTm9ybWFsaXplZFR5cGUSBgoC",
+            "Tm8QABIHCgNZZXMQAUIrChpjb20uY2xvdWRmbGFyZS5uZXQuZmxvd2FnZ0IN",
+            "Rmxvd01lc3NhZ2VQYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeRecvd", "SamplingRate", "SequenceNum", "TimeFlow", "SrcIP", "DstIP", "IPversion", "Bytes", "Packets", "RouterAddr", "NextHop", "NextHopAS", "SrcAS", "DstAS", "SrcNet", "DstNet", "SrcIf", "DstIf", "Proto", "SrcPort", "DstPort", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "SrcMac", "DstMac", "VlanId", "Etype", "IcmpType", "IcmpCode", "SrcVlan", "DstVlan", "FragmentId", "FragmentOffset", "IPv6FlowLabel", "IngressVrfId", "EgressVrfId", "TimeFlowStart", "TimeFlowEnd", "Direction", "Cid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "Peer", "RemoteCountry", "ProtoName" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.IPType), typeof(global::Flowmessageenriched.FlowMessage.Types.DirectionType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType) }, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Flowprotob.FlowMessage), global::Flowprotob.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "SrcIf", "DstIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry" }, null, new[]{ typeof(global::Flowprotob.FlowMessage.Types.FlowType), typeof(global::Flowprotob.FlowMessage.Types.NormalizedType) }, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  /// <summary>
-  /// Flow Message needs to stay compatible to goflow's default protobuf
-  /// -> never edit record id's, only ever append
-  /// </summary>
   public sealed partial class FlowMessage : pb::IMessage<FlowMessage> {
     private static readonly pb::MessageParser<FlowMessage> _parser = new pb::MessageParser<FlowMessage>(() => new FlowMessage());
     private pb::UnknownFieldSet _unknownFields;
@@ -78,7 +71,7 @@ namespace Flowmessageenriched {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Flowmessageenriched.FlowMessagesEnrichedReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Flowprotob.FlowMessagesEnrichedReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -96,48 +89,48 @@ namespace Flowmessageenriched {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public FlowMessage(FlowMessage other) : this() {
       type_ = other.type_;
-      timeRecvd_ = other.timeRecvd_;
-      samplingRate_ = other.samplingRate_;
+      timeReceived_ = other.timeReceived_;
       sequenceNum_ = other.sequenceNum_;
-      timeFlow_ = other.timeFlow_;
-      srcIP_ = other.srcIP_;
-      dstIP_ = other.dstIP_;
-      iPversion_ = other.iPversion_;
+      samplingRate_ = other.samplingRate_;
+      flowDirection_ = other.flowDirection_;
+      samplerAddress_ = other.samplerAddress_;
+      timeFlowStart_ = other.timeFlowStart_;
+      timeFlowEnd_ = other.timeFlowEnd_;
       bytes_ = other.bytes_;
       packets_ = other.packets_;
-      routerAddr_ = other.routerAddr_;
-      nextHop_ = other.nextHop_;
-      nextHopAS_ = other.nextHopAS_;
-      srcAS_ = other.srcAS_;
-      dstAS_ = other.dstAS_;
-      srcNet_ = other.srcNet_;
-      dstNet_ = other.dstNet_;
-      srcIf_ = other.srcIf_;
-      dstIf_ = other.dstIf_;
+      srcAddr_ = other.srcAddr_;
+      dstAddr_ = other.dstAddr_;
+      etype_ = other.etype_;
       proto_ = other.proto_;
       srcPort_ = other.srcPort_;
       dstPort_ = other.dstPort_;
+      srcIf_ = other.srcIf_;
+      dstIf_ = other.dstIf_;
+      srcMac_ = other.srcMac_;
+      dstMac_ = other.dstMac_;
+      srcVlan_ = other.srcVlan_;
+      dstVlan_ = other.dstVlan_;
+      vlanId_ = other.vlanId_;
+      ingressVrfID_ = other.ingressVrfID_;
+      egressVrfID_ = other.egressVrfID_;
       iPTos_ = other.iPTos_;
       forwardingStatus_ = other.forwardingStatus_;
       iPTTL_ = other.iPTTL_;
       tCPFlags_ = other.tCPFlags_;
-      srcMac_ = other.srcMac_;
-      dstMac_ = other.dstMac_;
-      vlanId_ = other.vlanId_;
-      etype_ = other.etype_;
       icmpType_ = other.icmpType_;
       icmpCode_ = other.icmpCode_;
-      srcVlan_ = other.srcVlan_;
-      dstVlan_ = other.dstVlan_;
+      iPv6FlowLabel_ = other.iPv6FlowLabel_;
       fragmentId_ = other.fragmentId_;
       fragmentOffset_ = other.fragmentOffset_;
-      iPv6FlowLabel_ = other.iPv6FlowLabel_;
-      ingressVrfId_ = other.ingressVrfId_;
-      egressVrfId_ = other.egressVrfId_;
-      timeFlowStart_ = other.timeFlowStart_;
-      timeFlowEnd_ = other.timeFlowEnd_;
-      direction_ = other.direction_;
+      biFlowDirection_ = other.biFlowDirection_;
+      srcAS_ = other.srcAS_;
+      dstAS_ = other.dstAS_;
+      nextHop_ = other.nextHop_;
+      nextHopAS_ = other.nextHopAS_;
+      srcNet_ = other.srcNet_;
+      dstNet_ = other.dstNet_;
       cid_ = other.cid_;
+      cidString_ = other.cidString_;
       normalized_ = other.normalized_;
       srcIfName_ = other.srcIfName_;
       srcIfDesc_ = other.srcIfDesc_;
@@ -145,9 +138,8 @@ namespace Flowmessageenriched {
       dstIfName_ = other.dstIfName_;
       dstIfDesc_ = other.dstIfDesc_;
       dstIfSpeed_ = other.dstIfSpeed_;
-      peer_ = other.peer_;
-      remoteCountry_ = other.remoteCountry_;
       protoName_ = other.protoName_;
+      remoteCountry_ = other.remoteCountry_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -158,34 +150,23 @@ namespace Flowmessageenriched {
 
     /// <summary>Field number for the "Type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::Flowmessageenriched.FlowMessage.Types.FlowType type_ = 0;
+    private global::Flowprotob.FlowMessage.Types.FlowType type_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Flowmessageenriched.FlowMessage.Types.FlowType Type {
+    public global::Flowprotob.FlowMessage.Types.FlowType Type {
       get { return type_; }
       set {
         type_ = value;
       }
     }
 
-    /// <summary>Field number for the "TimeRecvd" field.</summary>
-    public const int TimeRecvdFieldNumber = 2;
-    private ulong timeRecvd_;
+    /// <summary>Field number for the "TimeReceived" field.</summary>
+    public const int TimeReceivedFieldNumber = 2;
+    private ulong timeReceived_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong TimeRecvd {
-      get { return timeRecvd_; }
+    public ulong TimeReceived {
+      get { return timeReceived_; }
       set {
-        timeRecvd_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "SamplingRate" field.</summary>
-    public const int SamplingRateFieldNumber = 3;
-    private ulong samplingRate_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong SamplingRate {
-      get { return samplingRate_; }
-      set {
-        samplingRate_ = value;
+        timeReceived_ = value;
       }
     }
 
@@ -200,53 +181,64 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "TimeFlow" field.</summary>
-    public const int TimeFlowFieldNumber = 5;
-    private ulong timeFlow_;
+    /// <summary>Field number for the "SamplingRate" field.</summary>
+    public const int SamplingRateFieldNumber = 3;
+    private ulong samplingRate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong SamplingRate {
+      get { return samplingRate_; }
+      set {
+        samplingRate_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FlowDirection" field.</summary>
+    public const int FlowDirectionFieldNumber = 42;
+    private uint flowDirection_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint FlowDirection {
+      get { return flowDirection_; }
+      set {
+        flowDirection_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SamplerAddress" field.</summary>
+    public const int SamplerAddressFieldNumber = 11;
+    private pb::ByteString samplerAddress_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Sampler information
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString SamplerAddress {
+      get { return samplerAddress_; }
+      set {
+        samplerAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "TimeFlowStart" field.</summary>
+    public const int TimeFlowStartFieldNumber = 38;
+    private ulong timeFlowStart_;
     /// <summary>
     /// Found inside packet
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong TimeFlow {
-      get { return timeFlow_; }
+    public ulong TimeFlowStart {
+      get { return timeFlowStart_; }
       set {
-        timeFlow_ = value;
+        timeFlowStart_ = value;
       }
     }
 
-    /// <summary>Field number for the "SrcIP" field.</summary>
-    public const int SrcIPFieldNumber = 6;
-    private pb::ByteString srcIP_ = pb::ByteString.Empty;
-    /// <summary>
-    /// Source/destination addresses
-    /// </summary>
+    /// <summary>Field number for the "TimeFlowEnd" field.</summary>
+    public const int TimeFlowEndFieldNumber = 5;
+    private ulong timeFlowEnd_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString SrcIP {
-      get { return srcIP_; }
+    public ulong TimeFlowEnd {
+      get { return timeFlowEnd_; }
       set {
-        srcIP_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "DstIP" field.</summary>
-    public const int DstIPFieldNumber = 7;
-    private pb::ByteString dstIP_ = pb::ByteString.Empty;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString DstIP {
-      get { return dstIP_; }
-      set {
-        dstIP_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "IPversion" field.</summary>
-    public const int IPversionFieldNumber = 8;
-    private global::Flowmessageenriched.FlowMessage.Types.IPType iPversion_ = 0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Flowmessageenriched.FlowMessage.Types.IPType IPversion {
-      get { return iPversion_; }
-      set {
-        iPversion_ = value;
+        timeFlowEnd_ = value;
       }
     }
 
@@ -275,89 +267,81 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "RouterAddr" field.</summary>
-    public const int RouterAddrFieldNumber = 11;
-    private pb::ByteString routerAddr_ = pb::ByteString.Empty;
+    /// <summary>Field number for the "SrcAddr" field.</summary>
+    public const int SrcAddrFieldNumber = 6;
+    private pb::ByteString srcAddr_ = pb::ByteString.Empty;
     /// <summary>
-    /// Routing information
+    /// Source/destination addresses
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString RouterAddr {
-      get { return routerAddr_; }
+    public pb::ByteString SrcAddr {
+      get { return srcAddr_; }
       set {
-        routerAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        srcAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "NextHop" field.</summary>
-    public const int NextHopFieldNumber = 12;
-    private pb::ByteString nextHop_ = pb::ByteString.Empty;
+    /// <summary>Field number for the "DstAddr" field.</summary>
+    public const int DstAddrFieldNumber = 7;
+    private pb::ByteString dstAddr_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString NextHop {
-      get { return nextHop_; }
+    public pb::ByteString DstAddr {
+      get { return dstAddr_; }
       set {
-        nextHop_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        dstAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "NextHopAS" field.</summary>
-    public const int NextHopASFieldNumber = 13;
-    private uint nextHopAS_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint NextHopAS {
-      get { return nextHopAS_; }
-      set {
-        nextHopAS_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "SrcAS" field.</summary>
-    public const int SrcASFieldNumber = 14;
-    private uint srcAS_;
+    /// <summary>Field number for the "Etype" field.</summary>
+    public const int EtypeFieldNumber = 30;
+    private uint etype_;
     /// <summary>
-    /// Autonomous system information
+    /// Layer 3 protocol (IPv4/IPv6/ARP/...)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint SrcAS {
-      get { return srcAS_; }
+    public uint Etype {
+      get { return etype_; }
       set {
-        srcAS_ = value;
+        etype_ = value;
       }
     }
 
-    /// <summary>Field number for the "DstAS" field.</summary>
-    public const int DstASFieldNumber = 15;
-    private uint dstAS_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint DstAS {
-      get { return dstAS_; }
-      set {
-        dstAS_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "SrcNet" field.</summary>
-    public const int SrcNetFieldNumber = 16;
-    private uint srcNet_;
+    /// <summary>Field number for the "Proto" field.</summary>
+    public const int ProtoFieldNumber = 20;
+    private uint proto_;
     /// <summary>
-    /// Prefix size
+    /// Layer 4 protocol
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint SrcNet {
-      get { return srcNet_; }
+    public uint Proto {
+      get { return proto_; }
       set {
-        srcNet_ = value;
+        proto_ = value;
       }
     }
 
-    /// <summary>Field number for the "DstNet" field.</summary>
-    public const int DstNetFieldNumber = 17;
-    private uint dstNet_;
+    /// <summary>Field number for the "SrcPort" field.</summary>
+    public const int SrcPortFieldNumber = 21;
+    private uint srcPort_;
+    /// <summary>
+    /// Ports for UDP and TCP
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint DstNet {
-      get { return dstNet_; }
+    public uint SrcPort {
+      get { return srcPort_; }
       set {
-        dstNet_ = value;
+        srcPort_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DstPort" field.</summary>
+    public const int DstPortFieldNumber = 22;
+    private uint dstPort_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint DstPort {
+      get { return dstPort_; }
+      set {
+        dstPort_ = value;
       }
     }
 
@@ -386,42 +370,92 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "Proto" field.</summary>
-    public const int ProtoFieldNumber = 20;
-    private uint proto_;
+    /// <summary>Field number for the "SrcMac" field.</summary>
+    public const int SrcMacFieldNumber = 27;
+    private ulong srcMac_;
     /// <summary>
-    /// Layer 4 protocol
+    /// Ethernet information
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Proto {
-      get { return proto_; }
+    public ulong SrcMac {
+      get { return srcMac_; }
       set {
-        proto_ = value;
+        srcMac_ = value;
       }
     }
 
-    /// <summary>Field number for the "SrcPort" field.</summary>
-    public const int SrcPortFieldNumber = 21;
-    private uint srcPort_;
-    /// <summary>
-    /// Port for UDP and TCP
-    /// </summary>
+    /// <summary>Field number for the "DstMac" field.</summary>
+    public const int DstMacFieldNumber = 28;
+    private ulong dstMac_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint SrcPort {
-      get { return srcPort_; }
+    public ulong DstMac {
+      get { return dstMac_; }
       set {
-        srcPort_ = value;
+        dstMac_ = value;
       }
     }
 
-    /// <summary>Field number for the "DstPort" field.</summary>
-    public const int DstPortFieldNumber = 22;
-    private uint dstPort_;
+    /// <summary>Field number for the "SrcVlan" field.</summary>
+    public const int SrcVlanFieldNumber = 33;
+    private uint srcVlan_;
+    /// <summary>
+    /// Vlan
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint DstPort {
-      get { return dstPort_; }
+    public uint SrcVlan {
+      get { return srcVlan_; }
       set {
-        dstPort_ = value;
+        srcVlan_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DstVlan" field.</summary>
+    public const int DstVlanFieldNumber = 34;
+    private uint dstVlan_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint DstVlan {
+      get { return dstVlan_; }
+      set {
+        dstVlan_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "VlanId" field.</summary>
+    public const int VlanIdFieldNumber = 29;
+    private uint vlanId_;
+    /// <summary>
+    /// 802.1q VLAN in sampled packet
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint VlanId {
+      get { return vlanId_; }
+      set {
+        vlanId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IngressVrfID" field.</summary>
+    public const int IngressVrfIDFieldNumber = 39;
+    private uint ingressVrfID_;
+    /// <summary>
+    /// VRF
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint IngressVrfID {
+      get { return ingressVrfID_; }
+      set {
+        ingressVrfID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EgressVrfID" field.</summary>
+    public const int EgressVrfIDFieldNumber = 40;
+    private uint egressVrfID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint EgressVrfID {
+      get { return egressVrfID_; }
+      set {
+        egressVrfID_ = value;
       }
     }
 
@@ -472,59 +506,6 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "SrcMac" field.</summary>
-    public const int SrcMacFieldNumber = 27;
-    private ulong srcMac_;
-    /// <summary>
-    /// Ethernet information
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong SrcMac {
-      get { return srcMac_; }
-      set {
-        srcMac_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "DstMac" field.</summary>
-    public const int DstMacFieldNumber = 28;
-    private ulong dstMac_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong DstMac {
-      get { return dstMac_; }
-      set {
-        dstMac_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "VlanId" field.</summary>
-    public const int VlanIdFieldNumber = 29;
-    private uint vlanId_;
-    /// <summary>
-    /// 802.1q VLAN in sampled packet
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint VlanId {
-      get { return vlanId_; }
-      set {
-        vlanId_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "Etype" field.</summary>
-    public const int EtypeFieldNumber = 30;
-    private uint etype_;
-    /// <summary>
-    /// Layer 3 protocol (IPv4/IPv6/ARP/...)
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Etype {
-      get { return etype_; }
-      set {
-        etype_ = value;
-      }
-    }
-
     /// <summary>Field number for the "IcmpType" field.</summary>
     public const int IcmpTypeFieldNumber = 31;
     private uint icmpType_;
@@ -547,28 +528,14 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "SrcVlan" field.</summary>
-    public const int SrcVlanFieldNumber = 33;
-    private uint srcVlan_;
-    /// <summary>
-    /// Vlan
-    /// </summary>
+    /// <summary>Field number for the "IPv6FlowLabel" field.</summary>
+    public const int IPv6FlowLabelFieldNumber = 37;
+    private uint iPv6FlowLabel_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint SrcVlan {
-      get { return srcVlan_; }
+    public uint IPv6FlowLabel {
+      get { return iPv6FlowLabel_; }
       set {
-        srcVlan_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "DstVlan" field.</summary>
-    public const int DstVlanFieldNumber = 34;
-    private uint dstVlan_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint DstVlan {
-      get { return dstVlan_; }
-      set {
-        dstVlan_ = value;
+        iPv6FlowLabel_ = value;
       }
     }
 
@@ -597,81 +564,95 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "IPv6FlowLabel" field.</summary>
-    public const int IPv6FlowLabelFieldNumber = 37;
-    private uint iPv6FlowLabel_;
+    /// <summary>Field number for the "BiFlowDirection" field.</summary>
+    public const int BiFlowDirectionFieldNumber = 41;
+    private uint biFlowDirection_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint IPv6FlowLabel {
-      get { return iPv6FlowLabel_; }
+    public uint BiFlowDirection {
+      get { return biFlowDirection_; }
       set {
-        iPv6FlowLabel_ = value;
+        biFlowDirection_ = value;
       }
     }
 
-    /// <summary>Field number for the "IngressVrfId" field.</summary>
-    public const int IngressVrfIdFieldNumber = 38;
-    private uint ingressVrfId_;
+    /// <summary>Field number for the "SrcAS" field.</summary>
+    public const int SrcASFieldNumber = 14;
+    private uint srcAS_;
     /// <summary>
-    /// VRF
+    /// Autonomous system information
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint IngressVrfId {
-      get { return ingressVrfId_; }
+    public uint SrcAS {
+      get { return srcAS_; }
       set {
-        ingressVrfId_ = value;
+        srcAS_ = value;
       }
     }
 
-    /// <summary>Field number for the "EgressVrfId" field.</summary>
-    public const int EgressVrfIdFieldNumber = 39;
-    private uint egressVrfId_;
+    /// <summary>Field number for the "DstAS" field.</summary>
+    public const int DstASFieldNumber = 15;
+    private uint dstAS_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint EgressVrfId {
-      get { return egressVrfId_; }
+    public uint DstAS {
+      get { return dstAS_; }
       set {
-        egressVrfId_ = value;
+        dstAS_ = value;
       }
     }
 
-    /// <summary>Field number for the "TimeFlowStart" field.</summary>
-    public const int TimeFlowStartFieldNumber = 40;
-    private ulong timeFlowStart_;
+    /// <summary>Field number for the "NextHop" field.</summary>
+    public const int NextHopFieldNumber = 12;
+    private pb::ByteString nextHop_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString NextHop {
+      get { return nextHop_; }
+      set {
+        nextHop_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "NextHopAS" field.</summary>
+    public const int NextHopASFieldNumber = 13;
+    private uint nextHopAS_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NextHopAS {
+      get { return nextHopAS_; }
+      set {
+        nextHopAS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SrcNet" field.</summary>
+    public const int SrcNetFieldNumber = 16;
+    private uint srcNet_;
     /// <summary>
-    /// Time Flow
+    /// Prefix size
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong TimeFlowStart {
-      get { return timeFlowStart_; }
+    public uint SrcNet {
+      get { return srcNet_; }
       set {
-        timeFlowStart_ = value;
+        srcNet_ = value;
       }
     }
 
-    /// <summary>Field number for the "TimeFlowEnd" field.</summary>
-    public const int TimeFlowEndFieldNumber = 41;
-    private ulong timeFlowEnd_;
+    /// <summary>Field number for the "DstNet" field.</summary>
+    public const int DstNetFieldNumber = 17;
+    private uint dstNet_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong TimeFlowEnd {
-      get { return timeFlowEnd_; }
+    public uint DstNet {
+      get { return dstNet_; }
       set {
-        timeFlowEnd_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "Direction" field.</summary>
-    public const int DirectionFieldNumber = 90;
-    private global::Flowmessageenriched.FlowMessage.Types.DirectionType direction_ = 0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Flowmessageenriched.FlowMessage.Types.DirectionType Direction {
-      get { return direction_; }
-      set {
-        direction_ = value;
+        dstNet_ = value;
       }
     }
 
     /// <summary>Field number for the "Cid" field.</summary>
-    public const int CidFieldNumber = 91;
+    public const int CidFieldNumber = 1000;
     private uint cid_;
+    /// <summary>
+    /// bwNetFlow enricher fields
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Cid {
       get { return cid_; }
@@ -680,11 +661,28 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "Normalized" field.</summary>
-    public const int NormalizedFieldNumber = 92;
-    private global::Flowmessageenriched.FlowMessage.Types.NormalizedType normalized_ = 0;
+    /// <summary>Field number for the "CidString" field.</summary>
+    public const int CidStringFieldNumber = 1001;
+    private string cidString_ = "";
+    /// <summary>
+    /// Customer ID - a more generalized ID, assigned by prefix
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Flowmessageenriched.FlowMessage.Types.NormalizedType Normalized {
+    public string CidString {
+      get { return cidString_; }
+      set {
+        cidString_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Normalized" field.</summary>
+    public const int NormalizedFieldNumber = 1002;
+    private global::Flowprotob.FlowMessage.Types.NormalizedType normalized_ = 0;
+    /// <summary>
+    /// Normalization - whether the sampling rate is accounted for
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Flowprotob.FlowMessage.Types.NormalizedType Normalized {
       get { return normalized_; }
       set {
         normalized_ = value;
@@ -692,8 +690,11 @@ namespace Flowmessageenriched {
     }
 
     /// <summary>Field number for the "SrcIfName" field.</summary>
-    public const int SrcIfNameFieldNumber = 93;
+    public const int SrcIfNameFieldNumber = 1003;
     private string srcIfName_ = "";
+    /// <summary>
+    /// Fields for Interface Usability -- enriched using SNMP
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string SrcIfName {
       get { return srcIfName_; }
@@ -703,8 +704,11 @@ namespace Flowmessageenriched {
     }
 
     /// <summary>Field number for the "SrcIfDesc" field.</summary>
-    public const int SrcIfDescFieldNumber = 94;
+    public const int SrcIfDescFieldNumber = 1004;
     private string srcIfDesc_ = "";
+    /// <summary>
+    /// set to the descrition, filtered by a regex in the enricher
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string SrcIfDesc {
       get { return srcIfDesc_; }
@@ -714,8 +718,11 @@ namespace Flowmessageenriched {
     }
 
     /// <summary>Field number for the "SrcIfSpeed" field.</summary>
-    public const int SrcIfSpeedFieldNumber = 95;
+    public const int SrcIfSpeedFieldNumber = 1005;
     private uint srcIfSpeed_;
+    /// <summary>
+    /// iface speed
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint SrcIfSpeed {
       get { return srcIfSpeed_; }
@@ -725,7 +732,7 @@ namespace Flowmessageenriched {
     }
 
     /// <summary>Field number for the "DstIfName" field.</summary>
-    public const int DstIfNameFieldNumber = 96;
+    public const int DstIfNameFieldNumber = 1006;
     private string dstIfName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string DstIfName {
@@ -736,7 +743,7 @@ namespace Flowmessageenriched {
     }
 
     /// <summary>Field number for the "DstIfDesc" field.</summary>
-    public const int DstIfDescFieldNumber = 97;
+    public const int DstIfDescFieldNumber = 1007;
     private string dstIfDesc_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string DstIfDesc {
@@ -747,7 +754,7 @@ namespace Flowmessageenriched {
     }
 
     /// <summary>Field number for the "DstIfSpeed" field.</summary>
-    public const int DstIfSpeedFieldNumber = 98;
+    public const int DstIfSpeedFieldNumber = 1008;
     private uint dstIfSpeed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint DstIfSpeed {
@@ -757,36 +764,31 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "Peer" field.</summary>
-    public const int PeerFieldNumber = 99;
-    private string peer_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Peer {
-      get { return peer_; }
-      set {
-        peer_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "RemoteCountry" field.</summary>
-    public const int RemoteCountryFieldNumber = 100;
-    private string remoteCountry_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string RemoteCountry {
-      get { return remoteCountry_; }
-      set {
-        remoteCountry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "ProtoName" field.</summary>
-    public const int ProtoNameFieldNumber = 101;
+    public const int ProtoNameFieldNumber = 1009;
     private string protoName_ = "";
+    /// <summary>
+    /// Protocol Name -- set for some well known protocols, based on Proto
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string ProtoName {
       get { return protoName_; }
       set {
         protoName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "RemoteCountry" field.</summary>
+    public const int RemoteCountryFieldNumber = 1010;
+    private string remoteCountry_ = "";
+    /// <summary>
+    /// Geolocation -- set using the provided database
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RemoteCountry {
+      get { return remoteCountry_; }
+      set {
+        remoteCountry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -804,48 +806,48 @@ namespace Flowmessageenriched {
         return true;
       }
       if (Type != other.Type) return false;
-      if (TimeRecvd != other.TimeRecvd) return false;
-      if (SamplingRate != other.SamplingRate) return false;
+      if (TimeReceived != other.TimeReceived) return false;
       if (SequenceNum != other.SequenceNum) return false;
-      if (TimeFlow != other.TimeFlow) return false;
-      if (SrcIP != other.SrcIP) return false;
-      if (DstIP != other.DstIP) return false;
-      if (IPversion != other.IPversion) return false;
+      if (SamplingRate != other.SamplingRate) return false;
+      if (FlowDirection != other.FlowDirection) return false;
+      if (SamplerAddress != other.SamplerAddress) return false;
+      if (TimeFlowStart != other.TimeFlowStart) return false;
+      if (TimeFlowEnd != other.TimeFlowEnd) return false;
       if (Bytes != other.Bytes) return false;
       if (Packets != other.Packets) return false;
-      if (RouterAddr != other.RouterAddr) return false;
-      if (NextHop != other.NextHop) return false;
-      if (NextHopAS != other.NextHopAS) return false;
-      if (SrcAS != other.SrcAS) return false;
-      if (DstAS != other.DstAS) return false;
-      if (SrcNet != other.SrcNet) return false;
-      if (DstNet != other.DstNet) return false;
-      if (SrcIf != other.SrcIf) return false;
-      if (DstIf != other.DstIf) return false;
+      if (SrcAddr != other.SrcAddr) return false;
+      if (DstAddr != other.DstAddr) return false;
+      if (Etype != other.Etype) return false;
       if (Proto != other.Proto) return false;
       if (SrcPort != other.SrcPort) return false;
       if (DstPort != other.DstPort) return false;
+      if (SrcIf != other.SrcIf) return false;
+      if (DstIf != other.DstIf) return false;
+      if (SrcMac != other.SrcMac) return false;
+      if (DstMac != other.DstMac) return false;
+      if (SrcVlan != other.SrcVlan) return false;
+      if (DstVlan != other.DstVlan) return false;
+      if (VlanId != other.VlanId) return false;
+      if (IngressVrfID != other.IngressVrfID) return false;
+      if (EgressVrfID != other.EgressVrfID) return false;
       if (IPTos != other.IPTos) return false;
       if (ForwardingStatus != other.ForwardingStatus) return false;
       if (IPTTL != other.IPTTL) return false;
       if (TCPFlags != other.TCPFlags) return false;
-      if (SrcMac != other.SrcMac) return false;
-      if (DstMac != other.DstMac) return false;
-      if (VlanId != other.VlanId) return false;
-      if (Etype != other.Etype) return false;
       if (IcmpType != other.IcmpType) return false;
       if (IcmpCode != other.IcmpCode) return false;
-      if (SrcVlan != other.SrcVlan) return false;
-      if (DstVlan != other.DstVlan) return false;
+      if (IPv6FlowLabel != other.IPv6FlowLabel) return false;
       if (FragmentId != other.FragmentId) return false;
       if (FragmentOffset != other.FragmentOffset) return false;
-      if (IPv6FlowLabel != other.IPv6FlowLabel) return false;
-      if (IngressVrfId != other.IngressVrfId) return false;
-      if (EgressVrfId != other.EgressVrfId) return false;
-      if (TimeFlowStart != other.TimeFlowStart) return false;
-      if (TimeFlowEnd != other.TimeFlowEnd) return false;
-      if (Direction != other.Direction) return false;
+      if (BiFlowDirection != other.BiFlowDirection) return false;
+      if (SrcAS != other.SrcAS) return false;
+      if (DstAS != other.DstAS) return false;
+      if (NextHop != other.NextHop) return false;
+      if (NextHopAS != other.NextHopAS) return false;
+      if (SrcNet != other.SrcNet) return false;
+      if (DstNet != other.DstNet) return false;
       if (Cid != other.Cid) return false;
+      if (CidString != other.CidString) return false;
       if (Normalized != other.Normalized) return false;
       if (SrcIfName != other.SrcIfName) return false;
       if (SrcIfDesc != other.SrcIfDesc) return false;
@@ -853,9 +855,8 @@ namespace Flowmessageenriched {
       if (DstIfName != other.DstIfName) return false;
       if (DstIfDesc != other.DstIfDesc) return false;
       if (DstIfSpeed != other.DstIfSpeed) return false;
-      if (Peer != other.Peer) return false;
-      if (RemoteCountry != other.RemoteCountry) return false;
       if (ProtoName != other.ProtoName) return false;
+      if (RemoteCountry != other.RemoteCountry) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -863,48 +864,48 @@ namespace Flowmessageenriched {
     public override int GetHashCode() {
       int hash = 1;
       if (Type != 0) hash ^= Type.GetHashCode();
-      if (TimeRecvd != 0UL) hash ^= TimeRecvd.GetHashCode();
-      if (SamplingRate != 0UL) hash ^= SamplingRate.GetHashCode();
+      if (TimeReceived != 0UL) hash ^= TimeReceived.GetHashCode();
       if (SequenceNum != 0) hash ^= SequenceNum.GetHashCode();
-      if (TimeFlow != 0UL) hash ^= TimeFlow.GetHashCode();
-      if (SrcIP.Length != 0) hash ^= SrcIP.GetHashCode();
-      if (DstIP.Length != 0) hash ^= DstIP.GetHashCode();
-      if (IPversion != 0) hash ^= IPversion.GetHashCode();
+      if (SamplingRate != 0UL) hash ^= SamplingRate.GetHashCode();
+      if (FlowDirection != 0) hash ^= FlowDirection.GetHashCode();
+      if (SamplerAddress.Length != 0) hash ^= SamplerAddress.GetHashCode();
+      if (TimeFlowStart != 0UL) hash ^= TimeFlowStart.GetHashCode();
+      if (TimeFlowEnd != 0UL) hash ^= TimeFlowEnd.GetHashCode();
       if (Bytes != 0UL) hash ^= Bytes.GetHashCode();
       if (Packets != 0UL) hash ^= Packets.GetHashCode();
-      if (RouterAddr.Length != 0) hash ^= RouterAddr.GetHashCode();
-      if (NextHop.Length != 0) hash ^= NextHop.GetHashCode();
-      if (NextHopAS != 0) hash ^= NextHopAS.GetHashCode();
-      if (SrcAS != 0) hash ^= SrcAS.GetHashCode();
-      if (DstAS != 0) hash ^= DstAS.GetHashCode();
-      if (SrcNet != 0) hash ^= SrcNet.GetHashCode();
-      if (DstNet != 0) hash ^= DstNet.GetHashCode();
-      if (SrcIf != 0) hash ^= SrcIf.GetHashCode();
-      if (DstIf != 0) hash ^= DstIf.GetHashCode();
+      if (SrcAddr.Length != 0) hash ^= SrcAddr.GetHashCode();
+      if (DstAddr.Length != 0) hash ^= DstAddr.GetHashCode();
+      if (Etype != 0) hash ^= Etype.GetHashCode();
       if (Proto != 0) hash ^= Proto.GetHashCode();
       if (SrcPort != 0) hash ^= SrcPort.GetHashCode();
       if (DstPort != 0) hash ^= DstPort.GetHashCode();
+      if (SrcIf != 0) hash ^= SrcIf.GetHashCode();
+      if (DstIf != 0) hash ^= DstIf.GetHashCode();
+      if (SrcMac != 0UL) hash ^= SrcMac.GetHashCode();
+      if (DstMac != 0UL) hash ^= DstMac.GetHashCode();
+      if (SrcVlan != 0) hash ^= SrcVlan.GetHashCode();
+      if (DstVlan != 0) hash ^= DstVlan.GetHashCode();
+      if (VlanId != 0) hash ^= VlanId.GetHashCode();
+      if (IngressVrfID != 0) hash ^= IngressVrfID.GetHashCode();
+      if (EgressVrfID != 0) hash ^= EgressVrfID.GetHashCode();
       if (IPTos != 0) hash ^= IPTos.GetHashCode();
       if (ForwardingStatus != 0) hash ^= ForwardingStatus.GetHashCode();
       if (IPTTL != 0) hash ^= IPTTL.GetHashCode();
       if (TCPFlags != 0) hash ^= TCPFlags.GetHashCode();
-      if (SrcMac != 0UL) hash ^= SrcMac.GetHashCode();
-      if (DstMac != 0UL) hash ^= DstMac.GetHashCode();
-      if (VlanId != 0) hash ^= VlanId.GetHashCode();
-      if (Etype != 0) hash ^= Etype.GetHashCode();
       if (IcmpType != 0) hash ^= IcmpType.GetHashCode();
       if (IcmpCode != 0) hash ^= IcmpCode.GetHashCode();
-      if (SrcVlan != 0) hash ^= SrcVlan.GetHashCode();
-      if (DstVlan != 0) hash ^= DstVlan.GetHashCode();
+      if (IPv6FlowLabel != 0) hash ^= IPv6FlowLabel.GetHashCode();
       if (FragmentId != 0) hash ^= FragmentId.GetHashCode();
       if (FragmentOffset != 0) hash ^= FragmentOffset.GetHashCode();
-      if (IPv6FlowLabel != 0) hash ^= IPv6FlowLabel.GetHashCode();
-      if (IngressVrfId != 0) hash ^= IngressVrfId.GetHashCode();
-      if (EgressVrfId != 0) hash ^= EgressVrfId.GetHashCode();
-      if (TimeFlowStart != 0UL) hash ^= TimeFlowStart.GetHashCode();
-      if (TimeFlowEnd != 0UL) hash ^= TimeFlowEnd.GetHashCode();
-      if (Direction != 0) hash ^= Direction.GetHashCode();
+      if (BiFlowDirection != 0) hash ^= BiFlowDirection.GetHashCode();
+      if (SrcAS != 0) hash ^= SrcAS.GetHashCode();
+      if (DstAS != 0) hash ^= DstAS.GetHashCode();
+      if (NextHop.Length != 0) hash ^= NextHop.GetHashCode();
+      if (NextHopAS != 0) hash ^= NextHopAS.GetHashCode();
+      if (SrcNet != 0) hash ^= SrcNet.GetHashCode();
+      if (DstNet != 0) hash ^= DstNet.GetHashCode();
       if (Cid != 0) hash ^= Cid.GetHashCode();
+      if (CidString.Length != 0) hash ^= CidString.GetHashCode();
       if (Normalized != 0) hash ^= Normalized.GetHashCode();
       if (SrcIfName.Length != 0) hash ^= SrcIfName.GetHashCode();
       if (SrcIfDesc.Length != 0) hash ^= SrcIfDesc.GetHashCode();
@@ -912,9 +913,8 @@ namespace Flowmessageenriched {
       if (DstIfName.Length != 0) hash ^= DstIfName.GetHashCode();
       if (DstIfDesc.Length != 0) hash ^= DstIfDesc.GetHashCode();
       if (DstIfSpeed != 0) hash ^= DstIfSpeed.GetHashCode();
-      if (Peer.Length != 0) hash ^= Peer.GetHashCode();
-      if (RemoteCountry.Length != 0) hash ^= RemoteCountry.GetHashCode();
       if (ProtoName.Length != 0) hash ^= ProtoName.GetHashCode();
+      if (RemoteCountry.Length != 0) hash ^= RemoteCountry.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -932,9 +932,9 @@ namespace Flowmessageenriched {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
-      if (TimeRecvd != 0UL) {
+      if (TimeReceived != 0UL) {
         output.WriteRawTag(16);
-        output.WriteUInt64(TimeRecvd);
+        output.WriteUInt64(TimeReceived);
       }
       if (SamplingRate != 0UL) {
         output.WriteRawTag(24);
@@ -944,21 +944,17 @@ namespace Flowmessageenriched {
         output.WriteRawTag(32);
         output.WriteUInt32(SequenceNum);
       }
-      if (TimeFlow != 0UL) {
+      if (TimeFlowEnd != 0UL) {
         output.WriteRawTag(40);
-        output.WriteUInt64(TimeFlow);
+        output.WriteUInt64(TimeFlowEnd);
       }
-      if (SrcIP.Length != 0) {
+      if (SrcAddr.Length != 0) {
         output.WriteRawTag(50);
-        output.WriteBytes(SrcIP);
+        output.WriteBytes(SrcAddr);
       }
-      if (DstIP.Length != 0) {
+      if (DstAddr.Length != 0) {
         output.WriteRawTag(58);
-        output.WriteBytes(DstIP);
-      }
-      if (IPversion != 0) {
-        output.WriteRawTag(64);
-        output.WriteEnum((int) IPversion);
+        output.WriteBytes(DstAddr);
       }
       if (Bytes != 0UL) {
         output.WriteRawTag(72);
@@ -968,9 +964,9 @@ namespace Flowmessageenriched {
         output.WriteRawTag(80);
         output.WriteUInt64(Packets);
       }
-      if (RouterAddr.Length != 0) {
+      if (SamplerAddress.Length != 0) {
         output.WriteRawTag(90);
-        output.WriteBytes(RouterAddr);
+        output.WriteBytes(SamplerAddress);
       }
       if (NextHop.Length != 0) {
         output.WriteRawTag(98);
@@ -1076,69 +1072,69 @@ namespace Flowmessageenriched {
         output.WriteRawTag(168, 2);
         output.WriteUInt32(IPv6FlowLabel);
       }
-      if (IngressVrfId != 0) {
-        output.WriteRawTag(176, 2);
-        output.WriteUInt32(IngressVrfId);
-      }
-      if (EgressVrfId != 0) {
-        output.WriteRawTag(184, 2);
-        output.WriteUInt32(EgressVrfId);
-      }
       if (TimeFlowStart != 0UL) {
-        output.WriteRawTag(192, 2);
+        output.WriteRawTag(176, 2);
         output.WriteUInt64(TimeFlowStart);
       }
-      if (TimeFlowEnd != 0UL) {
-        output.WriteRawTag(200, 2);
-        output.WriteUInt64(TimeFlowEnd);
+      if (IngressVrfID != 0) {
+        output.WriteRawTag(184, 2);
+        output.WriteUInt32(IngressVrfID);
       }
-      if (Direction != 0) {
-        output.WriteRawTag(208, 5);
-        output.WriteEnum((int) Direction);
+      if (EgressVrfID != 0) {
+        output.WriteRawTag(192, 2);
+        output.WriteUInt32(EgressVrfID);
+      }
+      if (BiFlowDirection != 0) {
+        output.WriteRawTag(200, 2);
+        output.WriteUInt32(BiFlowDirection);
+      }
+      if (FlowDirection != 0) {
+        output.WriteRawTag(208, 2);
+        output.WriteUInt32(FlowDirection);
       }
       if (Cid != 0) {
-        output.WriteRawTag(216, 5);
+        output.WriteRawTag(192, 62);
         output.WriteUInt32(Cid);
       }
+      if (CidString.Length != 0) {
+        output.WriteRawTag(202, 62);
+        output.WriteString(CidString);
+      }
       if (Normalized != 0) {
-        output.WriteRawTag(224, 5);
+        output.WriteRawTag(208, 62);
         output.WriteEnum((int) Normalized);
       }
       if (SrcIfName.Length != 0) {
-        output.WriteRawTag(234, 5);
+        output.WriteRawTag(218, 62);
         output.WriteString(SrcIfName);
       }
       if (SrcIfDesc.Length != 0) {
-        output.WriteRawTag(242, 5);
+        output.WriteRawTag(226, 62);
         output.WriteString(SrcIfDesc);
       }
       if (SrcIfSpeed != 0) {
-        output.WriteRawTag(248, 5);
+        output.WriteRawTag(232, 62);
         output.WriteUInt32(SrcIfSpeed);
       }
       if (DstIfName.Length != 0) {
-        output.WriteRawTag(130, 6);
+        output.WriteRawTag(242, 62);
         output.WriteString(DstIfName);
       }
       if (DstIfDesc.Length != 0) {
-        output.WriteRawTag(138, 6);
+        output.WriteRawTag(250, 62);
         output.WriteString(DstIfDesc);
       }
       if (DstIfSpeed != 0) {
-        output.WriteRawTag(144, 6);
+        output.WriteRawTag(128, 63);
         output.WriteUInt32(DstIfSpeed);
       }
-      if (Peer.Length != 0) {
-        output.WriteRawTag(154, 6);
-        output.WriteString(Peer);
+      if (ProtoName.Length != 0) {
+        output.WriteRawTag(138, 63);
+        output.WriteString(ProtoName);
       }
       if (RemoteCountry.Length != 0) {
-        output.WriteRawTag(162, 6);
+        output.WriteRawTag(146, 63);
         output.WriteString(RemoteCountry);
-      }
-      if (ProtoName.Length != 0) {
-        output.WriteRawTag(170, 6);
-        output.WriteString(ProtoName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1151,26 +1147,26 @@ namespace Flowmessageenriched {
       if (Type != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
-      if (TimeRecvd != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TimeRecvd);
-      }
-      if (SamplingRate != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SamplingRate);
+      if (TimeReceived != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TimeReceived);
       }
       if (SequenceNum != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SequenceNum);
       }
-      if (TimeFlow != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TimeFlow);
+      if (SamplingRate != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SamplingRate);
       }
-      if (SrcIP.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(SrcIP);
+      if (FlowDirection != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(FlowDirection);
       }
-      if (DstIP.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(DstIP);
+      if (SamplerAddress.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(SamplerAddress);
       }
-      if (IPversion != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) IPversion);
+      if (TimeFlowStart != 0UL) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt64Size(TimeFlowStart);
+      }
+      if (TimeFlowEnd != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TimeFlowEnd);
       }
       if (Bytes != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Bytes);
@@ -1178,32 +1174,14 @@ namespace Flowmessageenriched {
       if (Packets != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Packets);
       }
-      if (RouterAddr.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(RouterAddr);
+      if (SrcAddr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(SrcAddr);
       }
-      if (NextHop.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(NextHop);
+      if (DstAddr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(DstAddr);
       }
-      if (NextHopAS != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NextHopAS);
-      }
-      if (SrcAS != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SrcAS);
-      }
-      if (DstAS != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DstAS);
-      }
-      if (SrcNet != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(SrcNet);
-      }
-      if (DstNet != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstNet);
-      }
-      if (SrcIf != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(SrcIf);
-      }
-      if (DstIf != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstIf);
+      if (Etype != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Etype);
       }
       if (Proto != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Proto);
@@ -1213,6 +1191,33 @@ namespace Flowmessageenriched {
       }
       if (DstPort != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstPort);
+      }
+      if (SrcIf != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(SrcIf);
+      }
+      if (DstIf != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstIf);
+      }
+      if (SrcMac != 0UL) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt64Size(SrcMac);
+      }
+      if (DstMac != 0UL) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt64Size(DstMac);
+      }
+      if (SrcVlan != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(SrcVlan);
+      }
+      if (DstVlan != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstVlan);
+      }
+      if (VlanId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(VlanId);
+      }
+      if (IngressVrfID != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IngressVrfID);
+      }
+      if (EgressVrfID != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(EgressVrfID);
       }
       if (IPTos != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPTos);
@@ -1226,29 +1231,14 @@ namespace Flowmessageenriched {
       if (TCPFlags != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(TCPFlags);
       }
-      if (SrcMac != 0UL) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt64Size(SrcMac);
-      }
-      if (DstMac != 0UL) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt64Size(DstMac);
-      }
-      if (VlanId != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(VlanId);
-      }
-      if (Etype != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Etype);
-      }
       if (IcmpType != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IcmpType);
       }
       if (IcmpCode != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IcmpCode);
       }
-      if (SrcVlan != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(SrcVlan);
-      }
-      if (DstVlan != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstVlan);
+      if (IPv6FlowLabel != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPv6FlowLabel);
       }
       if (FragmentId != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(FragmentId);
@@ -1256,26 +1246,32 @@ namespace Flowmessageenriched {
       if (FragmentOffset != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(FragmentOffset);
       }
-      if (IPv6FlowLabel != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPv6FlowLabel);
+      if (BiFlowDirection != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(BiFlowDirection);
       }
-      if (IngressVrfId != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IngressVrfId);
+      if (SrcAS != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SrcAS);
       }
-      if (EgressVrfId != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(EgressVrfId);
+      if (DstAS != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DstAS);
       }
-      if (TimeFlowStart != 0UL) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt64Size(TimeFlowStart);
+      if (NextHop.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(NextHop);
       }
-      if (TimeFlowEnd != 0UL) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt64Size(TimeFlowEnd);
+      if (NextHopAS != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NextHopAS);
       }
-      if (Direction != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Direction);
+      if (SrcNet != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(SrcNet);
+      }
+      if (DstNet != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstNet);
       }
       if (Cid != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Cid);
+      }
+      if (CidString.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(CidString);
       }
       if (Normalized != 0) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Normalized);
@@ -1298,14 +1294,11 @@ namespace Flowmessageenriched {
       if (DstIfSpeed != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstIfSpeed);
       }
-      if (Peer.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(Peer);
+      if (ProtoName.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ProtoName);
       }
       if (RemoteCountry.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(RemoteCountry);
-      }
-      if (ProtoName.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(ProtoName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1321,26 +1314,26 @@ namespace Flowmessageenriched {
       if (other.Type != 0) {
         Type = other.Type;
       }
-      if (other.TimeRecvd != 0UL) {
-        TimeRecvd = other.TimeRecvd;
-      }
-      if (other.SamplingRate != 0UL) {
-        SamplingRate = other.SamplingRate;
+      if (other.TimeReceived != 0UL) {
+        TimeReceived = other.TimeReceived;
       }
       if (other.SequenceNum != 0) {
         SequenceNum = other.SequenceNum;
       }
-      if (other.TimeFlow != 0UL) {
-        TimeFlow = other.TimeFlow;
+      if (other.SamplingRate != 0UL) {
+        SamplingRate = other.SamplingRate;
       }
-      if (other.SrcIP.Length != 0) {
-        SrcIP = other.SrcIP;
+      if (other.FlowDirection != 0) {
+        FlowDirection = other.FlowDirection;
       }
-      if (other.DstIP.Length != 0) {
-        DstIP = other.DstIP;
+      if (other.SamplerAddress.Length != 0) {
+        SamplerAddress = other.SamplerAddress;
       }
-      if (other.IPversion != 0) {
-        IPversion = other.IPversion;
+      if (other.TimeFlowStart != 0UL) {
+        TimeFlowStart = other.TimeFlowStart;
+      }
+      if (other.TimeFlowEnd != 0UL) {
+        TimeFlowEnd = other.TimeFlowEnd;
       }
       if (other.Bytes != 0UL) {
         Bytes = other.Bytes;
@@ -1348,32 +1341,14 @@ namespace Flowmessageenriched {
       if (other.Packets != 0UL) {
         Packets = other.Packets;
       }
-      if (other.RouterAddr.Length != 0) {
-        RouterAddr = other.RouterAddr;
+      if (other.SrcAddr.Length != 0) {
+        SrcAddr = other.SrcAddr;
       }
-      if (other.NextHop.Length != 0) {
-        NextHop = other.NextHop;
+      if (other.DstAddr.Length != 0) {
+        DstAddr = other.DstAddr;
       }
-      if (other.NextHopAS != 0) {
-        NextHopAS = other.NextHopAS;
-      }
-      if (other.SrcAS != 0) {
-        SrcAS = other.SrcAS;
-      }
-      if (other.DstAS != 0) {
-        DstAS = other.DstAS;
-      }
-      if (other.SrcNet != 0) {
-        SrcNet = other.SrcNet;
-      }
-      if (other.DstNet != 0) {
-        DstNet = other.DstNet;
-      }
-      if (other.SrcIf != 0) {
-        SrcIf = other.SrcIf;
-      }
-      if (other.DstIf != 0) {
-        DstIf = other.DstIf;
+      if (other.Etype != 0) {
+        Etype = other.Etype;
       }
       if (other.Proto != 0) {
         Proto = other.Proto;
@@ -1383,6 +1358,33 @@ namespace Flowmessageenriched {
       }
       if (other.DstPort != 0) {
         DstPort = other.DstPort;
+      }
+      if (other.SrcIf != 0) {
+        SrcIf = other.SrcIf;
+      }
+      if (other.DstIf != 0) {
+        DstIf = other.DstIf;
+      }
+      if (other.SrcMac != 0UL) {
+        SrcMac = other.SrcMac;
+      }
+      if (other.DstMac != 0UL) {
+        DstMac = other.DstMac;
+      }
+      if (other.SrcVlan != 0) {
+        SrcVlan = other.SrcVlan;
+      }
+      if (other.DstVlan != 0) {
+        DstVlan = other.DstVlan;
+      }
+      if (other.VlanId != 0) {
+        VlanId = other.VlanId;
+      }
+      if (other.IngressVrfID != 0) {
+        IngressVrfID = other.IngressVrfID;
+      }
+      if (other.EgressVrfID != 0) {
+        EgressVrfID = other.EgressVrfID;
       }
       if (other.IPTos != 0) {
         IPTos = other.IPTos;
@@ -1396,29 +1398,14 @@ namespace Flowmessageenriched {
       if (other.TCPFlags != 0) {
         TCPFlags = other.TCPFlags;
       }
-      if (other.SrcMac != 0UL) {
-        SrcMac = other.SrcMac;
-      }
-      if (other.DstMac != 0UL) {
-        DstMac = other.DstMac;
-      }
-      if (other.VlanId != 0) {
-        VlanId = other.VlanId;
-      }
-      if (other.Etype != 0) {
-        Etype = other.Etype;
-      }
       if (other.IcmpType != 0) {
         IcmpType = other.IcmpType;
       }
       if (other.IcmpCode != 0) {
         IcmpCode = other.IcmpCode;
       }
-      if (other.SrcVlan != 0) {
-        SrcVlan = other.SrcVlan;
-      }
-      if (other.DstVlan != 0) {
-        DstVlan = other.DstVlan;
+      if (other.IPv6FlowLabel != 0) {
+        IPv6FlowLabel = other.IPv6FlowLabel;
       }
       if (other.FragmentId != 0) {
         FragmentId = other.FragmentId;
@@ -1426,26 +1413,32 @@ namespace Flowmessageenriched {
       if (other.FragmentOffset != 0) {
         FragmentOffset = other.FragmentOffset;
       }
-      if (other.IPv6FlowLabel != 0) {
-        IPv6FlowLabel = other.IPv6FlowLabel;
+      if (other.BiFlowDirection != 0) {
+        BiFlowDirection = other.BiFlowDirection;
       }
-      if (other.IngressVrfId != 0) {
-        IngressVrfId = other.IngressVrfId;
+      if (other.SrcAS != 0) {
+        SrcAS = other.SrcAS;
       }
-      if (other.EgressVrfId != 0) {
-        EgressVrfId = other.EgressVrfId;
+      if (other.DstAS != 0) {
+        DstAS = other.DstAS;
       }
-      if (other.TimeFlowStart != 0UL) {
-        TimeFlowStart = other.TimeFlowStart;
+      if (other.NextHop.Length != 0) {
+        NextHop = other.NextHop;
       }
-      if (other.TimeFlowEnd != 0UL) {
-        TimeFlowEnd = other.TimeFlowEnd;
+      if (other.NextHopAS != 0) {
+        NextHopAS = other.NextHopAS;
       }
-      if (other.Direction != 0) {
-        Direction = other.Direction;
+      if (other.SrcNet != 0) {
+        SrcNet = other.SrcNet;
+      }
+      if (other.DstNet != 0) {
+        DstNet = other.DstNet;
       }
       if (other.Cid != 0) {
         Cid = other.Cid;
+      }
+      if (other.CidString.Length != 0) {
+        CidString = other.CidString;
       }
       if (other.Normalized != 0) {
         Normalized = other.Normalized;
@@ -1468,14 +1461,11 @@ namespace Flowmessageenriched {
       if (other.DstIfSpeed != 0) {
         DstIfSpeed = other.DstIfSpeed;
       }
-      if (other.Peer.Length != 0) {
-        Peer = other.Peer;
+      if (other.ProtoName.Length != 0) {
+        ProtoName = other.ProtoName;
       }
       if (other.RemoteCountry.Length != 0) {
         RemoteCountry = other.RemoteCountry;
-      }
-      if (other.ProtoName.Length != 0) {
-        ProtoName = other.ProtoName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1489,11 +1479,11 @@ namespace Flowmessageenriched {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Type = (global::Flowmessageenriched.FlowMessage.Types.FlowType) input.ReadEnum();
+            Type = (global::Flowprotob.FlowMessage.Types.FlowType) input.ReadEnum();
             break;
           }
           case 16: {
-            TimeRecvd = input.ReadUInt64();
+            TimeReceived = input.ReadUInt64();
             break;
           }
           case 24: {
@@ -1505,19 +1495,15 @@ namespace Flowmessageenriched {
             break;
           }
           case 40: {
-            TimeFlow = input.ReadUInt64();
+            TimeFlowEnd = input.ReadUInt64();
             break;
           }
           case 50: {
-            SrcIP = input.ReadBytes();
+            SrcAddr = input.ReadBytes();
             break;
           }
           case 58: {
-            DstIP = input.ReadBytes();
-            break;
-          }
-          case 64: {
-            IPversion = (global::Flowmessageenriched.FlowMessage.Types.IPType) input.ReadEnum();
+            DstAddr = input.ReadBytes();
             break;
           }
           case 72: {
@@ -1529,7 +1515,7 @@ namespace Flowmessageenriched {
             break;
           }
           case 90: {
-            RouterAddr = input.ReadBytes();
+            SamplerAddress = input.ReadBytes();
             break;
           }
           case 98: {
@@ -1637,67 +1623,67 @@ namespace Flowmessageenriched {
             break;
           }
           case 304: {
-            IngressVrfId = input.ReadUInt32();
-            break;
-          }
-          case 312: {
-            EgressVrfId = input.ReadUInt32();
-            break;
-          }
-          case 320: {
             TimeFlowStart = input.ReadUInt64();
             break;
           }
+          case 312: {
+            IngressVrfID = input.ReadUInt32();
+            break;
+          }
+          case 320: {
+            EgressVrfID = input.ReadUInt32();
+            break;
+          }
           case 328: {
-            TimeFlowEnd = input.ReadUInt64();
+            BiFlowDirection = input.ReadUInt32();
             break;
           }
-          case 720: {
-            Direction = (global::Flowmessageenriched.FlowMessage.Types.DirectionType) input.ReadEnum();
+          case 336: {
+            FlowDirection = input.ReadUInt32();
             break;
           }
-          case 728: {
+          case 8000: {
             Cid = input.ReadUInt32();
             break;
           }
-          case 736: {
-            Normalized = (global::Flowmessageenriched.FlowMessage.Types.NormalizedType) input.ReadEnum();
+          case 8010: {
+            CidString = input.ReadString();
             break;
           }
-          case 746: {
+          case 8016: {
+            Normalized = (global::Flowprotob.FlowMessage.Types.NormalizedType) input.ReadEnum();
+            break;
+          }
+          case 8026: {
             SrcIfName = input.ReadString();
             break;
           }
-          case 754: {
+          case 8034: {
             SrcIfDesc = input.ReadString();
             break;
           }
-          case 760: {
+          case 8040: {
             SrcIfSpeed = input.ReadUInt32();
             break;
           }
-          case 770: {
+          case 8050: {
             DstIfName = input.ReadString();
             break;
           }
-          case 778: {
+          case 8058: {
             DstIfDesc = input.ReadString();
             break;
           }
-          case 784: {
+          case 8064: {
             DstIfSpeed = input.ReadUInt32();
             break;
           }
-          case 794: {
-            Peer = input.ReadString();
-            break;
-          }
-          case 802: {
-            RemoteCountry = input.ReadString();
-            break;
-          }
-          case 810: {
+          case 8074: {
             ProtoName = input.ReadString();
+            break;
+          }
+          case 8082: {
+            RemoteCountry = input.ReadString();
             break;
           }
         }
@@ -1710,27 +1696,10 @@ namespace Flowmessageenriched {
     public static partial class Types {
       public enum FlowType {
         [pbr::OriginalName("FLOWUNKNOWN")] Flowunknown = 0,
-        [pbr::OriginalName("NFV9")] Nfv9 = 9,
-        [pbr::OriginalName("IPFIX")] Ipfix = 10,
-        [pbr::OriginalName("SFLOW")] Sflow = 5,
-      }
-
-      /// <summary>
-      /// To be deprecated
-      /// </summary>
-      public enum IPType {
-        [pbr::OriginalName("IPUNKNOWN")] Ipunknown = 0,
-        [pbr::OriginalName("IPv4")] Ipv4 = 4,
-        [pbr::OriginalName("IPv6")] Ipv6 = 6,
-      }
-
-      /// <summary>
-      /// Extensions beyond goflow's default protobuf, starting at id 90
-      /// </summary>
-      public enum DirectionType {
-        [pbr::OriginalName("Unknown")] Unknown = 0,
-        [pbr::OriginalName("Incoming")] Incoming = 1,
-        [pbr::OriginalName("Outgoing")] Outgoing = 2,
+        [pbr::OriginalName("SFLOW_5")] Sflow5 = 1,
+        [pbr::OriginalName("NETFLOW_V5")] NetflowV5 = 2,
+        [pbr::OriginalName("NETFLOW_V9")] NetflowV9 = 3,
+        [pbr::OriginalName("IPFIX")] Ipfix = 4,
       }
 
       public enum NormalizedType {

@@ -38,7 +38,7 @@ static GPBFileDescriptor *FlowMessagesEnrichedRoot_FileDescriptor(void) {
   static GPBFileDescriptor *descriptor = NULL;
   if (!descriptor) {
     GPB_DEBUG_CHECK_RUNTIME_VERSIONS();
-    descriptor = [[GPBFileDescriptor alloc] initWithPackage:@"flowmessageenriched"
+    descriptor = [[GPBFileDescriptor alloc] initWithPackage:@"flowprotob"
                                                      syntax:GPBFileSyntaxProto3];
   }
   return descriptor;
@@ -49,48 +49,48 @@ static GPBFileDescriptor *FlowMessagesEnrichedRoot_FileDescriptor(void) {
 @implementation FlowMessage
 
 @dynamic type;
-@dynamic timeRecvd;
-@dynamic samplingRate;
+@dynamic timeReceived;
 @dynamic sequenceNum;
-@dynamic timeFlow;
-@dynamic srcIp;
-@dynamic dstIp;
-@dynamic ipversion;
+@dynamic samplingRate;
+@dynamic flowDirection;
+@dynamic samplerAddress;
+@dynamic timeFlowStart;
+@dynamic timeFlowEnd;
 @dynamic bytes;
 @dynamic packets;
-@dynamic routerAddr;
-@dynamic nextHop;
-@dynamic nextHopAs;
-@dynamic srcAs;
-@dynamic dstAs;
-@dynamic srcNet;
-@dynamic dstNet;
-@dynamic srcIf;
-@dynamic dstIf;
+@dynamic srcAddr;
+@dynamic dstAddr;
+@dynamic etype;
 @dynamic proto;
 @dynamic srcPort;
 @dynamic dstPort;
+@dynamic srcIf;
+@dynamic dstIf;
+@dynamic srcMac;
+@dynamic dstMac;
+@dynamic srcVlan;
+@dynamic dstVlan;
+@dynamic vlanId;
+@dynamic ingressVrfId;
+@dynamic egressVrfId;
 @dynamic iptos;
 @dynamic forwardingStatus;
 @dynamic ipttl;
 @dynamic tcpflags;
-@dynamic srcMac;
-@dynamic dstMac;
-@dynamic vlanId;
-@dynamic etype;
 @dynamic icmpType;
 @dynamic icmpCode;
-@dynamic srcVlan;
-@dynamic dstVlan;
+@dynamic ipv6FlowLabel;
 @dynamic fragmentId;
 @dynamic fragmentOffset;
-@dynamic ipv6FlowLabel;
-@dynamic ingressVrfId;
-@dynamic egressVrfId;
-@dynamic timeFlowStart;
-@dynamic timeFlowEnd;
-@dynamic direction;
+@dynamic biFlowDirection;
+@dynamic srcAs;
+@dynamic dstAs;
+@dynamic nextHop;
+@dynamic nextHopAs;
+@dynamic srcNet;
+@dynamic dstNet;
 @dynamic cid;
+@dynamic cidString;
 @dynamic normalized;
 @dynamic srcIfName;
 @dynamic srcIfDesc;
@@ -98,15 +98,13 @@ static GPBFileDescriptor *FlowMessagesEnrichedRoot_FileDescriptor(void) {
 @dynamic dstIfName;
 @dynamic dstIfDesc;
 @dynamic dstIfSpeed;
-@dynamic peer;
-@dynamic remoteCountry;
 @dynamic protoName;
+@dynamic remoteCountry;
 
 typedef struct FlowMessage__storage_ {
   uint32_t _has_storage_[2];
   FlowMessage_FlowType type;
   uint32_t sequenceNum;
-  FlowMessage_IPType ipversion;
   uint32_t nextHopAs;
   uint32_t srcAs;
   uint32_t dstAs;
@@ -132,31 +130,31 @@ typedef struct FlowMessage__storage_ {
   uint32_t ipv6FlowLabel;
   uint32_t ingressVrfId;
   uint32_t egressVrfId;
-  FlowMessage_DirectionType direction;
+  uint32_t biFlowDirection;
+  uint32_t flowDirection;
   uint32_t cid;
   FlowMessage_NormalizedType normalized;
   uint32_t srcIfSpeed;
   uint32_t dstIfSpeed;
-  NSData *srcIp;
-  NSData *dstIp;
-  NSData *routerAddr;
+  NSData *srcAddr;
+  NSData *dstAddr;
+  NSData *samplerAddress;
   NSData *nextHop;
+  NSString *cidString;
   NSString *srcIfName;
   NSString *srcIfDesc;
   NSString *dstIfName;
   NSString *dstIfDesc;
-  NSString *peer;
-  NSString *remoteCountry;
   NSString *protoName;
-  uint64_t timeRecvd;
+  NSString *remoteCountry;
+  uint64_t timeReceived;
   uint64_t samplingRate;
-  uint64_t timeFlow;
+  uint64_t timeFlowEnd;
   uint64_t bytes;
   uint64_t packets;
   uint64_t srcMac;
   uint64_t dstMac;
   uint64_t timeFlowStart;
-  uint64_t timeFlowEnd;
 } FlowMessage__storage_;
 
 // This method is threadsafe because it is initially called
@@ -175,11 +173,11 @@ typedef struct FlowMessage__storage_ {
         .dataType = GPBDataTypeEnum,
       },
       {
-        .name = "timeRecvd",
+        .name = "timeReceived",
         .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_TimeRecvd,
+        .number = FlowMessage_FieldNumber_TimeReceived,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, timeRecvd),
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, timeReceived),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt64,
       },
@@ -187,7 +185,7 @@ typedef struct FlowMessage__storage_ {
         .name = "samplingRate",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_SamplingRate,
-        .hasIndex = 2,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, samplingRate),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt64,
@@ -196,46 +194,37 @@ typedef struct FlowMessage__storage_ {
         .name = "sequenceNum",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_SequenceNum,
-        .hasIndex = 3,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, sequenceNum),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
       },
       {
-        .name = "timeFlow",
+        .name = "timeFlowEnd",
         .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_TimeFlow,
-        .hasIndex = 4,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, timeFlow),
+        .number = FlowMessage_FieldNumber_TimeFlowEnd,
+        .hasIndex = 7,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, timeFlowEnd),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt64,
       },
       {
-        .name = "srcIp",
+        .name = "srcAddr",
         .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_SrcIp,
-        .hasIndex = 5,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, srcIp),
+        .number = FlowMessage_FieldNumber_SrcAddr,
+        .hasIndex = 10,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, srcAddr),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeBytes,
       },
       {
-        .name = "dstIp",
+        .name = "dstAddr",
         .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_DstIp,
-        .hasIndex = 6,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, dstIp),
+        .number = FlowMessage_FieldNumber_DstAddr,
+        .hasIndex = 11,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, dstAddr),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "ipversion",
-        .dataTypeSpecific.enumDescFunc = FlowMessage_IPType_EnumDescriptor,
-        .number = FlowMessage_FieldNumber_Ipversion,
-        .hasIndex = 7,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, ipversion),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor),
-        .dataType = GPBDataTypeEnum,
       },
       {
         .name = "bytes",
@@ -256,11 +245,11 @@ typedef struct FlowMessage__storage_ {
         .dataType = GPBDataTypeUInt64,
       },
       {
-        .name = "routerAddr",
+        .name = "samplerAddress",
         .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_RouterAddr,
-        .hasIndex = 10,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, routerAddr),
+        .number = FlowMessage_FieldNumber_SamplerAddress,
+        .hasIndex = 5,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, samplerAddress),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeBytes,
       },
@@ -268,7 +257,7 @@ typedef struct FlowMessage__storage_ {
         .name = "nextHop",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_NextHop,
-        .hasIndex = 11,
+        .hasIndex = 37,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, nextHop),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeBytes,
@@ -277,7 +266,7 @@ typedef struct FlowMessage__storage_ {
         .name = "nextHopAs",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_NextHopAs,
-        .hasIndex = 12,
+        .hasIndex = 38,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, nextHopAs),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -286,7 +275,7 @@ typedef struct FlowMessage__storage_ {
         .name = "srcAs",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_SrcAs,
-        .hasIndex = 13,
+        .hasIndex = 35,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcAs),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -295,7 +284,7 @@ typedef struct FlowMessage__storage_ {
         .name = "dstAs",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_DstAs,
-        .hasIndex = 14,
+        .hasIndex = 36,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstAs),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -304,7 +293,7 @@ typedef struct FlowMessage__storage_ {
         .name = "srcNet",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_SrcNet,
-        .hasIndex = 15,
+        .hasIndex = 39,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcNet),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -313,7 +302,7 @@ typedef struct FlowMessage__storage_ {
         .name = "dstNet",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_DstNet,
-        .hasIndex = 16,
+        .hasIndex = 40,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstNet),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -322,7 +311,7 @@ typedef struct FlowMessage__storage_ {
         .name = "srcIf",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_SrcIf,
-        .hasIndex = 17,
+        .hasIndex = 16,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcIf),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -331,7 +320,7 @@ typedef struct FlowMessage__storage_ {
         .name = "dstIf",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_DstIf,
-        .hasIndex = 18,
+        .hasIndex = 17,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstIf),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -340,7 +329,7 @@ typedef struct FlowMessage__storage_ {
         .name = "proto",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_Proto,
-        .hasIndex = 19,
+        .hasIndex = 13,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, proto),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -349,7 +338,7 @@ typedef struct FlowMessage__storage_ {
         .name = "srcPort",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_SrcPort,
-        .hasIndex = 20,
+        .hasIndex = 14,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcPort),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -358,7 +347,7 @@ typedef struct FlowMessage__storage_ {
         .name = "dstPort",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_DstPort,
-        .hasIndex = 21,
+        .hasIndex = 15,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstPort),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -367,7 +356,7 @@ typedef struct FlowMessage__storage_ {
         .name = "iptos",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_Iptos,
-        .hasIndex = 22,
+        .hasIndex = 25,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, iptos),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -376,7 +365,7 @@ typedef struct FlowMessage__storage_ {
         .name = "forwardingStatus",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_ForwardingStatus,
-        .hasIndex = 23,
+        .hasIndex = 26,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, forwardingStatus),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -385,7 +374,7 @@ typedef struct FlowMessage__storage_ {
         .name = "ipttl",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_Ipttl,
-        .hasIndex = 24,
+        .hasIndex = 27,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, ipttl),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -394,7 +383,7 @@ typedef struct FlowMessage__storage_ {
         .name = "tcpflags",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_Tcpflags,
-        .hasIndex = 25,
+        .hasIndex = 28,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, tcpflags),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -403,7 +392,7 @@ typedef struct FlowMessage__storage_ {
         .name = "srcMac",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_SrcMac,
-        .hasIndex = 26,
+        .hasIndex = 18,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcMac),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt64,
@@ -412,7 +401,7 @@ typedef struct FlowMessage__storage_ {
         .name = "dstMac",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_DstMac,
-        .hasIndex = 27,
+        .hasIndex = 19,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstMac),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt64,
@@ -421,7 +410,7 @@ typedef struct FlowMessage__storage_ {
         .name = "vlanId",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_VlanId,
-        .hasIndex = 28,
+        .hasIndex = 22,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, vlanId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -430,7 +419,7 @@ typedef struct FlowMessage__storage_ {
         .name = "etype",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_Etype,
-        .hasIndex = 29,
+        .hasIndex = 12,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, etype),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -439,7 +428,7 @@ typedef struct FlowMessage__storage_ {
         .name = "icmpType",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_IcmpType,
-        .hasIndex = 30,
+        .hasIndex = 29,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, icmpType),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -448,7 +437,7 @@ typedef struct FlowMessage__storage_ {
         .name = "icmpCode",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_IcmpCode,
-        .hasIndex = 31,
+        .hasIndex = 30,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, icmpCode),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -457,7 +446,7 @@ typedef struct FlowMessage__storage_ {
         .name = "srcVlan",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_SrcVlan,
-        .hasIndex = 32,
+        .hasIndex = 20,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcVlan),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -466,7 +455,7 @@ typedef struct FlowMessage__storage_ {
         .name = "dstVlan",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_DstVlan,
-        .hasIndex = 33,
+        .hasIndex = 21,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstVlan),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -475,7 +464,7 @@ typedef struct FlowMessage__storage_ {
         .name = "fragmentId",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_FragmentId,
-        .hasIndex = 34,
+        .hasIndex = 32,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, fragmentId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -484,7 +473,7 @@ typedef struct FlowMessage__storage_ {
         .name = "fragmentOffset",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_FragmentOffset,
-        .hasIndex = 35,
+        .hasIndex = 33,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, fragmentOffset),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -493,16 +482,25 @@ typedef struct FlowMessage__storage_ {
         .name = "ipv6FlowLabel",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_Ipv6FlowLabel,
-        .hasIndex = 36,
+        .hasIndex = 31,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, ipv6FlowLabel),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
       },
       {
+        .name = "timeFlowStart",
+        .dataTypeSpecific.className = NULL,
+        .number = FlowMessage_FieldNumber_TimeFlowStart,
+        .hasIndex = 6,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, timeFlowStart),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeUInt64,
+      },
+      {
         .name = "ingressVrfId",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_IngressVrfId,
-        .hasIndex = 37,
+        .hasIndex = 23,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, ingressVrfId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
@@ -511,46 +509,46 @@ typedef struct FlowMessage__storage_ {
         .name = "egressVrfId",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_EgressVrfId,
-        .hasIndex = 38,
+        .hasIndex = 24,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, egressVrfId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
       },
       {
-        .name = "timeFlowStart",
+        .name = "biFlowDirection",
         .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_TimeFlowStart,
-        .hasIndex = 39,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, timeFlowStart),
+        .number = FlowMessage_FieldNumber_BiFlowDirection,
+        .hasIndex = 34,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, biFlowDirection),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeUInt64,
+        .dataType = GPBDataTypeUInt32,
       },
       {
-        .name = "timeFlowEnd",
+        .name = "flowDirection",
         .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_TimeFlowEnd,
-        .hasIndex = 40,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, timeFlowEnd),
+        .number = FlowMessage_FieldNumber_FlowDirection,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, flowDirection),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeUInt64,
-      },
-      {
-        .name = "direction",
-        .dataTypeSpecific.enumDescFunc = FlowMessage_DirectionType_EnumDescriptor,
-        .number = FlowMessage_FieldNumber_Direction,
-        .hasIndex = 41,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, direction),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor),
-        .dataType = GPBDataTypeEnum,
+        .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "cid",
         .dataTypeSpecific.className = NULL,
         .number = FlowMessage_FieldNumber_Cid,
-        .hasIndex = 42,
+        .hasIndex = 41,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, cid),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "cidString",
+        .dataTypeSpecific.className = NULL,
+        .number = FlowMessage_FieldNumber_CidString,
+        .hasIndex = 42,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, cidString),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
       },
       {
         .name = "normalized",
@@ -616,11 +614,11 @@ typedef struct FlowMessage__storage_ {
         .dataType = GPBDataTypeUInt32,
       },
       {
-        .name = "peer",
+        .name = "protoName",
         .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_Peer,
+        .number = FlowMessage_FieldNumber_ProtoName,
         .hasIndex = 50,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, peer),
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, protoName),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
@@ -630,15 +628,6 @@ typedef struct FlowMessage__storage_ {
         .number = FlowMessage_FieldNumber_RemoteCountry,
         .hasIndex = 51,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, remoteCountry),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "protoName",
-        .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_ProtoName,
-        .hasIndex = 52,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, protoName),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
@@ -653,11 +642,11 @@ typedef struct FlowMessage__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "5\001D\000\002I\000\003L\000\004K\000\005H\000\006DA\000\007DA\000\010b\007\000\tE\000\nG\000\013J\000\014G\000"
-        "\rHA\000\016DA\000\017DA\000\020F\000\021F\000\022E\000\023E\000\024E\000\025G\000\026G\000\027c\002\000\030P\000"
-        "\031e\000\032d\004\000\033F\000\034F\000\035F\000\036E\000\037H\000 H\000!G\000\"G\000#J\000$N\000%b\013"
-        "\000&L\000\'K\000(M\000)K\000ZI\000[C\000\\J\000]I\000^I\000_J\000`I\000aI\000bJ\000"
-        "cD\000dM\000eI\000";
+        "4\001D\000\002L\000\003L\000\004K\000\005K\000\006G\000\007G\000\tE\000\nG\000\013N\000\014G\000\rHA\000\016D"
+        "A\000\017DA\000\020F\000\021F\000\022E\000\023E\000\024E\000\025G\000\026G\000\027c\002\000\030P\000\031e\000\032d\004"
+        "\000\033F\000\034F\000\035F\000\036E\000\037H\000 H\000!G\000\"G\000#J\000$N\000%b\013\000&M\000\'K"
+        "A\000(JA\000)O\000*M\000\350\007C\000\351\007I\000\352\007J\000\353\007I\000\354\007I\000\355\007J\000\356\007I\000"
+        "\357\007I\000\360\007J\000\361\007I\000\362\007M\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG
@@ -682,30 +671,6 @@ void SetFlowMessage_Type_RawValue(FlowMessage *message, int32_t value) {
   GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
 }
 
-int32_t FlowMessage_Ipversion_RawValue(FlowMessage *message) {
-  GPBDescriptor *descriptor = [FlowMessage descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:FlowMessage_FieldNumber_Ipversion];
-  return GPBGetMessageInt32Field(message, field);
-}
-
-void SetFlowMessage_Ipversion_RawValue(FlowMessage *message, int32_t value) {
-  GPBDescriptor *descriptor = [FlowMessage descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:FlowMessage_FieldNumber_Ipversion];
-  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
-}
-
-int32_t FlowMessage_Direction_RawValue(FlowMessage *message) {
-  GPBDescriptor *descriptor = [FlowMessage descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:FlowMessage_FieldNumber_Direction];
-  return GPBGetMessageInt32Field(message, field);
-}
-
-void SetFlowMessage_Direction_RawValue(FlowMessage *message, int32_t value) {
-  GPBDescriptor *descriptor = [FlowMessage descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:FlowMessage_FieldNumber_Direction];
-  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
-}
-
 int32_t FlowMessage_Normalized_RawValue(FlowMessage *message) {
   GPBDescriptor *descriptor = [FlowMessage descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:FlowMessage_FieldNumber_Normalized];
@@ -724,19 +689,23 @@ GPBEnumDescriptor *FlowMessage_FlowType_EnumDescriptor(void) {
   static _Atomic(GPBEnumDescriptor*) descriptor = nil;
   if (!descriptor) {
     static const char *valueNames =
-        "Flowunknown\000Nfv9\000Ipfix\000Sflow\000";
+        "Flowunknown\000Sflow5\000NetflowV5\000NetflowV9\000I"
+        "pfix\000";
     static const int32_t values[] = {
         FlowMessage_FlowType_Flowunknown,
-        FlowMessage_FlowType_Nfv9,
+        FlowMessage_FlowType_Sflow5,
+        FlowMessage_FlowType_NetflowV5,
+        FlowMessage_FlowType_NetflowV9,
         FlowMessage_FlowType_Ipfix,
-        FlowMessage_FlowType_Sflow,
     };
+    static const char *extraTextFormatInfo = "\001\001e\201\000";
     GPBEnumDescriptor *worker =
         [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(FlowMessage_FlowType)
                                        valueNames:valueNames
                                            values:values
                                             count:(uint32_t)(sizeof(values) / sizeof(int32_t))
-                                     enumVerifier:FlowMessage_FlowType_IsValidValue];
+                                     enumVerifier:FlowMessage_FlowType_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
     GPBEnumDescriptor *expected = nil;
     if (!atomic_compare_exchange_strong(&descriptor, &expected, worker)) {
       [worker release];
@@ -748,87 +717,10 @@ GPBEnumDescriptor *FlowMessage_FlowType_EnumDescriptor(void) {
 BOOL FlowMessage_FlowType_IsValidValue(int32_t value__) {
   switch (value__) {
     case FlowMessage_FlowType_Flowunknown:
-    case FlowMessage_FlowType_Nfv9:
+    case FlowMessage_FlowType_Sflow5:
+    case FlowMessage_FlowType_NetflowV5:
+    case FlowMessage_FlowType_NetflowV9:
     case FlowMessage_FlowType_Ipfix:
-    case FlowMessage_FlowType_Sflow:
-      return YES;
-    default:
-      return NO;
-  }
-}
-
-#pragma mark - Enum FlowMessage_IPType
-
-GPBEnumDescriptor *FlowMessage_IPType_EnumDescriptor(void) {
-  static _Atomic(GPBEnumDescriptor*) descriptor = nil;
-  if (!descriptor) {
-    static const char *valueNames =
-        "Ipunknown\000Ipv4\000Ipv6\000";
-    static const int32_t values[] = {
-        FlowMessage_IPType_Ipunknown,
-        FlowMessage_IPType_Ipv4,
-        FlowMessage_IPType_Ipv6,
-    };
-    static const char *extraTextFormatInfo = "\002\001b\002\000\002b\002\000";
-    GPBEnumDescriptor *worker =
-        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(FlowMessage_IPType)
-                                       valueNames:valueNames
-                                           values:values
-                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
-                                     enumVerifier:FlowMessage_IPType_IsValidValue
-                              extraTextFormatInfo:extraTextFormatInfo];
-    GPBEnumDescriptor *expected = nil;
-    if (!atomic_compare_exchange_strong(&descriptor, &expected, worker)) {
-      [worker release];
-    }
-  }
-  return descriptor;
-}
-
-BOOL FlowMessage_IPType_IsValidValue(int32_t value__) {
-  switch (value__) {
-    case FlowMessage_IPType_Ipunknown:
-    case FlowMessage_IPType_Ipv4:
-    case FlowMessage_IPType_Ipv6:
-      return YES;
-    default:
-      return NO;
-  }
-}
-
-#pragma mark - Enum FlowMessage_DirectionType
-
-GPBEnumDescriptor *FlowMessage_DirectionType_EnumDescriptor(void) {
-  static _Atomic(GPBEnumDescriptor*) descriptor = nil;
-  if (!descriptor) {
-    static const char *valueNames =
-        "Unknown\000Incoming\000Outgoing\000";
-    static const int32_t values[] = {
-        FlowMessage_DirectionType_Unknown,
-        FlowMessage_DirectionType_Incoming,
-        FlowMessage_DirectionType_Outgoing,
-    };
-    static const char *extraTextFormatInfo = "\003\000\007\000\001\010\000\002\010\000";
-    GPBEnumDescriptor *worker =
-        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(FlowMessage_DirectionType)
-                                       valueNames:valueNames
-                                           values:values
-                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
-                                     enumVerifier:FlowMessage_DirectionType_IsValidValue
-                              extraTextFormatInfo:extraTextFormatInfo];
-    GPBEnumDescriptor *expected = nil;
-    if (!atomic_compare_exchange_strong(&descriptor, &expected, worker)) {
-      [worker release];
-    }
-  }
-  return descriptor;
-}
-
-BOOL FlowMessage_DirectionType_IsValidValue(int32_t value__) {
-  switch (value__) {
-    case FlowMessage_DirectionType_Unknown:
-    case FlowMessage_DirectionType_Incoming:
-    case FlowMessage_DirectionType_Outgoing:
       return YES;
     default:
       return NO;

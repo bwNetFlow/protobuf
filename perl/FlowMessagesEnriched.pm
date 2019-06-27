@@ -8,38 +8,15 @@ use warnings;
 
 use Google::ProtocolBuffers;
 {
-    unless (FlowMessage::DirectionType->can('_pb_fields_list')) {
-        Google::ProtocolBuffers->create_enum(
-            'FlowMessage::DirectionType',
-            [
-               ['Unknown', 0],
-               ['Incoming', 1],
-               ['Outgoing', 2],
-
-            ]
-        );
-    }
-    
     unless (FlowMessage::FlowType->can('_pb_fields_list')) {
         Google::ProtocolBuffers->create_enum(
             'FlowMessage::FlowType',
             [
                ['FLOWUNKNOWN', 0],
-               ['NFV9', 9],
-               ['IPFIX', 10],
-               ['SFLOW', 5],
-
-            ]
-        );
-    }
-    
-    unless (FlowMessage::IPType->can('_pb_fields_list')) {
-        Google::ProtocolBuffers->create_enum(
-            'FlowMessage::IPType',
-            [
-               ['IPUNKNOWN', 0],
-               ['IPv4', 4],
-               ['IPv6', 6],
+               ['SFLOW_5', 1],
+               ['NETFLOW_V5', 2],
+               ['NETFLOW_V9', 3],
+               ['IPFIX', 4],
 
             ]
         );
@@ -68,7 +45,7 @@ use Google::ProtocolBuffers;
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_UINT64(), 
-                    'TimeRecvd', 2, undef
+                    'TimeReceived', 2, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
@@ -83,22 +60,17 @@ use Google::ProtocolBuffers;
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_UINT64(), 
-                    'TimeFlow', 5, undef
+                    'TimeFlowEnd', 5, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_BYTES(), 
-                    'SrcIP', 6, undef
+                    'SrcAddr', 6, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_BYTES(), 
-                    'DstIP', 7, undef
-                ],
-                [
-                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
-                    'FlowMessage::IPType', 
-                    'IPversion', 8, undef
+                    'DstAddr', 7, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
@@ -113,7 +85,7 @@ use Google::ProtocolBuffers;
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_BYTES(), 
-                    'RouterAddr', 11, undef
+                    'SamplerAddress', 11, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
@@ -247,83 +219,83 @@ use Google::ProtocolBuffers;
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
-                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
-                    'IngressVrfId', 38, undef
-                ],
-                [
-                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
-                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
-                    'EgressVrfId', 39, undef
-                ],
-                [
-                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_UINT64(), 
-                    'TimeFlowStart', 40, undef
-                ],
-                [
-                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
-                    Google::ProtocolBuffers::Constants::TYPE_UINT64(), 
-                    'TimeFlowEnd', 41, undef
-                ],
-                [
-                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
-                    'FlowMessage::DirectionType', 
-                    'Direction', 90, undef
+                    'TimeFlowStart', 38, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
-                    'Cid', 91, undef
+                    'IngressVrfID', 39, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'EgressVrfID', 40, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'BiFlowDirection', 41, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'FlowDirection', 42, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'Cid', 1000, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_STRING(), 
+                    'CidString', 1001, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     'FlowMessage::NormalizedType', 
-                    'Normalized', 92, undef
+                    'Normalized', 1002, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_STRING(), 
-                    'SrcIfName', 93, undef
+                    'SrcIfName', 1003, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_STRING(), 
-                    'SrcIfDesc', 94, undef
+                    'SrcIfDesc', 1004, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
-                    'SrcIfSpeed', 95, undef
+                    'SrcIfSpeed', 1005, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_STRING(), 
-                    'DstIfName', 96, undef
+                    'DstIfName', 1006, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_STRING(), 
-                    'DstIfDesc', 97, undef
+                    'DstIfDesc', 1007, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
-                    'DstIfSpeed', 98, undef
+                    'DstIfSpeed', 1008, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_STRING(), 
-                    'Peer', 99, undef
+                    'ProtoName', 1009, undef
                 ],
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_STRING(), 
-                    'RemoteCountry', 100, undef
-                ],
-                [
-                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
-                    Google::ProtocolBuffers::Constants::TYPE_STRING(), 
-                    'ProtoName', 101, undef
+                    'RemoteCountry', 1010, undef
                 ],
 
             ],

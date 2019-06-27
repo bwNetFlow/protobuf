@@ -1,130 +1,115 @@
 syntax = "proto3";
-package flowmessageenriched;
+package flowprotob;
 
-option java_package = "bwnetflow";
+option java_package = "com.cloudflare.net.flowagg";
 option java_outer_classname = "FlowMessagePb";
 
-// Flow Message needs to stay compatible to goflow's default protobuf
-// -> never edit record id's, only ever append
 message FlowMessage {
 
   enum FlowType {
     FLOWUNKNOWN = 0;
-    NFV9 = 9;
-    IPFIX = 10;
-    SFLOW = 5;
+    SFLOW_5 = 1;
+    NETFLOW_V5 = 2;
+    NETFLOW_V9 = 3;
+    IPFIX = 4;
   }
   FlowType Type = 1;
 
-  uint64 TimeRecvd = 2;
-  uint64 SamplingRate = 3;
+  uint64 TimeReceived = 2;
   uint32 SequenceNum = 4;
+  uint64 SamplingRate = 3;
+
+  uint32 FlowDirection = 42;
+
+  // Sampler information
+  bytes SamplerAddress = 11;
 
   // Found inside packet
-  uint64 TimeFlow = 5;
-
-  // Source/destination addresses
-  bytes SrcIP = 6;
-  bytes DstIP = 7;
-
-  // To be deprecated
-  enum IPType {
-    IPUNKNOWN = 0;
-    IPv4 = 4;
-    IPv6 = 6;
-  }
-  IPType IPversion = 8;
+  uint64 TimeFlowStart = 38;
+  uint64 TimeFlowEnd = 5;
 
   // Size of the sampled packet
   uint64 Bytes = 9;
   uint64 Packets = 10;
 
-  // Routing information
-  bytes RouterAddr = 11;
-  bytes NextHop = 12;
-  uint32 NextHopAS = 13;
+  // Source/destination addresses
+  bytes SrcAddr = 6;
+  bytes DstAddr = 7;
 
-  // Autonomous system information
-  uint32 SrcAS = 14;
-  uint32 DstAS = 15;
+  // Layer 3 protocol (IPv4/IPv6/ARP/...)
+  uint32 Etype = 30;
 
-  // Prefix size
-  uint32 SrcNet = 16;
-  uint32 DstNet = 17;
+  // Layer 4 protocol
+  uint32 Proto = 20;
+
+  // Ports for UDP and TCP
+  uint32 SrcPort = 21;
+  uint32 DstPort = 22;
 
   // Interfaces
   uint32 SrcIf = 18;
   uint32 DstIf = 19;
 
-  // Layer 4 protocol
-  uint32 Proto = 20;
+  // Ethernet information
+  uint64 SrcMac = 27;
+  uint64 DstMac = 28;
 
-  // Port for UDP and TCP
-  uint32 SrcPort = 21;
-  uint32 DstPort = 22;
+  // Vlan
+  uint32 SrcVlan = 33;
+  uint32 DstVlan = 34;
+  // 802.1q VLAN in sampled packet
+  uint32 VlanId = 29;
+
+  // VRF
+  uint32 IngressVrfID = 39;
+  uint32 EgressVrfID = 40;
 
   // IP and TCP special flags
   uint32 IPTos = 23;
   uint32 ForwardingStatus = 24;
   uint32 IPTTL = 25;
   uint32 TCPFlags = 26;
-
-  // Ethernet information
-  uint64 SrcMac = 27;
-  uint64 DstMac = 28;
-
-  // 802.1q VLAN in sampled packet
-  uint32 VlanId = 29;
-
-  // Layer 3 protocol (IPv4/IPv6/ARP/...)
-  uint32 Etype = 30;
-
   uint32 IcmpType = 31;
   uint32 IcmpCode = 32;
-
-  // Vlan
-  uint32 SrcVlan = 33;
-  uint32 DstVlan = 34;
-
+  uint32 IPv6FlowLabel = 37;
   // Fragments (IPv4/IPv6)
   uint32 FragmentId = 35;
   uint32 FragmentOffset = 36;
+  uint32 BiFlowDirection = 41;
 
-  uint32 IPv6FlowLabel = 37;
+  // Autonomous system information
+  uint32 SrcAS = 14;
+  uint32 DstAS = 15;
 
-  // VRF
-  uint32 IngressVrfId = 38;
-  uint32 EgressVrfId = 39;
+  bytes NextHop = 12;
+  uint32 NextHopAS = 13;
 
-  // Time Flow
-  uint64 TimeFlowStart = 40;
-  uint64 TimeFlowEnd = 41;
+  // Prefix size
+  uint32 SrcNet = 16;
+  uint32 DstNet = 17;
 
-  // Extensions beyond goflow's default protobuf, starting at id 90
-  enum DirectionType {
-    Unknown = 0;
-    Incoming = 1;
-    Outgoing = 2;
-  }
-  DirectionType Direction = 90;
 
-  uint32 Cid = 91;
+  // Custom fields: start after ID 1000:
+  // uint32 MyCustomField = 1000;
+
+  // bwNetFlow enricher fields
+  uint32 Cid = 1000; // Customer ID - numerical ID, assigned by prefix
+  string CidString = 1001; // Customer ID - a more generalized ID, assigned by prefix
 
   enum NormalizedType {
     No = 0;
     Yes = 1;
   }
-  NormalizedType Normalized = 92;
+  NormalizedType Normalized = 1002; // Normalization - whether the sampling rate is accounted for
 
-  string SrcIfName = 93;
-  string SrcIfDesc = 94;
-  uint32 SrcIfSpeed = 95;
-  string DstIfName = 96;
-  string DstIfDesc = 97;
-  uint32 DstIfSpeed = 98;
+  // Fields for Interface Usability -- enriched using SNMP
+  string SrcIfName = 1003; // set to the name, unset by default
+  string SrcIfDesc = 1004; // set to the descrition, filtered by a regex in the enricher
+  uint32 SrcIfSpeed = 1005; // iface speed
+  string DstIfName = 1006;
+  string DstIfDesc = 1007;
+  uint32 DstIfSpeed = 1008;
 
-  string Peer = 99;
-  string RemoteCountry = 100;
-
-  string ProtoName = 101;
+  string ProtoName = 1009; // Protocol Name -- set for some well known protocols, based on Proto
+  string RemoteCountry = 1010; // Geolocation -- set using the provided database
 }

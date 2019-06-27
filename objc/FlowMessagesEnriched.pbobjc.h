@@ -39,9 +39,10 @@ typedef GPB_ENUM(FlowMessage_FlowType) {
    **/
   FlowMessage_FlowType_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
   FlowMessage_FlowType_Flowunknown = 0,
-  FlowMessage_FlowType_Nfv9 = 9,
-  FlowMessage_FlowType_Ipfix = 10,
-  FlowMessage_FlowType_Sflow = 5,
+  FlowMessage_FlowType_Sflow5 = 1,
+  FlowMessage_FlowType_NetflowV5 = 2,
+  FlowMessage_FlowType_NetflowV9 = 3,
+  FlowMessage_FlowType_Ipfix = 4,
 };
 
 GPBEnumDescriptor *FlowMessage_FlowType_EnumDescriptor(void);
@@ -51,52 +52,6 @@ GPBEnumDescriptor *FlowMessage_FlowType_EnumDescriptor(void);
  * the time this source was generated.
  **/
 BOOL FlowMessage_FlowType_IsValidValue(int32_t value);
-
-#pragma mark - Enum FlowMessage_IPType
-
-/** To be deprecated */
-typedef GPB_ENUM(FlowMessage_IPType) {
-  /**
-   * Value used if any message's field encounters a value that is not defined
-   * by this enum. The message will also have C functions to get/set the rawValue
-   * of the field.
-   **/
-  FlowMessage_IPType_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
-  FlowMessage_IPType_Ipunknown = 0,
-  FlowMessage_IPType_Ipv4 = 4,
-  FlowMessage_IPType_Ipv6 = 6,
-};
-
-GPBEnumDescriptor *FlowMessage_IPType_EnumDescriptor(void);
-
-/**
- * Checks to see if the given value is defined by the enum or was not known at
- * the time this source was generated.
- **/
-BOOL FlowMessage_IPType_IsValidValue(int32_t value);
-
-#pragma mark - Enum FlowMessage_DirectionType
-
-/** Extensions beyond goflow's default protobuf, starting at id 90 */
-typedef GPB_ENUM(FlowMessage_DirectionType) {
-  /**
-   * Value used if any message's field encounters a value that is not defined
-   * by this enum. The message will also have C functions to get/set the rawValue
-   * of the field.
-   **/
-  FlowMessage_DirectionType_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
-  FlowMessage_DirectionType_Unknown = 0,
-  FlowMessage_DirectionType_Incoming = 1,
-  FlowMessage_DirectionType_Outgoing = 2,
-};
-
-GPBEnumDescriptor *FlowMessage_DirectionType_EnumDescriptor(void);
-
-/**
- * Checks to see if the given value is defined by the enum or was not known at
- * the time this source was generated.
- **/
-BOOL FlowMessage_DirectionType_IsValidValue(int32_t value);
 
 #pragma mark - Enum FlowMessage_NormalizedType
 
@@ -138,16 +93,15 @@ BOOL FlowMessage_NormalizedType_IsValidValue(int32_t value);
 
 typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_Type = 1,
-  FlowMessage_FieldNumber_TimeRecvd = 2,
+  FlowMessage_FieldNumber_TimeReceived = 2,
   FlowMessage_FieldNumber_SamplingRate = 3,
   FlowMessage_FieldNumber_SequenceNum = 4,
-  FlowMessage_FieldNumber_TimeFlow = 5,
-  FlowMessage_FieldNumber_SrcIp = 6,
-  FlowMessage_FieldNumber_DstIp = 7,
-  FlowMessage_FieldNumber_Ipversion = 8,
+  FlowMessage_FieldNumber_TimeFlowEnd = 5,
+  FlowMessage_FieldNumber_SrcAddr = 6,
+  FlowMessage_FieldNumber_DstAddr = 7,
   FlowMessage_FieldNumber_Bytes = 9,
   FlowMessage_FieldNumber_Packets = 10,
-  FlowMessage_FieldNumber_RouterAddr = 11,
+  FlowMessage_FieldNumber_SamplerAddress = 11,
   FlowMessage_FieldNumber_NextHop = 12,
   FlowMessage_FieldNumber_NextHopAs = 13,
   FlowMessage_FieldNumber_SrcAs = 14,
@@ -174,82 +128,87 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_FragmentId = 35,
   FlowMessage_FieldNumber_FragmentOffset = 36,
   FlowMessage_FieldNumber_Ipv6FlowLabel = 37,
-  FlowMessage_FieldNumber_IngressVrfId = 38,
-  FlowMessage_FieldNumber_EgressVrfId = 39,
-  FlowMessage_FieldNumber_TimeFlowStart = 40,
-  FlowMessage_FieldNumber_TimeFlowEnd = 41,
-  FlowMessage_FieldNumber_Direction = 90,
-  FlowMessage_FieldNumber_Cid = 91,
-  FlowMessage_FieldNumber_Normalized = 92,
-  FlowMessage_FieldNumber_SrcIfName = 93,
-  FlowMessage_FieldNumber_SrcIfDesc = 94,
-  FlowMessage_FieldNumber_SrcIfSpeed = 95,
-  FlowMessage_FieldNumber_DstIfName = 96,
-  FlowMessage_FieldNumber_DstIfDesc = 97,
-  FlowMessage_FieldNumber_DstIfSpeed = 98,
-  FlowMessage_FieldNumber_Peer = 99,
-  FlowMessage_FieldNumber_RemoteCountry = 100,
-  FlowMessage_FieldNumber_ProtoName = 101,
+  FlowMessage_FieldNumber_TimeFlowStart = 38,
+  FlowMessage_FieldNumber_IngressVrfId = 39,
+  FlowMessage_FieldNumber_EgressVrfId = 40,
+  FlowMessage_FieldNumber_BiFlowDirection = 41,
+  FlowMessage_FieldNumber_FlowDirection = 42,
+  FlowMessage_FieldNumber_Cid = 1000,
+  FlowMessage_FieldNumber_CidString = 1001,
+  FlowMessage_FieldNumber_Normalized = 1002,
+  FlowMessage_FieldNumber_SrcIfName = 1003,
+  FlowMessage_FieldNumber_SrcIfDesc = 1004,
+  FlowMessage_FieldNumber_SrcIfSpeed = 1005,
+  FlowMessage_FieldNumber_DstIfName = 1006,
+  FlowMessage_FieldNumber_DstIfDesc = 1007,
+  FlowMessage_FieldNumber_DstIfSpeed = 1008,
+  FlowMessage_FieldNumber_ProtoName = 1009,
+  FlowMessage_FieldNumber_RemoteCountry = 1010,
 };
 
-/**
- * Flow Message needs to stay compatible to goflow's default protobuf
- * -> never edit record id's, only ever append
- **/
 @interface FlowMessage : GPBMessage
 
 @property(nonatomic, readwrite) FlowMessage_FlowType type;
 
-@property(nonatomic, readwrite) uint64_t timeRecvd;
-
-@property(nonatomic, readwrite) uint64_t samplingRate;
+@property(nonatomic, readwrite) uint64_t timeReceived;
 
 @property(nonatomic, readwrite) uint32_t sequenceNum;
 
+@property(nonatomic, readwrite) uint64_t samplingRate;
+
+@property(nonatomic, readwrite) uint32_t flowDirection;
+
+/** Sampler information */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *samplerAddress;
+
 /** Found inside packet */
-@property(nonatomic, readwrite) uint64_t timeFlow;
+@property(nonatomic, readwrite) uint64_t timeFlowStart;
 
-/** Source/destination addresses */
-@property(nonatomic, readwrite, copy, null_resettable) NSData *srcIp;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *dstIp;
-
-@property(nonatomic, readwrite) FlowMessage_IPType ipversion;
+@property(nonatomic, readwrite) uint64_t timeFlowEnd;
 
 /** Size of the sampled packet */
 @property(nonatomic, readwrite) uint64_t bytes;
 
 @property(nonatomic, readwrite) uint64_t packets;
 
-/** Routing information */
-@property(nonatomic, readwrite, copy, null_resettable) NSData *routerAddr;
+/** Source/destination addresses */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *srcAddr;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *nextHop;
+@property(nonatomic, readwrite, copy, null_resettable) NSData *dstAddr;
 
-@property(nonatomic, readwrite) uint32_t nextHopAs;
+/** Layer 3 protocol (IPv4/IPv6/ARP/...) */
+@property(nonatomic, readwrite) uint32_t etype;
 
-/** Autonomous system information */
-@property(nonatomic, readwrite) uint32_t srcAs;
+/** Layer 4 protocol */
+@property(nonatomic, readwrite) uint32_t proto;
 
-@property(nonatomic, readwrite) uint32_t dstAs;
+/** Ports for UDP and TCP */
+@property(nonatomic, readwrite) uint32_t srcPort;
 
-/** Prefix size */
-@property(nonatomic, readwrite) uint32_t srcNet;
-
-@property(nonatomic, readwrite) uint32_t dstNet;
+@property(nonatomic, readwrite) uint32_t dstPort;
 
 /** Interfaces */
 @property(nonatomic, readwrite) uint32_t srcIf;
 
 @property(nonatomic, readwrite) uint32_t dstIf;
 
-/** Layer 4 protocol */
-@property(nonatomic, readwrite) uint32_t proto;
+/** Ethernet information */
+@property(nonatomic, readwrite) uint64_t srcMac;
 
-/** Port for UDP and TCP */
-@property(nonatomic, readwrite) uint32_t srcPort;
+@property(nonatomic, readwrite) uint64_t dstMac;
 
-@property(nonatomic, readwrite) uint32_t dstPort;
+/** Vlan */
+@property(nonatomic, readwrite) uint32_t srcVlan;
+
+@property(nonatomic, readwrite) uint32_t dstVlan;
+
+/** 802.1q VLAN in sampled packet */
+@property(nonatomic, readwrite) uint32_t vlanId;
+
+/** VRF */
+@property(nonatomic, readwrite) uint32_t ingressVrfId;
+
+@property(nonatomic, readwrite) uint32_t egressVrfId;
 
 /** IP and TCP special flags */
 @property(nonatomic, readwrite) uint32_t iptos;
@@ -260,53 +219,49 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
 
 @property(nonatomic, readwrite) uint32_t tcpflags;
 
-/** Ethernet information */
-@property(nonatomic, readwrite) uint64_t srcMac;
-
-@property(nonatomic, readwrite) uint64_t dstMac;
-
-/** 802.1q VLAN in sampled packet */
-@property(nonatomic, readwrite) uint32_t vlanId;
-
-/** Layer 3 protocol (IPv4/IPv6/ARP/...) */
-@property(nonatomic, readwrite) uint32_t etype;
-
 @property(nonatomic, readwrite) uint32_t icmpType;
 
 @property(nonatomic, readwrite) uint32_t icmpCode;
 
-/** Vlan */
-@property(nonatomic, readwrite) uint32_t srcVlan;
-
-@property(nonatomic, readwrite) uint32_t dstVlan;
+@property(nonatomic, readwrite) uint32_t ipv6FlowLabel;
 
 /** Fragments (IPv4/IPv6) */
 @property(nonatomic, readwrite) uint32_t fragmentId;
 
 @property(nonatomic, readwrite) uint32_t fragmentOffset;
 
-@property(nonatomic, readwrite) uint32_t ipv6FlowLabel;
+@property(nonatomic, readwrite) uint32_t biFlowDirection;
 
-/** VRF */
-@property(nonatomic, readwrite) uint32_t ingressVrfId;
+/** Autonomous system information */
+@property(nonatomic, readwrite) uint32_t srcAs;
 
-@property(nonatomic, readwrite) uint32_t egressVrfId;
+@property(nonatomic, readwrite) uint32_t dstAs;
 
-/** Time Flow */
-@property(nonatomic, readwrite) uint64_t timeFlowStart;
+@property(nonatomic, readwrite, copy, null_resettable) NSData *nextHop;
 
-@property(nonatomic, readwrite) uint64_t timeFlowEnd;
+@property(nonatomic, readwrite) uint32_t nextHopAs;
 
-@property(nonatomic, readwrite) FlowMessage_DirectionType direction;
+/** Prefix size */
+@property(nonatomic, readwrite) uint32_t srcNet;
 
+@property(nonatomic, readwrite) uint32_t dstNet;
+
+/** bwNetFlow enricher fields */
 @property(nonatomic, readwrite) uint32_t cid;
 
+/** Customer ID - a more generalized ID, assigned by prefix */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *cidString;
+
+/** Normalization - whether the sampling rate is accounted for */
 @property(nonatomic, readwrite) FlowMessage_NormalizedType normalized;
 
+/** Fields for Interface Usability -- enriched using SNMP */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *srcIfName;
 
+/** set to the descrition, filtered by a regex in the enricher */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *srcIfDesc;
 
+/** iface speed */
 @property(nonatomic, readwrite) uint32_t srcIfSpeed;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *dstIfName;
@@ -315,11 +270,11 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
 
 @property(nonatomic, readwrite) uint32_t dstIfSpeed;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *peer;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSString *remoteCountry;
-
+/** Protocol Name -- set for some well known protocols, based on Proto */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *protoName;
+
+/** Geolocation -- set using the provided database */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *remoteCountry;
 
 @end
 
@@ -334,30 +289,6 @@ int32_t FlowMessage_Type_RawValue(FlowMessage *message);
  * was generated.
  **/
 void SetFlowMessage_Type_RawValue(FlowMessage *message, int32_t value);
-
-/**
- * Fetches the raw value of a @c FlowMessage's @c ipversion property, even
- * if the value was not defined by the enum at the time the code was generated.
- **/
-int32_t FlowMessage_Ipversion_RawValue(FlowMessage *message);
-/**
- * Sets the raw value of an @c FlowMessage's @c ipversion property, allowing
- * it to be set to a value that was not defined by the enum at the time the code
- * was generated.
- **/
-void SetFlowMessage_Ipversion_RawValue(FlowMessage *message, int32_t value);
-
-/**
- * Fetches the raw value of a @c FlowMessage's @c direction property, even
- * if the value was not defined by the enum at the time the code was generated.
- **/
-int32_t FlowMessage_Direction_RawValue(FlowMessage *message);
-/**
- * Sets the raw value of an @c FlowMessage's @c direction property, allowing
- * it to be set to a value that was not defined by the enum at the time the code
- * was generated.
- **/
-void SetFlowMessage_Direction_RawValue(FlowMessage *message, int32_t value);
 
 /**
  * Fetches the raw value of a @c FlowMessage's @c normalized property, even
