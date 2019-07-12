@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Flowprotob {
+namespace Flowmessageenriched {
 
   /// <summary>Holder for reflection information generated from flow-messages-enriched.proto</summary>
   public static partial class FlowMessagesEnrichedReflection {
@@ -24,39 +24,39 @@ namespace Flowprotob {
     static FlowMessagesEnrichedReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChxmbG93LW1lc3NhZ2VzLWVucmljaGVkLnByb3RvEgpmbG93cHJvdG9iIp8J",
-            "CgtGbG93TWVzc2FnZRIuCgRUeXBlGAEgASgOMiAuZmxvd3Byb3RvYi5GbG93",
-            "TWVzc2FnZS5GbG93VHlwZRIUCgxUaW1lUmVjZWl2ZWQYAiABKAQSEwoLU2Vx",
-            "dWVuY2VOdW0YBCABKA0SFAoMU2FtcGxpbmdSYXRlGAMgASgEEhUKDUZsb3dE",
-            "aXJlY3Rpb24YKiABKA0SFgoOU2FtcGxlckFkZHJlc3MYCyABKAwSFQoNVGlt",
-            "ZUZsb3dTdGFydBgmIAEoBBITCgtUaW1lRmxvd0VuZBgFIAEoBBINCgVCeXRl",
-            "cxgJIAEoBBIPCgdQYWNrZXRzGAogASgEEg8KB1NyY0FkZHIYBiABKAwSDwoH",
-            "RHN0QWRkchgHIAEoDBINCgVFdHlwZRgeIAEoDRINCgVQcm90bxgUIAEoDRIP",
-            "CgdTcmNQb3J0GBUgASgNEg8KB0RzdFBvcnQYFiABKA0SDQoFU3JjSWYYEiAB",
-            "KA0SDQoFRHN0SWYYEyABKA0SDgoGU3JjTWFjGBsgASgEEg4KBkRzdE1hYxgc",
-            "IAEoBBIPCgdTcmNWbGFuGCEgASgNEg8KB0RzdFZsYW4YIiABKA0SDgoGVmxh",
-            "bklkGB0gASgNEhQKDEluZ3Jlc3NWcmZJRBgnIAEoDRITCgtFZ3Jlc3NWcmZJ",
-            "RBgoIAEoDRINCgVJUFRvcxgXIAEoDRIYChBGb3J3YXJkaW5nU3RhdHVzGBgg",
-            "ASgNEg0KBUlQVFRMGBkgASgNEhAKCFRDUEZsYWdzGBogASgNEhAKCEljbXBU",
-            "eXBlGB8gASgNEhAKCEljbXBDb2RlGCAgASgNEhUKDUlQdjZGbG93TGFiZWwY",
-            "JSABKA0SEgoKRnJhZ21lbnRJZBgjIAEoDRIWCg5GcmFnbWVudE9mZnNldBgk",
-            "IAEoDRIXCg9CaUZsb3dEaXJlY3Rpb24YKSABKA0SDQoFU3JjQVMYDiABKA0S",
-            "DQoFRHN0QVMYDyABKA0SDwoHTmV4dEhvcBgMIAEoDBIRCglOZXh0SG9wQVMY",
-            "DSABKA0SDgoGU3JjTmV0GBAgASgNEg4KBkRzdE5ldBgRIAEoDRIMCgNDaWQY",
-            "6AcgASgNEhIKCUNpZFN0cmluZxjpByABKAkSOwoKTm9ybWFsaXplZBjqByAB",
-            "KA4yJi5mbG93cHJvdG9iLkZsb3dNZXNzYWdlLk5vcm1hbGl6ZWRUeXBlEhIK",
-            "CVNyY0lmTmFtZRjrByABKAkSEgoJU3JjSWZEZXNjGOwHIAEoCRITCgpTcmNJ",
-            "ZlNwZWVkGO0HIAEoDRISCglEc3RJZk5hbWUY7gcgASgJEhIKCURzdElmRGVz",
-            "YxjvByABKAkSEwoKRHN0SWZTcGVlZBjwByABKA0SEgoJUHJvdG9OYW1lGPEH",
-            "IAEoCRIWCg1SZW1vdGVDb3VudHJ5GPIHIAEoCSJTCghGbG93VHlwZRIPCgtG",
-            "TE9XVU5LTk9XThAAEgsKB1NGTE9XXzUQARIOCgpORVRGTE9XX1Y1EAISDgoK",
-            "TkVURkxPV19WORADEgkKBUlQRklYEAQiIQoOTm9ybWFsaXplZFR5cGUSBgoC",
-            "Tm8QABIHCgNZZXMQAUIrChpjb20uY2xvdWRmbGFyZS5uZXQuZmxvd2FnZ0IN",
-            "Rmxvd01lc3NhZ2VQYmIGcHJvdG8z"));
+            "ChxmbG93LW1lc3NhZ2VzLWVucmljaGVkLnByb3RvEhNmbG93bWVzc2FnZWVu",
+            "cmljaGVkIrEJCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
+            "c3NhZ2VlbnJpY2hlZC5GbG93TWVzc2FnZS5GbG93VHlwZRIUCgxUaW1lUmVj",
+            "ZWl2ZWQYAiABKAQSEwoLU2VxdWVuY2VOdW0YBCABKA0SFAoMU2FtcGxpbmdS",
+            "YXRlGAMgASgEEhUKDUZsb3dEaXJlY3Rpb24YKiABKA0SFgoOU2FtcGxlckFk",
+            "ZHJlc3MYCyABKAwSFQoNVGltZUZsb3dTdGFydBgmIAEoBBITCgtUaW1lRmxv",
+            "d0VuZBgFIAEoBBINCgVCeXRlcxgJIAEoBBIPCgdQYWNrZXRzGAogASgEEg8K",
+            "B1NyY0FkZHIYBiABKAwSDwoHRHN0QWRkchgHIAEoDBINCgVFdHlwZRgeIAEo",
+            "DRINCgVQcm90bxgUIAEoDRIPCgdTcmNQb3J0GBUgASgNEg8KB0RzdFBvcnQY",
+            "FiABKA0SDQoFU3JjSWYYEiABKA0SDQoFRHN0SWYYEyABKA0SDgoGU3JjTWFj",
+            "GBsgASgEEg4KBkRzdE1hYxgcIAEoBBIPCgdTcmNWbGFuGCEgASgNEg8KB0Rz",
+            "dFZsYW4YIiABKA0SDgoGVmxhbklkGB0gASgNEhQKDEluZ3Jlc3NWcmZJRBgn",
+            "IAEoDRITCgtFZ3Jlc3NWcmZJRBgoIAEoDRINCgVJUFRvcxgXIAEoDRIYChBG",
+            "b3J3YXJkaW5nU3RhdHVzGBggASgNEg0KBUlQVFRMGBkgASgNEhAKCFRDUEZs",
+            "YWdzGBogASgNEhAKCEljbXBUeXBlGB8gASgNEhAKCEljbXBDb2RlGCAgASgN",
+            "EhUKDUlQdjZGbG93TGFiZWwYJSABKA0SEgoKRnJhZ21lbnRJZBgjIAEoDRIW",
+            "Cg5GcmFnbWVudE9mZnNldBgkIAEoDRIXCg9CaUZsb3dEaXJlY3Rpb24YKSAB",
+            "KA0SDQoFU3JjQVMYDiABKA0SDQoFRHN0QVMYDyABKA0SDwoHTmV4dEhvcBgM",
+            "IAEoDBIRCglOZXh0SG9wQVMYDSABKA0SDgoGU3JjTmV0GBAgASgNEg4KBkRz",
+            "dE5ldBgRIAEoDRIMCgNDaWQY6AcgASgNEhIKCUNpZFN0cmluZxjpByABKAkS",
+            "RAoKTm9ybWFsaXplZBjqByABKA4yLy5mbG93bWVzc2FnZWVucmljaGVkLkZs",
+            "b3dNZXNzYWdlLk5vcm1hbGl6ZWRUeXBlEhIKCVNyY0lmTmFtZRjrByABKAkS",
+            "EgoJU3JjSWZEZXNjGOwHIAEoCRITCgpTcmNJZlNwZWVkGO0HIAEoDRISCglE",
+            "c3RJZk5hbWUY7gcgASgJEhIKCURzdElmRGVzYxjvByABKAkSEwoKRHN0SWZT",
+            "cGVlZBjwByABKA0SEgoJUHJvdG9OYW1lGPEHIAEoCRIWCg1SZW1vdGVDb3Vu",
+            "dHJ5GPIHIAEoCSJTCghGbG93VHlwZRIPCgtGTE9XVU5LTk9XThAAEgsKB1NG",
+            "TE9XXzUQARIOCgpORVRGTE9XX1Y1EAISDgoKTkVURkxPV19WORADEgkKBUlQ",
+            "RklYEAQiIQoOTm9ybWFsaXplZFR5cGUSBgoCTm8QABIHCgNZZXMQAUIiCgli",
+            "d25ldGZsb3dCFUZsb3dNZXNzYWdlRW5yaWNoZWRQYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Flowprotob.FlowMessage), global::Flowprotob.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "SrcIf", "DstIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry" }, null, new[]{ typeof(global::Flowprotob.FlowMessage.Types.FlowType), typeof(global::Flowprotob.FlowMessage.Types.NormalizedType) }, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "SrcIf", "DstIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType) }, null)
           }));
     }
     #endregion
@@ -71,7 +71,7 @@ namespace Flowprotob {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Flowprotob.FlowMessagesEnrichedReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Flowmessageenriched.FlowMessagesEnrichedReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -150,9 +150,9 @@ namespace Flowprotob {
 
     /// <summary>Field number for the "Type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::Flowprotob.FlowMessage.Types.FlowType type_ = 0;
+    private global::Flowmessageenriched.FlowMessage.Types.FlowType type_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Flowprotob.FlowMessage.Types.FlowType Type {
+    public global::Flowmessageenriched.FlowMessage.Types.FlowType Type {
       get { return type_; }
       set {
         type_ = value;
@@ -677,12 +677,12 @@ namespace Flowprotob {
 
     /// <summary>Field number for the "Normalized" field.</summary>
     public const int NormalizedFieldNumber = 1002;
-    private global::Flowprotob.FlowMessage.Types.NormalizedType normalized_ = 0;
+    private global::Flowmessageenriched.FlowMessage.Types.NormalizedType normalized_ = 0;
     /// <summary>
     /// Normalization - whether the sampling rate is accounted for
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Flowprotob.FlowMessage.Types.NormalizedType Normalized {
+    public global::Flowmessageenriched.FlowMessage.Types.NormalizedType Normalized {
       get { return normalized_; }
       set {
         normalized_ = value;
@@ -1479,7 +1479,7 @@ namespace Flowprotob {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Type = (global::Flowprotob.FlowMessage.Types.FlowType) input.ReadEnum();
+            Type = (global::Flowmessageenriched.FlowMessage.Types.FlowType) input.ReadEnum();
             break;
           }
           case 16: {
@@ -1651,7 +1651,7 @@ namespace Flowprotob {
             break;
           }
           case 8016: {
-            Normalized = (global::Flowprotob.FlowMessage.Types.NormalizedType) input.ReadEnum();
+            Normalized = (global::Flowmessageenriched.FlowMessage.Types.NormalizedType) input.ReadEnum();
             break;
           }
           case 8026: {

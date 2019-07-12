@@ -5,8 +5,8 @@ require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("flow-messages-enriched.proto", :syntax => :proto3) do
-    add_message "flowprotob.FlowMessage" do
-      optional :Type, :enum, 1, "flowprotob.FlowMessage.FlowType"
+    add_message "flowmessageenriched.FlowMessage" do
+      optional :Type, :enum, 1, "flowmessageenriched.FlowMessage.FlowType"
       optional :TimeReceived, :uint64, 2
       optional :SequenceNum, :uint32, 4
       optional :SamplingRate, :uint64, 3
@@ -49,7 +49,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :DstNet, :uint32, 17
       optional :Cid, :uint32, 1000
       optional :CidString, :string, 1001
-      optional :Normalized, :enum, 1002, "flowprotob.FlowMessage.NormalizedType"
+      optional :Normalized, :enum, 1002, "flowmessageenriched.FlowMessage.NormalizedType"
       optional :SrcIfName, :string, 1003
       optional :SrcIfDesc, :string, 1004
       optional :SrcIfSpeed, :uint32, 1005
@@ -59,22 +59,22 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :ProtoName, :string, 1009
       optional :RemoteCountry, :string, 1010
     end
-    add_enum "flowprotob.FlowMessage.FlowType" do
+    add_enum "flowmessageenriched.FlowMessage.FlowType" do
       value :FLOWUNKNOWN, 0
       value :SFLOW_5, 1
       value :NETFLOW_V5, 2
       value :NETFLOW_V9, 3
       value :IPFIX, 4
     end
-    add_enum "flowprotob.FlowMessage.NormalizedType" do
+    add_enum "flowmessageenriched.FlowMessage.NormalizedType" do
       value :No, 0
       value :Yes, 1
     end
   end
 end
 
-module Flowprotob
-  FlowMessage = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowprotob.FlowMessage").msgclass
-  FlowMessage::FlowType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowprotob.FlowMessage.FlowType").enummodule
-  FlowMessage::NormalizedType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowprotob.FlowMessage.NormalizedType").enummodule
+module Flowmessageenriched
+  FlowMessage = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage").msgclass
+  FlowMessage::FlowType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.FlowType").enummodule
+  FlowMessage::NormalizedType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.NormalizedType").enummodule
 end

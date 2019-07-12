@@ -49,17 +49,17 @@ struct TableStruct_flow_2dmessages_2denriched_2eproto {
   static const ::google::protobuf::uint32 offsets[];
 };
 void AddDescriptors_flow_2dmessages_2denriched_2eproto();
-namespace flowprotob {
+namespace flowmessageenriched {
 class FlowMessage;
 class FlowMessageDefaultTypeInternal;
 extern FlowMessageDefaultTypeInternal _FlowMessage_default_instance_;
-}  // namespace flowprotob
+}  // namespace flowmessageenriched
 namespace google {
 namespace protobuf {
-template<> ::flowprotob::FlowMessage* Arena::CreateMaybeMessage<::flowprotob::FlowMessage>(Arena*);
+template<> ::flowmessageenriched::FlowMessage* Arena::CreateMaybeMessage<::flowmessageenriched::FlowMessage>(Arena*);
 }  // namespace protobuf
 }  // namespace google
-namespace flowprotob {
+namespace flowmessageenriched {
 
 enum FlowMessage_FlowType {
   FlowMessage_FlowType_FLOWUNKNOWN = 0,
@@ -109,7 +109,7 @@ inline bool FlowMessage_NormalizedType_Parse(
 // ===================================================================
 
 class FlowMessage final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:flowprotob.FlowMessage) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:flowmessageenriched.FlowMessage) */ {
  public:
   FlowMessage();
   virtual ~FlowMessage();
@@ -421,11 +421,11 @@ class FlowMessage final :
   ::google::protobuf::uint64 timereceived() const;
   void set_timereceived(::google::protobuf::uint64 value);
 
-  // .flowprotob.FlowMessage.FlowType Type = 1;
+  // .flowmessageenriched.FlowMessage.FlowType Type = 1;
   void clear_type();
   static const int kTypeFieldNumber = 1;
-  ::flowprotob::FlowMessage_FlowType type() const;
-  void set_type(::flowprotob::FlowMessage_FlowType value);
+  ::flowmessageenriched::FlowMessage_FlowType type() const;
+  void set_type(::flowmessageenriched::FlowMessage_FlowType value);
 
   // uint32 SequenceNum = 4;
   void clear_sequencenum();
@@ -649,11 +649,11 @@ class FlowMessage final :
   ::google::protobuf::uint32 cid() const;
   void set_cid(::google::protobuf::uint32 value);
 
-  // .flowprotob.FlowMessage.NormalizedType Normalized = 1002;
+  // .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
   void clear_normalized();
   static const int kNormalizedFieldNumber = 1002;
-  ::flowprotob::FlowMessage_NormalizedType normalized() const;
-  void set_normalized(::flowprotob::FlowMessage_NormalizedType value);
+  ::flowmessageenriched::FlowMessage_NormalizedType normalized() const;
+  void set_normalized(::flowmessageenriched::FlowMessage_NormalizedType value);
 
   // uint32 SrcIfSpeed = 1005;
   void clear_srcifspeed();
@@ -661,7 +661,7 @@ class FlowMessage final :
   ::google::protobuf::uint32 srcifspeed() const;
   void set_srcifspeed(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(class_scope:flowmessageenriched.FlowMessage)
  private:
   class HasBitSetters;
 
@@ -732,18 +732,18 @@ class FlowMessage final :
 #endif  // __GNUC__
 // FlowMessage
 
-// .flowprotob.FlowMessage.FlowType Type = 1;
+// .flowmessageenriched.FlowMessage.FlowType Type = 1;
 inline void FlowMessage::clear_type() {
   type_ = 0;
 }
-inline ::flowprotob::FlowMessage_FlowType FlowMessage::type() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.Type)
-  return static_cast< ::flowprotob::FlowMessage_FlowType >(type_);
+inline ::flowmessageenriched::FlowMessage_FlowType FlowMessage::type() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.Type)
+  return static_cast< ::flowmessageenriched::FlowMessage_FlowType >(type_);
 }
-inline void FlowMessage::set_type(::flowprotob::FlowMessage_FlowType value) {
+inline void FlowMessage::set_type(::flowmessageenriched::FlowMessage_FlowType value) {
   
   type_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.Type)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.Type)
 }
 
 // uint64 TimeReceived = 2;
@@ -751,13 +751,13 @@ inline void FlowMessage::clear_timereceived() {
   timereceived_ = PROTOBUF_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 FlowMessage::timereceived() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.TimeReceived)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.TimeReceived)
   return timereceived_;
 }
 inline void FlowMessage::set_timereceived(::google::protobuf::uint64 value) {
   
   timereceived_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.TimeReceived)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.TimeReceived)
 }
 
 // uint32 SequenceNum = 4;
@@ -765,13 +765,13 @@ inline void FlowMessage::clear_sequencenum() {
   sequencenum_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::sequencenum() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SequenceNum)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SequenceNum)
   return sequencenum_;
 }
 inline void FlowMessage::set_sequencenum(::google::protobuf::uint32 value) {
   
   sequencenum_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SequenceNum)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SequenceNum)
 }
 
 // uint64 SamplingRate = 3;
@@ -779,13 +779,13 @@ inline void FlowMessage::clear_samplingrate() {
   samplingrate_ = PROTOBUF_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 FlowMessage::samplingrate() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SamplingRate)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SamplingRate)
   return samplingrate_;
 }
 inline void FlowMessage::set_samplingrate(::google::protobuf::uint64 value) {
   
   samplingrate_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SamplingRate)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SamplingRate)
 }
 
 // uint32 FlowDirection = 42;
@@ -793,13 +793,13 @@ inline void FlowMessage::clear_flowdirection() {
   flowdirection_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::flowdirection() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.FlowDirection)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.FlowDirection)
   return flowdirection_;
 }
 inline void FlowMessage::set_flowdirection(::google::protobuf::uint32 value) {
   
   flowdirection_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.FlowDirection)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.FlowDirection)
 }
 
 // bytes SamplerAddress = 11;
@@ -807,41 +807,41 @@ inline void FlowMessage::clear_sampleraddress() {
   sampleraddress_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::sampleraddress() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SamplerAddress)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SamplerAddress)
   return sampleraddress_.GetNoArena();
 }
 inline void FlowMessage::set_sampleraddress(const ::std::string& value) {
   
   sampleraddress_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SamplerAddress)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SamplerAddress)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_sampleraddress(::std::string&& value) {
   
   sampleraddress_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.SamplerAddress)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.SamplerAddress)
 }
 #endif
 inline void FlowMessage::set_sampleraddress(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   sampleraddress_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.SamplerAddress)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.SamplerAddress)
 }
 inline void FlowMessage::set_sampleraddress(const void* value, size_t size) {
   
   sampleraddress_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.SamplerAddress)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.SamplerAddress)
 }
 inline ::std::string* FlowMessage::mutable_sampleraddress() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.SamplerAddress)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.SamplerAddress)
   return sampleraddress_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_sampleraddress() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.SamplerAddress)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.SamplerAddress)
   
   return sampleraddress_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -852,7 +852,7 @@ inline void FlowMessage::set_allocated_sampleraddress(::std::string* sampleraddr
     
   }
   sampleraddress_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sampleraddress);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.SamplerAddress)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.SamplerAddress)
 }
 
 // uint64 TimeFlowStart = 38;
@@ -860,13 +860,13 @@ inline void FlowMessage::clear_timeflowstart() {
   timeflowstart_ = PROTOBUF_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 FlowMessage::timeflowstart() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.TimeFlowStart)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.TimeFlowStart)
   return timeflowstart_;
 }
 inline void FlowMessage::set_timeflowstart(::google::protobuf::uint64 value) {
   
   timeflowstart_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.TimeFlowStart)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.TimeFlowStart)
 }
 
 // uint64 TimeFlowEnd = 5;
@@ -874,13 +874,13 @@ inline void FlowMessage::clear_timeflowend() {
   timeflowend_ = PROTOBUF_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 FlowMessage::timeflowend() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.TimeFlowEnd)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.TimeFlowEnd)
   return timeflowend_;
 }
 inline void FlowMessage::set_timeflowend(::google::protobuf::uint64 value) {
   
   timeflowend_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.TimeFlowEnd)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.TimeFlowEnd)
 }
 
 // uint64 Bytes = 9;
@@ -888,13 +888,13 @@ inline void FlowMessage::clear_bytes() {
   bytes_ = PROTOBUF_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 FlowMessage::bytes() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.Bytes)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.Bytes)
   return bytes_;
 }
 inline void FlowMessage::set_bytes(::google::protobuf::uint64 value) {
   
   bytes_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.Bytes)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.Bytes)
 }
 
 // uint64 Packets = 10;
@@ -902,13 +902,13 @@ inline void FlowMessage::clear_packets() {
   packets_ = PROTOBUF_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 FlowMessage::packets() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.Packets)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.Packets)
   return packets_;
 }
 inline void FlowMessage::set_packets(::google::protobuf::uint64 value) {
   
   packets_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.Packets)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.Packets)
 }
 
 // bytes SrcAddr = 6;
@@ -916,41 +916,41 @@ inline void FlowMessage::clear_srcaddr() {
   srcaddr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::srcaddr() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcAddr)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcAddr)
   return srcaddr_.GetNoArena();
 }
 inline void FlowMessage::set_srcaddr(const ::std::string& value) {
   
   srcaddr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcAddr)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcAddr)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_srcaddr(::std::string&& value) {
   
   srcaddr_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.SrcAddr)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.SrcAddr)
 }
 #endif
 inline void FlowMessage::set_srcaddr(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   srcaddr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.SrcAddr)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.SrcAddr)
 }
 inline void FlowMessage::set_srcaddr(const void* value, size_t size) {
   
   srcaddr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.SrcAddr)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.SrcAddr)
 }
 inline ::std::string* FlowMessage::mutable_srcaddr() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.SrcAddr)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.SrcAddr)
   return srcaddr_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_srcaddr() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.SrcAddr)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.SrcAddr)
   
   return srcaddr_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -961,7 +961,7 @@ inline void FlowMessage::set_allocated_srcaddr(::std::string* srcaddr) {
     
   }
   srcaddr_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), srcaddr);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.SrcAddr)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.SrcAddr)
 }
 
 // bytes DstAddr = 7;
@@ -969,41 +969,41 @@ inline void FlowMessage::clear_dstaddr() {
   dstaddr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::dstaddr() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstAddr)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstAddr)
   return dstaddr_.GetNoArena();
 }
 inline void FlowMessage::set_dstaddr(const ::std::string& value) {
   
   dstaddr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstAddr)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstAddr)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_dstaddr(::std::string&& value) {
   
   dstaddr_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.DstAddr)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.DstAddr)
 }
 #endif
 inline void FlowMessage::set_dstaddr(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   dstaddr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.DstAddr)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.DstAddr)
 }
 inline void FlowMessage::set_dstaddr(const void* value, size_t size) {
   
   dstaddr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.DstAddr)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.DstAddr)
 }
 inline ::std::string* FlowMessage::mutable_dstaddr() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.DstAddr)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.DstAddr)
   return dstaddr_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_dstaddr() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.DstAddr)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.DstAddr)
   
   return dstaddr_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1014,7 +1014,7 @@ inline void FlowMessage::set_allocated_dstaddr(::std::string* dstaddr) {
     
   }
   dstaddr_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dstaddr);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.DstAddr)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.DstAddr)
 }
 
 // uint32 Etype = 30;
@@ -1022,13 +1022,13 @@ inline void FlowMessage::clear_etype() {
   etype_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::etype() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.Etype)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.Etype)
   return etype_;
 }
 inline void FlowMessage::set_etype(::google::protobuf::uint32 value) {
   
   etype_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.Etype)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.Etype)
 }
 
 // uint32 Proto = 20;
@@ -1036,13 +1036,13 @@ inline void FlowMessage::clear_proto() {
   proto_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::proto() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.Proto)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.Proto)
   return proto_;
 }
 inline void FlowMessage::set_proto(::google::protobuf::uint32 value) {
   
   proto_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.Proto)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.Proto)
 }
 
 // uint32 SrcPort = 21;
@@ -1050,13 +1050,13 @@ inline void FlowMessage::clear_srcport() {
   srcport_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::srcport() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcPort)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcPort)
   return srcport_;
 }
 inline void FlowMessage::set_srcport(::google::protobuf::uint32 value) {
   
   srcport_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcPort)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcPort)
 }
 
 // uint32 DstPort = 22;
@@ -1064,13 +1064,13 @@ inline void FlowMessage::clear_dstport() {
   dstport_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::dstport() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstPort)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstPort)
   return dstport_;
 }
 inline void FlowMessage::set_dstport(::google::protobuf::uint32 value) {
   
   dstport_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstPort)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstPort)
 }
 
 // uint32 SrcIf = 18;
@@ -1078,13 +1078,13 @@ inline void FlowMessage::clear_srcif() {
   srcif_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::srcif() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcIf)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcIf)
   return srcif_;
 }
 inline void FlowMessage::set_srcif(::google::protobuf::uint32 value) {
   
   srcif_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcIf)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcIf)
 }
 
 // uint32 DstIf = 19;
@@ -1092,13 +1092,13 @@ inline void FlowMessage::clear_dstif() {
   dstif_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::dstif() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstIf)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstIf)
   return dstif_;
 }
 inline void FlowMessage::set_dstif(::google::protobuf::uint32 value) {
   
   dstif_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstIf)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstIf)
 }
 
 // uint64 SrcMac = 27;
@@ -1106,13 +1106,13 @@ inline void FlowMessage::clear_srcmac() {
   srcmac_ = PROTOBUF_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 FlowMessage::srcmac() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcMac)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcMac)
   return srcmac_;
 }
 inline void FlowMessage::set_srcmac(::google::protobuf::uint64 value) {
   
   srcmac_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcMac)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcMac)
 }
 
 // uint64 DstMac = 28;
@@ -1120,13 +1120,13 @@ inline void FlowMessage::clear_dstmac() {
   dstmac_ = PROTOBUF_ULONGLONG(0);
 }
 inline ::google::protobuf::uint64 FlowMessage::dstmac() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstMac)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstMac)
   return dstmac_;
 }
 inline void FlowMessage::set_dstmac(::google::protobuf::uint64 value) {
   
   dstmac_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstMac)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstMac)
 }
 
 // uint32 SrcVlan = 33;
@@ -1134,13 +1134,13 @@ inline void FlowMessage::clear_srcvlan() {
   srcvlan_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::srcvlan() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcVlan)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcVlan)
   return srcvlan_;
 }
 inline void FlowMessage::set_srcvlan(::google::protobuf::uint32 value) {
   
   srcvlan_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcVlan)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcVlan)
 }
 
 // uint32 DstVlan = 34;
@@ -1148,13 +1148,13 @@ inline void FlowMessage::clear_dstvlan() {
   dstvlan_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::dstvlan() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstVlan)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstVlan)
   return dstvlan_;
 }
 inline void FlowMessage::set_dstvlan(::google::protobuf::uint32 value) {
   
   dstvlan_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstVlan)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstVlan)
 }
 
 // uint32 VlanId = 29;
@@ -1162,13 +1162,13 @@ inline void FlowMessage::clear_vlanid() {
   vlanid_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::vlanid() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.VlanId)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.VlanId)
   return vlanid_;
 }
 inline void FlowMessage::set_vlanid(::google::protobuf::uint32 value) {
   
   vlanid_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.VlanId)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.VlanId)
 }
 
 // uint32 IngressVrfID = 39;
@@ -1176,13 +1176,13 @@ inline void FlowMessage::clear_ingressvrfid() {
   ingressvrfid_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::ingressvrfid() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.IngressVrfID)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.IngressVrfID)
   return ingressvrfid_;
 }
 inline void FlowMessage::set_ingressvrfid(::google::protobuf::uint32 value) {
   
   ingressvrfid_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.IngressVrfID)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.IngressVrfID)
 }
 
 // uint32 EgressVrfID = 40;
@@ -1190,13 +1190,13 @@ inline void FlowMessage::clear_egressvrfid() {
   egressvrfid_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::egressvrfid() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.EgressVrfID)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.EgressVrfID)
   return egressvrfid_;
 }
 inline void FlowMessage::set_egressvrfid(::google::protobuf::uint32 value) {
   
   egressvrfid_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.EgressVrfID)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.EgressVrfID)
 }
 
 // uint32 IPTos = 23;
@@ -1204,13 +1204,13 @@ inline void FlowMessage::clear_iptos() {
   iptos_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::iptos() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.IPTos)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.IPTos)
   return iptos_;
 }
 inline void FlowMessage::set_iptos(::google::protobuf::uint32 value) {
   
   iptos_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.IPTos)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.IPTos)
 }
 
 // uint32 ForwardingStatus = 24;
@@ -1218,13 +1218,13 @@ inline void FlowMessage::clear_forwardingstatus() {
   forwardingstatus_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::forwardingstatus() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.ForwardingStatus)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.ForwardingStatus)
   return forwardingstatus_;
 }
 inline void FlowMessage::set_forwardingstatus(::google::protobuf::uint32 value) {
   
   forwardingstatus_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.ForwardingStatus)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.ForwardingStatus)
 }
 
 // uint32 IPTTL = 25;
@@ -1232,13 +1232,13 @@ inline void FlowMessage::clear_ipttl() {
   ipttl_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::ipttl() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.IPTTL)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.IPTTL)
   return ipttl_;
 }
 inline void FlowMessage::set_ipttl(::google::protobuf::uint32 value) {
   
   ipttl_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.IPTTL)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.IPTTL)
 }
 
 // uint32 TCPFlags = 26;
@@ -1246,13 +1246,13 @@ inline void FlowMessage::clear_tcpflags() {
   tcpflags_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::tcpflags() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.TCPFlags)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.TCPFlags)
   return tcpflags_;
 }
 inline void FlowMessage::set_tcpflags(::google::protobuf::uint32 value) {
   
   tcpflags_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.TCPFlags)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.TCPFlags)
 }
 
 // uint32 IcmpType = 31;
@@ -1260,13 +1260,13 @@ inline void FlowMessage::clear_icmptype() {
   icmptype_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::icmptype() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.IcmpType)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.IcmpType)
   return icmptype_;
 }
 inline void FlowMessage::set_icmptype(::google::protobuf::uint32 value) {
   
   icmptype_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.IcmpType)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.IcmpType)
 }
 
 // uint32 IcmpCode = 32;
@@ -1274,13 +1274,13 @@ inline void FlowMessage::clear_icmpcode() {
   icmpcode_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::icmpcode() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.IcmpCode)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.IcmpCode)
   return icmpcode_;
 }
 inline void FlowMessage::set_icmpcode(::google::protobuf::uint32 value) {
   
   icmpcode_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.IcmpCode)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.IcmpCode)
 }
 
 // uint32 IPv6FlowLabel = 37;
@@ -1288,13 +1288,13 @@ inline void FlowMessage::clear_ipv6flowlabel() {
   ipv6flowlabel_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::ipv6flowlabel() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.IPv6FlowLabel)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.IPv6FlowLabel)
   return ipv6flowlabel_;
 }
 inline void FlowMessage::set_ipv6flowlabel(::google::protobuf::uint32 value) {
   
   ipv6flowlabel_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.IPv6FlowLabel)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.IPv6FlowLabel)
 }
 
 // uint32 FragmentId = 35;
@@ -1302,13 +1302,13 @@ inline void FlowMessage::clear_fragmentid() {
   fragmentid_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::fragmentid() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.FragmentId)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.FragmentId)
   return fragmentid_;
 }
 inline void FlowMessage::set_fragmentid(::google::protobuf::uint32 value) {
   
   fragmentid_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.FragmentId)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.FragmentId)
 }
 
 // uint32 FragmentOffset = 36;
@@ -1316,13 +1316,13 @@ inline void FlowMessage::clear_fragmentoffset() {
   fragmentoffset_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::fragmentoffset() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.FragmentOffset)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.FragmentOffset)
   return fragmentoffset_;
 }
 inline void FlowMessage::set_fragmentoffset(::google::protobuf::uint32 value) {
   
   fragmentoffset_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.FragmentOffset)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.FragmentOffset)
 }
 
 // uint32 BiFlowDirection = 41;
@@ -1330,13 +1330,13 @@ inline void FlowMessage::clear_biflowdirection() {
   biflowdirection_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::biflowdirection() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.BiFlowDirection)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.BiFlowDirection)
   return biflowdirection_;
 }
 inline void FlowMessage::set_biflowdirection(::google::protobuf::uint32 value) {
   
   biflowdirection_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.BiFlowDirection)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.BiFlowDirection)
 }
 
 // uint32 SrcAS = 14;
@@ -1344,13 +1344,13 @@ inline void FlowMessage::clear_srcas() {
   srcas_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::srcas() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcAS)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcAS)
   return srcas_;
 }
 inline void FlowMessage::set_srcas(::google::protobuf::uint32 value) {
   
   srcas_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcAS)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcAS)
 }
 
 // uint32 DstAS = 15;
@@ -1358,13 +1358,13 @@ inline void FlowMessage::clear_dstas() {
   dstas_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::dstas() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstAS)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstAS)
   return dstas_;
 }
 inline void FlowMessage::set_dstas(::google::protobuf::uint32 value) {
   
   dstas_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstAS)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstAS)
 }
 
 // bytes NextHop = 12;
@@ -1372,41 +1372,41 @@ inline void FlowMessage::clear_nexthop() {
   nexthop_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::nexthop() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.NextHop)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.NextHop)
   return nexthop_.GetNoArena();
 }
 inline void FlowMessage::set_nexthop(const ::std::string& value) {
   
   nexthop_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.NextHop)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.NextHop)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_nexthop(::std::string&& value) {
   
   nexthop_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.NextHop)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.NextHop)
 }
 #endif
 inline void FlowMessage::set_nexthop(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   nexthop_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.NextHop)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.NextHop)
 }
 inline void FlowMessage::set_nexthop(const void* value, size_t size) {
   
   nexthop_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.NextHop)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.NextHop)
 }
 inline ::std::string* FlowMessage::mutable_nexthop() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.NextHop)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.NextHop)
   return nexthop_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_nexthop() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.NextHop)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.NextHop)
   
   return nexthop_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1417,7 +1417,7 @@ inline void FlowMessage::set_allocated_nexthop(::std::string* nexthop) {
     
   }
   nexthop_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nexthop);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.NextHop)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.NextHop)
 }
 
 // uint32 NextHopAS = 13;
@@ -1425,13 +1425,13 @@ inline void FlowMessage::clear_nexthopas() {
   nexthopas_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::nexthopas() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.NextHopAS)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.NextHopAS)
   return nexthopas_;
 }
 inline void FlowMessage::set_nexthopas(::google::protobuf::uint32 value) {
   
   nexthopas_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.NextHopAS)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.NextHopAS)
 }
 
 // uint32 SrcNet = 16;
@@ -1439,13 +1439,13 @@ inline void FlowMessage::clear_srcnet() {
   srcnet_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::srcnet() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcNet)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcNet)
   return srcnet_;
 }
 inline void FlowMessage::set_srcnet(::google::protobuf::uint32 value) {
   
   srcnet_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcNet)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcNet)
 }
 
 // uint32 DstNet = 17;
@@ -1453,13 +1453,13 @@ inline void FlowMessage::clear_dstnet() {
   dstnet_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::dstnet() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstNet)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstNet)
   return dstnet_;
 }
 inline void FlowMessage::set_dstnet(::google::protobuf::uint32 value) {
   
   dstnet_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstNet)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstNet)
 }
 
 // uint32 Cid = 1000;
@@ -1467,13 +1467,13 @@ inline void FlowMessage::clear_cid() {
   cid_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::cid() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.Cid)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.Cid)
   return cid_;
 }
 inline void FlowMessage::set_cid(::google::protobuf::uint32 value) {
   
   cid_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.Cid)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.Cid)
 }
 
 // string CidString = 1001;
@@ -1481,41 +1481,41 @@ inline void FlowMessage::clear_cidstring() {
   cidstring_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::cidstring() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.CidString)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.CidString)
   return cidstring_.GetNoArena();
 }
 inline void FlowMessage::set_cidstring(const ::std::string& value) {
   
   cidstring_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.CidString)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.CidString)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_cidstring(::std::string&& value) {
   
   cidstring_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.CidString)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.CidString)
 }
 #endif
 inline void FlowMessage::set_cidstring(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   cidstring_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.CidString)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.CidString)
 }
 inline void FlowMessage::set_cidstring(const char* value, size_t size) {
   
   cidstring_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.CidString)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.CidString)
 }
 inline ::std::string* FlowMessage::mutable_cidstring() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.CidString)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.CidString)
   return cidstring_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_cidstring() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.CidString)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.CidString)
   
   return cidstring_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1526,21 +1526,21 @@ inline void FlowMessage::set_allocated_cidstring(::std::string* cidstring) {
     
   }
   cidstring_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cidstring);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.CidString)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.CidString)
 }
 
-// .flowprotob.FlowMessage.NormalizedType Normalized = 1002;
+// .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
 inline void FlowMessage::clear_normalized() {
   normalized_ = 0;
 }
-inline ::flowprotob::FlowMessage_NormalizedType FlowMessage::normalized() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.Normalized)
-  return static_cast< ::flowprotob::FlowMessage_NormalizedType >(normalized_);
+inline ::flowmessageenriched::FlowMessage_NormalizedType FlowMessage::normalized() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.Normalized)
+  return static_cast< ::flowmessageenriched::FlowMessage_NormalizedType >(normalized_);
 }
-inline void FlowMessage::set_normalized(::flowprotob::FlowMessage_NormalizedType value) {
+inline void FlowMessage::set_normalized(::flowmessageenriched::FlowMessage_NormalizedType value) {
   
   normalized_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.Normalized)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.Normalized)
 }
 
 // string SrcIfName = 1003;
@@ -1548,41 +1548,41 @@ inline void FlowMessage::clear_srcifname() {
   srcifname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::srcifname() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcIfName)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcIfName)
   return srcifname_.GetNoArena();
 }
 inline void FlowMessage::set_srcifname(const ::std::string& value) {
   
   srcifname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcIfName)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcIfName)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_srcifname(::std::string&& value) {
   
   srcifname_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.SrcIfName)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.SrcIfName)
 }
 #endif
 inline void FlowMessage::set_srcifname(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   srcifname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.SrcIfName)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.SrcIfName)
 }
 inline void FlowMessage::set_srcifname(const char* value, size_t size) {
   
   srcifname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.SrcIfName)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.SrcIfName)
 }
 inline ::std::string* FlowMessage::mutable_srcifname() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.SrcIfName)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.SrcIfName)
   return srcifname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_srcifname() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.SrcIfName)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.SrcIfName)
   
   return srcifname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1593,7 +1593,7 @@ inline void FlowMessage::set_allocated_srcifname(::std::string* srcifname) {
     
   }
   srcifname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), srcifname);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.SrcIfName)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.SrcIfName)
 }
 
 // string SrcIfDesc = 1004;
@@ -1601,41 +1601,41 @@ inline void FlowMessage::clear_srcifdesc() {
   srcifdesc_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::srcifdesc() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcIfDesc)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcIfDesc)
   return srcifdesc_.GetNoArena();
 }
 inline void FlowMessage::set_srcifdesc(const ::std::string& value) {
   
   srcifdesc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcIfDesc)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcIfDesc)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_srcifdesc(::std::string&& value) {
   
   srcifdesc_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.SrcIfDesc)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.SrcIfDesc)
 }
 #endif
 inline void FlowMessage::set_srcifdesc(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   srcifdesc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.SrcIfDesc)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.SrcIfDesc)
 }
 inline void FlowMessage::set_srcifdesc(const char* value, size_t size) {
   
   srcifdesc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.SrcIfDesc)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.SrcIfDesc)
 }
 inline ::std::string* FlowMessage::mutable_srcifdesc() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.SrcIfDesc)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.SrcIfDesc)
   return srcifdesc_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_srcifdesc() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.SrcIfDesc)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.SrcIfDesc)
   
   return srcifdesc_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1646,7 +1646,7 @@ inline void FlowMessage::set_allocated_srcifdesc(::std::string* srcifdesc) {
     
   }
   srcifdesc_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), srcifdesc);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.SrcIfDesc)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.SrcIfDesc)
 }
 
 // uint32 SrcIfSpeed = 1005;
@@ -1654,13 +1654,13 @@ inline void FlowMessage::clear_srcifspeed() {
   srcifspeed_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::srcifspeed() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.SrcIfSpeed)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcIfSpeed)
   return srcifspeed_;
 }
 inline void FlowMessage::set_srcifspeed(::google::protobuf::uint32 value) {
   
   srcifspeed_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.SrcIfSpeed)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcIfSpeed)
 }
 
 // string DstIfName = 1006;
@@ -1668,41 +1668,41 @@ inline void FlowMessage::clear_dstifname() {
   dstifname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::dstifname() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstIfName)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstIfName)
   return dstifname_.GetNoArena();
 }
 inline void FlowMessage::set_dstifname(const ::std::string& value) {
   
   dstifname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstIfName)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstIfName)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_dstifname(::std::string&& value) {
   
   dstifname_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.DstIfName)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.DstIfName)
 }
 #endif
 inline void FlowMessage::set_dstifname(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   dstifname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.DstIfName)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.DstIfName)
 }
 inline void FlowMessage::set_dstifname(const char* value, size_t size) {
   
   dstifname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.DstIfName)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.DstIfName)
 }
 inline ::std::string* FlowMessage::mutable_dstifname() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.DstIfName)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.DstIfName)
   return dstifname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_dstifname() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.DstIfName)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.DstIfName)
   
   return dstifname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1713,7 +1713,7 @@ inline void FlowMessage::set_allocated_dstifname(::std::string* dstifname) {
     
   }
   dstifname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dstifname);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.DstIfName)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.DstIfName)
 }
 
 // string DstIfDesc = 1007;
@@ -1721,41 +1721,41 @@ inline void FlowMessage::clear_dstifdesc() {
   dstifdesc_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::dstifdesc() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstIfDesc)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstIfDesc)
   return dstifdesc_.GetNoArena();
 }
 inline void FlowMessage::set_dstifdesc(const ::std::string& value) {
   
   dstifdesc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstIfDesc)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstIfDesc)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_dstifdesc(::std::string&& value) {
   
   dstifdesc_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.DstIfDesc)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.DstIfDesc)
 }
 #endif
 inline void FlowMessage::set_dstifdesc(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   dstifdesc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.DstIfDesc)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.DstIfDesc)
 }
 inline void FlowMessage::set_dstifdesc(const char* value, size_t size) {
   
   dstifdesc_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.DstIfDesc)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.DstIfDesc)
 }
 inline ::std::string* FlowMessage::mutable_dstifdesc() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.DstIfDesc)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.DstIfDesc)
   return dstifdesc_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_dstifdesc() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.DstIfDesc)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.DstIfDesc)
   
   return dstifdesc_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1766,7 +1766,7 @@ inline void FlowMessage::set_allocated_dstifdesc(::std::string* dstifdesc) {
     
   }
   dstifdesc_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dstifdesc);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.DstIfDesc)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.DstIfDesc)
 }
 
 // uint32 DstIfSpeed = 1008;
@@ -1774,13 +1774,13 @@ inline void FlowMessage::clear_dstifspeed() {
   dstifspeed_ = 0u;
 }
 inline ::google::protobuf::uint32 FlowMessage::dstifspeed() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.DstIfSpeed)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstIfSpeed)
   return dstifspeed_;
 }
 inline void FlowMessage::set_dstifspeed(::google::protobuf::uint32 value) {
   
   dstifspeed_ = value;
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.DstIfSpeed)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstIfSpeed)
 }
 
 // string ProtoName = 1009;
@@ -1788,41 +1788,41 @@ inline void FlowMessage::clear_protoname() {
   protoname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::protoname() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.ProtoName)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.ProtoName)
   return protoname_.GetNoArena();
 }
 inline void FlowMessage::set_protoname(const ::std::string& value) {
   
   protoname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.ProtoName)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.ProtoName)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_protoname(::std::string&& value) {
   
   protoname_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.ProtoName)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.ProtoName)
 }
 #endif
 inline void FlowMessage::set_protoname(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   protoname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.ProtoName)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.ProtoName)
 }
 inline void FlowMessage::set_protoname(const char* value, size_t size) {
   
   protoname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.ProtoName)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.ProtoName)
 }
 inline ::std::string* FlowMessage::mutable_protoname() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.ProtoName)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.ProtoName)
   return protoname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_protoname() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.ProtoName)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.ProtoName)
   
   return protoname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1833,7 +1833,7 @@ inline void FlowMessage::set_allocated_protoname(::std::string* protoname) {
     
   }
   protoname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), protoname);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.ProtoName)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.ProtoName)
 }
 
 // string RemoteCountry = 1010;
@@ -1841,41 +1841,41 @@ inline void FlowMessage::clear_remotecountry() {
   remotecountry_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& FlowMessage::remotecountry() const {
-  // @@protoc_insertion_point(field_get:flowprotob.FlowMessage.RemoteCountry)
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.RemoteCountry)
   return remotecountry_.GetNoArena();
 }
 inline void FlowMessage::set_remotecountry(const ::std::string& value) {
   
   remotecountry_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:flowprotob.FlowMessage.RemoteCountry)
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.RemoteCountry)
 }
 #if LANG_CXX11
 inline void FlowMessage::set_remotecountry(::std::string&& value) {
   
   remotecountry_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:flowprotob.FlowMessage.RemoteCountry)
+  // @@protoc_insertion_point(field_set_rvalue:flowmessageenriched.FlowMessage.RemoteCountry)
 }
 #endif
 inline void FlowMessage::set_remotecountry(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   remotecountry_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:flowprotob.FlowMessage.RemoteCountry)
+  // @@protoc_insertion_point(field_set_char:flowmessageenriched.FlowMessage.RemoteCountry)
 }
 inline void FlowMessage::set_remotecountry(const char* value, size_t size) {
   
   remotecountry_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:flowprotob.FlowMessage.RemoteCountry)
+  // @@protoc_insertion_point(field_set_pointer:flowmessageenriched.FlowMessage.RemoteCountry)
 }
 inline ::std::string* FlowMessage::mutable_remotecountry() {
   
-  // @@protoc_insertion_point(field_mutable:flowprotob.FlowMessage.RemoteCountry)
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.RemoteCountry)
   return remotecountry_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* FlowMessage::release_remotecountry() {
-  // @@protoc_insertion_point(field_release:flowprotob.FlowMessage.RemoteCountry)
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.RemoteCountry)
   
   return remotecountry_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1886,7 +1886,7 @@ inline void FlowMessage::set_allocated_remotecountry(::std::string* remotecountr
     
   }
   remotecountry_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), remotecountry);
-  // @@protoc_insertion_point(field_set_allocated:flowprotob.FlowMessage.RemoteCountry)
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.RemoteCountry)
 }
 
 #ifdef __GNUC__
@@ -1895,20 +1895,20 @@ inline void FlowMessage::set_allocated_remotecountry(::std::string* remotecountr
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace flowprotob
+}  // namespace flowmessageenriched
 
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::flowprotob::FlowMessage_FlowType> : ::std::true_type {};
+template <> struct is_proto_enum< ::flowmessageenriched::FlowMessage_FlowType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::flowprotob::FlowMessage_FlowType>() {
-  return ::flowprotob::FlowMessage_FlowType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::flowmessageenriched::FlowMessage_FlowType>() {
+  return ::flowmessageenriched::FlowMessage_FlowType_descriptor();
 }
-template <> struct is_proto_enum< ::flowprotob::FlowMessage_NormalizedType> : ::std::true_type {};
+template <> struct is_proto_enum< ::flowmessageenriched::FlowMessage_NormalizedType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::flowprotob::FlowMessage_NormalizedType>() {
-  return ::flowprotob::FlowMessage_NormalizedType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::flowmessageenriched::FlowMessage_NormalizedType>() {
+  return ::flowmessageenriched::FlowMessage_NormalizedType_descriptor();
 }
 
 }  // namespace protobuf

@@ -16,23 +16,28 @@ class FlowType
      */
     const FLOWUNKNOWN = 0;
     /**
-     * Generated from protobuf enum <code>NFV9 = 9;</code>
+     * Generated from protobuf enum <code>SFLOW_5 = 1;</code>
      */
-    const NFV9 = 9;
+    const SFLOW_5 = 1;
     /**
-     * Generated from protobuf enum <code>IPFIX = 10;</code>
+     * Generated from protobuf enum <code>NETFLOW_V5 = 2;</code>
      */
-    const IPFIX = 10;
+    const NETFLOW_V5 = 2;
     /**
-     * Generated from protobuf enum <code>SFLOW = 5;</code>
+     * Generated from protobuf enum <code>NETFLOW_V9 = 3;</code>
      */
-    const SFLOW = 5;
+    const NETFLOW_V9 = 3;
+    /**
+     * Generated from protobuf enum <code>IPFIX = 4;</code>
+     */
+    const IPFIX = 4;
 
     private static $valueToName = [
         self::FLOWUNKNOWN => 'FLOWUNKNOWN',
-        self::NFV9 => 'NFV9',
+        self::SFLOW_5 => 'SFLOW_5',
+        self::NETFLOW_V5 => 'NETFLOW_V5',
+        self::NETFLOW_V9 => 'NETFLOW_V9',
         self::IPFIX => 'IPFIX',
-        self::SFLOW => 'SFLOW',
     ];
 
     public static function name($value)

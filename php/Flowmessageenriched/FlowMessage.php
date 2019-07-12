@@ -10,9 +10,6 @@ use Google\Protobuf\Internal\GPBUtil;
 use Google\Protobuf\Internal\GPBWrapperUtils;
 
 /**
- * Flow Message needs to stay compatible to goflow's default protobuf
- * -> never edit record id's, only ever append
- *
  * Generated from protobuf message <code>flowmessageenriched.FlowMessage</code>
  */
 class FlowMessage extends \Google\Protobuf\Internal\Message
@@ -22,37 +19,37 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     private $Type = 0;
     /**
-     * Generated from protobuf field <code>uint64 TimeRecvd = 2;</code>
+     * Generated from protobuf field <code>uint64 TimeReceived = 2;</code>
      */
-    private $TimeRecvd = 0;
-    /**
-     * Generated from protobuf field <code>uint64 SamplingRate = 3;</code>
-     */
-    private $SamplingRate = 0;
+    private $TimeReceived = 0;
     /**
      * Generated from protobuf field <code>uint32 SequenceNum = 4;</code>
      */
     private $SequenceNum = 0;
     /**
+     * Generated from protobuf field <code>uint64 SamplingRate = 3;</code>
+     */
+    private $SamplingRate = 0;
+    /**
+     * Generated from protobuf field <code>uint32 FlowDirection = 42;</code>
+     */
+    private $FlowDirection = 0;
+    /**
+     * Sampler information
+     *
+     * Generated from protobuf field <code>bytes SamplerAddress = 11;</code>
+     */
+    private $SamplerAddress = '';
+    /**
      * Found inside packet
      *
-     * Generated from protobuf field <code>uint64 TimeFlow = 5;</code>
+     * Generated from protobuf field <code>uint64 TimeFlowStart = 38;</code>
      */
-    private $TimeFlow = 0;
+    private $TimeFlowStart = 0;
     /**
-     * Source/destination addresses
-     *
-     * Generated from protobuf field <code>bytes SrcIP = 6;</code>
+     * Generated from protobuf field <code>uint64 TimeFlowEnd = 5;</code>
      */
-    private $SrcIP = '';
-    /**
-     * Generated from protobuf field <code>bytes DstIP = 7;</code>
-     */
-    private $DstIP = '';
-    /**
-     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.IPType IPversion = 8;</code>
-     */
-    private $IPversion = 0;
+    private $TimeFlowEnd = 0;
     /**
      * Size of the sampled packet
      *
@@ -64,39 +61,37 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     private $Packets = 0;
     /**
-     * Routing information
+     * Source/destination addresses
      *
-     * Generated from protobuf field <code>bytes RouterAddr = 11;</code>
+     * Generated from protobuf field <code>bytes SrcAddr = 6;</code>
      */
-    private $RouterAddr = '';
+    private $SrcAddr = '';
     /**
-     * Generated from protobuf field <code>bytes NextHop = 12;</code>
+     * Generated from protobuf field <code>bytes DstAddr = 7;</code>
      */
-    private $NextHop = '';
+    private $DstAddr = '';
     /**
-     * Generated from protobuf field <code>uint32 NextHopAS = 13;</code>
-     */
-    private $NextHopAS = 0;
-    /**
-     * Autonomous system information
+     * Layer 3 protocol (IPv4/IPv6/ARP/...)
      *
-     * Generated from protobuf field <code>uint32 SrcAS = 14;</code>
+     * Generated from protobuf field <code>uint32 Etype = 30;</code>
      */
-    private $SrcAS = 0;
+    private $Etype = 0;
     /**
-     * Generated from protobuf field <code>uint32 DstAS = 15;</code>
-     */
-    private $DstAS = 0;
-    /**
-     * Prefix size
+     * Layer 4 protocol
      *
-     * Generated from protobuf field <code>uint32 SrcNet = 16;</code>
+     * Generated from protobuf field <code>uint32 Proto = 20;</code>
      */
-    private $SrcNet = 0;
+    private $Proto = 0;
     /**
-     * Generated from protobuf field <code>uint32 DstNet = 17;</code>
+     * Ports for UDP and TCP
+     *
+     * Generated from protobuf field <code>uint32 SrcPort = 21;</code>
      */
-    private $DstNet = 0;
+    private $SrcPort = 0;
+    /**
+     * Generated from protobuf field <code>uint32 DstPort = 22;</code>
+     */
+    private $DstPort = 0;
     /**
      * Interfaces
      *
@@ -108,21 +103,41 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     private $DstIf = 0;
     /**
-     * Layer 4 protocol
+     * Ethernet information
      *
-     * Generated from protobuf field <code>uint32 Proto = 20;</code>
+     * Generated from protobuf field <code>uint64 SrcMac = 27;</code>
      */
-    private $Proto = 0;
+    private $SrcMac = 0;
     /**
-     * Port for UDP and TCP
+     * Generated from protobuf field <code>uint64 DstMac = 28;</code>
+     */
+    private $DstMac = 0;
+    /**
+     * Vlan
      *
-     * Generated from protobuf field <code>uint32 SrcPort = 21;</code>
+     * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
      */
-    private $SrcPort = 0;
+    private $SrcVlan = 0;
     /**
-     * Generated from protobuf field <code>uint32 DstPort = 22;</code>
+     * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
      */
-    private $DstPort = 0;
+    private $DstVlan = 0;
+    /**
+     * 802.1q VLAN in sampled packet
+     *
+     * Generated from protobuf field <code>uint32 VlanId = 29;</code>
+     */
+    private $VlanId = 0;
+    /**
+     * VRF
+     *
+     * Generated from protobuf field <code>uint32 IngressVrfID = 39;</code>
+     */
+    private $IngressVrfID = 0;
+    /**
+     * Generated from protobuf field <code>uint32 EgressVrfID = 40;</code>
+     */
+    private $EgressVrfID = 0;
     /**
      * IP and TCP special flags
      *
@@ -142,28 +157,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     private $TCPFlags = 0;
     /**
-     * Ethernet information
-     *
-     * Generated from protobuf field <code>uint64 SrcMac = 27;</code>
-     */
-    private $SrcMac = 0;
-    /**
-     * Generated from protobuf field <code>uint64 DstMac = 28;</code>
-     */
-    private $DstMac = 0;
-    /**
-     * 802.1q VLAN in sampled packet
-     *
-     * Generated from protobuf field <code>uint32 VlanId = 29;</code>
-     */
-    private $VlanId = 0;
-    /**
-     * Layer 3 protocol (IPv4/IPv6/ARP/...)
-     *
-     * Generated from protobuf field <code>uint32 Etype = 30;</code>
-     */
-    private $Etype = 0;
-    /**
      * Generated from protobuf field <code>uint32 IcmpType = 31;</code>
      */
     private $IcmpType = 0;
@@ -172,15 +165,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     private $IcmpCode = 0;
     /**
-     * Vlan
-     *
-     * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
+     * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
      */
-    private $SrcVlan = 0;
-    /**
-     * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
-     */
-    private $DstVlan = 0;
+    private $IPv6FlowLabel = 0;
     /**
      * Fragments (IPv4/IPv6)
      *
@@ -192,77 +179,97 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     private $FragmentOffset = 0;
     /**
-     * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
+     * Generated from protobuf field <code>uint32 BiFlowDirection = 41;</code>
      */
-    private $IPv6FlowLabel = 0;
+    private $BiFlowDirection = 0;
     /**
-     * VRF
+     * Autonomous system information
      *
-     * Generated from protobuf field <code>uint32 IngressVrfId = 38;</code>
+     * Generated from protobuf field <code>uint32 SrcAS = 14;</code>
      */
-    private $IngressVrfId = 0;
+    private $SrcAS = 0;
     /**
-     * Generated from protobuf field <code>uint32 EgressVrfId = 39;</code>
+     * Generated from protobuf field <code>uint32 DstAS = 15;</code>
      */
-    private $EgressVrfId = 0;
+    private $DstAS = 0;
     /**
-     * Time Flow
+     * Generated from protobuf field <code>bytes NextHop = 12;</code>
+     */
+    private $NextHop = '';
+    /**
+     * Generated from protobuf field <code>uint32 NextHopAS = 13;</code>
+     */
+    private $NextHopAS = 0;
+    /**
+     * Prefix size
      *
-     * Generated from protobuf field <code>uint64 TimeFlowStart = 40;</code>
+     * Generated from protobuf field <code>uint32 SrcNet = 16;</code>
      */
-    private $TimeFlowStart = 0;
+    private $SrcNet = 0;
     /**
-     * Generated from protobuf field <code>uint64 TimeFlowEnd = 41;</code>
+     * Generated from protobuf field <code>uint32 DstNet = 17;</code>
      */
-    private $TimeFlowEnd = 0;
+    private $DstNet = 0;
     /**
-     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.DirectionType Direction = 90;</code>
-     */
-    private $Direction = 0;
-    /**
-     * Generated from protobuf field <code>uint32 Cid = 91;</code>
+     * bwNetFlow enricher fields
+     *
+     * Generated from protobuf field <code>uint32 Cid = 1000;</code>
      */
     private $Cid = 0;
     /**
-     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.NormalizedType Normalized = 92;</code>
+     * Customer ID - a more generalized ID, assigned by prefix
+     *
+     * Generated from protobuf field <code>string CidString = 1001;</code>
+     */
+    private $CidString = '';
+    /**
+     * Normalization - whether the sampling rate is accounted for
+     *
+     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;</code>
      */
     private $Normalized = 0;
     /**
-     * Generated from protobuf field <code>string SrcIfName = 93;</code>
+     * Fields for Interface Usability -- enriched using SNMP
+     *
+     * Generated from protobuf field <code>string SrcIfName = 1003;</code>
      */
     private $SrcIfName = '';
     /**
-     * Generated from protobuf field <code>string SrcIfDesc = 94;</code>
+     * set to the descrition, filtered by a regex in the enricher
+     *
+     * Generated from protobuf field <code>string SrcIfDesc = 1004;</code>
      */
     private $SrcIfDesc = '';
     /**
-     * Generated from protobuf field <code>uint32 SrcIfSpeed = 95;</code>
+     * iface speed
+     *
+     * Generated from protobuf field <code>uint32 SrcIfSpeed = 1005;</code>
      */
     private $SrcIfSpeed = 0;
     /**
-     * Generated from protobuf field <code>string DstIfName = 96;</code>
+     * Generated from protobuf field <code>string DstIfName = 1006;</code>
      */
     private $DstIfName = '';
     /**
-     * Generated from protobuf field <code>string DstIfDesc = 97;</code>
+     * Generated from protobuf field <code>string DstIfDesc = 1007;</code>
      */
     private $DstIfDesc = '';
     /**
-     * Generated from protobuf field <code>uint32 DstIfSpeed = 98;</code>
+     * Generated from protobuf field <code>uint32 DstIfSpeed = 1008;</code>
      */
     private $DstIfSpeed = 0;
     /**
-     * Generated from protobuf field <code>string Peer = 99;</code>
-     */
-    private $Peer = '';
-    /**
-     * Generated from protobuf field <code>string RemoteCountry = 100;</code>
-     */
-    private $RemoteCountry = '';
-    /**
-     * Generated from protobuf field <code>string ProtoName = 101;</code>
+     * Protocol Name -- set for some well known protocols, based on Proto
+     *
+     * Generated from protobuf field <code>string ProtoName = 1009;</code>
      */
     private $ProtoName = '';
+    /**
+     * Geolocation -- set using the provided database
+     *
+     * Generated from protobuf field <code>string RemoteCountry = 1010;</code>
+     */
+    private $RemoteCountry = '';
 
     /**
      * Constructor.
@@ -271,75 +278,81 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $Type
-     *     @type int|string $TimeRecvd
-     *     @type int|string $SamplingRate
+     *     @type int|string $TimeReceived
      *     @type int $SequenceNum
-     *     @type int|string $TimeFlow
+     *     @type int|string $SamplingRate
+     *     @type int $FlowDirection
+     *     @type string $SamplerAddress
+     *           Sampler information
+     *     @type int|string $TimeFlowStart
      *           Found inside packet
-     *     @type string $SrcIP
-     *           Source/destination addresses
-     *     @type string $DstIP
-     *     @type int $IPversion
+     *     @type int|string $TimeFlowEnd
      *     @type int|string $Bytes
      *           Size of the sampled packet
      *     @type int|string $Packets
-     *     @type string $RouterAddr
-     *           Routing information
-     *     @type string $NextHop
-     *     @type int $NextHopAS
-     *     @type int $SrcAS
-     *           Autonomous system information
-     *     @type int $DstAS
-     *     @type int $SrcNet
-     *           Prefix size
-     *     @type int $DstNet
-     *     @type int $SrcIf
-     *           Interfaces
-     *     @type int $DstIf
+     *     @type string $SrcAddr
+     *           Source/destination addresses
+     *     @type string $DstAddr
+     *     @type int $Etype
+     *           Layer 3 protocol (IPv4/IPv6/ARP/...)
      *     @type int $Proto
      *           Layer 4 protocol
      *     @type int $SrcPort
-     *           Port for UDP and TCP
+     *           Ports for UDP and TCP
      *     @type int $DstPort
+     *     @type int $SrcIf
+     *           Interfaces
+     *     @type int $DstIf
+     *     @type int|string $SrcMac
+     *           Ethernet information
+     *     @type int|string $DstMac
+     *     @type int $SrcVlan
+     *           Vlan
+     *     @type int $DstVlan
+     *     @type int $VlanId
+     *           802.1q VLAN in sampled packet
+     *     @type int $IngressVrfID
+     *           VRF
+     *     @type int $EgressVrfID
      *     @type int $IPTos
      *           IP and TCP special flags
      *     @type int $ForwardingStatus
      *     @type int $IPTTL
      *     @type int $TCPFlags
-     *     @type int|string $SrcMac
-     *           Ethernet information
-     *     @type int|string $DstMac
-     *     @type int $VlanId
-     *           802.1q VLAN in sampled packet
-     *     @type int $Etype
-     *           Layer 3 protocol (IPv4/IPv6/ARP/...)
      *     @type int $IcmpType
      *     @type int $IcmpCode
-     *     @type int $SrcVlan
-     *           Vlan
-     *     @type int $DstVlan
+     *     @type int $IPv6FlowLabel
      *     @type int $FragmentId
      *           Fragments (IPv4/IPv6)
      *     @type int $FragmentOffset
-     *     @type int $IPv6FlowLabel
-     *     @type int $IngressVrfId
-     *           VRF
-     *     @type int $EgressVrfId
-     *     @type int|string $TimeFlowStart
-     *           Time Flow
-     *     @type int|string $TimeFlowEnd
-     *     @type int $Direction
+     *     @type int $BiFlowDirection
+     *     @type int $SrcAS
+     *           Autonomous system information
+     *     @type int $DstAS
+     *     @type string $NextHop
+     *     @type int $NextHopAS
+     *     @type int $SrcNet
+     *           Prefix size
+     *     @type int $DstNet
      *     @type int $Cid
+     *           bwNetFlow enricher fields
+     *     @type string $CidString
+     *           Customer ID - a more generalized ID, assigned by prefix
      *     @type int $Normalized
+     *           Normalization - whether the sampling rate is accounted for
      *     @type string $SrcIfName
+     *           Fields for Interface Usability -- enriched using SNMP
      *     @type string $SrcIfDesc
+     *           set to the descrition, filtered by a regex in the enricher
      *     @type int $SrcIfSpeed
+     *           iface speed
      *     @type string $DstIfName
      *     @type string $DstIfDesc
      *     @type int $DstIfSpeed
-     *     @type string $Peer
-     *     @type string $RemoteCountry
      *     @type string $ProtoName
+     *           Protocol Name -- set for some well known protocols, based on Proto
+     *     @type string $RemoteCountry
+     *           Geolocation -- set using the provided database
      * }
      */
     public function __construct($data = NULL) {
@@ -370,45 +383,23 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint64 TimeRecvd = 2;</code>
+     * Generated from protobuf field <code>uint64 TimeReceived = 2;</code>
      * @return int|string
      */
-    public function getTimeRecvd()
+    public function getTimeReceived()
     {
-        return $this->TimeRecvd;
+        return $this->TimeReceived;
     }
 
     /**
-     * Generated from protobuf field <code>uint64 TimeRecvd = 2;</code>
+     * Generated from protobuf field <code>uint64 TimeReceived = 2;</code>
      * @param int|string $var
      * @return $this
      */
-    public function setTimeRecvd($var)
+    public function setTimeReceived($var)
     {
         GPBUtil::checkUint64($var);
-        $this->TimeRecvd = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint64 SamplingRate = 3;</code>
-     * @return int|string
-     */
-    public function getSamplingRate()
-    {
-        return $this->SamplingRate;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint64 SamplingRate = 3;</code>
-     * @param int|string $var
-     * @return $this
-     */
-    public function setSamplingRate($var)
-    {
-        GPBUtil::checkUint64($var);
-        $this->SamplingRate = $var;
+        $this->TimeReceived = $var;
 
         return $this;
     }
@@ -436,97 +427,119 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Found inside packet
-     *
-     * Generated from protobuf field <code>uint64 TimeFlow = 5;</code>
+     * Generated from protobuf field <code>uint64 SamplingRate = 3;</code>
      * @return int|string
      */
-    public function getTimeFlow()
+    public function getSamplingRate()
     {
-        return $this->TimeFlow;
+        return $this->SamplingRate;
     }
 
     /**
-     * Found inside packet
-     *
-     * Generated from protobuf field <code>uint64 TimeFlow = 5;</code>
+     * Generated from protobuf field <code>uint64 SamplingRate = 3;</code>
      * @param int|string $var
      * @return $this
      */
-    public function setTimeFlow($var)
+    public function setSamplingRate($var)
     {
         GPBUtil::checkUint64($var);
-        $this->TimeFlow = $var;
+        $this->SamplingRate = $var;
 
         return $this;
     }
 
     /**
-     * Source/destination addresses
-     *
-     * Generated from protobuf field <code>bytes SrcIP = 6;</code>
-     * @return string
-     */
-    public function getSrcIP()
-    {
-        return $this->SrcIP;
-    }
-
-    /**
-     * Source/destination addresses
-     *
-     * Generated from protobuf field <code>bytes SrcIP = 6;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setSrcIP($var)
-    {
-        GPBUtil::checkString($var, False);
-        $this->SrcIP = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>bytes DstIP = 7;</code>
-     * @return string
-     */
-    public function getDstIP()
-    {
-        return $this->DstIP;
-    }
-
-    /**
-     * Generated from protobuf field <code>bytes DstIP = 7;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setDstIP($var)
-    {
-        GPBUtil::checkString($var, False);
-        $this->DstIP = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.IPType IPversion = 8;</code>
+     * Generated from protobuf field <code>uint32 FlowDirection = 42;</code>
      * @return int
      */
-    public function getIPversion()
+    public function getFlowDirection()
     {
-        return $this->IPversion;
+        return $this->FlowDirection;
     }
 
     /**
-     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.IPType IPversion = 8;</code>
+     * Generated from protobuf field <code>uint32 FlowDirection = 42;</code>
      * @param int $var
      * @return $this
      */
-    public function setIPversion($var)
+    public function setFlowDirection($var)
     {
-        GPBUtil::checkEnum($var, \Flowmessageenriched\FlowMessage_IPType::class);
-        $this->IPversion = $var;
+        GPBUtil::checkUint32($var);
+        $this->FlowDirection = $var;
+
+        return $this;
+    }
+
+    /**
+     * Sampler information
+     *
+     * Generated from protobuf field <code>bytes SamplerAddress = 11;</code>
+     * @return string
+     */
+    public function getSamplerAddress()
+    {
+        return $this->SamplerAddress;
+    }
+
+    /**
+     * Sampler information
+     *
+     * Generated from protobuf field <code>bytes SamplerAddress = 11;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setSamplerAddress($var)
+    {
+        GPBUtil::checkString($var, False);
+        $this->SamplerAddress = $var;
+
+        return $this;
+    }
+
+    /**
+     * Found inside packet
+     *
+     * Generated from protobuf field <code>uint64 TimeFlowStart = 38;</code>
+     * @return int|string
+     */
+    public function getTimeFlowStart()
+    {
+        return $this->TimeFlowStart;
+    }
+
+    /**
+     * Found inside packet
+     *
+     * Generated from protobuf field <code>uint64 TimeFlowStart = 38;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTimeFlowStart($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->TimeFlowStart = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 TimeFlowEnd = 5;</code>
+     * @return int|string
+     */
+    public function getTimeFlowEnd()
+    {
+        return $this->TimeFlowEnd;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 TimeFlowEnd = 5;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTimeFlowEnd($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->TimeFlowEnd = $var;
 
         return $this;
     }
@@ -580,167 +593,149 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Routing information
+     * Source/destination addresses
      *
-     * Generated from protobuf field <code>bytes RouterAddr = 11;</code>
+     * Generated from protobuf field <code>bytes SrcAddr = 6;</code>
      * @return string
      */
-    public function getRouterAddr()
+    public function getSrcAddr()
     {
-        return $this->RouterAddr;
+        return $this->SrcAddr;
     }
 
     /**
-     * Routing information
+     * Source/destination addresses
      *
-     * Generated from protobuf field <code>bytes RouterAddr = 11;</code>
+     * Generated from protobuf field <code>bytes SrcAddr = 6;</code>
      * @param string $var
      * @return $this
      */
-    public function setRouterAddr($var)
+    public function setSrcAddr($var)
     {
         GPBUtil::checkString($var, False);
-        $this->RouterAddr = $var;
+        $this->SrcAddr = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>bytes NextHop = 12;</code>
+     * Generated from protobuf field <code>bytes DstAddr = 7;</code>
      * @return string
      */
-    public function getNextHop()
+    public function getDstAddr()
     {
-        return $this->NextHop;
+        return $this->DstAddr;
     }
 
     /**
-     * Generated from protobuf field <code>bytes NextHop = 12;</code>
+     * Generated from protobuf field <code>bytes DstAddr = 7;</code>
      * @param string $var
      * @return $this
      */
-    public function setNextHop($var)
+    public function setDstAddr($var)
     {
         GPBUtil::checkString($var, False);
-        $this->NextHop = $var;
+        $this->DstAddr = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 NextHopAS = 13;</code>
-     * @return int
-     */
-    public function getNextHopAS()
-    {
-        return $this->NextHopAS;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 NextHopAS = 13;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setNextHopAS($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->NextHopAS = $var;
-
-        return $this;
-    }
-
-    /**
-     * Autonomous system information
+     * Layer 3 protocol (IPv4/IPv6/ARP/...)
      *
-     * Generated from protobuf field <code>uint32 SrcAS = 14;</code>
+     * Generated from protobuf field <code>uint32 Etype = 30;</code>
      * @return int
      */
-    public function getSrcAS()
+    public function getEtype()
     {
-        return $this->SrcAS;
+        return $this->Etype;
     }
 
     /**
-     * Autonomous system information
+     * Layer 3 protocol (IPv4/IPv6/ARP/...)
      *
-     * Generated from protobuf field <code>uint32 SrcAS = 14;</code>
+     * Generated from protobuf field <code>uint32 Etype = 30;</code>
      * @param int $var
      * @return $this
      */
-    public function setSrcAS($var)
+    public function setEtype($var)
     {
         GPBUtil::checkUint32($var);
-        $this->SrcAS = $var;
+        $this->Etype = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstAS = 15;</code>
+     * Layer 4 protocol
+     *
+     * Generated from protobuf field <code>uint32 Proto = 20;</code>
      * @return int
      */
-    public function getDstAS()
+    public function getProto()
     {
-        return $this->DstAS;
+        return $this->Proto;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstAS = 15;</code>
+     * Layer 4 protocol
+     *
+     * Generated from protobuf field <code>uint32 Proto = 20;</code>
      * @param int $var
      * @return $this
      */
-    public function setDstAS($var)
+    public function setProto($var)
     {
         GPBUtil::checkUint32($var);
-        $this->DstAS = $var;
+        $this->Proto = $var;
 
         return $this;
     }
 
     /**
-     * Prefix size
+     * Ports for UDP and TCP
      *
-     * Generated from protobuf field <code>uint32 SrcNet = 16;</code>
+     * Generated from protobuf field <code>uint32 SrcPort = 21;</code>
      * @return int
      */
-    public function getSrcNet()
+    public function getSrcPort()
     {
-        return $this->SrcNet;
+        return $this->SrcPort;
     }
 
     /**
-     * Prefix size
+     * Ports for UDP and TCP
      *
-     * Generated from protobuf field <code>uint32 SrcNet = 16;</code>
+     * Generated from protobuf field <code>uint32 SrcPort = 21;</code>
      * @param int $var
      * @return $this
      */
-    public function setSrcNet($var)
+    public function setSrcPort($var)
     {
         GPBUtil::checkUint32($var);
-        $this->SrcNet = $var;
+        $this->SrcPort = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstNet = 17;</code>
+     * Generated from protobuf field <code>uint32 DstPort = 22;</code>
      * @return int
      */
-    public function getDstNet()
+    public function getDstPort()
     {
-        return $this->DstNet;
+        return $this->DstPort;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstNet = 17;</code>
+     * Generated from protobuf field <code>uint32 DstPort = 22;</code>
      * @param int $var
      * @return $this
      */
-    public function setDstNet($var)
+    public function setDstPort($var)
     {
         GPBUtil::checkUint32($var);
-        $this->DstNet = $var;
+        $this->DstPort = $var;
 
         return $this;
     }
@@ -794,75 +789,171 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Layer 4 protocol
+     * Ethernet information
      *
-     * Generated from protobuf field <code>uint32 Proto = 20;</code>
-     * @return int
+     * Generated from protobuf field <code>uint64 SrcMac = 27;</code>
+     * @return int|string
      */
-    public function getProto()
+    public function getSrcMac()
     {
-        return $this->Proto;
+        return $this->SrcMac;
     }
 
     /**
-     * Layer 4 protocol
+     * Ethernet information
      *
-     * Generated from protobuf field <code>uint32 Proto = 20;</code>
-     * @param int $var
+     * Generated from protobuf field <code>uint64 SrcMac = 27;</code>
+     * @param int|string $var
      * @return $this
      */
-    public function setProto($var)
+    public function setSrcMac($var)
     {
-        GPBUtil::checkUint32($var);
-        $this->Proto = $var;
+        GPBUtil::checkUint64($var);
+        $this->SrcMac = $var;
 
         return $this;
     }
 
     /**
-     * Port for UDP and TCP
-     *
-     * Generated from protobuf field <code>uint32 SrcPort = 21;</code>
-     * @return int
+     * Generated from protobuf field <code>uint64 DstMac = 28;</code>
+     * @return int|string
      */
-    public function getSrcPort()
+    public function getDstMac()
     {
-        return $this->SrcPort;
+        return $this->DstMac;
     }
 
     /**
-     * Port for UDP and TCP
-     *
-     * Generated from protobuf field <code>uint32 SrcPort = 21;</code>
-     * @param int $var
+     * Generated from protobuf field <code>uint64 DstMac = 28;</code>
+     * @param int|string $var
      * @return $this
      */
-    public function setSrcPort($var)
+    public function setDstMac($var)
     {
-        GPBUtil::checkUint32($var);
-        $this->SrcPort = $var;
+        GPBUtil::checkUint64($var);
+        $this->DstMac = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstPort = 22;</code>
+     * Vlan
+     *
+     * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
      * @return int
      */
-    public function getDstPort()
+    public function getSrcVlan()
     {
-        return $this->DstPort;
+        return $this->SrcVlan;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstPort = 22;</code>
+     * Vlan
+     *
+     * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
      * @param int $var
      * @return $this
      */
-    public function setDstPort($var)
+    public function setSrcVlan($var)
     {
         GPBUtil::checkUint32($var);
-        $this->DstPort = $var;
+        $this->SrcVlan = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
+     * @return int
+     */
+    public function getDstVlan()
+    {
+        return $this->DstVlan;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setDstVlan($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->DstVlan = $var;
+
+        return $this;
+    }
+
+    /**
+     * 802.1q VLAN in sampled packet
+     *
+     * Generated from protobuf field <code>uint32 VlanId = 29;</code>
+     * @return int
+     */
+    public function getVlanId()
+    {
+        return $this->VlanId;
+    }
+
+    /**
+     * 802.1q VLAN in sampled packet
+     *
+     * Generated from protobuf field <code>uint32 VlanId = 29;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setVlanId($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->VlanId = $var;
+
+        return $this;
+    }
+
+    /**
+     * VRF
+     *
+     * Generated from protobuf field <code>uint32 IngressVrfID = 39;</code>
+     * @return int
+     */
+    public function getIngressVrfID()
+    {
+        return $this->IngressVrfID;
+    }
+
+    /**
+     * VRF
+     *
+     * Generated from protobuf field <code>uint32 IngressVrfID = 39;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIngressVrfID($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->IngressVrfID = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 EgressVrfID = 40;</code>
+     * @return int
+     */
+    public function getEgressVrfID()
+    {
+        return $this->EgressVrfID;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 EgressVrfID = 40;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setEgressVrfID($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->EgressVrfID = $var;
 
         return $this;
     }
@@ -960,106 +1051,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Ethernet information
-     *
-     * Generated from protobuf field <code>uint64 SrcMac = 27;</code>
-     * @return int|string
-     */
-    public function getSrcMac()
-    {
-        return $this->SrcMac;
-    }
-
-    /**
-     * Ethernet information
-     *
-     * Generated from protobuf field <code>uint64 SrcMac = 27;</code>
-     * @param int|string $var
-     * @return $this
-     */
-    public function setSrcMac($var)
-    {
-        GPBUtil::checkUint64($var);
-        $this->SrcMac = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint64 DstMac = 28;</code>
-     * @return int|string
-     */
-    public function getDstMac()
-    {
-        return $this->DstMac;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint64 DstMac = 28;</code>
-     * @param int|string $var
-     * @return $this
-     */
-    public function setDstMac($var)
-    {
-        GPBUtil::checkUint64($var);
-        $this->DstMac = $var;
-
-        return $this;
-    }
-
-    /**
-     * 802.1q VLAN in sampled packet
-     *
-     * Generated from protobuf field <code>uint32 VlanId = 29;</code>
-     * @return int
-     */
-    public function getVlanId()
-    {
-        return $this->VlanId;
-    }
-
-    /**
-     * 802.1q VLAN in sampled packet
-     *
-     * Generated from protobuf field <code>uint32 VlanId = 29;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setVlanId($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->VlanId = $var;
-
-        return $this;
-    }
-
-    /**
-     * Layer 3 protocol (IPv4/IPv6/ARP/...)
-     *
-     * Generated from protobuf field <code>uint32 Etype = 30;</code>
-     * @return int
-     */
-    public function getEtype()
-    {
-        return $this->Etype;
-    }
-
-    /**
-     * Layer 3 protocol (IPv4/IPv6/ARP/...)
-     *
-     * Generated from protobuf field <code>uint32 Etype = 30;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setEtype($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->Etype = $var;
-
-        return $this;
-    }
-
-    /**
      * Generated from protobuf field <code>uint32 IcmpType = 31;</code>
      * @return int
      */
@@ -1104,49 +1095,23 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Vlan
-     *
-     * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
+     * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
      * @return int
      */
-    public function getSrcVlan()
+    public function getIPv6FlowLabel()
     {
-        return $this->SrcVlan;
+        return $this->IPv6FlowLabel;
     }
 
     /**
-     * Vlan
-     *
-     * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
+     * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
      * @param int $var
      * @return $this
      */
-    public function setSrcVlan($var)
+    public function setIPv6FlowLabel($var)
     {
         GPBUtil::checkUint32($var);
-        $this->SrcVlan = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
-     * @return int
-     */
-    public function getDstVlan()
-    {
-        return $this->DstVlan;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setDstVlan($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->DstVlan = $var;
+        $this->IPv6FlowLabel = $var;
 
         return $this;
     }
@@ -1200,147 +1165,171 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
+     * Generated from protobuf field <code>uint32 BiFlowDirection = 41;</code>
      * @return int
      */
-    public function getIPv6FlowLabel()
+    public function getBiFlowDirection()
     {
-        return $this->IPv6FlowLabel;
+        return $this->BiFlowDirection;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
+     * Generated from protobuf field <code>uint32 BiFlowDirection = 41;</code>
      * @param int $var
      * @return $this
      */
-    public function setIPv6FlowLabel($var)
+    public function setBiFlowDirection($var)
     {
         GPBUtil::checkUint32($var);
-        $this->IPv6FlowLabel = $var;
+        $this->BiFlowDirection = $var;
 
         return $this;
     }
 
     /**
-     * VRF
+     * Autonomous system information
      *
-     * Generated from protobuf field <code>uint32 IngressVrfId = 38;</code>
+     * Generated from protobuf field <code>uint32 SrcAS = 14;</code>
      * @return int
      */
-    public function getIngressVrfId()
+    public function getSrcAS()
     {
-        return $this->IngressVrfId;
+        return $this->SrcAS;
     }
 
     /**
-     * VRF
+     * Autonomous system information
      *
-     * Generated from protobuf field <code>uint32 IngressVrfId = 38;</code>
+     * Generated from protobuf field <code>uint32 SrcAS = 14;</code>
      * @param int $var
      * @return $this
      */
-    public function setIngressVrfId($var)
+    public function setSrcAS($var)
     {
         GPBUtil::checkUint32($var);
-        $this->IngressVrfId = $var;
+        $this->SrcAS = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 EgressVrfId = 39;</code>
+     * Generated from protobuf field <code>uint32 DstAS = 15;</code>
      * @return int
      */
-    public function getEgressVrfId()
+    public function getDstAS()
     {
-        return $this->EgressVrfId;
+        return $this->DstAS;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 EgressVrfId = 39;</code>
+     * Generated from protobuf field <code>uint32 DstAS = 15;</code>
      * @param int $var
      * @return $this
      */
-    public function setEgressVrfId($var)
+    public function setDstAS($var)
     {
         GPBUtil::checkUint32($var);
-        $this->EgressVrfId = $var;
+        $this->DstAS = $var;
 
         return $this;
     }
 
     /**
-     * Time Flow
-     *
-     * Generated from protobuf field <code>uint64 TimeFlowStart = 40;</code>
-     * @return int|string
+     * Generated from protobuf field <code>bytes NextHop = 12;</code>
+     * @return string
      */
-    public function getTimeFlowStart()
+    public function getNextHop()
     {
-        return $this->TimeFlowStart;
+        return $this->NextHop;
     }
 
     /**
-     * Time Flow
-     *
-     * Generated from protobuf field <code>uint64 TimeFlowStart = 40;</code>
-     * @param int|string $var
+     * Generated from protobuf field <code>bytes NextHop = 12;</code>
+     * @param string $var
      * @return $this
      */
-    public function setTimeFlowStart($var)
+    public function setNextHop($var)
     {
-        GPBUtil::checkUint64($var);
-        $this->TimeFlowStart = $var;
+        GPBUtil::checkString($var, False);
+        $this->NextHop = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>uint64 TimeFlowEnd = 41;</code>
-     * @return int|string
-     */
-    public function getTimeFlowEnd()
-    {
-        return $this->TimeFlowEnd;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint64 TimeFlowEnd = 41;</code>
-     * @param int|string $var
-     * @return $this
-     */
-    public function setTimeFlowEnd($var)
-    {
-        GPBUtil::checkUint64($var);
-        $this->TimeFlowEnd = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.DirectionType Direction = 90;</code>
+     * Generated from protobuf field <code>uint32 NextHopAS = 13;</code>
      * @return int
      */
-    public function getDirection()
+    public function getNextHopAS()
     {
-        return $this->Direction;
+        return $this->NextHopAS;
     }
 
     /**
-     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.DirectionType Direction = 90;</code>
+     * Generated from protobuf field <code>uint32 NextHopAS = 13;</code>
      * @param int $var
      * @return $this
      */
-    public function setDirection($var)
+    public function setNextHopAS($var)
     {
-        GPBUtil::checkEnum($var, \Flowmessageenriched\FlowMessage_DirectionType::class);
-        $this->Direction = $var;
+        GPBUtil::checkUint32($var);
+        $this->NextHopAS = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 Cid = 91;</code>
+     * Prefix size
+     *
+     * Generated from protobuf field <code>uint32 SrcNet = 16;</code>
+     * @return int
+     */
+    public function getSrcNet()
+    {
+        return $this->SrcNet;
+    }
+
+    /**
+     * Prefix size
+     *
+     * Generated from protobuf field <code>uint32 SrcNet = 16;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setSrcNet($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->SrcNet = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 DstNet = 17;</code>
+     * @return int
+     */
+    public function getDstNet()
+    {
+        return $this->DstNet;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 DstNet = 17;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setDstNet($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->DstNet = $var;
+
+        return $this;
+    }
+
+    /**
+     * bwNetFlow enricher fields
+     *
+     * Generated from protobuf field <code>uint32 Cid = 1000;</code>
      * @return int
      */
     public function getCid()
@@ -1349,7 +1338,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 Cid = 91;</code>
+     * bwNetFlow enricher fields
+     *
+     * Generated from protobuf field <code>uint32 Cid = 1000;</code>
      * @param int $var
      * @return $this
      */
@@ -1362,7 +1353,35 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.NormalizedType Normalized = 92;</code>
+     * Customer ID - a more generalized ID, assigned by prefix
+     *
+     * Generated from protobuf field <code>string CidString = 1001;</code>
+     * @return string
+     */
+    public function getCidString()
+    {
+        return $this->CidString;
+    }
+
+    /**
+     * Customer ID - a more generalized ID, assigned by prefix
+     *
+     * Generated from protobuf field <code>string CidString = 1001;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setCidString($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->CidString = $var;
+
+        return $this;
+    }
+
+    /**
+     * Normalization - whether the sampling rate is accounted for
+     *
+     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;</code>
      * @return int
      */
     public function getNormalized()
@@ -1371,7 +1390,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.NormalizedType Normalized = 92;</code>
+     * Normalization - whether the sampling rate is accounted for
+     *
+     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;</code>
      * @param int $var
      * @return $this
      */
@@ -1384,7 +1405,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string SrcIfName = 93;</code>
+     * Fields for Interface Usability -- enriched using SNMP
+     *
+     * Generated from protobuf field <code>string SrcIfName = 1003;</code>
      * @return string
      */
     public function getSrcIfName()
@@ -1393,7 +1416,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string SrcIfName = 93;</code>
+     * Fields for Interface Usability -- enriched using SNMP
+     *
+     * Generated from protobuf field <code>string SrcIfName = 1003;</code>
      * @param string $var
      * @return $this
      */
@@ -1406,7 +1431,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string SrcIfDesc = 94;</code>
+     * set to the descrition, filtered by a regex in the enricher
+     *
+     * Generated from protobuf field <code>string SrcIfDesc = 1004;</code>
      * @return string
      */
     public function getSrcIfDesc()
@@ -1415,7 +1442,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string SrcIfDesc = 94;</code>
+     * set to the descrition, filtered by a regex in the enricher
+     *
+     * Generated from protobuf field <code>string SrcIfDesc = 1004;</code>
      * @param string $var
      * @return $this
      */
@@ -1428,7 +1457,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 SrcIfSpeed = 95;</code>
+     * iface speed
+     *
+     * Generated from protobuf field <code>uint32 SrcIfSpeed = 1005;</code>
      * @return int
      */
     public function getSrcIfSpeed()
@@ -1437,7 +1468,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 SrcIfSpeed = 95;</code>
+     * iface speed
+     *
+     * Generated from protobuf field <code>uint32 SrcIfSpeed = 1005;</code>
      * @param int $var
      * @return $this
      */
@@ -1450,7 +1483,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string DstIfName = 96;</code>
+     * Generated from protobuf field <code>string DstIfName = 1006;</code>
      * @return string
      */
     public function getDstIfName()
@@ -1459,7 +1492,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string DstIfName = 96;</code>
+     * Generated from protobuf field <code>string DstIfName = 1006;</code>
      * @param string $var
      * @return $this
      */
@@ -1472,7 +1505,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string DstIfDesc = 97;</code>
+     * Generated from protobuf field <code>string DstIfDesc = 1007;</code>
      * @return string
      */
     public function getDstIfDesc()
@@ -1481,7 +1514,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string DstIfDesc = 97;</code>
+     * Generated from protobuf field <code>string DstIfDesc = 1007;</code>
      * @param string $var
      * @return $this
      */
@@ -1494,7 +1527,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstIfSpeed = 98;</code>
+     * Generated from protobuf field <code>uint32 DstIfSpeed = 1008;</code>
      * @return int
      */
     public function getDstIfSpeed()
@@ -1503,7 +1536,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstIfSpeed = 98;</code>
+     * Generated from protobuf field <code>uint32 DstIfSpeed = 1008;</code>
      * @param int $var
      * @return $this
      */
@@ -1516,51 +1549,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string Peer = 99;</code>
-     * @return string
-     */
-    public function getPeer()
-    {
-        return $this->Peer;
-    }
-
-    /**
-     * Generated from protobuf field <code>string Peer = 99;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setPeer($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->Peer = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string RemoteCountry = 100;</code>
-     * @return string
-     */
-    public function getRemoteCountry()
-    {
-        return $this->RemoteCountry;
-    }
-
-    /**
-     * Generated from protobuf field <code>string RemoteCountry = 100;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setRemoteCountry($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->RemoteCountry = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string ProtoName = 101;</code>
+     * Protocol Name -- set for some well known protocols, based on Proto
+     *
+     * Generated from protobuf field <code>string ProtoName = 1009;</code>
      * @return string
      */
     public function getProtoName()
@@ -1569,7 +1560,9 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string ProtoName = 101;</code>
+     * Protocol Name -- set for some well known protocols, based on Proto
+     *
+     * Generated from protobuf field <code>string ProtoName = 1009;</code>
      * @param string $var
      * @return $this
      */
@@ -1577,6 +1570,32 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->ProtoName = $var;
+
+        return $this;
+    }
+
+    /**
+     * Geolocation -- set using the provided database
+     *
+     * Generated from protobuf field <code>string RemoteCountry = 1010;</code>
+     * @return string
+     */
+    public function getRemoteCountry()
+    {
+        return $this->RemoteCountry;
+    }
+
+    /**
+     * Geolocation -- set using the provided database
+     *
+     * Generated from protobuf field <code>string RemoteCountry = 1010;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRemoteCountry($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->RemoteCountry = $var;
 
         return $this;
     }

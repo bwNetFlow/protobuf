@@ -16,21 +16,21 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 
-namespace flowprotob {
+namespace flowmessageenriched {
 class FlowMessageDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<FlowMessage> _instance;
 } _FlowMessage_default_instance_;
-}  // namespace flowprotob
+}  // namespace flowmessageenriched
 static void InitDefaultsFlowMessage_flow_2dmessages_2denriched_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::flowprotob::_FlowMessage_default_instance_;
-    new (ptr) ::flowprotob::FlowMessage();
+    void* ptr = &::flowmessageenriched::_FlowMessage_default_instance_;
+    new (ptr) ::flowmessageenriched::FlowMessage();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::flowprotob::FlowMessage::InitAsDefaultInstance();
+  ::flowmessageenriched::FlowMessage::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_FlowMessage_flow_2dmessages_2denriched_2eproto =
@@ -46,69 +46,69 @@ constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descr
 
 const ::google::protobuf::uint32 TableStruct_flow_2dmessages_2denriched_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, type_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, timereceived_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, sequencenum_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, samplingrate_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, flowdirection_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, sampleraddress_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, timeflowstart_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, timeflowend_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, bytes_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, packets_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcaddr_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstaddr_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, etype_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, proto_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcport_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstport_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcif_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstif_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcmac_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstmac_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcvlan_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstvlan_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, vlanid_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, ingressvrfid_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, egressvrfid_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, iptos_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, forwardingstatus_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, ipttl_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, tcpflags_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, icmptype_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, icmpcode_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, ipv6flowlabel_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, fragmentid_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, fragmentoffset_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, biflowdirection_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcas_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstas_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, nexthop_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, nexthopas_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcnet_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstnet_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, cid_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, cidstring_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, normalized_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcifname_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcifdesc_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, srcifspeed_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstifname_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstifdesc_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, dstifspeed_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, protoname_),
-  PROTOBUF_FIELD_OFFSET(::flowprotob::FlowMessage, remotecountry_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, type_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, timereceived_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, sequencenum_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, samplingrate_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, flowdirection_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, sampleraddress_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, timeflowstart_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, timeflowend_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, bytes_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, packets_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcaddr_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstaddr_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, etype_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, proto_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcport_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstport_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcif_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstif_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcmac_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstmac_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcvlan_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstvlan_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, vlanid_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, ingressvrfid_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, egressvrfid_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, iptos_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, forwardingstatus_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, ipttl_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, tcpflags_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, icmptype_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, icmpcode_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, ipv6flowlabel_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, fragmentid_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, fragmentoffset_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, biflowdirection_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcas_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstas_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, nexthop_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, nexthopas_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcnet_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstnet_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, cid_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, cidstring_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, normalized_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcifname_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcifdesc_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcifspeed_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstifname_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstifdesc_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstifspeed_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, protoname_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, remotecountry_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::flowprotob::FlowMessage)},
+  { 0, -1, sizeof(::flowmessageenriched::FlowMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::flowprotob::_FlowMessage_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::flowmessageenriched::_FlowMessage_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_flow_2dmessages_2denriched_2eproto = {
@@ -118,44 +118,44 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_flow_2dmessages_2denriched_2eproto[] =
-  "\n\034flow-messages-enriched.proto\022\nflowprot"
-  "ob\"\237\t\n\013FlowMessage\022.\n\004Type\030\001 \001(\0162 .flowp"
-  "rotob.FlowMessage.FlowType\022\024\n\014TimeReceiv"
-  "ed\030\002 \001(\004\022\023\n\013SequenceNum\030\004 \001(\r\022\024\n\014Samplin"
-  "gRate\030\003 \001(\004\022\025\n\rFlowDirection\030* \001(\r\022\026\n\016Sa"
-  "mplerAddress\030\013 \001(\014\022\025\n\rTimeFlowStart\030& \001("
-  "\004\022\023\n\013TimeFlowEnd\030\005 \001(\004\022\r\n\005Bytes\030\t \001(\004\022\017\n"
-  "\007Packets\030\n \001(\004\022\017\n\007SrcAddr\030\006 \001(\014\022\017\n\007DstAd"
-  "dr\030\007 \001(\014\022\r\n\005Etype\030\036 \001(\r\022\r\n\005Proto\030\024 \001(\r\022\017"
-  "\n\007SrcPort\030\025 \001(\r\022\017\n\007DstPort\030\026 \001(\r\022\r\n\005SrcI"
-  "f\030\022 \001(\r\022\r\n\005DstIf\030\023 \001(\r\022\016\n\006SrcMac\030\033 \001(\004\022\016"
-  "\n\006DstMac\030\034 \001(\004\022\017\n\007SrcVlan\030! \001(\r\022\017\n\007DstVl"
-  "an\030\" \001(\r\022\016\n\006VlanId\030\035 \001(\r\022\024\n\014IngressVrfID"
-  "\030\' \001(\r\022\023\n\013EgressVrfID\030( \001(\r\022\r\n\005IPTos\030\027 \001"
-  "(\r\022\030\n\020ForwardingStatus\030\030 \001(\r\022\r\n\005IPTTL\030\031 "
-  "\001(\r\022\020\n\010TCPFlags\030\032 \001(\r\022\020\n\010IcmpType\030\037 \001(\r\022"
-  "\020\n\010IcmpCode\030  \001(\r\022\025\n\rIPv6FlowLabel\030% \001(\r"
-  "\022\022\n\nFragmentId\030# \001(\r\022\026\n\016FragmentOffset\030$"
-  " \001(\r\022\027\n\017BiFlowDirection\030) \001(\r\022\r\n\005SrcAS\030\016"
-  " \001(\r\022\r\n\005DstAS\030\017 \001(\r\022\017\n\007NextHop\030\014 \001(\014\022\021\n\t"
-  "NextHopAS\030\r \001(\r\022\016\n\006SrcNet\030\020 \001(\r\022\016\n\006DstNe"
-  "t\030\021 \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022\022\n\tCidString\030\351\007 \001("
-  "\t\022;\n\nNormalized\030\352\007 \001(\0162&.flowprotob.Flow"
-  "Message.NormalizedType\022\022\n\tSrcIfName\030\353\007 \001"
-  "(\t\022\022\n\tSrcIfDesc\030\354\007 \001(\t\022\023\n\nSrcIfSpeed\030\355\007 "
-  "\001(\r\022\022\n\tDstIfName\030\356\007 \001(\t\022\022\n\tDstIfDesc\030\357\007 "
-  "\001(\t\022\023\n\nDstIfSpeed\030\360\007 \001(\r\022\022\n\tProtoName\030\361\007"
-  " \001(\t\022\026\n\rRemoteCountry\030\362\007 \001(\t\"S\n\010FlowType"
-  "\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007SFLOW_5\020\001\022\016\n\nNETFLO"
-  "W_V5\020\002\022\016\n\nNETFLOW_V9\020\003\022\t\n\005IPFIX\020\004\"!\n\016Nor"
-  "malizedType\022\006\n\002No\020\000\022\007\n\003Yes\020\001B+\n\032com.clou"
-  "dflare.net.flowaggB\rFlowMessagePbb\006proto"
-  "3"
+  "\n\034flow-messages-enriched.proto\022\023flowmess"
+  "ageenriched\"\261\t\n\013FlowMessage\0227\n\004Type\030\001 \001("
+  "\0162).flowmessageenriched.FlowMessage.Flow"
+  "Type\022\024\n\014TimeReceived\030\002 \001(\004\022\023\n\013SequenceNu"
+  "m\030\004 \001(\r\022\024\n\014SamplingRate\030\003 \001(\004\022\025\n\rFlowDir"
+  "ection\030* \001(\r\022\026\n\016SamplerAddress\030\013 \001(\014\022\025\n\r"
+  "TimeFlowStart\030& \001(\004\022\023\n\013TimeFlowEnd\030\005 \001(\004"
+  "\022\r\n\005Bytes\030\t \001(\004\022\017\n\007Packets\030\n \001(\004\022\017\n\007SrcA"
+  "ddr\030\006 \001(\014\022\017\n\007DstAddr\030\007 \001(\014\022\r\n\005Etype\030\036 \001("
+  "\r\022\r\n\005Proto\030\024 \001(\r\022\017\n\007SrcPort\030\025 \001(\r\022\017\n\007Dst"
+  "Port\030\026 \001(\r\022\r\n\005SrcIf\030\022 \001(\r\022\r\n\005DstIf\030\023 \001(\r"
+  "\022\016\n\006SrcMac\030\033 \001(\004\022\016\n\006DstMac\030\034 \001(\004\022\017\n\007SrcV"
+  "lan\030! \001(\r\022\017\n\007DstVlan\030\" \001(\r\022\016\n\006VlanId\030\035 \001"
+  "(\r\022\024\n\014IngressVrfID\030\' \001(\r\022\023\n\013EgressVrfID\030"
+  "( \001(\r\022\r\n\005IPTos\030\027 \001(\r\022\030\n\020ForwardingStatus"
+  "\030\030 \001(\r\022\r\n\005IPTTL\030\031 \001(\r\022\020\n\010TCPFlags\030\032 \001(\r\022"
+  "\020\n\010IcmpType\030\037 \001(\r\022\020\n\010IcmpCode\030  \001(\r\022\025\n\rI"
+  "Pv6FlowLabel\030% \001(\r\022\022\n\nFragmentId\030# \001(\r\022\026"
+  "\n\016FragmentOffset\030$ \001(\r\022\027\n\017BiFlowDirectio"
+  "n\030) \001(\r\022\r\n\005SrcAS\030\016 \001(\r\022\r\n\005DstAS\030\017 \001(\r\022\017\n"
+  "\007NextHop\030\014 \001(\014\022\021\n\tNextHopAS\030\r \001(\r\022\016\n\006Src"
+  "Net\030\020 \001(\r\022\016\n\006DstNet\030\021 \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022"
+  "\022\n\tCidString\030\351\007 \001(\t\022D\n\nNormalized\030\352\007 \001(\016"
+  "2/.flowmessageenriched.FlowMessage.Norma"
+  "lizedType\022\022\n\tSrcIfName\030\353\007 \001(\t\022\022\n\tSrcIfDe"
+  "sc\030\354\007 \001(\t\022\023\n\nSrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfN"
+  "ame\030\356\007 \001(\t\022\022\n\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfS"
+  "peed\030\360\007 \001(\r\022\022\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemot"
+  "eCountry\030\362\007 \001(\t\"S\n\010FlowType\022\017\n\013FLOWUNKNO"
+  "WN\020\000\022\013\n\007SFLOW_5\020\001\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNET"
+  "FLOW_V9\020\003\022\t\n\005IPFIX\020\004\"!\n\016NormalizedType\022\006"
+  "\n\002No\020\000\022\007\n\003Yes\020\001B\"\n\tbwnetflowB\025FlowMessag"
+  "eEnrichedPbb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_flow_2dmessages_2denriched_2eproto = {
   false, InitDefaults_flow_2dmessages_2denriched_2eproto, 
   descriptor_table_protodef_flow_2dmessages_2denriched_2eproto,
-  "flow-messages-enriched.proto", &assign_descriptors_table_flow_2dmessages_2denriched_2eproto, 1281,
+  "flow-messages-enriched.proto", &assign_descriptors_table_flow_2dmessages_2denriched_2eproto, 1299,
 };
 
 void AddDescriptors_flow_2dmessages_2denriched_2eproto() {
@@ -167,7 +167,7 @@ void AddDescriptors_flow_2dmessages_2denriched_2eproto() {
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_flow_2dmessages_2denriched_2eproto = []() { AddDescriptors_flow_2dmessages_2denriched_2eproto(); return true; }();
-namespace flowprotob {
+namespace flowmessageenriched {
 const ::google::protobuf::EnumDescriptor* FlowMessage_FlowType_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&assign_descriptors_table_flow_2dmessages_2denriched_2eproto);
   return file_level_enum_descriptors_flow_2dmessages_2denriched_2eproto[0];
@@ -283,7 +283,7 @@ const int FlowMessage::kRemoteCountryFieldNumber;
 FlowMessage::FlowMessage()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(constructor:flowmessageenriched.FlowMessage)
 }
 FlowMessage::FlowMessage(const FlowMessage& from)
   : ::google::protobuf::Message(),
@@ -336,7 +336,7 @@ FlowMessage::FlowMessage(const FlowMessage& from)
   ::memcpy(&timereceived_, &from.timereceived_,
     static_cast<size_t>(reinterpret_cast<char*>(&srcifspeed_) -
     reinterpret_cast<char*>(&timereceived_)) + sizeof(srcifspeed_));
-  // @@protoc_insertion_point(copy_constructor:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(copy_constructor:flowmessageenriched.FlowMessage)
 }
 
 void FlowMessage::SharedCtor() {
@@ -359,7 +359,7 @@ void FlowMessage::SharedCtor() {
 }
 
 FlowMessage::~FlowMessage() {
-  // @@protoc_insertion_point(destructor:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(destructor:flowmessageenriched.FlowMessage)
   SharedDtor();
 }
 
@@ -387,7 +387,7 @@ const FlowMessage& FlowMessage::default_instance() {
 
 
 void FlowMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:flowprotob.FlowMessage)
+// @@protoc_insertion_point(message_clear_start:flowmessageenriched.FlowMessage)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -422,11 +422,11 @@ const char* FlowMessage::_InternalParse(const char* begin, const char* end, void
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .flowprotob.FlowMessage.FlowType Type = 1;
+      // .flowmessageenriched.FlowMessage.FlowType Type = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 8) goto handle_unusual;
         ::google::protobuf::uint64 val = ::google::protobuf::internal::ReadVarint(&ptr);
-        msg->set_type(static_cast<::flowprotob::FlowMessage_FlowType>(val));
+        msg->set_type(static_cast<::flowmessageenriched::FlowMessage_FlowType>(val));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
@@ -754,7 +754,7 @@ const char* FlowMessage::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("flowprotob.FlowMessage.CidString");
+        ctx->extra_parse_data().SetFieldName("flowmessageenriched.FlowMessage.CidString");
         object = msg->mutable_cidstring();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -765,11 +765,11 @@ const char* FlowMessage::_InternalParse(const char* begin, const char* end, void
         ptr += size;
         break;
       }
-      // .flowprotob.FlowMessage.NormalizedType Normalized = 1002;
+      // .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
       case 1002: {
         if (static_cast<::google::protobuf::uint8>(tag) != 80) goto handle_unusual;
         ::google::protobuf::uint64 val = ::google::protobuf::internal::ReadVarint(&ptr);
-        msg->set_normalized(static_cast<::flowprotob::FlowMessage_NormalizedType>(val));
+        msg->set_normalized(static_cast<::flowmessageenriched::FlowMessage_NormalizedType>(val));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
@@ -778,7 +778,7 @@ const char* FlowMessage::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 90) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("flowprotob.FlowMessage.SrcIfName");
+        ctx->extra_parse_data().SetFieldName("flowmessageenriched.FlowMessage.SrcIfName");
         object = msg->mutable_srcifname();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -794,7 +794,7 @@ const char* FlowMessage::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 98) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("flowprotob.FlowMessage.SrcIfDesc");
+        ctx->extra_parse_data().SetFieldName("flowmessageenriched.FlowMessage.SrcIfDesc");
         object = msg->mutable_srcifdesc();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -817,7 +817,7 @@ const char* FlowMessage::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 114) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("flowprotob.FlowMessage.DstIfName");
+        ctx->extra_parse_data().SetFieldName("flowmessageenriched.FlowMessage.DstIfName");
         object = msg->mutable_dstifname();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -833,7 +833,7 @@ const char* FlowMessage::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 122) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("flowprotob.FlowMessage.DstIfDesc");
+        ctx->extra_parse_data().SetFieldName("flowmessageenriched.FlowMessage.DstIfDesc");
         object = msg->mutable_dstifdesc();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -856,7 +856,7 @@ const char* FlowMessage::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 138) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("flowprotob.FlowMessage.ProtoName");
+        ctx->extra_parse_data().SetFieldName("flowmessageenriched.FlowMessage.ProtoName");
         object = msg->mutable_protoname();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -872,7 +872,7 @@ const char* FlowMessage::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 146) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("flowprotob.FlowMessage.RemoteCountry");
+        ctx->extra_parse_data().SetFieldName("flowmessageenriched.FlowMessage.RemoteCountry");
         object = msg->mutable_remotecountry();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -911,20 +911,20 @@ bool FlowMessage::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(parse_start:flowmessageenriched.FlowMessage)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .flowprotob.FlowMessage.FlowType Type = 1;
+      // .flowmessageenriched.FlowMessage.FlowType Type = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (8 & 0xFF)) {
           int value = 0;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_type(static_cast< ::flowprotob::FlowMessage_FlowType >(value));
+          set_type(static_cast< ::flowmessageenriched::FlowMessage_FlowType >(value));
         } else {
           goto handle_unusual;
         }
@@ -1464,21 +1464,21 @@ bool FlowMessage::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->cidstring().data(), static_cast<int>(this->cidstring().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "flowprotob.FlowMessage.CidString"));
+            "flowmessageenriched.FlowMessage.CidString"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .flowprotob.FlowMessage.NormalizedType Normalized = 1002;
+      // .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
       case 1002: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (8016 & 0xFF)) {
           int value = 0;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_normalized(static_cast< ::flowprotob::FlowMessage_NormalizedType >(value));
+          set_normalized(static_cast< ::flowmessageenriched::FlowMessage_NormalizedType >(value));
         } else {
           goto handle_unusual;
         }
@@ -1493,7 +1493,7 @@ bool FlowMessage::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->srcifname().data(), static_cast<int>(this->srcifname().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "flowprotob.FlowMessage.SrcIfName"));
+            "flowmessageenriched.FlowMessage.SrcIfName"));
         } else {
           goto handle_unusual;
         }
@@ -1508,7 +1508,7 @@ bool FlowMessage::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->srcifdesc().data(), static_cast<int>(this->srcifdesc().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "flowprotob.FlowMessage.SrcIfDesc"));
+            "flowmessageenriched.FlowMessage.SrcIfDesc"));
         } else {
           goto handle_unusual;
         }
@@ -1536,7 +1536,7 @@ bool FlowMessage::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->dstifname().data(), static_cast<int>(this->dstifname().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "flowprotob.FlowMessage.DstIfName"));
+            "flowmessageenriched.FlowMessage.DstIfName"));
         } else {
           goto handle_unusual;
         }
@@ -1551,7 +1551,7 @@ bool FlowMessage::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->dstifdesc().data(), static_cast<int>(this->dstifdesc().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "flowprotob.FlowMessage.DstIfDesc"));
+            "flowmessageenriched.FlowMessage.DstIfDesc"));
         } else {
           goto handle_unusual;
         }
@@ -1579,7 +1579,7 @@ bool FlowMessage::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->protoname().data(), static_cast<int>(this->protoname().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "flowprotob.FlowMessage.ProtoName"));
+            "flowmessageenriched.FlowMessage.ProtoName"));
         } else {
           goto handle_unusual;
         }
@@ -1594,7 +1594,7 @@ bool FlowMessage::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->remotecountry().data(), static_cast<int>(this->remotecountry().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "flowprotob.FlowMessage.RemoteCountry"));
+            "flowmessageenriched.FlowMessage.RemoteCountry"));
         } else {
           goto handle_unusual;
         }
@@ -1613,10 +1613,10 @@ bool FlowMessage::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(parse_success:flowmessageenriched.FlowMessage)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(parse_failure:flowmessageenriched.FlowMessage)
   return false;
 #undef DO_
 }
@@ -1624,11 +1624,11 @@ failure:
 
 void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(serialize_start:flowmessageenriched.FlowMessage)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .flowprotob.FlowMessage.FlowType Type = 1;
+  // .flowmessageenriched.FlowMessage.FlowType Type = 1;
   if (this->type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
@@ -1848,12 +1848,12 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->cidstring().data(), static_cast<int>(this->cidstring().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.CidString");
+      "flowmessageenriched.FlowMessage.CidString");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1001, this->cidstring(), output);
   }
 
-  // .flowprotob.FlowMessage.NormalizedType Normalized = 1002;
+  // .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
   if (this->normalized() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1002, this->normalized(), output);
@@ -1864,7 +1864,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->srcifname().data(), static_cast<int>(this->srcifname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.SrcIfName");
+      "flowmessageenriched.FlowMessage.SrcIfName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1003, this->srcifname(), output);
   }
@@ -1874,7 +1874,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->srcifdesc().data(), static_cast<int>(this->srcifdesc().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.SrcIfDesc");
+      "flowmessageenriched.FlowMessage.SrcIfDesc");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1004, this->srcifdesc(), output);
   }
@@ -1889,7 +1889,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->dstifname().data(), static_cast<int>(this->dstifname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.DstIfName");
+      "flowmessageenriched.FlowMessage.DstIfName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1006, this->dstifname(), output);
   }
@@ -1899,7 +1899,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->dstifdesc().data(), static_cast<int>(this->dstifdesc().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.DstIfDesc");
+      "flowmessageenriched.FlowMessage.DstIfDesc");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1007, this->dstifdesc(), output);
   }
@@ -1914,7 +1914,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->protoname().data(), static_cast<int>(this->protoname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.ProtoName");
+      "flowmessageenriched.FlowMessage.ProtoName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1009, this->protoname(), output);
   }
@@ -1924,7 +1924,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->remotecountry().data(), static_cast<int>(this->remotecountry().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.RemoteCountry");
+      "flowmessageenriched.FlowMessage.RemoteCountry");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1010, this->remotecountry(), output);
   }
@@ -1933,16 +1933,16 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(serialize_end:flowmessageenriched.FlowMessage)
 }
 
 ::google::protobuf::uint8* FlowMessage::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(serialize_to_array_start:flowmessageenriched.FlowMessage)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .flowprotob.FlowMessage.FlowType Type = 1;
+  // .flowmessageenriched.FlowMessage.FlowType Type = 1;
   if (this->type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
@@ -2166,13 +2166,13 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->cidstring().data(), static_cast<int>(this->cidstring().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.CidString");
+      "flowmessageenriched.FlowMessage.CidString");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1001, this->cidstring(), target);
   }
 
-  // .flowprotob.FlowMessage.NormalizedType Normalized = 1002;
+  // .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
   if (this->normalized() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1002, this->normalized(), target);
@@ -2183,7 +2183,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->srcifname().data(), static_cast<int>(this->srcifname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.SrcIfName");
+      "flowmessageenriched.FlowMessage.SrcIfName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1003, this->srcifname(), target);
@@ -2194,7 +2194,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->srcifdesc().data(), static_cast<int>(this->srcifdesc().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.SrcIfDesc");
+      "flowmessageenriched.FlowMessage.SrcIfDesc");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1004, this->srcifdesc(), target);
@@ -2210,7 +2210,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->dstifname().data(), static_cast<int>(this->dstifname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.DstIfName");
+      "flowmessageenriched.FlowMessage.DstIfName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1006, this->dstifname(), target);
@@ -2221,7 +2221,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->dstifdesc().data(), static_cast<int>(this->dstifdesc().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.DstIfDesc");
+      "flowmessageenriched.FlowMessage.DstIfDesc");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1007, this->dstifdesc(), target);
@@ -2237,7 +2237,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->protoname().data(), static_cast<int>(this->protoname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.ProtoName");
+      "flowmessageenriched.FlowMessage.ProtoName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1009, this->protoname(), target);
@@ -2248,7 +2248,7 @@ void FlowMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->remotecountry().data(), static_cast<int>(this->remotecountry().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "flowprotob.FlowMessage.RemoteCountry");
+      "flowmessageenriched.FlowMessage.RemoteCountry");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1010, this->remotecountry(), target);
@@ -2258,12 +2258,12 @@ void FlowMessage::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(serialize_to_array_end:flowmessageenriched.FlowMessage)
   return target;
 }
 
 size_t FlowMessage::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:flowprotob.FlowMessage)
+// @@protoc_insertion_point(message_byte_size_start:flowmessageenriched.FlowMessage)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2359,7 +2359,7 @@ size_t FlowMessage::ByteSizeLong() const {
         this->timereceived());
   }
 
-  // .flowprotob.FlowMessage.FlowType Type = 1;
+  // .flowmessageenriched.FlowMessage.FlowType Type = 1;
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
@@ -2624,7 +2624,7 @@ size_t FlowMessage::ByteSizeLong() const {
         this->cid());
   }
 
-  // .flowprotob.FlowMessage.NormalizedType Normalized = 1002;
+  // .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
   if (this->normalized() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->normalized());
@@ -2643,22 +2643,22 @@ size_t FlowMessage::ByteSizeLong() const {
 }
 
 void FlowMessage::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:flowprotob.FlowMessage)
+// @@protoc_insertion_point(generalized_merge_from_start:flowmessageenriched.FlowMessage)
   GOOGLE_DCHECK_NE(&from, this);
   const FlowMessage* source =
       ::google::protobuf::DynamicCastToGenerated<FlowMessage>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:flowmessageenriched.FlowMessage)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:flowprotob.FlowMessage)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:flowmessageenriched.FlowMessage)
     MergeFrom(*source);
   }
 }
 
 void FlowMessage::MergeFrom(const FlowMessage& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:flowprotob.FlowMessage)
+// @@protoc_insertion_point(class_specific_merge_from_start:flowmessageenriched.FlowMessage)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -2834,14 +2834,14 @@ void FlowMessage::MergeFrom(const FlowMessage& from) {
 }
 
 void FlowMessage::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:flowprotob.FlowMessage)
+// @@protoc_insertion_point(generalized_copy_from_start:flowmessageenriched.FlowMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void FlowMessage::CopyFrom(const FlowMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:flowprotob.FlowMessage)
+// @@protoc_insertion_point(class_specific_copy_from_start:flowmessageenriched.FlowMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2930,11 +2930,11 @@ void FlowMessage::InternalSwap(FlowMessage* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace flowprotob
+}  // namespace flowmessageenriched
 namespace google {
 namespace protobuf {
-template<> PROTOBUF_NOINLINE ::flowprotob::FlowMessage* Arena::CreateMaybeMessage< ::flowprotob::FlowMessage >(Arena* arena) {
-  return Arena::CreateInternal< ::flowprotob::FlowMessage >(arena);
+template<> PROTOBUF_NOINLINE ::flowmessageenriched::FlowMessage* Arena::CreateMaybeMessage< ::flowmessageenriched::FlowMessage >(Arena* arena) {
+  return Arena::CreateInternal< ::flowmessageenriched::FlowMessage >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
