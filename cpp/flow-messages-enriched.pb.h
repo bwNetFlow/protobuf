@@ -631,17 +631,17 @@ class FlowMessage final :
   ::google::protobuf::uint32 biflowdirection() const;
   void set_biflowdirection(::google::protobuf::uint32 value);
 
-  // uint32 DstIfSpeed = 1008;
-  void clear_dstifspeed();
-  static const int kDstIfSpeedFieldNumber = 1008;
-  ::google::protobuf::uint32 dstifspeed() const;
-  void set_dstifspeed(::google::protobuf::uint32 value);
-
   // uint32 FlowDirection = 42;
   void clear_flowdirection();
   static const int kFlowDirectionFieldNumber = 42;
   ::google::protobuf::uint32 flowdirection() const;
   void set_flowdirection(::google::protobuf::uint32 value);
+
+  // uint32 IPv6ExtensionHeaders = 43;
+  void clear_ipv6extensionheaders();
+  static const int kIPv6ExtensionHeadersFieldNumber = 43;
+  ::google::protobuf::uint32 ipv6extensionheaders() const;
+  void set_ipv6extensionheaders(::google::protobuf::uint32 value);
 
   // uint32 Cid = 1000;
   void clear_cid();
@@ -660,6 +660,12 @@ class FlowMessage final :
   static const int kSrcIfSpeedFieldNumber = 1005;
   ::google::protobuf::uint32 srcifspeed() const;
   void set_srcifspeed(::google::protobuf::uint32 value);
+
+  // uint32 DstIfSpeed = 1008;
+  void clear_dstifspeed();
+  static const int kDstIfSpeedFieldNumber = 1008;
+  ::google::protobuf::uint32 dstifspeed() const;
+  void set_dstifspeed(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:flowmessageenriched.FlowMessage)
  private:
@@ -713,11 +719,12 @@ class FlowMessage final :
   ::google::protobuf::uint32 ingressvrfid_;
   ::google::protobuf::uint32 egressvrfid_;
   ::google::protobuf::uint32 biflowdirection_;
-  ::google::protobuf::uint32 dstifspeed_;
   ::google::protobuf::uint32 flowdirection_;
+  ::google::protobuf::uint32 ipv6extensionheaders_;
   ::google::protobuf::uint32 cid_;
   int normalized_;
   ::google::protobuf::uint32 srcifspeed_;
+  ::google::protobuf::uint32 dstifspeed_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_flow_2dmessages_2denriched_2eproto;
 };
@@ -1295,6 +1302,20 @@ inline void FlowMessage::set_ipv6flowlabel(::google::protobuf::uint32 value) {
   
   ipv6flowlabel_ = value;
   // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.IPv6FlowLabel)
+}
+
+// uint32 IPv6ExtensionHeaders = 43;
+inline void FlowMessage::clear_ipv6extensionheaders() {
+  ipv6extensionheaders_ = 0u;
+}
+inline ::google::protobuf::uint32 FlowMessage::ipv6extensionheaders() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.IPv6ExtensionHeaders)
+  return ipv6extensionheaders_;
+}
+inline void FlowMessage::set_ipv6extensionheaders(::google::protobuf::uint32 value) {
+  
+  ipv6extensionheaders_ = value;
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.IPv6ExtensionHeaders)
 }
 
 // uint32 FragmentId = 35;

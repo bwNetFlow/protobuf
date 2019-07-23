@@ -66,6 +66,7 @@ message FlowMessage {
   required uint32 IcmpType = 31;
   required uint32 IcmpCode = 32;
   required uint32 IPv6FlowLabel = 37;
+  required uint32 IPv6ExtensionHeaders = 43;
   // Fragments (IPv4/IPv6)
   required uint32 FragmentId = 35;
   required uint32 FragmentOffset = 36;
