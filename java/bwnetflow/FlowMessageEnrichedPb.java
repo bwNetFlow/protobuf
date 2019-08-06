@@ -235,6 +235,11 @@ public final class FlowMessageEnrichedPb {
     int getIPv6FlowLabel();
 
     /**
+     * <code>uint32 IPv6ExtensionHeaders = 43;</code>
+     */
+    int getIPv6ExtensionHeaders();
+
+    /**
      * <pre>
      * Fragments (IPv4/IPv6)
      * </pre>
@@ -698,6 +703,11 @@ public final class FlowMessageEnrichedPb {
             case 336: {
 
               flowDirection_ = input.readUInt32();
+              break;
+            }
+            case 344: {
+
+              iPv6ExtensionHeaders_ = input.readUInt32();
               break;
             }
             case 8000: {
@@ -1366,6 +1376,15 @@ public final class FlowMessageEnrichedPb {
       return iPv6FlowLabel_;
     }
 
+    public static final int IPV6EXTENSIONHEADERS_FIELD_NUMBER = 43;
+    private int iPv6ExtensionHeaders_;
+    /**
+     * <code>uint32 IPv6ExtensionHeaders = 43;</code>
+     */
+    public int getIPv6ExtensionHeaders() {
+      return iPv6ExtensionHeaders_;
+    }
+
     public static final int FRAGMENTID_FIELD_NUMBER = 35;
     private int fragmentId_;
     /**
@@ -1934,6 +1953,9 @@ public final class FlowMessageEnrichedPb {
       if (flowDirection_ != 0) {
         output.writeUInt32(42, flowDirection_);
       }
+      if (iPv6ExtensionHeaders_ != 0) {
+        output.writeUInt32(43, iPv6ExtensionHeaders_);
+      }
       if (cid_ != 0) {
         output.writeUInt32(1000, cid_);
       }
@@ -2140,6 +2162,10 @@ public final class FlowMessageEnrichedPb {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(42, flowDirection_);
       }
+      if (iPv6ExtensionHeaders_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(43, iPv6ExtensionHeaders_);
+      }
       if (cid_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1000, cid_);
@@ -2255,6 +2281,8 @@ public final class FlowMessageEnrichedPb {
           != other.getIcmpCode()) return false;
       if (getIPv6FlowLabel()
           != other.getIPv6FlowLabel()) return false;
+      if (getIPv6ExtensionHeaders()
+          != other.getIPv6ExtensionHeaders()) return false;
       if (getFragmentId()
           != other.getFragmentId()) return false;
       if (getFragmentOffset()
@@ -2377,6 +2405,8 @@ public final class FlowMessageEnrichedPb {
       hash = (53 * hash) + getIcmpCode();
       hash = (37 * hash) + IPV6FLOWLABEL_FIELD_NUMBER;
       hash = (53 * hash) + getIPv6FlowLabel();
+      hash = (37 * hash) + IPV6EXTENSIONHEADERS_FIELD_NUMBER;
+      hash = (53 * hash) + getIPv6ExtensionHeaders();
       hash = (37 * hash) + FRAGMENTID_FIELD_NUMBER;
       hash = (53 * hash) + getFragmentId();
       hash = (37 * hash) + FRAGMENTOFFSET_FIELD_NUMBER;
@@ -2614,6 +2644,8 @@ public final class FlowMessageEnrichedPb {
 
         iPv6FlowLabel_ = 0;
 
+        iPv6ExtensionHeaders_ = 0;
+
         fragmentId_ = 0;
 
         fragmentOffset_ = 0;
@@ -2712,6 +2744,7 @@ public final class FlowMessageEnrichedPb {
         result.icmpType_ = icmpType_;
         result.icmpCode_ = icmpCode_;
         result.iPv6FlowLabel_ = iPv6FlowLabel_;
+        result.iPv6ExtensionHeaders_ = iPv6ExtensionHeaders_;
         result.fragmentId_ = fragmentId_;
         result.fragmentOffset_ = fragmentOffset_;
         result.biFlowDirection_ = biFlowDirection_;
@@ -2875,6 +2908,9 @@ public final class FlowMessageEnrichedPb {
         }
         if (other.getIPv6FlowLabel() != 0) {
           setIPv6FlowLabel(other.getIPv6FlowLabel());
+        }
+        if (other.getIPv6ExtensionHeaders() != 0) {
+          setIPv6ExtensionHeaders(other.getIPv6ExtensionHeaders());
         }
         if (other.getFragmentId() != 0) {
           setFragmentId(other.getFragmentId());
@@ -3988,6 +4024,32 @@ public final class FlowMessageEnrichedPb {
         return this;
       }
 
+      private int iPv6ExtensionHeaders_ ;
+      /**
+       * <code>uint32 IPv6ExtensionHeaders = 43;</code>
+       */
+      public int getIPv6ExtensionHeaders() {
+        return iPv6ExtensionHeaders_;
+      }
+      /**
+       * <code>uint32 IPv6ExtensionHeaders = 43;</code>
+       */
+      public Builder setIPv6ExtensionHeaders(int value) {
+        
+        iPv6ExtensionHeaders_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 IPv6ExtensionHeaders = 43;</code>
+       */
+      public Builder clearIPv6ExtensionHeaders() {
+        
+        iPv6ExtensionHeaders_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int fragmentId_ ;
       /**
        * <pre>
@@ -5078,7 +5140,7 @@ public final class FlowMessageEnrichedPb {
   static {
     java.lang.String[] descriptorData = {
       "\n\034flow-messages-enriched.proto\022\023flowmess" +
-      "ageenriched\"\261\t\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
+      "ageenriched\"\317\t\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
       "\0162).flowmessageenriched.FlowMessage.Flow" +
       "Type\022\024\n\014TimeReceived\030\002 \001(\004\022\023\n\013SequenceNu" +
       "m\030\004 \001(\r\022\024\n\014SamplingRate\030\003 \001(\004\022\025\n\rFlowDir" +
@@ -5094,22 +5156,23 @@ public final class FlowMessageEnrichedPb {
       "( \001(\r\022\r\n\005IPTos\030\027 \001(\r\022\030\n\020ForwardingStatus" +
       "\030\030 \001(\r\022\r\n\005IPTTL\030\031 \001(\r\022\020\n\010TCPFlags\030\032 \001(\r\022" +
       "\020\n\010IcmpType\030\037 \001(\r\022\020\n\010IcmpCode\030  \001(\r\022\025\n\rI" +
-      "Pv6FlowLabel\030% \001(\r\022\022\n\nFragmentId\030# \001(\r\022\026" +
-      "\n\016FragmentOffset\030$ \001(\r\022\027\n\017BiFlowDirectio" +
-      "n\030) \001(\r\022\r\n\005SrcAS\030\016 \001(\r\022\r\n\005DstAS\030\017 \001(\r\022\017\n" +
-      "\007NextHop\030\014 \001(\014\022\021\n\tNextHopAS\030\r \001(\r\022\016\n\006Src" +
-      "Net\030\020 \001(\r\022\016\n\006DstNet\030\021 \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022" +
-      "\022\n\tCidString\030\351\007 \001(\t\022D\n\nNormalized\030\352\007 \001(\016" +
-      "2/.flowmessageenriched.FlowMessage.Norma" +
-      "lizedType\022\022\n\tSrcIfName\030\353\007 \001(\t\022\022\n\tSrcIfDe" +
-      "sc\030\354\007 \001(\t\022\023\n\nSrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfN" +
-      "ame\030\356\007 \001(\t\022\022\n\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfS" +
-      "peed\030\360\007 \001(\r\022\022\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemot" +
-      "eCountry\030\362\007 \001(\t\"S\n\010FlowType\022\017\n\013FLOWUNKNO" +
-      "WN\020\000\022\013\n\007SFLOW_5\020\001\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNET" +
-      "FLOW_V9\020\003\022\t\n\005IPFIX\020\004\"!\n\016NormalizedType\022\006" +
-      "\n\002No\020\000\022\007\n\003Yes\020\001B\"\n\tbwnetflowB\025FlowMessag" +
-      "eEnrichedPbb\006proto3"
+      "Pv6FlowLabel\030% \001(\r\022\034\n\024IPv6ExtensionHeade" +
+      "rs\030+ \001(\r\022\022\n\nFragmentId\030# \001(\r\022\026\n\016Fragment" +
+      "Offset\030$ \001(\r\022\027\n\017BiFlowDirection\030) \001(\r\022\r\n" +
+      "\005SrcAS\030\016 \001(\r\022\r\n\005DstAS\030\017 \001(\r\022\017\n\007NextHop\030\014" +
+      " \001(\014\022\021\n\tNextHopAS\030\r \001(\r\022\016\n\006SrcNet\030\020 \001(\r\022" +
+      "\016\n\006DstNet\030\021 \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022\022\n\tCidStri" +
+      "ng\030\351\007 \001(\t\022D\n\nNormalized\030\352\007 \001(\0162/.flowmes" +
+      "sageenriched.FlowMessage.NormalizedType\022" +
+      "\022\n\tSrcIfName\030\353\007 \001(\t\022\022\n\tSrcIfDesc\030\354\007 \001(\t\022" +
+      "\023\n\nSrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 \001(\t" +
+      "\022\022\n\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007 \001(" +
+      "\r\022\022\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemoteCountry\030\362" +
+      "\007 \001(\t\"S\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007SF" +
+      "LOW_5\020\001\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020\003\022" +
+      "\t\n\005IPFIX\020\004\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007\n\003" +
+      "Yes\020\001B\"\n\tbwnetflowB\025FlowMessageEnrichedP" +
+      "bb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5128,7 +5191,7 @@ public final class FlowMessageEnrichedPb {
     internal_static_flowmessageenriched_FlowMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_flowmessageenriched_FlowMessage_descriptor,
-        new java.lang.String[] { "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "SrcIf", "DstIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", });
+        new java.lang.String[] { "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "SrcIf", "DstIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "IPv6ExtensionHeaders", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

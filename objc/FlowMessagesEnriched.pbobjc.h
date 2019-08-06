@@ -133,6 +133,7 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_EgressVrfId = 40,
   FlowMessage_FieldNumber_BiFlowDirection = 41,
   FlowMessage_FieldNumber_FlowDirection = 42,
+  FlowMessage_FieldNumber_Ipv6ExtensionHeaders = 43,
   FlowMessage_FieldNumber_Cid = 1000,
   FlowMessage_FieldNumber_CidString = 1001,
   FlowMessage_FieldNumber_Normalized = 1002,
@@ -224,6 +225,8 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
 @property(nonatomic, readwrite) uint32_t icmpCode;
 
 @property(nonatomic, readwrite) uint32_t ipv6FlowLabel;
+
+@property(nonatomic, readwrite) uint32_t ipv6ExtensionHeaders;
 
 /** Fragments (IPv4/IPv6) */
 @property(nonatomic, readwrite) uint32_t fragmentId;

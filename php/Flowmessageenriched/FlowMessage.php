@@ -169,6 +169,10 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     private $IPv6FlowLabel = 0;
     /**
+     * Generated from protobuf field <code>uint32 IPv6ExtensionHeaders = 43;</code>
+     */
+    private $IPv6ExtensionHeaders = 0;
+    /**
      * Fragments (IPv4/IPv6)
      *
      * Generated from protobuf field <code>uint32 FragmentId = 35;</code>
@@ -322,6 +326,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *     @type int $IcmpType
      *     @type int $IcmpCode
      *     @type int $IPv6FlowLabel
+     *     @type int $IPv6ExtensionHeaders
      *     @type int $FragmentId
      *           Fragments (IPv4/IPv6)
      *     @type int $FragmentOffset
@@ -1112,6 +1117,28 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->IPv6FlowLabel = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPv6ExtensionHeaders = 43;</code>
+     * @return int
+     */
+    public function getIPv6ExtensionHeaders()
+    {
+        return $this->IPv6ExtensionHeaders;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPv6ExtensionHeaders = 43;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIPv6ExtensionHeaders($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->IPv6ExtensionHeaders = $var;
 
         return $this;
     }

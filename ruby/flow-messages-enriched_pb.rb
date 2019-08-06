@@ -38,6 +38,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :IcmpType, :uint32, 31
       optional :IcmpCode, :uint32, 32
       optional :IPv6FlowLabel, :uint32, 37
+      optional :IPv6ExtensionHeaders, :uint32, 43
       optional :FragmentId, :uint32, 35
       optional :FragmentOffset, :uint32, 36
       optional :BiFlowDirection, :uint32, 41

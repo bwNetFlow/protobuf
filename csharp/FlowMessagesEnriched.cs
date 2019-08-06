@@ -25,7 +25,7 @@ namespace Flowmessageenriched {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxmbG93LW1lc3NhZ2VzLWVucmljaGVkLnByb3RvEhNmbG93bWVzc2FnZWVu",
-            "cmljaGVkIrEJCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
+            "cmljaGVkIs8JCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
             "c3NhZ2VlbnJpY2hlZC5GbG93TWVzc2FnZS5GbG93VHlwZRIUCgxUaW1lUmVj",
             "ZWl2ZWQYAiABKAQSEwoLU2VxdWVuY2VOdW0YBCABKA0SFAoMU2FtcGxpbmdS",
             "YXRlGAMgASgEEhUKDUZsb3dEaXJlY3Rpb24YKiABKA0SFgoOU2FtcGxlckFk",
@@ -39,24 +39,25 @@ namespace Flowmessageenriched {
             "IAEoDRITCgtFZ3Jlc3NWcmZJRBgoIAEoDRINCgVJUFRvcxgXIAEoDRIYChBG",
             "b3J3YXJkaW5nU3RhdHVzGBggASgNEg0KBUlQVFRMGBkgASgNEhAKCFRDUEZs",
             "YWdzGBogASgNEhAKCEljbXBUeXBlGB8gASgNEhAKCEljbXBDb2RlGCAgASgN",
-            "EhUKDUlQdjZGbG93TGFiZWwYJSABKA0SEgoKRnJhZ21lbnRJZBgjIAEoDRIW",
-            "Cg5GcmFnbWVudE9mZnNldBgkIAEoDRIXCg9CaUZsb3dEaXJlY3Rpb24YKSAB",
-            "KA0SDQoFU3JjQVMYDiABKA0SDQoFRHN0QVMYDyABKA0SDwoHTmV4dEhvcBgM",
-            "IAEoDBIRCglOZXh0SG9wQVMYDSABKA0SDgoGU3JjTmV0GBAgASgNEg4KBkRz",
-            "dE5ldBgRIAEoDRIMCgNDaWQY6AcgASgNEhIKCUNpZFN0cmluZxjpByABKAkS",
-            "RAoKTm9ybWFsaXplZBjqByABKA4yLy5mbG93bWVzc2FnZWVucmljaGVkLkZs",
-            "b3dNZXNzYWdlLk5vcm1hbGl6ZWRUeXBlEhIKCVNyY0lmTmFtZRjrByABKAkS",
-            "EgoJU3JjSWZEZXNjGOwHIAEoCRITCgpTcmNJZlNwZWVkGO0HIAEoDRISCglE",
-            "c3RJZk5hbWUY7gcgASgJEhIKCURzdElmRGVzYxjvByABKAkSEwoKRHN0SWZT",
-            "cGVlZBjwByABKA0SEgoJUHJvdG9OYW1lGPEHIAEoCRIWCg1SZW1vdGVDb3Vu",
-            "dHJ5GPIHIAEoCSJTCghGbG93VHlwZRIPCgtGTE9XVU5LTk9XThAAEgsKB1NG",
-            "TE9XXzUQARIOCgpORVRGTE9XX1Y1EAISDgoKTkVURkxPV19WORADEgkKBUlQ",
-            "RklYEAQiIQoOTm9ybWFsaXplZFR5cGUSBgoCTm8QABIHCgNZZXMQAUIiCgli",
-            "d25ldGZsb3dCFUZsb3dNZXNzYWdlRW5yaWNoZWRQYmIGcHJvdG8z"));
+            "EhUKDUlQdjZGbG93TGFiZWwYJSABKA0SHAoUSVB2NkV4dGVuc2lvbkhlYWRl",
+            "cnMYKyABKA0SEgoKRnJhZ21lbnRJZBgjIAEoDRIWCg5GcmFnbWVudE9mZnNl",
+            "dBgkIAEoDRIXCg9CaUZsb3dEaXJlY3Rpb24YKSABKA0SDQoFU3JjQVMYDiAB",
+            "KA0SDQoFRHN0QVMYDyABKA0SDwoHTmV4dEhvcBgMIAEoDBIRCglOZXh0SG9w",
+            "QVMYDSABKA0SDgoGU3JjTmV0GBAgASgNEg4KBkRzdE5ldBgRIAEoDRIMCgND",
+            "aWQY6AcgASgNEhIKCUNpZFN0cmluZxjpByABKAkSRAoKTm9ybWFsaXplZBjq",
+            "ByABKA4yLy5mbG93bWVzc2FnZWVucmljaGVkLkZsb3dNZXNzYWdlLk5vcm1h",
+            "bGl6ZWRUeXBlEhIKCVNyY0lmTmFtZRjrByABKAkSEgoJU3JjSWZEZXNjGOwH",
+            "IAEoCRITCgpTcmNJZlNwZWVkGO0HIAEoDRISCglEc3RJZk5hbWUY7gcgASgJ",
+            "EhIKCURzdElmRGVzYxjvByABKAkSEwoKRHN0SWZTcGVlZBjwByABKA0SEgoJ",
+            "UHJvdG9OYW1lGPEHIAEoCRIWCg1SZW1vdGVDb3VudHJ5GPIHIAEoCSJTCghG",
+            "bG93VHlwZRIPCgtGTE9XVU5LTk9XThAAEgsKB1NGTE9XXzUQARIOCgpORVRG",
+            "TE9XX1Y1EAISDgoKTkVURkxPV19WORADEgkKBUlQRklYEAQiIQoOTm9ybWFs",
+            "aXplZFR5cGUSBgoCTm8QABIHCgNZZXMQAUIiCglid25ldGZsb3dCFUZsb3dN",
+            "ZXNzYWdlRW5yaWNoZWRQYmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "SrcIf", "DstIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType) }, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "SrcIf", "DstIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "IPv6ExtensionHeaders", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType) }, null)
           }));
     }
     #endregion
@@ -120,6 +121,7 @@ namespace Flowmessageenriched {
       icmpType_ = other.icmpType_;
       icmpCode_ = other.icmpCode_;
       iPv6FlowLabel_ = other.iPv6FlowLabel_;
+      iPv6ExtensionHeaders_ = other.iPv6ExtensionHeaders_;
       fragmentId_ = other.fragmentId_;
       fragmentOffset_ = other.fragmentOffset_;
       biFlowDirection_ = other.biFlowDirection_;
@@ -539,6 +541,17 @@ namespace Flowmessageenriched {
       }
     }
 
+    /// <summary>Field number for the "IPv6ExtensionHeaders" field.</summary>
+    public const int IPv6ExtensionHeadersFieldNumber = 43;
+    private uint iPv6ExtensionHeaders_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint IPv6ExtensionHeaders {
+      get { return iPv6ExtensionHeaders_; }
+      set {
+        iPv6ExtensionHeaders_ = value;
+      }
+    }
+
     /// <summary>Field number for the "FragmentId" field.</summary>
     public const int FragmentIdFieldNumber = 35;
     private uint fragmentId_;
@@ -837,6 +850,7 @@ namespace Flowmessageenriched {
       if (IcmpType != other.IcmpType) return false;
       if (IcmpCode != other.IcmpCode) return false;
       if (IPv6FlowLabel != other.IPv6FlowLabel) return false;
+      if (IPv6ExtensionHeaders != other.IPv6ExtensionHeaders) return false;
       if (FragmentId != other.FragmentId) return false;
       if (FragmentOffset != other.FragmentOffset) return false;
       if (BiFlowDirection != other.BiFlowDirection) return false;
@@ -895,6 +909,7 @@ namespace Flowmessageenriched {
       if (IcmpType != 0) hash ^= IcmpType.GetHashCode();
       if (IcmpCode != 0) hash ^= IcmpCode.GetHashCode();
       if (IPv6FlowLabel != 0) hash ^= IPv6FlowLabel.GetHashCode();
+      if (IPv6ExtensionHeaders != 0) hash ^= IPv6ExtensionHeaders.GetHashCode();
       if (FragmentId != 0) hash ^= FragmentId.GetHashCode();
       if (FragmentOffset != 0) hash ^= FragmentOffset.GetHashCode();
       if (BiFlowDirection != 0) hash ^= BiFlowDirection.GetHashCode();
@@ -1092,6 +1107,10 @@ namespace Flowmessageenriched {
         output.WriteRawTag(208, 2);
         output.WriteUInt32(FlowDirection);
       }
+      if (IPv6ExtensionHeaders != 0) {
+        output.WriteRawTag(216, 2);
+        output.WriteUInt32(IPv6ExtensionHeaders);
+      }
       if (Cid != 0) {
         output.WriteRawTag(192, 62);
         output.WriteUInt32(Cid);
@@ -1239,6 +1258,9 @@ namespace Flowmessageenriched {
       }
       if (IPv6FlowLabel != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPv6FlowLabel);
+      }
+      if (IPv6ExtensionHeaders != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPv6ExtensionHeaders);
       }
       if (FragmentId != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(FragmentId);
@@ -1406,6 +1428,9 @@ namespace Flowmessageenriched {
       }
       if (other.IPv6FlowLabel != 0) {
         IPv6FlowLabel = other.IPv6FlowLabel;
+      }
+      if (other.IPv6ExtensionHeaders != 0) {
+        IPv6ExtensionHeaders = other.IPv6ExtensionHeaders;
       }
       if (other.FragmentId != 0) {
         FragmentId = other.FragmentId;
@@ -1640,6 +1665,10 @@ namespace Flowmessageenriched {
           }
           case 336: {
             FlowDirection = input.ReadUInt32();
+            break;
+          }
+          case 344: {
+            IPv6ExtensionHeaders = input.ReadUInt32();
             break;
           }
           case 8000: {

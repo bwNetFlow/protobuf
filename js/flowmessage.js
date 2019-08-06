@@ -98,6 +98,7 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     icmptype: jspb.Message.getFieldWithDefault(msg, 31, 0),
     icmpcode: jspb.Message.getFieldWithDefault(msg, 32, 0),
     ipv6flowlabel: jspb.Message.getFieldWithDefault(msg, 37, 0),
+    ipv6extensionheaders: jspb.Message.getFieldWithDefault(msg, 43, 0),
     fragmentid: jspb.Message.getFieldWithDefault(msg, 35, 0),
     fragmentoffset: jspb.Message.getFieldWithDefault(msg, 36, 0),
     biflowdirection: jspb.Message.getFieldWithDefault(msg, 41, 0),
@@ -281,6 +282,10 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
     case 37:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setIpv6flowlabel(value);
+      break;
+    case 43:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setIpv6extensionheaders(value);
       break;
     case 35:
       var value = /** @type {number} */ (reader.readUint32());
@@ -612,6 +617,13 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeUint32(
       37,
+      f
+    );
+  }
+  f = message.getIpv6extensionheaders();
+  if (f !== 0) {
+    writer.writeUint32(
+      43,
       f
     );
   }
@@ -1326,6 +1338,21 @@ proto.flowmessageenriched.FlowMessage.prototype.getIpv6flowlabel = function() {
 /** @param {number} value */
 proto.flowmessageenriched.FlowMessage.prototype.setIpv6flowlabel = function(value) {
   jspb.Message.setProto3IntField(this, 37, value);
+};
+
+
+/**
+ * optional uint32 IPv6ExtensionHeaders = 43;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getIpv6extensionheaders = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 43, 0));
+};
+
+
+/** @param {number} value */
+proto.flowmessageenriched.FlowMessage.prototype.setIpv6extensionheaders = function(value) {
+  jspb.Message.setProto3IntField(this, 43, value);
 };
 
 

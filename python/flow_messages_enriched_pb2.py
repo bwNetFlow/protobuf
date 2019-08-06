@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='flowmessageenriched',
   syntax='proto3',
   serialized_options=_b('\n\tbwnetflowB\025FlowMessageEnrichedPb'),
-  serialized_pb=_b('\n\x1c\x66low-messages-enriched.proto\x12\x13\x66lowmessageenriched\"\xb1\t\n\x0b\x46lowMessage\x12\x37\n\x04Type\x18\x01 \x01(\x0e\x32).flowmessageenriched.FlowMessage.FlowType\x12\x14\n\x0cTimeReceived\x18\x02 \x01(\x04\x12\x13\n\x0bSequenceNum\x18\x04 \x01(\r\x12\x14\n\x0cSamplingRate\x18\x03 \x01(\x04\x12\x15\n\rFlowDirection\x18* \x01(\r\x12\x16\n\x0eSamplerAddress\x18\x0b \x01(\x0c\x12\x15\n\rTimeFlowStart\x18& \x01(\x04\x12\x13\n\x0bTimeFlowEnd\x18\x05 \x01(\x04\x12\r\n\x05\x42ytes\x18\t \x01(\x04\x12\x0f\n\x07Packets\x18\n \x01(\x04\x12\x0f\n\x07SrcAddr\x18\x06 \x01(\x0c\x12\x0f\n\x07\x44stAddr\x18\x07 \x01(\x0c\x12\r\n\x05\x45type\x18\x1e \x01(\r\x12\r\n\x05Proto\x18\x14 \x01(\r\x12\x0f\n\x07SrcPort\x18\x15 \x01(\r\x12\x0f\n\x07\x44stPort\x18\x16 \x01(\r\x12\r\n\x05SrcIf\x18\x12 \x01(\r\x12\r\n\x05\x44stIf\x18\x13 \x01(\r\x12\x0e\n\x06SrcMac\x18\x1b \x01(\x04\x12\x0e\n\x06\x44stMac\x18\x1c \x01(\x04\x12\x0f\n\x07SrcVlan\x18! \x01(\r\x12\x0f\n\x07\x44stVlan\x18\" \x01(\r\x12\x0e\n\x06VlanId\x18\x1d \x01(\r\x12\x14\n\x0cIngressVrfID\x18\' \x01(\r\x12\x13\n\x0b\x45gressVrfID\x18( \x01(\r\x12\r\n\x05IPTos\x18\x17 \x01(\r\x12\x18\n\x10\x46orwardingStatus\x18\x18 \x01(\r\x12\r\n\x05IPTTL\x18\x19 \x01(\r\x12\x10\n\x08TCPFlags\x18\x1a \x01(\r\x12\x10\n\x08IcmpType\x18\x1f \x01(\r\x12\x10\n\x08IcmpCode\x18  \x01(\r\x12\x15\n\rIPv6FlowLabel\x18% \x01(\r\x12\x12\n\nFragmentId\x18# \x01(\r\x12\x16\n\x0e\x46ragmentOffset\x18$ \x01(\r\x12\x17\n\x0f\x42iFlowDirection\x18) \x01(\r\x12\r\n\x05SrcAS\x18\x0e \x01(\r\x12\r\n\x05\x44stAS\x18\x0f \x01(\r\x12\x0f\n\x07NextHop\x18\x0c \x01(\x0c\x12\x11\n\tNextHopAS\x18\r \x01(\r\x12\x0e\n\x06SrcNet\x18\x10 \x01(\r\x12\x0e\n\x06\x44stNet\x18\x11 \x01(\r\x12\x0c\n\x03\x43id\x18\xe8\x07 \x01(\r\x12\x12\n\tCidString\x18\xe9\x07 \x01(\t\x12\x44\n\nNormalized\x18\xea\x07 \x01(\x0e\x32/.flowmessageenriched.FlowMessage.NormalizedType\x12\x12\n\tSrcIfName\x18\xeb\x07 \x01(\t\x12\x12\n\tSrcIfDesc\x18\xec\x07 \x01(\t\x12\x13\n\nSrcIfSpeed\x18\xed\x07 \x01(\r\x12\x12\n\tDstIfName\x18\xee\x07 \x01(\t\x12\x12\n\tDstIfDesc\x18\xef\x07 \x01(\t\x12\x13\n\nDstIfSpeed\x18\xf0\x07 \x01(\r\x12\x12\n\tProtoName\x18\xf1\x07 \x01(\t\x12\x16\n\rRemoteCountry\x18\xf2\x07 \x01(\t\"S\n\x08\x46lowType\x12\x0f\n\x0b\x46LOWUNKNOWN\x10\x00\x12\x0b\n\x07SFLOW_5\x10\x01\x12\x0e\n\nNETFLOW_V5\x10\x02\x12\x0e\n\nNETFLOW_V9\x10\x03\x12\t\n\x05IPFIX\x10\x04\"!\n\x0eNormalizedType\x12\x06\n\x02No\x10\x00\x12\x07\n\x03Yes\x10\x01\x42\"\n\tbwnetflowB\x15\x46lowMessageEnrichedPbb\x06proto3')
+  serialized_pb=_b('\n\x1c\x66low-messages-enriched.proto\x12\x13\x66lowmessageenriched\"\xcf\t\n\x0b\x46lowMessage\x12\x37\n\x04Type\x18\x01 \x01(\x0e\x32).flowmessageenriched.FlowMessage.FlowType\x12\x14\n\x0cTimeReceived\x18\x02 \x01(\x04\x12\x13\n\x0bSequenceNum\x18\x04 \x01(\r\x12\x14\n\x0cSamplingRate\x18\x03 \x01(\x04\x12\x15\n\rFlowDirection\x18* \x01(\r\x12\x16\n\x0eSamplerAddress\x18\x0b \x01(\x0c\x12\x15\n\rTimeFlowStart\x18& \x01(\x04\x12\x13\n\x0bTimeFlowEnd\x18\x05 \x01(\x04\x12\r\n\x05\x42ytes\x18\t \x01(\x04\x12\x0f\n\x07Packets\x18\n \x01(\x04\x12\x0f\n\x07SrcAddr\x18\x06 \x01(\x0c\x12\x0f\n\x07\x44stAddr\x18\x07 \x01(\x0c\x12\r\n\x05\x45type\x18\x1e \x01(\r\x12\r\n\x05Proto\x18\x14 \x01(\r\x12\x0f\n\x07SrcPort\x18\x15 \x01(\r\x12\x0f\n\x07\x44stPort\x18\x16 \x01(\r\x12\r\n\x05SrcIf\x18\x12 \x01(\r\x12\r\n\x05\x44stIf\x18\x13 \x01(\r\x12\x0e\n\x06SrcMac\x18\x1b \x01(\x04\x12\x0e\n\x06\x44stMac\x18\x1c \x01(\x04\x12\x0f\n\x07SrcVlan\x18! \x01(\r\x12\x0f\n\x07\x44stVlan\x18\" \x01(\r\x12\x0e\n\x06VlanId\x18\x1d \x01(\r\x12\x14\n\x0cIngressVrfID\x18\' \x01(\r\x12\x13\n\x0b\x45gressVrfID\x18( \x01(\r\x12\r\n\x05IPTos\x18\x17 \x01(\r\x12\x18\n\x10\x46orwardingStatus\x18\x18 \x01(\r\x12\r\n\x05IPTTL\x18\x19 \x01(\r\x12\x10\n\x08TCPFlags\x18\x1a \x01(\r\x12\x10\n\x08IcmpType\x18\x1f \x01(\r\x12\x10\n\x08IcmpCode\x18  \x01(\r\x12\x15\n\rIPv6FlowLabel\x18% \x01(\r\x12\x1c\n\x14IPv6ExtensionHeaders\x18+ \x01(\r\x12\x12\n\nFragmentId\x18# \x01(\r\x12\x16\n\x0e\x46ragmentOffset\x18$ \x01(\r\x12\x17\n\x0f\x42iFlowDirection\x18) \x01(\r\x12\r\n\x05SrcAS\x18\x0e \x01(\r\x12\r\n\x05\x44stAS\x18\x0f \x01(\r\x12\x0f\n\x07NextHop\x18\x0c \x01(\x0c\x12\x11\n\tNextHopAS\x18\r \x01(\r\x12\x0e\n\x06SrcNet\x18\x10 \x01(\r\x12\x0e\n\x06\x44stNet\x18\x11 \x01(\r\x12\x0c\n\x03\x43id\x18\xe8\x07 \x01(\r\x12\x12\n\tCidString\x18\xe9\x07 \x01(\t\x12\x44\n\nNormalized\x18\xea\x07 \x01(\x0e\x32/.flowmessageenriched.FlowMessage.NormalizedType\x12\x12\n\tSrcIfName\x18\xeb\x07 \x01(\t\x12\x12\n\tSrcIfDesc\x18\xec\x07 \x01(\t\x12\x13\n\nSrcIfSpeed\x18\xed\x07 \x01(\r\x12\x12\n\tDstIfName\x18\xee\x07 \x01(\t\x12\x12\n\tDstIfDesc\x18\xef\x07 \x01(\t\x12\x13\n\nDstIfSpeed\x18\xf0\x07 \x01(\r\x12\x12\n\tProtoName\x18\xf1\x07 \x01(\t\x12\x16\n\rRemoteCountry\x18\xf2\x07 \x01(\t\"S\n\x08\x46lowType\x12\x0f\n\x0b\x46LOWUNKNOWN\x10\x00\x12\x0b\n\x07SFLOW_5\x10\x01\x12\x0e\n\nNETFLOW_V5\x10\x02\x12\x0e\n\nNETFLOW_V9\x10\x03\x12\t\n\x05IPFIX\x10\x04\"!\n\x0eNormalizedType\x12\x06\n\x02No\x10\x00\x12\x07\n\x03Yes\x10\x01\x42\"\n\tbwnetflowB\x15\x46lowMessageEnrichedPbb\x06proto3')
 )
 
 
@@ -54,8 +54,8 @@ _FLOWMESSAGE_FLOWTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1137,
-  serialized_end=1220,
+  serialized_start=1167,
+  serialized_end=1250,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWMESSAGE_FLOWTYPE)
 
@@ -76,8 +76,8 @@ _FLOWMESSAGE_NORMALIZEDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1222,
-  serialized_end=1255,
+  serialized_start=1252,
+  serialized_end=1285,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWMESSAGE_NORMALIZEDTYPE)
 
@@ -314,140 +314,147 @@ _FLOWMESSAGE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='FragmentId', full_name='flowmessageenriched.FlowMessage.FragmentId', index=32,
+      name='IPv6ExtensionHeaders', full_name='flowmessageenriched.FlowMessage.IPv6ExtensionHeaders', index=32,
+      number=43, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='FragmentId', full_name='flowmessageenriched.FlowMessage.FragmentId', index=33,
       number=35, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='FragmentOffset', full_name='flowmessageenriched.FlowMessage.FragmentOffset', index=33,
+      name='FragmentOffset', full_name='flowmessageenriched.FlowMessage.FragmentOffset', index=34,
       number=36, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='BiFlowDirection', full_name='flowmessageenriched.FlowMessage.BiFlowDirection', index=34,
+      name='BiFlowDirection', full_name='flowmessageenriched.FlowMessage.BiFlowDirection', index=35,
       number=41, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='SrcAS', full_name='flowmessageenriched.FlowMessage.SrcAS', index=35,
+      name='SrcAS', full_name='flowmessageenriched.FlowMessage.SrcAS', index=36,
       number=14, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='DstAS', full_name='flowmessageenriched.FlowMessage.DstAS', index=36,
+      name='DstAS', full_name='flowmessageenriched.FlowMessage.DstAS', index=37,
       number=15, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='NextHop', full_name='flowmessageenriched.FlowMessage.NextHop', index=37,
+      name='NextHop', full_name='flowmessageenriched.FlowMessage.NextHop', index=38,
       number=12, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='NextHopAS', full_name='flowmessageenriched.FlowMessage.NextHopAS', index=38,
+      name='NextHopAS', full_name='flowmessageenriched.FlowMessage.NextHopAS', index=39,
       number=13, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='SrcNet', full_name='flowmessageenriched.FlowMessage.SrcNet', index=39,
+      name='SrcNet', full_name='flowmessageenriched.FlowMessage.SrcNet', index=40,
       number=16, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='DstNet', full_name='flowmessageenriched.FlowMessage.DstNet', index=40,
+      name='DstNet', full_name='flowmessageenriched.FlowMessage.DstNet', index=41,
       number=17, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Cid', full_name='flowmessageenriched.FlowMessage.Cid', index=41,
+      name='Cid', full_name='flowmessageenriched.FlowMessage.Cid', index=42,
       number=1000, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='CidString', full_name='flowmessageenriched.FlowMessage.CidString', index=42,
+      name='CidString', full_name='flowmessageenriched.FlowMessage.CidString', index=43,
       number=1001, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Normalized', full_name='flowmessageenriched.FlowMessage.Normalized', index=43,
+      name='Normalized', full_name='flowmessageenriched.FlowMessage.Normalized', index=44,
       number=1002, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='SrcIfName', full_name='flowmessageenriched.FlowMessage.SrcIfName', index=44,
+      name='SrcIfName', full_name='flowmessageenriched.FlowMessage.SrcIfName', index=45,
       number=1003, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='SrcIfDesc', full_name='flowmessageenriched.FlowMessage.SrcIfDesc', index=45,
+      name='SrcIfDesc', full_name='flowmessageenriched.FlowMessage.SrcIfDesc', index=46,
       number=1004, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='SrcIfSpeed', full_name='flowmessageenriched.FlowMessage.SrcIfSpeed', index=46,
+      name='SrcIfSpeed', full_name='flowmessageenriched.FlowMessage.SrcIfSpeed', index=47,
       number=1005, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='DstIfName', full_name='flowmessageenriched.FlowMessage.DstIfName', index=47,
+      name='DstIfName', full_name='flowmessageenriched.FlowMessage.DstIfName', index=48,
       number=1006, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='DstIfDesc', full_name='flowmessageenriched.FlowMessage.DstIfDesc', index=48,
+      name='DstIfDesc', full_name='flowmessageenriched.FlowMessage.DstIfDesc', index=49,
       number=1007, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='DstIfSpeed', full_name='flowmessageenriched.FlowMessage.DstIfSpeed', index=49,
+      name='DstIfSpeed', full_name='flowmessageenriched.FlowMessage.DstIfSpeed', index=50,
       number=1008, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ProtoName', full_name='flowmessageenriched.FlowMessage.ProtoName', index=50,
+      name='ProtoName', full_name='flowmessageenriched.FlowMessage.ProtoName', index=51,
       number=1009, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='RemoteCountry', full_name='flowmessageenriched.FlowMessage.RemoteCountry', index=51,
+      name='RemoteCountry', full_name='flowmessageenriched.FlowMessage.RemoteCountry', index=52,
       number=1010, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -468,7 +475,7 @@ _FLOWMESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=54,
-  serialized_end=1255,
+  serialized_end=1285,
 )
 
 _FLOWMESSAGE.fields_by_name['Type'].enum_type = _FLOWMESSAGE_FLOWTYPE

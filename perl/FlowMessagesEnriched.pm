@@ -245,6 +245,11 @@ use Google::ProtocolBuffers;
                 [
                     Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
                     Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
+                    'IPv6ExtensionHeaders', 43, undef
+                ],
+                [
+                    Google::ProtocolBuffers::Constants::LABEL_REQUIRED(), 
+                    Google::ProtocolBuffers::Constants::TYPE_UINT32(), 
                     'Cid', 1000, undef
                 ],
                 [
