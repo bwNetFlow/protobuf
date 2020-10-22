@@ -7,7 +7,6 @@ namespace Flowmessageenriched;
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
-use Google\Protobuf\Internal\GPBWrapperUtils;
 
 /**
  * Generated from protobuf message <code>flowmessageenriched.FlowMessage</code>
@@ -17,263 +16,369 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.FlowType Type = 1;</code>
      */
-    private $Type = 0;
+    protected $Type = 0;
     /**
      * Generated from protobuf field <code>uint64 TimeReceived = 2;</code>
      */
-    private $TimeReceived = 0;
+    protected $TimeReceived = 0;
     /**
      * Generated from protobuf field <code>uint32 SequenceNum = 4;</code>
      */
-    private $SequenceNum = 0;
+    protected $SequenceNum = 0;
     /**
      * Generated from protobuf field <code>uint64 SamplingRate = 3;</code>
      */
-    private $SamplingRate = 0;
+    protected $SamplingRate = 0;
     /**
      * Generated from protobuf field <code>uint32 FlowDirection = 42;</code>
      */
-    private $FlowDirection = 0;
+    protected $FlowDirection = 0;
     /**
      * Sampler information
      *
      * Generated from protobuf field <code>bytes SamplerAddress = 11;</code>
      */
-    private $SamplerAddress = '';
+    protected $SamplerAddress = '';
     /**
      * Found inside packet
      *
      * Generated from protobuf field <code>uint64 TimeFlowStart = 38;</code>
      */
-    private $TimeFlowStart = 0;
+    protected $TimeFlowStart = 0;
     /**
      * Generated from protobuf field <code>uint64 TimeFlowEnd = 5;</code>
      */
-    private $TimeFlowEnd = 0;
+    protected $TimeFlowEnd = 0;
     /**
      * Size of the sampled packet
      *
      * Generated from protobuf field <code>uint64 Bytes = 9;</code>
      */
-    private $Bytes = 0;
+    protected $Bytes = 0;
     /**
      * Generated from protobuf field <code>uint64 Packets = 10;</code>
      */
-    private $Packets = 0;
+    protected $Packets = 0;
     /**
      * Source/destination addresses
      *
      * Generated from protobuf field <code>bytes SrcAddr = 6;</code>
      */
-    private $SrcAddr = '';
+    protected $SrcAddr = '';
     /**
      * Generated from protobuf field <code>bytes DstAddr = 7;</code>
      */
-    private $DstAddr = '';
+    protected $DstAddr = '';
     /**
-     * Layer 3 protocol (IPv4/IPv6/ARP/...)
+     * Layer 3 protocol (IPv4/IPv6/ARP/MPLS...)
      *
      * Generated from protobuf field <code>uint32 Etype = 30;</code>
      */
-    private $Etype = 0;
+    protected $Etype = 0;
     /**
      * Layer 4 protocol
      *
      * Generated from protobuf field <code>uint32 Proto = 20;</code>
      */
-    private $Proto = 0;
+    protected $Proto = 0;
     /**
      * Ports for UDP and TCP
      *
      * Generated from protobuf field <code>uint32 SrcPort = 21;</code>
      */
-    private $SrcPort = 0;
+    protected $SrcPort = 0;
     /**
      * Generated from protobuf field <code>uint32 DstPort = 22;</code>
      */
-    private $DstPort = 0;
+    protected $DstPort = 0;
     /**
      * Interfaces
      *
-     * Generated from protobuf field <code>uint32 SrcIf = 18;</code>
+     * Generated from protobuf field <code>uint32 InIf = 18;</code>
      */
-    private $SrcIf = 0;
+    protected $InIf = 0;
     /**
-     * Generated from protobuf field <code>uint32 DstIf = 19;</code>
+     * Generated from protobuf field <code>uint32 OutIf = 19;</code>
      */
-    private $DstIf = 0;
+    protected $OutIf = 0;
     /**
      * Ethernet information
      *
      * Generated from protobuf field <code>uint64 SrcMac = 27;</code>
      */
-    private $SrcMac = 0;
+    protected $SrcMac = 0;
     /**
      * Generated from protobuf field <code>uint64 DstMac = 28;</code>
      */
-    private $DstMac = 0;
+    protected $DstMac = 0;
     /**
      * Vlan
      *
      * Generated from protobuf field <code>uint32 SrcVlan = 33;</code>
      */
-    private $SrcVlan = 0;
+    protected $SrcVlan = 0;
     /**
      * Generated from protobuf field <code>uint32 DstVlan = 34;</code>
      */
-    private $DstVlan = 0;
+    protected $DstVlan = 0;
     /**
      * 802.1q VLAN in sampled packet
      *
      * Generated from protobuf field <code>uint32 VlanId = 29;</code>
      */
-    private $VlanId = 0;
+    protected $VlanId = 0;
     /**
      * VRF
      *
      * Generated from protobuf field <code>uint32 IngressVrfID = 39;</code>
      */
-    private $IngressVrfID = 0;
+    protected $IngressVrfID = 0;
     /**
      * Generated from protobuf field <code>uint32 EgressVrfID = 40;</code>
      */
-    private $EgressVrfID = 0;
+    protected $EgressVrfID = 0;
     /**
      * IP and TCP special flags
      *
      * Generated from protobuf field <code>uint32 IPTos = 23;</code>
      */
-    private $IPTos = 0;
+    protected $IPTos = 0;
     /**
      * Generated from protobuf field <code>uint32 ForwardingStatus = 24;</code>
      */
-    private $ForwardingStatus = 0;
+    protected $ForwardingStatus = 0;
     /**
      * Generated from protobuf field <code>uint32 IPTTL = 25;</code>
      */
-    private $IPTTL = 0;
+    protected $IPTTL = 0;
     /**
      * Generated from protobuf field <code>uint32 TCPFlags = 26;</code>
      */
-    private $TCPFlags = 0;
+    protected $TCPFlags = 0;
     /**
      * Generated from protobuf field <code>uint32 IcmpType = 31;</code>
      */
-    private $IcmpType = 0;
+    protected $IcmpType = 0;
     /**
      * Generated from protobuf field <code>uint32 IcmpCode = 32;</code>
      */
-    private $IcmpCode = 0;
+    protected $IcmpCode = 0;
     /**
      * Generated from protobuf field <code>uint32 IPv6FlowLabel = 37;</code>
      */
-    private $IPv6FlowLabel = 0;
-    /**
-     * Generated from protobuf field <code>uint32 IPv6ExtensionHeaders = 43;</code>
-     */
-    private $IPv6ExtensionHeaders = 0;
+    protected $IPv6FlowLabel = 0;
     /**
      * Fragments (IPv4/IPv6)
      *
      * Generated from protobuf field <code>uint32 FragmentId = 35;</code>
      */
-    private $FragmentId = 0;
+    protected $FragmentId = 0;
     /**
      * Generated from protobuf field <code>uint32 FragmentOffset = 36;</code>
      */
-    private $FragmentOffset = 0;
+    protected $FragmentOffset = 0;
     /**
      * Generated from protobuf field <code>uint32 BiFlowDirection = 41;</code>
      */
-    private $BiFlowDirection = 0;
+    protected $BiFlowDirection = 0;
     /**
      * Autonomous system information
      *
      * Generated from protobuf field <code>uint32 SrcAS = 14;</code>
      */
-    private $SrcAS = 0;
+    protected $SrcAS = 0;
     /**
      * Generated from protobuf field <code>uint32 DstAS = 15;</code>
      */
-    private $DstAS = 0;
+    protected $DstAS = 0;
     /**
      * Generated from protobuf field <code>bytes NextHop = 12;</code>
      */
-    private $NextHop = '';
+    protected $NextHop = '';
     /**
      * Generated from protobuf field <code>uint32 NextHopAS = 13;</code>
      */
-    private $NextHopAS = 0;
+    protected $NextHopAS = 0;
     /**
      * Prefix size
      *
      * Generated from protobuf field <code>uint32 SrcNet = 16;</code>
      */
-    private $SrcNet = 0;
+    protected $SrcNet = 0;
     /**
      * Generated from protobuf field <code>uint32 DstNet = 17;</code>
      */
-    private $DstNet = 0;
+    protected $DstNet = 0;
+    /**
+     * IP encapsulation information
+     *
+     * Generated from protobuf field <code>bool HasEncap = 43;</code>
+     */
+    protected $HasEncap = false;
+    /**
+     * Generated from protobuf field <code>bytes SrcAddrEncap = 44;</code>
+     */
+    protected $SrcAddrEncap = '';
+    /**
+     * Generated from protobuf field <code>bytes DstAddrEncap = 45;</code>
+     */
+    protected $DstAddrEncap = '';
+    /**
+     * Generated from protobuf field <code>uint32 ProtoEncap = 46;</code>
+     */
+    protected $ProtoEncap = 0;
+    /**
+     * Generated from protobuf field <code>uint32 EtypeEncap = 47;</code>
+     */
+    protected $EtypeEncap = 0;
+    /**
+     * Generated from protobuf field <code>uint32 IPTosEncap = 48;</code>
+     */
+    protected $IPTosEncap = 0;
+    /**
+     * Generated from protobuf field <code>uint32 IPTTLEncap = 49;</code>
+     */
+    protected $IPTTLEncap = 0;
+    /**
+     * Generated from protobuf field <code>uint32 IPv6FlowLabelEncap = 50;</code>
+     */
+    protected $IPv6FlowLabelEncap = 0;
+    /**
+     * Generated from protobuf field <code>uint32 FragmentIdEncap = 51;</code>
+     */
+    protected $FragmentIdEncap = 0;
+    /**
+     * Generated from protobuf field <code>uint32 FragmentOffsetEncap = 52;</code>
+     */
+    protected $FragmentOffsetEncap = 0;
+    /**
+     * MPLS information
+     *
+     * Generated from protobuf field <code>bool HasMPLS = 53;</code>
+     */
+    protected $HasMPLS = false;
+    /**
+     * Generated from protobuf field <code>uint32 MPLSCount = 54;</code>
+     */
+    protected $MPLSCount = 0;
+    /**
+     * First TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLS1TTL = 55;</code>
+     */
+    protected $MPLS1TTL = 0;
+    /**
+     * First Label
+     *
+     * Generated from protobuf field <code>uint32 MPLS1Label = 56;</code>
+     */
+    protected $MPLS1Label = 0;
+    /**
+     * Second TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLS2TTL = 57;</code>
+     */
+    protected $MPLS2TTL = 0;
+    /**
+     * Second Label
+     *
+     * Generated from protobuf field <code>uint32 MPLS2Label = 58;</code>
+     */
+    protected $MPLS2Label = 0;
+    /**
+     * Third TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLS3TTL = 59;</code>
+     */
+    protected $MPLS3TTL = 0;
+    /**
+     * Third Label
+     *
+     * Generated from protobuf field <code>uint32 MPLS3Label = 60;</code>
+     */
+    protected $MPLS3Label = 0;
+    /**
+     * Last TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLSLastTTL = 61;</code>
+     */
+    protected $MPLSLastTTL = 0;
+    /**
+     * Last Label
+     *
+     * Generated from protobuf field <code>uint32 MPLSLastLabel = 62;</code>
+     */
+    protected $MPLSLastLabel = 0;
+    /**
+     * PPP information
+     *
+     * Generated from protobuf field <code>bool HasPPP = 63;</code>
+     */
+    protected $HasPPP = false;
+    /**
+     * Generated from protobuf field <code>uint32 PPPAddressControl = 64;</code>
+     */
+    protected $PPPAddressControl = 0;
     /**
      * bwNetFlow enricher fields
      *
      * Generated from protobuf field <code>uint32 Cid = 1000;</code>
      */
-    private $Cid = 0;
+    protected $Cid = 0;
     /**
      * Customer ID - a more generalized ID, assigned by prefix
      *
      * Generated from protobuf field <code>string CidString = 1001;</code>
      */
-    private $CidString = '';
+    protected $CidString = '';
     /**
      * Normalization - whether the sampling rate is accounted for
      *
      * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;</code>
      */
-    private $Normalized = 0;
+    protected $Normalized = 0;
     /**
      * Fields for Interface Usability -- enriched using SNMP
      *
      * Generated from protobuf field <code>string SrcIfName = 1003;</code>
      */
-    private $SrcIfName = '';
+    protected $SrcIfName = '';
     /**
      * set to the descrition, filtered by a regex in the enricher
      *
      * Generated from protobuf field <code>string SrcIfDesc = 1004;</code>
      */
-    private $SrcIfDesc = '';
+    protected $SrcIfDesc = '';
     /**
      * iface speed
      *
      * Generated from protobuf field <code>uint32 SrcIfSpeed = 1005;</code>
      */
-    private $SrcIfSpeed = 0;
+    protected $SrcIfSpeed = 0;
     /**
      * Generated from protobuf field <code>string DstIfName = 1006;</code>
      */
-    private $DstIfName = '';
+    protected $DstIfName = '';
     /**
      * Generated from protobuf field <code>string DstIfDesc = 1007;</code>
      */
-    private $DstIfDesc = '';
+    protected $DstIfDesc = '';
     /**
      * Generated from protobuf field <code>uint32 DstIfSpeed = 1008;</code>
      */
-    private $DstIfSpeed = 0;
+    protected $DstIfSpeed = 0;
     /**
      * Protocol Name -- set for some well known protocols, based on Proto
      *
      * Generated from protobuf field <code>string ProtoName = 1009;</code>
      */
-    private $ProtoName = '';
+    protected $ProtoName = '';
     /**
      * Geolocation -- set using the provided database
      *
      * Generated from protobuf field <code>string RemoteCountry = 1010;</code>
      */
-    private $RemoteCountry = '';
+    protected $RemoteCountry = '';
 
     /**
      * Constructor.
@@ -298,15 +403,15 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *           Source/destination addresses
      *     @type string $DstAddr
      *     @type int $Etype
-     *           Layer 3 protocol (IPv4/IPv6/ARP/...)
+     *           Layer 3 protocol (IPv4/IPv6/ARP/MPLS...)
      *     @type int $Proto
      *           Layer 4 protocol
      *     @type int $SrcPort
      *           Ports for UDP and TCP
      *     @type int $DstPort
-     *     @type int $SrcIf
+     *     @type int $InIf
      *           Interfaces
-     *     @type int $DstIf
+     *     @type int $OutIf
      *     @type int|string $SrcMac
      *           Ethernet information
      *     @type int|string $DstMac
@@ -326,7 +431,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *     @type int $IcmpType
      *     @type int $IcmpCode
      *     @type int $IPv6FlowLabel
-     *     @type int $IPv6ExtensionHeaders
      *     @type int $FragmentId
      *           Fragments (IPv4/IPv6)
      *     @type int $FragmentOffset
@@ -339,6 +443,39 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *     @type int $SrcNet
      *           Prefix size
      *     @type int $DstNet
+     *     @type bool $HasEncap
+     *           IP encapsulation information
+     *     @type string $SrcAddrEncap
+     *     @type string $DstAddrEncap
+     *     @type int $ProtoEncap
+     *     @type int $EtypeEncap
+     *     @type int $IPTosEncap
+     *     @type int $IPTTLEncap
+     *     @type int $IPv6FlowLabelEncap
+     *     @type int $FragmentIdEncap
+     *     @type int $FragmentOffsetEncap
+     *     @type bool $HasMPLS
+     *           MPLS information
+     *     @type int $MPLSCount
+     *     @type int $MPLS1TTL
+     *           First TTL
+     *     @type int $MPLS1Label
+     *           First Label
+     *     @type int $MPLS2TTL
+     *           Second TTL
+     *     @type int $MPLS2Label
+     *           Second Label
+     *     @type int $MPLS3TTL
+     *           Third TTL
+     *     @type int $MPLS3Label
+     *           Third Label
+     *     @type int $MPLSLastTTL
+     *           Last TTL
+     *     @type int $MPLSLastLabel
+     *           Last Label
+     *     @type bool $HasPPP
+     *           PPP information
+     *     @type int $PPPAddressControl
      *     @type int $Cid
      *           bwNetFlow enricher fields
      *     @type string $CidString
@@ -646,7 +783,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Layer 3 protocol (IPv4/IPv6/ARP/...)
+     * Layer 3 protocol (IPv4/IPv6/ARP/MPLS...)
      *
      * Generated from protobuf field <code>uint32 Etype = 30;</code>
      * @return int
@@ -657,7 +794,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Layer 3 protocol (IPv4/IPv6/ARP/...)
+     * Layer 3 protocol (IPv4/IPv6/ARP/MPLS...)
      *
      * Generated from protobuf field <code>uint32 Etype = 30;</code>
      * @param int $var
@@ -748,47 +885,47 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     /**
      * Interfaces
      *
-     * Generated from protobuf field <code>uint32 SrcIf = 18;</code>
+     * Generated from protobuf field <code>uint32 InIf = 18;</code>
      * @return int
      */
-    public function getSrcIf()
+    public function getInIf()
     {
-        return $this->SrcIf;
+        return $this->InIf;
     }
 
     /**
      * Interfaces
      *
-     * Generated from protobuf field <code>uint32 SrcIf = 18;</code>
+     * Generated from protobuf field <code>uint32 InIf = 18;</code>
      * @param int $var
      * @return $this
      */
-    public function setSrcIf($var)
+    public function setInIf($var)
     {
         GPBUtil::checkUint32($var);
-        $this->SrcIf = $var;
+        $this->InIf = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstIf = 19;</code>
+     * Generated from protobuf field <code>uint32 OutIf = 19;</code>
      * @return int
      */
-    public function getDstIf()
+    public function getOutIf()
     {
-        return $this->DstIf;
+        return $this->OutIf;
     }
 
     /**
-     * Generated from protobuf field <code>uint32 DstIf = 19;</code>
+     * Generated from protobuf field <code>uint32 OutIf = 19;</code>
      * @param int $var
      * @return $this
      */
-    public function setDstIf($var)
+    public function setOutIf($var)
     {
         GPBUtil::checkUint32($var);
-        $this->DstIf = $var;
+        $this->OutIf = $var;
 
         return $this;
     }
@@ -1122,28 +1259,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 IPv6ExtensionHeaders = 43;</code>
-     * @return int
-     */
-    public function getIPv6ExtensionHeaders()
-    {
-        return $this->IPv6ExtensionHeaders;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 IPv6ExtensionHeaders = 43;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setIPv6ExtensionHeaders($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->IPv6ExtensionHeaders = $var;
-
-        return $this;
-    }
-
-    /**
      * Fragments (IPv4/IPv6)
      *
      * Generated from protobuf field <code>uint32 FragmentId = 35;</code>
@@ -1349,6 +1464,534 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->DstNet = $var;
+
+        return $this;
+    }
+
+    /**
+     * IP encapsulation information
+     *
+     * Generated from protobuf field <code>bool HasEncap = 43;</code>
+     * @return bool
+     */
+    public function getHasEncap()
+    {
+        return $this->HasEncap;
+    }
+
+    /**
+     * IP encapsulation information
+     *
+     * Generated from protobuf field <code>bool HasEncap = 43;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setHasEncap($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->HasEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes SrcAddrEncap = 44;</code>
+     * @return string
+     */
+    public function getSrcAddrEncap()
+    {
+        return $this->SrcAddrEncap;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes SrcAddrEncap = 44;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setSrcAddrEncap($var)
+    {
+        GPBUtil::checkString($var, False);
+        $this->SrcAddrEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes DstAddrEncap = 45;</code>
+     * @return string
+     */
+    public function getDstAddrEncap()
+    {
+        return $this->DstAddrEncap;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes DstAddrEncap = 45;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDstAddrEncap($var)
+    {
+        GPBUtil::checkString($var, False);
+        $this->DstAddrEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 ProtoEncap = 46;</code>
+     * @return int
+     */
+    public function getProtoEncap()
+    {
+        return $this->ProtoEncap;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 ProtoEncap = 46;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setProtoEncap($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->ProtoEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 EtypeEncap = 47;</code>
+     * @return int
+     */
+    public function getEtypeEncap()
+    {
+        return $this->EtypeEncap;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 EtypeEncap = 47;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setEtypeEncap($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->EtypeEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPTosEncap = 48;</code>
+     * @return int
+     */
+    public function getIPTosEncap()
+    {
+        return $this->IPTosEncap;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPTosEncap = 48;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIPTosEncap($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->IPTosEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPTTLEncap = 49;</code>
+     * @return int
+     */
+    public function getIPTTLEncap()
+    {
+        return $this->IPTTLEncap;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPTTLEncap = 49;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIPTTLEncap($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->IPTTLEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPv6FlowLabelEncap = 50;</code>
+     * @return int
+     */
+    public function getIPv6FlowLabelEncap()
+    {
+        return $this->IPv6FlowLabelEncap;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 IPv6FlowLabelEncap = 50;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setIPv6FlowLabelEncap($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->IPv6FlowLabelEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 FragmentIdEncap = 51;</code>
+     * @return int
+     */
+    public function getFragmentIdEncap()
+    {
+        return $this->FragmentIdEncap;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 FragmentIdEncap = 51;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setFragmentIdEncap($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->FragmentIdEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 FragmentOffsetEncap = 52;</code>
+     * @return int
+     */
+    public function getFragmentOffsetEncap()
+    {
+        return $this->FragmentOffsetEncap;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 FragmentOffsetEncap = 52;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setFragmentOffsetEncap($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->FragmentOffsetEncap = $var;
+
+        return $this;
+    }
+
+    /**
+     * MPLS information
+     *
+     * Generated from protobuf field <code>bool HasMPLS = 53;</code>
+     * @return bool
+     */
+    public function getHasMPLS()
+    {
+        return $this->HasMPLS;
+    }
+
+    /**
+     * MPLS information
+     *
+     * Generated from protobuf field <code>bool HasMPLS = 53;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setHasMPLS($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->HasMPLS = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 MPLSCount = 54;</code>
+     * @return int
+     */
+    public function getMPLSCount()
+    {
+        return $this->MPLSCount;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 MPLSCount = 54;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMPLSCount($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->MPLSCount = $var;
+
+        return $this;
+    }
+
+    /**
+     * First TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLS1TTL = 55;</code>
+     * @return int
+     */
+    public function getMPLS1TTL()
+    {
+        return $this->MPLS1TTL;
+    }
+
+    /**
+     * First TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLS1TTL = 55;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMPLS1TTL($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->MPLS1TTL = $var;
+
+        return $this;
+    }
+
+    /**
+     * First Label
+     *
+     * Generated from protobuf field <code>uint32 MPLS1Label = 56;</code>
+     * @return int
+     */
+    public function getMPLS1Label()
+    {
+        return $this->MPLS1Label;
+    }
+
+    /**
+     * First Label
+     *
+     * Generated from protobuf field <code>uint32 MPLS1Label = 56;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMPLS1Label($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->MPLS1Label = $var;
+
+        return $this;
+    }
+
+    /**
+     * Second TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLS2TTL = 57;</code>
+     * @return int
+     */
+    public function getMPLS2TTL()
+    {
+        return $this->MPLS2TTL;
+    }
+
+    /**
+     * Second TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLS2TTL = 57;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMPLS2TTL($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->MPLS2TTL = $var;
+
+        return $this;
+    }
+
+    /**
+     * Second Label
+     *
+     * Generated from protobuf field <code>uint32 MPLS2Label = 58;</code>
+     * @return int
+     */
+    public function getMPLS2Label()
+    {
+        return $this->MPLS2Label;
+    }
+
+    /**
+     * Second Label
+     *
+     * Generated from protobuf field <code>uint32 MPLS2Label = 58;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMPLS2Label($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->MPLS2Label = $var;
+
+        return $this;
+    }
+
+    /**
+     * Third TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLS3TTL = 59;</code>
+     * @return int
+     */
+    public function getMPLS3TTL()
+    {
+        return $this->MPLS3TTL;
+    }
+
+    /**
+     * Third TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLS3TTL = 59;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMPLS3TTL($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->MPLS3TTL = $var;
+
+        return $this;
+    }
+
+    /**
+     * Third Label
+     *
+     * Generated from protobuf field <code>uint32 MPLS3Label = 60;</code>
+     * @return int
+     */
+    public function getMPLS3Label()
+    {
+        return $this->MPLS3Label;
+    }
+
+    /**
+     * Third Label
+     *
+     * Generated from protobuf field <code>uint32 MPLS3Label = 60;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMPLS3Label($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->MPLS3Label = $var;
+
+        return $this;
+    }
+
+    /**
+     * Last TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLSLastTTL = 61;</code>
+     * @return int
+     */
+    public function getMPLSLastTTL()
+    {
+        return $this->MPLSLastTTL;
+    }
+
+    /**
+     * Last TTL
+     *
+     * Generated from protobuf field <code>uint32 MPLSLastTTL = 61;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMPLSLastTTL($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->MPLSLastTTL = $var;
+
+        return $this;
+    }
+
+    /**
+     * Last Label
+     *
+     * Generated from protobuf field <code>uint32 MPLSLastLabel = 62;</code>
+     * @return int
+     */
+    public function getMPLSLastLabel()
+    {
+        return $this->MPLSLastLabel;
+    }
+
+    /**
+     * Last Label
+     *
+     * Generated from protobuf field <code>uint32 MPLSLastLabel = 62;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMPLSLastLabel($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->MPLSLastLabel = $var;
+
+        return $this;
+    }
+
+    /**
+     * PPP information
+     *
+     * Generated from protobuf field <code>bool HasPPP = 63;</code>
+     * @return bool
+     */
+    public function getHasPPP()
+    {
+        return $this->HasPPP;
+    }
+
+    /**
+     * PPP information
+     *
+     * Generated from protobuf field <code>bool HasPPP = 63;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setHasPPP($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->HasPPP = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 PPPAddressControl = 64;</code>
+     * @return int
+     */
+    public function getPPPAddressControl()
+    {
+        return $this->PPPAddressControl;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 PPPAddressControl = 64;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setPPPAddressControl($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->PPPAddressControl = $var;
 
         return $this;
     }

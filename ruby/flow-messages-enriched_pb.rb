@@ -22,8 +22,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :Proto, :uint32, 20
       optional :SrcPort, :uint32, 21
       optional :DstPort, :uint32, 22
-      optional :SrcIf, :uint32, 18
-      optional :DstIf, :uint32, 19
+      optional :InIf, :uint32, 18
+      optional :OutIf, :uint32, 19
       optional :SrcMac, :uint64, 27
       optional :DstMac, :uint64, 28
       optional :SrcVlan, :uint32, 33
@@ -38,7 +38,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :IcmpType, :uint32, 31
       optional :IcmpCode, :uint32, 32
       optional :IPv6FlowLabel, :uint32, 37
-      optional :IPv6ExtensionHeaders, :uint32, 43
       optional :FragmentId, :uint32, 35
       optional :FragmentOffset, :uint32, 36
       optional :BiFlowDirection, :uint32, 41
@@ -48,6 +47,28 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :NextHopAS, :uint32, 13
       optional :SrcNet, :uint32, 16
       optional :DstNet, :uint32, 17
+      optional :HasEncap, :bool, 43
+      optional :SrcAddrEncap, :bytes, 44
+      optional :DstAddrEncap, :bytes, 45
+      optional :ProtoEncap, :uint32, 46
+      optional :EtypeEncap, :uint32, 47
+      optional :IPTosEncap, :uint32, 48
+      optional :IPTTLEncap, :uint32, 49
+      optional :IPv6FlowLabelEncap, :uint32, 50
+      optional :FragmentIdEncap, :uint32, 51
+      optional :FragmentOffsetEncap, :uint32, 52
+      optional :HasMPLS, :bool, 53
+      optional :MPLSCount, :uint32, 54
+      optional :MPLS1TTL, :uint32, 55
+      optional :MPLS1Label, :uint32, 56
+      optional :MPLS2TTL, :uint32, 57
+      optional :MPLS2Label, :uint32, 58
+      optional :MPLS3TTL, :uint32, 59
+      optional :MPLS3Label, :uint32, 60
+      optional :MPLSLastTTL, :uint32, 61
+      optional :MPLSLastLabel, :uint32, 62
+      optional :HasPPP, :bool, 63
+      optional :PPPAddressControl, :uint32, 64
       optional :Cid, :uint32, 1000
       optional :CidString, :string, 1001
       optional :Normalized, :enum, 1002, "flowmessageenriched.FlowMessage.NormalizedType"
@@ -75,7 +96,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
 end
 
 module Flowmessageenriched
-  FlowMessage = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage").msgclass
-  FlowMessage::FlowType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.FlowType").enummodule
-  FlowMessage::NormalizedType = Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.NormalizedType").enummodule
+  FlowMessage = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage").msgclass
+  FlowMessage::FlowType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.FlowType").enummodule
+  FlowMessage::NormalizedType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.NormalizedType").enummodule
 end

@@ -64,8 +64,8 @@ static GPBFileDescriptor *FlowMessagesEnrichedRoot_FileDescriptor(void) {
 @dynamic proto;
 @dynamic srcPort;
 @dynamic dstPort;
-@dynamic srcIf;
-@dynamic dstIf;
+@dynamic inIf;
+@dynamic outIf;
 @dynamic srcMac;
 @dynamic dstMac;
 @dynamic srcVlan;
@@ -80,7 +80,6 @@ static GPBFileDescriptor *FlowMessagesEnrichedRoot_FileDescriptor(void) {
 @dynamic icmpType;
 @dynamic icmpCode;
 @dynamic ipv6FlowLabel;
-@dynamic ipv6ExtensionHeaders;
 @dynamic fragmentId;
 @dynamic fragmentOffset;
 @dynamic biFlowDirection;
@@ -90,6 +89,28 @@ static GPBFileDescriptor *FlowMessagesEnrichedRoot_FileDescriptor(void) {
 @dynamic nextHopAs;
 @dynamic srcNet;
 @dynamic dstNet;
+@dynamic hasEncap;
+@dynamic srcAddrEncap;
+@dynamic dstAddrEncap;
+@dynamic protoEncap;
+@dynamic etypeEncap;
+@dynamic iptosEncap;
+@dynamic ipttlencap;
+@dynamic ipv6FlowLabelEncap;
+@dynamic fragmentIdEncap;
+@dynamic fragmentOffsetEncap;
+@dynamic hasMpls;
+@dynamic mplscount;
+@dynamic mpls1Ttl;
+@dynamic mpls1Label;
+@dynamic mpls2Ttl;
+@dynamic mpls2Label;
+@dynamic mpls3Ttl;
+@dynamic mpls3Label;
+@dynamic mplslastTtl;
+@dynamic mplslastLabel;
+@dynamic hasPpp;
+@dynamic pppaddressControl;
 @dynamic cid;
 @dynamic cidString;
 @dynamic normalized;
@@ -103,7 +124,7 @@ static GPBFileDescriptor *FlowMessagesEnrichedRoot_FileDescriptor(void) {
 @dynamic remoteCountry;
 
 typedef struct FlowMessage__storage_ {
-  uint32_t _has_storage_[2];
+  uint32_t _has_storage_[3];
   FlowMessage_FlowType type;
   uint32_t sequenceNum;
   uint32_t nextHopAs;
@@ -111,8 +132,8 @@ typedef struct FlowMessage__storage_ {
   uint32_t dstAs;
   uint32_t srcNet;
   uint32_t dstNet;
-  uint32_t srcIf;
-  uint32_t dstIf;
+  uint32_t inIf;
+  uint32_t outIf;
   uint32_t proto;
   uint32_t srcPort;
   uint32_t dstPort;
@@ -133,7 +154,23 @@ typedef struct FlowMessage__storage_ {
   uint32_t egressVrfId;
   uint32_t biFlowDirection;
   uint32_t flowDirection;
-  uint32_t ipv6ExtensionHeaders;
+  uint32_t protoEncap;
+  uint32_t etypeEncap;
+  uint32_t iptosEncap;
+  uint32_t ipttlencap;
+  uint32_t ipv6FlowLabelEncap;
+  uint32_t fragmentIdEncap;
+  uint32_t fragmentOffsetEncap;
+  uint32_t mplscount;
+  uint32_t mpls1Ttl;
+  uint32_t mpls1Label;
+  uint32_t mpls2Ttl;
+  uint32_t mpls2Label;
+  uint32_t mpls3Ttl;
+  uint32_t mpls3Label;
+  uint32_t mplslastTtl;
+  uint32_t mplslastLabel;
+  uint32_t pppaddressControl;
   uint32_t cid;
   FlowMessage_NormalizedType normalized;
   uint32_t srcIfSpeed;
@@ -142,6 +179,8 @@ typedef struct FlowMessage__storage_ {
   NSData *dstAddr;
   NSData *samplerAddress;
   NSData *nextHop;
+  NSData *srcAddrEncap;
+  NSData *dstAddrEncap;
   NSString *cidString;
   NSString *srcIfName;
   NSString *srcIfDesc;
@@ -171,475 +210,664 @@ typedef struct FlowMessage__storage_ {
         .number = FlowMessage_FieldNumber_Type,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, type),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeEnum,
       },
       {
         .name = "timeReceived",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_TimeReceived,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, timeReceived),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt64,
       },
       {
         .name = "samplingRate",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SamplingRate,
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, samplingRate),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt64,
       },
       {
         .name = "sequenceNum",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SequenceNum,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, sequenceNum),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "timeFlowEnd",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_TimeFlowEnd,
         .hasIndex = 7,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, timeFlowEnd),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt64,
       },
       {
         .name = "srcAddr",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SrcAddr,
         .hasIndex = 10,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcAddr),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "dstAddr",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_DstAddr,
         .hasIndex = 11,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstAddr),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "bytes",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Bytes,
         .hasIndex = 8,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, bytes),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt64,
       },
       {
         .name = "packets",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Packets,
         .hasIndex = 9,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, packets),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt64,
       },
       {
         .name = "samplerAddress",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SamplerAddress,
         .hasIndex = 5,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, samplerAddress),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "nextHop",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_NextHop,
-        .hasIndex = 38,
+        .hasIndex = 37,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, nextHop),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "nextHopAs",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_NextHopAs,
-        .hasIndex = 39,
+        .hasIndex = 38,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, nextHopAs),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "srcAs",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SrcAs,
-        .hasIndex = 36,
+        .hasIndex = 35,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcAs),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "dstAs",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_DstAs,
-        .hasIndex = 37,
+        .hasIndex = 36,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstAs),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "srcNet",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SrcNet,
-        .hasIndex = 40,
+        .hasIndex = 39,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcNet),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "dstNet",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_DstNet,
-        .hasIndex = 41,
+        .hasIndex = 40,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstNet),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
-        .name = "srcIf",
-        .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_SrcIf,
+        .name = "inIf",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_InIf,
         .hasIndex = 16,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, srcIf),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, inIf),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
-        .name = "dstIf",
-        .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_DstIf,
+        .name = "outIf",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_OutIf,
         .hasIndex = 17,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, dstIf),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, outIf),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "proto",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Proto,
         .hasIndex = 13,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, proto),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "srcPort",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SrcPort,
         .hasIndex = 14,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcPort),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "dstPort",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_DstPort,
         .hasIndex = 15,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstPort),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "iptos",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Iptos,
         .hasIndex = 25,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, iptos),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "forwardingStatus",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_ForwardingStatus,
         .hasIndex = 26,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, forwardingStatus),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "ipttl",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Ipttl,
         .hasIndex = 27,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, ipttl),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "tcpflags",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Tcpflags,
         .hasIndex = 28,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, tcpflags),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "srcMac",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SrcMac,
         .hasIndex = 18,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcMac),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt64,
       },
       {
         .name = "dstMac",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_DstMac,
         .hasIndex = 19,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstMac),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt64,
       },
       {
         .name = "vlanId",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_VlanId,
         .hasIndex = 22,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, vlanId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "etype",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Etype,
         .hasIndex = 12,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, etype),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "icmpType",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_IcmpType,
         .hasIndex = 29,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, icmpType),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "icmpCode",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_IcmpCode,
         .hasIndex = 30,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, icmpCode),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "srcVlan",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SrcVlan,
         .hasIndex = 20,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcVlan),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "dstVlan",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_DstVlan,
         .hasIndex = 21,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstVlan),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "fragmentId",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_FragmentId,
-        .hasIndex = 33,
+        .hasIndex = 32,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, fragmentId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "fragmentOffset",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_FragmentOffset,
-        .hasIndex = 34,
+        .hasIndex = 33,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, fragmentOffset),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "ipv6FlowLabel",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Ipv6FlowLabel,
         .hasIndex = 31,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, ipv6FlowLabel),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "timeFlowStart",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_TimeFlowStart,
         .hasIndex = 6,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, timeFlowStart),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt64,
       },
       {
         .name = "ingressVrfId",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_IngressVrfId,
         .hasIndex = 23,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, ingressVrfId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "egressVrfId",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_EgressVrfId,
         .hasIndex = 24,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, egressVrfId),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "biFlowDirection",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_BiFlowDirection,
-        .hasIndex = 35,
+        .hasIndex = 34,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, biFlowDirection),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "flowDirection",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_FlowDirection,
         .hasIndex = 4,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, flowDirection),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
-        .name = "ipv6ExtensionHeaders",
-        .dataTypeSpecific.className = NULL,
-        .number = FlowMessage_FieldNumber_Ipv6ExtensionHeaders,
-        .hasIndex = 32,
-        .offset = (uint32_t)offsetof(FlowMessage__storage_, ipv6ExtensionHeaders),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .name = "hasEncap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_HasEncap,
+        .hasIndex = 41,
+        .offset = 42,  // Stored in _has_storage_ to save space.
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "srcAddrEncap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_SrcAddrEncap,
+        .hasIndex = 43,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, srcAddrEncap),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "dstAddrEncap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_DstAddrEncap,
+        .hasIndex = 44,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, dstAddrEncap),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "protoEncap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_ProtoEncap,
+        .hasIndex = 45,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, protoEncap),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "etypeEncap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_EtypeEncap,
+        .hasIndex = 46,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, etypeEncap),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "iptosEncap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_IptosEncap,
+        .hasIndex = 47,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, iptosEncap),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "ipttlencap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_Ipttlencap,
+        .hasIndex = 48,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, ipttlencap),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "ipv6FlowLabelEncap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_Ipv6FlowLabelEncap,
+        .hasIndex = 49,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, ipv6FlowLabelEncap),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "fragmentIdEncap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_FragmentIdEncap,
+        .hasIndex = 50,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, fragmentIdEncap),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "fragmentOffsetEncap",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_FragmentOffsetEncap,
+        .hasIndex = 51,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, fragmentOffsetEncap),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "hasMpls",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_HasMpls,
+        .hasIndex = 52,
+        .offset = 53,  // Stored in _has_storage_ to save space.
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "mplscount",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_Mplscount,
+        .hasIndex = 54,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, mplscount),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "mpls1Ttl",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_Mpls1Ttl,
+        .hasIndex = 55,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, mpls1Ttl),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "mpls1Label",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_Mpls1Label,
+        .hasIndex = 56,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, mpls1Label),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "mpls2Ttl",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_Mpls2Ttl,
+        .hasIndex = 57,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, mpls2Ttl),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "mpls2Label",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_Mpls2Label,
+        .hasIndex = 58,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, mpls2Label),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "mpls3Ttl",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_Mpls3Ttl,
+        .hasIndex = 59,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, mpls3Ttl),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "mpls3Label",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_Mpls3Label,
+        .hasIndex = 60,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, mpls3Label),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "mplslastTtl",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_MplslastTtl,
+        .hasIndex = 61,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, mplslastTtl),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "mplslastLabel",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_MplslastLabel,
+        .hasIndex = 62,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, mplslastLabel),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "hasPpp",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_HasPpp,
+        .hasIndex = 63,
+        .offset = 64,  // Stored in _has_storage_ to save space.
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "pppaddressControl",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_PppaddressControl,
+        .hasIndex = 65,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, pppaddressControl),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "cid",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Cid,
-        .hasIndex = 42,
+        .hasIndex = 66,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, cid),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "cidString",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_CidString,
-        .hasIndex = 43,
+        .hasIndex = 67,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, cidString),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "normalized",
         .dataTypeSpecific.enumDescFunc = FlowMessage_NormalizedType_EnumDescriptor,
         .number = FlowMessage_FieldNumber_Normalized,
-        .hasIndex = 44,
+        .hasIndex = 68,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, normalized),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeEnum,
       },
       {
         .name = "srcIfName",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SrcIfName,
-        .hasIndex = 45,
+        .hasIndex = 69,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcIfName),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "srcIfDesc",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SrcIfDesc,
-        .hasIndex = 46,
+        .hasIndex = 70,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcIfDesc),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "srcIfSpeed",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_SrcIfSpeed,
-        .hasIndex = 47,
+        .hasIndex = 71,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, srcIfSpeed),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "dstIfName",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_DstIfName,
-        .hasIndex = 48,
+        .hasIndex = 72,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstIfName),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "dstIfDesc",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_DstIfDesc,
-        .hasIndex = 49,
+        .hasIndex = 73,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstIfDesc),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "dstIfSpeed",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_DstIfSpeed,
-        .hasIndex = 50,
+        .hasIndex = 74,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, dstIfSpeed),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "protoName",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_ProtoName,
-        .hasIndex = 51,
+        .hasIndex = 75,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, protoName),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "remoteCountry",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_RemoteCountry,
-        .hasIndex = 52,
+        .hasIndex = 76,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, remoteCountry),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
     };
@@ -650,14 +878,16 @@ typedef struct FlowMessage__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(FlowMessage__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "5\001D\000\002L\000\003L\000\004K\000\005K\000\006G\000\007G\000\tE\000\nG\000\013N\000\014G\000\rHA\000\016D"
-        "A\000\017DA\000\020F\000\021F\000\022E\000\023E\000\024E\000\025G\000\026G\000\027c\002\000\030P\000\031e\000\032d\004"
+        "J\001D\000\002L\000\003L\000\004K\000\005K\000\006G\000\007G\000\tE\000\nG\000\013N\000\014G\000\rHA\000\016D"
+        "A\000\017DA\000\020F\000\021F\000\022D\000\023E\000\024E\000\025G\000\026G\000\027c\002\000\030P\000\031e\000\032d\004"
         "\000\033F\000\034F\000\035F\000\036E\000\037H\000 H\000!G\000\"G\000#J\000$N\000%b\013\000&M\000\'K"
-        "A\000(JA\000)O\000*M\000+b\022\000\350\007C\000\351\007I\000\352\007J\000\353\007I\000\354\007I\000\355\007J\000"
-        "\356\007I\000\357\007I\000\360\007J\000\361\007I\000\362\007M\000";
+        "A\000(JA\000)O\000*M\000+H\000,L\000-L\000.J\000/J\0000c\007\0001f\004\0002b\020\0003"
+        "O\0004S\0005Dc\0006e\004\0007d\002b\0008d\006\0009d\002b\000:d\006\000;d\002b\000<d\006\000"
+        "=e\004b\000>e\010\000\?Db\000@d\r\000\350\007C\000\351\007I\000\352\007J\000\353\007I\000\354\007I\000\355\007J"
+        "\000\356\007I\000\357\007I\000\360\007J\000\361\007I\000\362\007M\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG
@@ -673,25 +903,25 @@ typedef struct FlowMessage__storage_ {
 int32_t FlowMessage_Type_RawValue(FlowMessage *message) {
   GPBDescriptor *descriptor = [FlowMessage descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:FlowMessage_FieldNumber_Type];
-  return GPBGetMessageInt32Field(message, field);
+  return GPBGetMessageRawEnumField(message, field);
 }
 
 void SetFlowMessage_Type_RawValue(FlowMessage *message, int32_t value) {
   GPBDescriptor *descriptor = [FlowMessage descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:FlowMessage_FieldNumber_Type];
-  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+  GPBSetMessageRawEnumField(message, field, value);
 }
 
 int32_t FlowMessage_Normalized_RawValue(FlowMessage *message) {
   GPBDescriptor *descriptor = [FlowMessage descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:FlowMessage_FieldNumber_Normalized];
-  return GPBGetMessageInt32Field(message, field);
+  return GPBGetMessageRawEnumField(message, field);
 }
 
 void SetFlowMessage_Normalized_RawValue(FlowMessage *message, int32_t value) {
   GPBDescriptor *descriptor = [FlowMessage descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:FlowMessage_FieldNumber_Normalized];
-  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+  GPBSetMessageRawEnumField(message, field, value);
 }
 
 #pragma mark - Enum FlowMessage_FlowType

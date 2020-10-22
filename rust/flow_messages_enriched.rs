@@ -40,8 +40,8 @@ pub struct FlowMessage {
     pub Proto: u32,
     pub SrcPort: u32,
     pub DstPort: u32,
-    pub SrcIf: u32,
-    pub DstIf: u32,
+    pub InIf: u32,
+    pub OutIf: u32,
     pub SrcMac: u64,
     pub DstMac: u64,
     pub SrcVlan: u32,
@@ -56,7 +56,6 @@ pub struct FlowMessage {
     pub IcmpType: u32,
     pub IcmpCode: u32,
     pub IPv6FlowLabel: u32,
-    pub IPv6ExtensionHeaders: u32,
     pub FragmentId: u32,
     pub FragmentOffset: u32,
     pub BiFlowDirection: u32,
@@ -66,6 +65,28 @@ pub struct FlowMessage {
     pub NextHopAS: u32,
     pub SrcNet: u32,
     pub DstNet: u32,
+    pub HasEncap: bool,
+    pub SrcAddrEncap: ::std::vec::Vec<u8>,
+    pub DstAddrEncap: ::std::vec::Vec<u8>,
+    pub ProtoEncap: u32,
+    pub EtypeEncap: u32,
+    pub IPTosEncap: u32,
+    pub IPTTLEncap: u32,
+    pub IPv6FlowLabelEncap: u32,
+    pub FragmentIdEncap: u32,
+    pub FragmentOffsetEncap: u32,
+    pub HasMPLS: bool,
+    pub MPLSCount: u32,
+    pub MPLS1TTL: u32,
+    pub MPLS1Label: u32,
+    pub MPLS2TTL: u32,
+    pub MPLS2Label: u32,
+    pub MPLS3TTL: u32,
+    pub MPLS3Label: u32,
+    pub MPLSLastTTL: u32,
+    pub MPLSLastLabel: u32,
+    pub HasPPP: bool,
+    pub PPPAddressControl: u32,
     pub Cid: u32,
     pub CidString: ::std::string::String,
     pub Normalized: FlowMessage_NormalizedType,
@@ -360,34 +381,34 @@ impl FlowMessage {
         self.DstPort
     }
 
-    // uint32 SrcIf = 18;
+    // uint32 InIf = 18;
 
-    pub fn clear_SrcIf(&mut self) {
-        self.SrcIf = 0;
+    pub fn clear_InIf(&mut self) {
+        self.InIf = 0;
     }
 
     // Param is passed by value, moved
-    pub fn set_SrcIf(&mut self, v: u32) {
-        self.SrcIf = v;
+    pub fn set_InIf(&mut self, v: u32) {
+        self.InIf = v;
     }
 
-    pub fn get_SrcIf(&self) -> u32 {
-        self.SrcIf
+    pub fn get_InIf(&self) -> u32 {
+        self.InIf
     }
 
-    // uint32 DstIf = 19;
+    // uint32 OutIf = 19;
 
-    pub fn clear_DstIf(&mut self) {
-        self.DstIf = 0;
+    pub fn clear_OutIf(&mut self) {
+        self.OutIf = 0;
     }
 
     // Param is passed by value, moved
-    pub fn set_DstIf(&mut self, v: u32) {
-        self.DstIf = v;
+    pub fn set_OutIf(&mut self, v: u32) {
+        self.OutIf = v;
     }
 
-    pub fn get_DstIf(&self) -> u32 {
-        self.DstIf
+    pub fn get_OutIf(&self) -> u32 {
+        self.OutIf
     }
 
     // uint64 SrcMac = 27;
@@ -600,21 +621,6 @@ impl FlowMessage {
         self.IPv6FlowLabel
     }
 
-    // uint32 IPv6ExtensionHeaders = 43;
-
-    pub fn clear_IPv6ExtensionHeaders(&mut self) {
-        self.IPv6ExtensionHeaders = 0;
-    }
-
-    // Param is passed by value, moved
-    pub fn set_IPv6ExtensionHeaders(&mut self, v: u32) {
-        self.IPv6ExtensionHeaders = v;
-    }
-
-    pub fn get_IPv6ExtensionHeaders(&self) -> u32 {
-        self.IPv6ExtensionHeaders
-    }
-
     // uint32 FragmentId = 35;
 
     pub fn clear_FragmentId(&mut self) {
@@ -759,6 +765,358 @@ impl FlowMessage {
 
     pub fn get_DstNet(&self) -> u32 {
         self.DstNet
+    }
+
+    // bool HasEncap = 43;
+
+    pub fn clear_HasEncap(&mut self) {
+        self.HasEncap = false;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_HasEncap(&mut self, v: bool) {
+        self.HasEncap = v;
+    }
+
+    pub fn get_HasEncap(&self) -> bool {
+        self.HasEncap
+    }
+
+    // bytes SrcAddrEncap = 44;
+
+    pub fn clear_SrcAddrEncap(&mut self) {
+        self.SrcAddrEncap.clear();
+    }
+
+    // Param is passed by value, moved
+    pub fn set_SrcAddrEncap(&mut self, v: ::std::vec::Vec<u8>) {
+        self.SrcAddrEncap = v;
+    }
+
+    // Mutable pointer to the field.
+    // If field is not initialized, it is initialized with default value first.
+    pub fn mut_SrcAddrEncap(&mut self) -> &mut ::std::vec::Vec<u8> {
+        &mut self.SrcAddrEncap
+    }
+
+    // Take field
+    pub fn take_SrcAddrEncap(&mut self) -> ::std::vec::Vec<u8> {
+        ::std::mem::replace(&mut self.SrcAddrEncap, ::std::vec::Vec::new())
+    }
+
+    pub fn get_SrcAddrEncap(&self) -> &[u8] {
+        &self.SrcAddrEncap
+    }
+
+    // bytes DstAddrEncap = 45;
+
+    pub fn clear_DstAddrEncap(&mut self) {
+        self.DstAddrEncap.clear();
+    }
+
+    // Param is passed by value, moved
+    pub fn set_DstAddrEncap(&mut self, v: ::std::vec::Vec<u8>) {
+        self.DstAddrEncap = v;
+    }
+
+    // Mutable pointer to the field.
+    // If field is not initialized, it is initialized with default value first.
+    pub fn mut_DstAddrEncap(&mut self) -> &mut ::std::vec::Vec<u8> {
+        &mut self.DstAddrEncap
+    }
+
+    // Take field
+    pub fn take_DstAddrEncap(&mut self) -> ::std::vec::Vec<u8> {
+        ::std::mem::replace(&mut self.DstAddrEncap, ::std::vec::Vec::new())
+    }
+
+    pub fn get_DstAddrEncap(&self) -> &[u8] {
+        &self.DstAddrEncap
+    }
+
+    // uint32 ProtoEncap = 46;
+
+    pub fn clear_ProtoEncap(&mut self) {
+        self.ProtoEncap = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_ProtoEncap(&mut self, v: u32) {
+        self.ProtoEncap = v;
+    }
+
+    pub fn get_ProtoEncap(&self) -> u32 {
+        self.ProtoEncap
+    }
+
+    // uint32 EtypeEncap = 47;
+
+    pub fn clear_EtypeEncap(&mut self) {
+        self.EtypeEncap = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_EtypeEncap(&mut self, v: u32) {
+        self.EtypeEncap = v;
+    }
+
+    pub fn get_EtypeEncap(&self) -> u32 {
+        self.EtypeEncap
+    }
+
+    // uint32 IPTosEncap = 48;
+
+    pub fn clear_IPTosEncap(&mut self) {
+        self.IPTosEncap = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_IPTosEncap(&mut self, v: u32) {
+        self.IPTosEncap = v;
+    }
+
+    pub fn get_IPTosEncap(&self) -> u32 {
+        self.IPTosEncap
+    }
+
+    // uint32 IPTTLEncap = 49;
+
+    pub fn clear_IPTTLEncap(&mut self) {
+        self.IPTTLEncap = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_IPTTLEncap(&mut self, v: u32) {
+        self.IPTTLEncap = v;
+    }
+
+    pub fn get_IPTTLEncap(&self) -> u32 {
+        self.IPTTLEncap
+    }
+
+    // uint32 IPv6FlowLabelEncap = 50;
+
+    pub fn clear_IPv6FlowLabelEncap(&mut self) {
+        self.IPv6FlowLabelEncap = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_IPv6FlowLabelEncap(&mut self, v: u32) {
+        self.IPv6FlowLabelEncap = v;
+    }
+
+    pub fn get_IPv6FlowLabelEncap(&self) -> u32 {
+        self.IPv6FlowLabelEncap
+    }
+
+    // uint32 FragmentIdEncap = 51;
+
+    pub fn clear_FragmentIdEncap(&mut self) {
+        self.FragmentIdEncap = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_FragmentIdEncap(&mut self, v: u32) {
+        self.FragmentIdEncap = v;
+    }
+
+    pub fn get_FragmentIdEncap(&self) -> u32 {
+        self.FragmentIdEncap
+    }
+
+    // uint32 FragmentOffsetEncap = 52;
+
+    pub fn clear_FragmentOffsetEncap(&mut self) {
+        self.FragmentOffsetEncap = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_FragmentOffsetEncap(&mut self, v: u32) {
+        self.FragmentOffsetEncap = v;
+    }
+
+    pub fn get_FragmentOffsetEncap(&self) -> u32 {
+        self.FragmentOffsetEncap
+    }
+
+    // bool HasMPLS = 53;
+
+    pub fn clear_HasMPLS(&mut self) {
+        self.HasMPLS = false;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_HasMPLS(&mut self, v: bool) {
+        self.HasMPLS = v;
+    }
+
+    pub fn get_HasMPLS(&self) -> bool {
+        self.HasMPLS
+    }
+
+    // uint32 MPLSCount = 54;
+
+    pub fn clear_MPLSCount(&mut self) {
+        self.MPLSCount = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_MPLSCount(&mut self, v: u32) {
+        self.MPLSCount = v;
+    }
+
+    pub fn get_MPLSCount(&self) -> u32 {
+        self.MPLSCount
+    }
+
+    // uint32 MPLS1TTL = 55;
+
+    pub fn clear_MPLS1TTL(&mut self) {
+        self.MPLS1TTL = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_MPLS1TTL(&mut self, v: u32) {
+        self.MPLS1TTL = v;
+    }
+
+    pub fn get_MPLS1TTL(&self) -> u32 {
+        self.MPLS1TTL
+    }
+
+    // uint32 MPLS1Label = 56;
+
+    pub fn clear_MPLS1Label(&mut self) {
+        self.MPLS1Label = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_MPLS1Label(&mut self, v: u32) {
+        self.MPLS1Label = v;
+    }
+
+    pub fn get_MPLS1Label(&self) -> u32 {
+        self.MPLS1Label
+    }
+
+    // uint32 MPLS2TTL = 57;
+
+    pub fn clear_MPLS2TTL(&mut self) {
+        self.MPLS2TTL = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_MPLS2TTL(&mut self, v: u32) {
+        self.MPLS2TTL = v;
+    }
+
+    pub fn get_MPLS2TTL(&self) -> u32 {
+        self.MPLS2TTL
+    }
+
+    // uint32 MPLS2Label = 58;
+
+    pub fn clear_MPLS2Label(&mut self) {
+        self.MPLS2Label = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_MPLS2Label(&mut self, v: u32) {
+        self.MPLS2Label = v;
+    }
+
+    pub fn get_MPLS2Label(&self) -> u32 {
+        self.MPLS2Label
+    }
+
+    // uint32 MPLS3TTL = 59;
+
+    pub fn clear_MPLS3TTL(&mut self) {
+        self.MPLS3TTL = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_MPLS3TTL(&mut self, v: u32) {
+        self.MPLS3TTL = v;
+    }
+
+    pub fn get_MPLS3TTL(&self) -> u32 {
+        self.MPLS3TTL
+    }
+
+    // uint32 MPLS3Label = 60;
+
+    pub fn clear_MPLS3Label(&mut self) {
+        self.MPLS3Label = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_MPLS3Label(&mut self, v: u32) {
+        self.MPLS3Label = v;
+    }
+
+    pub fn get_MPLS3Label(&self) -> u32 {
+        self.MPLS3Label
+    }
+
+    // uint32 MPLSLastTTL = 61;
+
+    pub fn clear_MPLSLastTTL(&mut self) {
+        self.MPLSLastTTL = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_MPLSLastTTL(&mut self, v: u32) {
+        self.MPLSLastTTL = v;
+    }
+
+    pub fn get_MPLSLastTTL(&self) -> u32 {
+        self.MPLSLastTTL
+    }
+
+    // uint32 MPLSLastLabel = 62;
+
+    pub fn clear_MPLSLastLabel(&mut self) {
+        self.MPLSLastLabel = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_MPLSLastLabel(&mut self, v: u32) {
+        self.MPLSLastLabel = v;
+    }
+
+    pub fn get_MPLSLastLabel(&self) -> u32 {
+        self.MPLSLastLabel
+    }
+
+    // bool HasPPP = 63;
+
+    pub fn clear_HasPPP(&mut self) {
+        self.HasPPP = false;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_HasPPP(&mut self, v: bool) {
+        self.HasPPP = v;
+    }
+
+    pub fn get_HasPPP(&self) -> bool {
+        self.HasPPP
+    }
+
+    // uint32 PPPAddressControl = 64;
+
+    pub fn clear_PPPAddressControl(&mut self) {
+        self.PPPAddressControl = 0;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_PPPAddressControl(&mut self, v: u32) {
+        self.PPPAddressControl = v;
+    }
+
+    pub fn get_PPPAddressControl(&self) -> u32 {
+        self.PPPAddressControl
     }
 
     // uint32 Cid = 1000;
@@ -1114,14 +1472,14 @@ impl ::protobuf::Message for FlowMessage {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
                     let tmp = is.read_uint32()?;
-                    self.SrcIf = tmp;
+                    self.InIf = tmp;
                 },
                 19 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
                     let tmp = is.read_uint32()?;
-                    self.DstIf = tmp;
+                    self.OutIf = tmp;
                 },
                 27 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
@@ -1221,13 +1579,6 @@ impl ::protobuf::Message for FlowMessage {
                     let tmp = is.read_uint32()?;
                     self.IPv6FlowLabel = tmp;
                 },
-                43 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_uint32()?;
-                    self.IPv6ExtensionHeaders = tmp;
-                },
                 35 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
@@ -1286,6 +1637,152 @@ impl ::protobuf::Message for FlowMessage {
                     }
                     let tmp = is.read_uint32()?;
                     self.DstNet = tmp;
+                },
+                43 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_bool()?;
+                    self.HasEncap = tmp;
+                },
+                44 => {
+                    ::protobuf::rt::read_singular_proto3_bytes_into(wire_type, is, &mut self.SrcAddrEncap)?;
+                },
+                45 => {
+                    ::protobuf::rt::read_singular_proto3_bytes_into(wire_type, is, &mut self.DstAddrEncap)?;
+                },
+                46 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.ProtoEncap = tmp;
+                },
+                47 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.EtypeEncap = tmp;
+                },
+                48 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.IPTosEncap = tmp;
+                },
+                49 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.IPTTLEncap = tmp;
+                },
+                50 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.IPv6FlowLabelEncap = tmp;
+                },
+                51 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.FragmentIdEncap = tmp;
+                },
+                52 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.FragmentOffsetEncap = tmp;
+                },
+                53 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_bool()?;
+                    self.HasMPLS = tmp;
+                },
+                54 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.MPLSCount = tmp;
+                },
+                55 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.MPLS1TTL = tmp;
+                },
+                56 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.MPLS1Label = tmp;
+                },
+                57 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.MPLS2TTL = tmp;
+                },
+                58 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.MPLS2Label = tmp;
+                },
+                59 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.MPLS3TTL = tmp;
+                },
+                60 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.MPLS3Label = tmp;
+                },
+                61 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.MPLSLastTTL = tmp;
+                },
+                62 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.MPLSLastLabel = tmp;
+                },
+                63 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_bool()?;
+                    self.HasPPP = tmp;
+                },
+                64 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_uint32()?;
+                    self.PPPAddressControl = tmp;
                 },
                 1000 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
@@ -1392,11 +1889,11 @@ impl ::protobuf::Message for FlowMessage {
         if self.DstPort != 0 {
             my_size += ::protobuf::rt::value_size(22, self.DstPort, ::protobuf::wire_format::WireTypeVarint);
         }
-        if self.SrcIf != 0 {
-            my_size += ::protobuf::rt::value_size(18, self.SrcIf, ::protobuf::wire_format::WireTypeVarint);
+        if self.InIf != 0 {
+            my_size += ::protobuf::rt::value_size(18, self.InIf, ::protobuf::wire_format::WireTypeVarint);
         }
-        if self.DstIf != 0 {
-            my_size += ::protobuf::rt::value_size(19, self.DstIf, ::protobuf::wire_format::WireTypeVarint);
+        if self.OutIf != 0 {
+            my_size += ::protobuf::rt::value_size(19, self.OutIf, ::protobuf::wire_format::WireTypeVarint);
         }
         if self.SrcMac != 0 {
             my_size += ::protobuf::rt::value_size(27, self.SrcMac, ::protobuf::wire_format::WireTypeVarint);
@@ -1440,9 +1937,6 @@ impl ::protobuf::Message for FlowMessage {
         if self.IPv6FlowLabel != 0 {
             my_size += ::protobuf::rt::value_size(37, self.IPv6FlowLabel, ::protobuf::wire_format::WireTypeVarint);
         }
-        if self.IPv6ExtensionHeaders != 0 {
-            my_size += ::protobuf::rt::value_size(43, self.IPv6ExtensionHeaders, ::protobuf::wire_format::WireTypeVarint);
-        }
         if self.FragmentId != 0 {
             my_size += ::protobuf::rt::value_size(35, self.FragmentId, ::protobuf::wire_format::WireTypeVarint);
         }
@@ -1469,6 +1963,72 @@ impl ::protobuf::Message for FlowMessage {
         }
         if self.DstNet != 0 {
             my_size += ::protobuf::rt::value_size(17, self.DstNet, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.HasEncap != false {
+            my_size += 3;
+        }
+        if !self.SrcAddrEncap.is_empty() {
+            my_size += ::protobuf::rt::bytes_size(44, &self.SrcAddrEncap);
+        }
+        if !self.DstAddrEncap.is_empty() {
+            my_size += ::protobuf::rt::bytes_size(45, &self.DstAddrEncap);
+        }
+        if self.ProtoEncap != 0 {
+            my_size += ::protobuf::rt::value_size(46, self.ProtoEncap, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.EtypeEncap != 0 {
+            my_size += ::protobuf::rt::value_size(47, self.EtypeEncap, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.IPTosEncap != 0 {
+            my_size += ::protobuf::rt::value_size(48, self.IPTosEncap, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.IPTTLEncap != 0 {
+            my_size += ::protobuf::rt::value_size(49, self.IPTTLEncap, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.IPv6FlowLabelEncap != 0 {
+            my_size += ::protobuf::rt::value_size(50, self.IPv6FlowLabelEncap, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.FragmentIdEncap != 0 {
+            my_size += ::protobuf::rt::value_size(51, self.FragmentIdEncap, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.FragmentOffsetEncap != 0 {
+            my_size += ::protobuf::rt::value_size(52, self.FragmentOffsetEncap, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.HasMPLS != false {
+            my_size += 3;
+        }
+        if self.MPLSCount != 0 {
+            my_size += ::protobuf::rt::value_size(54, self.MPLSCount, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.MPLS1TTL != 0 {
+            my_size += ::protobuf::rt::value_size(55, self.MPLS1TTL, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.MPLS1Label != 0 {
+            my_size += ::protobuf::rt::value_size(56, self.MPLS1Label, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.MPLS2TTL != 0 {
+            my_size += ::protobuf::rt::value_size(57, self.MPLS2TTL, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.MPLS2Label != 0 {
+            my_size += ::protobuf::rt::value_size(58, self.MPLS2Label, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.MPLS3TTL != 0 {
+            my_size += ::protobuf::rt::value_size(59, self.MPLS3TTL, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.MPLS3Label != 0 {
+            my_size += ::protobuf::rt::value_size(60, self.MPLS3Label, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.MPLSLastTTL != 0 {
+            my_size += ::protobuf::rt::value_size(61, self.MPLSLastTTL, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.MPLSLastLabel != 0 {
+            my_size += ::protobuf::rt::value_size(62, self.MPLSLastLabel, ::protobuf::wire_format::WireTypeVarint);
+        }
+        if self.HasPPP != false {
+            my_size += 3;
+        }
+        if self.PPPAddressControl != 0 {
+            my_size += ::protobuf::rt::value_size(64, self.PPPAddressControl, ::protobuf::wire_format::WireTypeVarint);
         }
         if self.Cid != 0 {
             my_size += ::protobuf::rt::value_size(1000, self.Cid, ::protobuf::wire_format::WireTypeVarint);
@@ -1557,11 +2117,11 @@ impl ::protobuf::Message for FlowMessage {
         if self.DstPort != 0 {
             os.write_uint32(22, self.DstPort)?;
         }
-        if self.SrcIf != 0 {
-            os.write_uint32(18, self.SrcIf)?;
+        if self.InIf != 0 {
+            os.write_uint32(18, self.InIf)?;
         }
-        if self.DstIf != 0 {
-            os.write_uint32(19, self.DstIf)?;
+        if self.OutIf != 0 {
+            os.write_uint32(19, self.OutIf)?;
         }
         if self.SrcMac != 0 {
             os.write_uint64(27, self.SrcMac)?;
@@ -1605,9 +2165,6 @@ impl ::protobuf::Message for FlowMessage {
         if self.IPv6FlowLabel != 0 {
             os.write_uint32(37, self.IPv6FlowLabel)?;
         }
-        if self.IPv6ExtensionHeaders != 0 {
-            os.write_uint32(43, self.IPv6ExtensionHeaders)?;
-        }
         if self.FragmentId != 0 {
             os.write_uint32(35, self.FragmentId)?;
         }
@@ -1634,6 +2191,72 @@ impl ::protobuf::Message for FlowMessage {
         }
         if self.DstNet != 0 {
             os.write_uint32(17, self.DstNet)?;
+        }
+        if self.HasEncap != false {
+            os.write_bool(43, self.HasEncap)?;
+        }
+        if !self.SrcAddrEncap.is_empty() {
+            os.write_bytes(44, &self.SrcAddrEncap)?;
+        }
+        if !self.DstAddrEncap.is_empty() {
+            os.write_bytes(45, &self.DstAddrEncap)?;
+        }
+        if self.ProtoEncap != 0 {
+            os.write_uint32(46, self.ProtoEncap)?;
+        }
+        if self.EtypeEncap != 0 {
+            os.write_uint32(47, self.EtypeEncap)?;
+        }
+        if self.IPTosEncap != 0 {
+            os.write_uint32(48, self.IPTosEncap)?;
+        }
+        if self.IPTTLEncap != 0 {
+            os.write_uint32(49, self.IPTTLEncap)?;
+        }
+        if self.IPv6FlowLabelEncap != 0 {
+            os.write_uint32(50, self.IPv6FlowLabelEncap)?;
+        }
+        if self.FragmentIdEncap != 0 {
+            os.write_uint32(51, self.FragmentIdEncap)?;
+        }
+        if self.FragmentOffsetEncap != 0 {
+            os.write_uint32(52, self.FragmentOffsetEncap)?;
+        }
+        if self.HasMPLS != false {
+            os.write_bool(53, self.HasMPLS)?;
+        }
+        if self.MPLSCount != 0 {
+            os.write_uint32(54, self.MPLSCount)?;
+        }
+        if self.MPLS1TTL != 0 {
+            os.write_uint32(55, self.MPLS1TTL)?;
+        }
+        if self.MPLS1Label != 0 {
+            os.write_uint32(56, self.MPLS1Label)?;
+        }
+        if self.MPLS2TTL != 0 {
+            os.write_uint32(57, self.MPLS2TTL)?;
+        }
+        if self.MPLS2Label != 0 {
+            os.write_uint32(58, self.MPLS2Label)?;
+        }
+        if self.MPLS3TTL != 0 {
+            os.write_uint32(59, self.MPLS3TTL)?;
+        }
+        if self.MPLS3Label != 0 {
+            os.write_uint32(60, self.MPLS3Label)?;
+        }
+        if self.MPLSLastTTL != 0 {
+            os.write_uint32(61, self.MPLSLastTTL)?;
+        }
+        if self.MPLSLastLabel != 0 {
+            os.write_uint32(62, self.MPLSLastLabel)?;
+        }
+        if self.HasPPP != false {
+            os.write_bool(63, self.HasPPP)?;
+        }
+        if self.PPPAddressControl != 0 {
+            os.write_uint32(64, self.PPPAddressControl)?;
         }
         if self.Cid != 0 {
             os.write_uint32(1000, self.Cid)?;
@@ -1791,14 +2414,14 @@ impl ::protobuf::Message for FlowMessage {
                     |m: &mut FlowMessage| { &mut m.DstPort },
                 ));
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
-                    "SrcIf",
-                    |m: &FlowMessage| { &m.SrcIf },
-                    |m: &mut FlowMessage| { &mut m.SrcIf },
+                    "InIf",
+                    |m: &FlowMessage| { &m.InIf },
+                    |m: &mut FlowMessage| { &mut m.InIf },
                 ));
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
-                    "DstIf",
-                    |m: &FlowMessage| { &m.DstIf },
-                    |m: &mut FlowMessage| { &mut m.DstIf },
+                    "OutIf",
+                    |m: &FlowMessage| { &m.OutIf },
+                    |m: &mut FlowMessage| { &mut m.OutIf },
                 ));
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint64>(
                     "SrcMac",
@@ -1871,11 +2494,6 @@ impl ::protobuf::Message for FlowMessage {
                     |m: &mut FlowMessage| { &mut m.IPv6FlowLabel },
                 ));
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
-                    "IPv6ExtensionHeaders",
-                    |m: &FlowMessage| { &m.IPv6ExtensionHeaders },
-                    |m: &mut FlowMessage| { &mut m.IPv6ExtensionHeaders },
-                ));
-                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
                     "FragmentId",
                     |m: &FlowMessage| { &m.FragmentId },
                     |m: &mut FlowMessage| { &mut m.FragmentId },
@@ -1919,6 +2537,116 @@ impl ::protobuf::Message for FlowMessage {
                     "DstNet",
                     |m: &FlowMessage| { &m.DstNet },
                     |m: &mut FlowMessage| { &mut m.DstNet },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBool>(
+                    "HasEncap",
+                    |m: &FlowMessage| { &m.HasEncap },
+                    |m: &mut FlowMessage| { &mut m.HasEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBytes>(
+                    "SrcAddrEncap",
+                    |m: &FlowMessage| { &m.SrcAddrEncap },
+                    |m: &mut FlowMessage| { &mut m.SrcAddrEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBytes>(
+                    "DstAddrEncap",
+                    |m: &FlowMessage| { &m.DstAddrEncap },
+                    |m: &mut FlowMessage| { &mut m.DstAddrEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "ProtoEncap",
+                    |m: &FlowMessage| { &m.ProtoEncap },
+                    |m: &mut FlowMessage| { &mut m.ProtoEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "EtypeEncap",
+                    |m: &FlowMessage| { &m.EtypeEncap },
+                    |m: &mut FlowMessage| { &mut m.EtypeEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "IPTosEncap",
+                    |m: &FlowMessage| { &m.IPTosEncap },
+                    |m: &mut FlowMessage| { &mut m.IPTosEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "IPTTLEncap",
+                    |m: &FlowMessage| { &m.IPTTLEncap },
+                    |m: &mut FlowMessage| { &mut m.IPTTLEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "IPv6FlowLabelEncap",
+                    |m: &FlowMessage| { &m.IPv6FlowLabelEncap },
+                    |m: &mut FlowMessage| { &mut m.IPv6FlowLabelEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "FragmentIdEncap",
+                    |m: &FlowMessage| { &m.FragmentIdEncap },
+                    |m: &mut FlowMessage| { &mut m.FragmentIdEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "FragmentOffsetEncap",
+                    |m: &FlowMessage| { &m.FragmentOffsetEncap },
+                    |m: &mut FlowMessage| { &mut m.FragmentOffsetEncap },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBool>(
+                    "HasMPLS",
+                    |m: &FlowMessage| { &m.HasMPLS },
+                    |m: &mut FlowMessage| { &mut m.HasMPLS },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "MPLSCount",
+                    |m: &FlowMessage| { &m.MPLSCount },
+                    |m: &mut FlowMessage| { &mut m.MPLSCount },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "MPLS1TTL",
+                    |m: &FlowMessage| { &m.MPLS1TTL },
+                    |m: &mut FlowMessage| { &mut m.MPLS1TTL },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "MPLS1Label",
+                    |m: &FlowMessage| { &m.MPLS1Label },
+                    |m: &mut FlowMessage| { &mut m.MPLS1Label },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "MPLS2TTL",
+                    |m: &FlowMessage| { &m.MPLS2TTL },
+                    |m: &mut FlowMessage| { &mut m.MPLS2TTL },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "MPLS2Label",
+                    |m: &FlowMessage| { &m.MPLS2Label },
+                    |m: &mut FlowMessage| { &mut m.MPLS2Label },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "MPLS3TTL",
+                    |m: &FlowMessage| { &m.MPLS3TTL },
+                    |m: &mut FlowMessage| { &mut m.MPLS3TTL },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "MPLS3Label",
+                    |m: &FlowMessage| { &m.MPLS3Label },
+                    |m: &mut FlowMessage| { &mut m.MPLS3Label },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "MPLSLastTTL",
+                    |m: &FlowMessage| { &m.MPLSLastTTL },
+                    |m: &mut FlowMessage| { &mut m.MPLSLastTTL },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "MPLSLastLabel",
+                    |m: &FlowMessage| { &m.MPLSLastLabel },
+                    |m: &mut FlowMessage| { &mut m.MPLSLastLabel },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeBool>(
+                    "HasPPP",
+                    |m: &FlowMessage| { &m.HasPPP },
+                    |m: &mut FlowMessage| { &mut m.HasPPP },
+                ));
+                fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
+                    "PPPAddressControl",
+                    |m: &FlowMessage| { &m.PPPAddressControl },
+                    |m: &mut FlowMessage| { &mut m.PPPAddressControl },
                 ));
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
                     "Cid",
@@ -2013,8 +2741,8 @@ impl ::protobuf::Clear for FlowMessage {
         self.clear_Proto();
         self.clear_SrcPort();
         self.clear_DstPort();
-        self.clear_SrcIf();
-        self.clear_DstIf();
+        self.clear_InIf();
+        self.clear_OutIf();
         self.clear_SrcMac();
         self.clear_DstMac();
         self.clear_SrcVlan();
@@ -2029,7 +2757,6 @@ impl ::protobuf::Clear for FlowMessage {
         self.clear_IcmpType();
         self.clear_IcmpCode();
         self.clear_IPv6FlowLabel();
-        self.clear_IPv6ExtensionHeaders();
         self.clear_FragmentId();
         self.clear_FragmentOffset();
         self.clear_BiFlowDirection();
@@ -2039,6 +2766,28 @@ impl ::protobuf::Clear for FlowMessage {
         self.clear_NextHopAS();
         self.clear_SrcNet();
         self.clear_DstNet();
+        self.clear_HasEncap();
+        self.clear_SrcAddrEncap();
+        self.clear_DstAddrEncap();
+        self.clear_ProtoEncap();
+        self.clear_EtypeEncap();
+        self.clear_IPTosEncap();
+        self.clear_IPTTLEncap();
+        self.clear_IPv6FlowLabelEncap();
+        self.clear_FragmentIdEncap();
+        self.clear_FragmentOffsetEncap();
+        self.clear_HasMPLS();
+        self.clear_MPLSCount();
+        self.clear_MPLS1TTL();
+        self.clear_MPLS1Label();
+        self.clear_MPLS2TTL();
+        self.clear_MPLS2Label();
+        self.clear_MPLS3TTL();
+        self.clear_MPLS3Label();
+        self.clear_MPLSLastTTL();
+        self.clear_MPLSLastLabel();
+        self.clear_HasPPP();
+        self.clear_PPPAddressControl();
         self.clear_Cid();
         self.clear_CidString();
         self.clear_Normalized();
@@ -2186,7 +2935,7 @@ impl ::protobuf::reflect::ProtobufValue for FlowMessage_NormalizedType {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x1cflow-messages-enriched.proto\x12\x13flowmessageenriched\"\x8a\x0e\
+    \n\x1cflow-messages-enriched.proto\x12\x13flowmessageenriched\"\xbe\x13\
     \n\x0bFlowMessage\x12=\n\x04Type\x18\x01\x20\x01(\x0e2).flowmessageenric\
     hed.FlowMessage.FlowTypeR\x04Type\x12\"\n\x0cTimeReceived\x18\x02\x20\
     \x01(\x04R\x0cTimeReceived\x12\x20\n\x0bSequenceNum\x18\x04\x20\x01(\rR\
@@ -2200,251 +2949,290 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x01(\x0cR\x07DstAddr\x12\x14\n\x05Etype\x18\x1e\x20\x01(\rR\x05Etype\
     \x12\x14\n\x05Proto\x18\x14\x20\x01(\rR\x05Proto\x12\x18\n\x07SrcPort\
     \x18\x15\x20\x01(\rR\x07SrcPort\x12\x18\n\x07DstPort\x18\x16\x20\x01(\rR\
-    \x07DstPort\x12\x14\n\x05SrcIf\x18\x12\x20\x01(\rR\x05SrcIf\x12\x14\n\
-    \x05DstIf\x18\x13\x20\x01(\rR\x05DstIf\x12\x16\n\x06SrcMac\x18\x1b\x20\
-    \x01(\x04R\x06SrcMac\x12\x16\n\x06DstMac\x18\x1c\x20\x01(\x04R\x06DstMac\
-    \x12\x18\n\x07SrcVlan\x18!\x20\x01(\rR\x07SrcVlan\x12\x18\n\x07DstVlan\
-    \x18\"\x20\x01(\rR\x07DstVlan\x12\x16\n\x06VlanId\x18\x1d\x20\x01(\rR\
-    \x06VlanId\x12\"\n\x0cIngressVrfID\x18'\x20\x01(\rR\x0cIngressVrfID\x12\
-    \x20\n\x0bEgressVrfID\x18(\x20\x01(\rR\x0bEgressVrfID\x12\x14\n\x05IPTos\
-    \x18\x17\x20\x01(\rR\x05IPTos\x12*\n\x10ForwardingStatus\x18\x18\x20\x01\
-    (\rR\x10ForwardingStatus\x12\x14\n\x05IPTTL\x18\x19\x20\x01(\rR\x05IPTTL\
-    \x12\x1a\n\x08TCPFlags\x18\x1a\x20\x01(\rR\x08TCPFlags\x12\x1a\n\x08Icmp\
-    Type\x18\x1f\x20\x01(\rR\x08IcmpType\x12\x1a\n\x08IcmpCode\x18\x20\x20\
-    \x01(\rR\x08IcmpCode\x12$\n\rIPv6FlowLabel\x18%\x20\x01(\rR\rIPv6FlowLab\
-    el\x122\n\x14IPv6ExtensionHeaders\x18+\x20\x01(\rR\x14IPv6ExtensionHeade\
-    rs\x12\x1e\n\nFragmentId\x18#\x20\x01(\rR\nFragmentId\x12&\n\x0eFragment\
-    Offset\x18$\x20\x01(\rR\x0eFragmentOffset\x12(\n\x0fBiFlowDirection\x18)\
-    \x20\x01(\rR\x0fBiFlowDirection\x12\x14\n\x05SrcAS\x18\x0e\x20\x01(\rR\
-    \x05SrcAS\x12\x14\n\x05DstAS\x18\x0f\x20\x01(\rR\x05DstAS\x12\x18\n\x07N\
-    extHop\x18\x0c\x20\x01(\x0cR\x07NextHop\x12\x1c\n\tNextHopAS\x18\r\x20\
-    \x01(\rR\tNextHopAS\x12\x16\n\x06SrcNet\x18\x10\x20\x01(\rR\x06SrcNet\
-    \x12\x16\n\x06DstNet\x18\x11\x20\x01(\rR\x06DstNet\x12\x11\n\x03Cid\x18\
-    \xe8\x07\x20\x01(\rR\x03Cid\x12\x1d\n\tCidString\x18\xe9\x07\x20\x01(\tR\
-    \tCidString\x12P\n\nNormalized\x18\xea\x07\x20\x01(\x0e2/.flowmessageenr\
-    iched.FlowMessage.NormalizedTypeR\nNormalized\x12\x1d\n\tSrcIfName\x18\
-    \xeb\x07\x20\x01(\tR\tSrcIfName\x12\x1d\n\tSrcIfDesc\x18\xec\x07\x20\x01\
-    (\tR\tSrcIfDesc\x12\x1f\n\nSrcIfSpeed\x18\xed\x07\x20\x01(\rR\nSrcIfSpee\
-    d\x12\x1d\n\tDstIfName\x18\xee\x07\x20\x01(\tR\tDstIfName\x12\x1d\n\tDst\
-    IfDesc\x18\xef\x07\x20\x01(\tR\tDstIfDesc\x12\x1f\n\nDstIfSpeed\x18\xf0\
-    \x07\x20\x01(\rR\nDstIfSpeed\x12\x1d\n\tProtoName\x18\xf1\x07\x20\x01(\t\
-    R\tProtoName\x12%\n\rRemoteCountry\x18\xf2\x07\x20\x01(\tR\rRemoteCountr\
-    y\"S\n\x08FlowType\x12\x0f\n\x0bFLOWUNKNOWN\x10\0\x12\x0b\n\x07SFLOW_5\
-    \x10\x01\x12\x0e\n\nNETFLOW_V5\x10\x02\x12\x0e\n\nNETFLOW_V9\x10\x03\x12\
-    \t\n\x05IPFIX\x10\x04\"!\n\x0eNormalizedType\x12\x06\n\x02No\x10\0\x12\
-    \x07\n\x03Yes\x10\x01B\"\n\tbwnetflowB\x15FlowMessageEnrichedPbJ\x8a(\n\
-    \x06\x12\x04\0\0s\x01\n\x08\n\x01\x0c\x12\x03\0\0\x12\n\x08\n\x01\x02\
-    \x12\x03\x01\0\x1c\n\x08\n\x01\x08\x12\x03\x03\0\"\n\t\n\x02\x08\x01\x12\
-    \x03\x03\0\"\n\x08\n\x01\x08\x12\x03\x04\06\n\t\n\x02\x08\x08\x12\x03\
-    \x04\06\n\n\n\x02\x04\0\x12\x04\x06\0s\x01\n\n\n\x03\x04\0\x01\x12\x03\
-    \x06\x08\x13\n\x0c\n\x04\x04\0\x04\0\x12\x04\x08\x02\x0e\x03\n\x0c\n\x05\
-    \x04\0\x04\0\x01\x12\x03\x08\x07\x0f\n\r\n\x06\x04\0\x04\0\x02\0\x12\x03\
-    \t\x04\x14\n\x0e\n\x07\x04\0\x04\0\x02\0\x01\x12\x03\t\x04\x0f\n\x0e\n\
-    \x07\x04\0\x04\0\x02\0\x02\x12\x03\t\x12\x13\n\r\n\x06\x04\0\x04\0\x02\
-    \x01\x12\x03\n\x04\x10\n\x0e\n\x07\x04\0\x04\0\x02\x01\x01\x12\x03\n\x04\
-    \x0b\n\x0e\n\x07\x04\0\x04\0\x02\x01\x02\x12\x03\n\x0e\x0f\n\r\n\x06\x04\
-    \0\x04\0\x02\x02\x12\x03\x0b\x04\x13\n\x0e\n\x07\x04\0\x04\0\x02\x02\x01\
-    \x12\x03\x0b\x04\x0e\n\x0e\n\x07\x04\0\x04\0\x02\x02\x02\x12\x03\x0b\x11\
-    \x12\n\r\n\x06\x04\0\x04\0\x02\x03\x12\x03\x0c\x04\x13\n\x0e\n\x07\x04\0\
-    \x04\0\x02\x03\x01\x12\x03\x0c\x04\x0e\n\x0e\n\x07\x04\0\x04\0\x02\x03\
-    \x02\x12\x03\x0c\x11\x12\n\r\n\x06\x04\0\x04\0\x02\x04\x12\x03\r\x04\x0e\
-    \n\x0e\n\x07\x04\0\x04\0\x02\x04\x01\x12\x03\r\x04\t\n\x0e\n\x07\x04\0\
-    \x04\0\x02\x04\x02\x12\x03\r\x0c\r\n\x0b\n\x04\x04\0\x02\0\x12\x03\x0f\
-    \x02\x14\n\r\n\x05\x04\0\x02\0\x04\x12\x04\x0f\x02\x0e\x03\n\x0c\n\x05\
-    \x04\0\x02\0\x06\x12\x03\x0f\x02\n\n\x0c\n\x05\x04\0\x02\0\x01\x12\x03\
-    \x0f\x0b\x0f\n\x0c\n\x05\x04\0\x02\0\x03\x12\x03\x0f\x12\x13\n\x0b\n\x04\
-    \x04\0\x02\x01\x12\x03\x11\x02\x1a\n\r\n\x05\x04\0\x02\x01\x04\x12\x04\
-    \x11\x02\x0f\x14\n\x0c\n\x05\x04\0\x02\x01\x05\x12\x03\x11\x02\x08\n\x0c\
-    \n\x05\x04\0\x02\x01\x01\x12\x03\x11\t\x15\n\x0c\n\x05\x04\0\x02\x01\x03\
-    \x12\x03\x11\x18\x19\n\x0b\n\x04\x04\0\x02\x02\x12\x03\x12\x02\x19\n\r\n\
-    \x05\x04\0\x02\x02\x04\x12\x04\x12\x02\x11\x1a\n\x0c\n\x05\x04\0\x02\x02\
-    \x05\x12\x03\x12\x02\x08\n\x0c\n\x05\x04\0\x02\x02\x01\x12\x03\x12\t\x14\
-    \n\x0c\n\x05\x04\0\x02\x02\x03\x12\x03\x12\x17\x18\n\x0b\n\x04\x04\0\x02\
-    \x03\x12\x03\x13\x02\x1a\n\r\n\x05\x04\0\x02\x03\x04\x12\x04\x13\x02\x12\
-    \x19\n\x0c\n\x05\x04\0\x02\x03\x05\x12\x03\x13\x02\x08\n\x0c\n\x05\x04\0\
-    \x02\x03\x01\x12\x03\x13\t\x15\n\x0c\n\x05\x04\0\x02\x03\x03\x12\x03\x13\
-    \x18\x19\n\x0b\n\x04\x04\0\x02\x04\x12\x03\x15\x02\x1c\n\r\n\x05\x04\0\
-    \x02\x04\x04\x12\x04\x15\x02\x13\x1a\n\x0c\n\x05\x04\0\x02\x04\x05\x12\
-    \x03\x15\x02\x08\n\x0c\n\x05\x04\0\x02\x04\x01\x12\x03\x15\t\x16\n\x0c\n\
-    \x05\x04\0\x02\x04\x03\x12\x03\x15\x19\x1b\n\"\n\x04\x04\0\x02\x05\x12\
-    \x03\x18\x02\x1c\x1a\x15\x20Sampler\x20information\n\n\r\n\x05\x04\0\x02\
-    \x05\x04\x12\x04\x18\x02\x15\x1c\n\x0c\n\x05\x04\0\x02\x05\x05\x12\x03\
-    \x18\x02\x07\n\x0c\n\x05\x04\0\x02\x05\x01\x12\x03\x18\x08\x16\n\x0c\n\
-    \x05\x04\0\x02\x05\x03\x12\x03\x18\x19\x1b\n\"\n\x04\x04\0\x02\x06\x12\
-    \x03\x1b\x02\x1c\x1a\x15\x20Found\x20inside\x20packet\n\n\r\n\x05\x04\0\
-    \x02\x06\x04\x12\x04\x1b\x02\x18\x1c\n\x0c\n\x05\x04\0\x02\x06\x05\x12\
-    \x03\x1b\x02\x08\n\x0c\n\x05\x04\0\x02\x06\x01\x12\x03\x1b\t\x16\n\x0c\n\
-    \x05\x04\0\x02\x06\x03\x12\x03\x1b\x19\x1b\n\x0b\n\x04\x04\0\x02\x07\x12\
-    \x03\x1c\x02\x19\n\r\n\x05\x04\0\x02\x07\x04\x12\x04\x1c\x02\x1b\x1c\n\
-    \x0c\n\x05\x04\0\x02\x07\x05\x12\x03\x1c\x02\x08\n\x0c\n\x05\x04\0\x02\
-    \x07\x01\x12\x03\x1c\t\x14\n\x0c\n\x05\x04\0\x02\x07\x03\x12\x03\x1c\x17\
-    \x18\n)\n\x04\x04\0\x02\x08\x12\x03\x1f\x02\x13\x1a\x1c\x20Size\x20of\
-    \x20the\x20sampled\x20packet\n\n\r\n\x05\x04\0\x02\x08\x04\x12\x04\x1f\
-    \x02\x1c\x19\n\x0c\n\x05\x04\0\x02\x08\x05\x12\x03\x1f\x02\x08\n\x0c\n\
-    \x05\x04\0\x02\x08\x01\x12\x03\x1f\t\x0e\n\x0c\n\x05\x04\0\x02\x08\x03\
-    \x12\x03\x1f\x11\x12\n\x0b\n\x04\x04\0\x02\t\x12\x03\x20\x02\x16\n\r\n\
-    \x05\x04\0\x02\t\x04\x12\x04\x20\x02\x1f\x13\n\x0c\n\x05\x04\0\x02\t\x05\
-    \x12\x03\x20\x02\x08\n\x0c\n\x05\x04\0\x02\t\x01\x12\x03\x20\t\x10\n\x0c\
-    \n\x05\x04\0\x02\t\x03\x12\x03\x20\x13\x15\n+\n\x04\x04\0\x02\n\x12\x03#\
-    \x02\x14\x1a\x1e\x20Source/destination\x20addresses\n\n\r\n\x05\x04\0\
-    \x02\n\x04\x12\x04#\x02\x20\x16\n\x0c\n\x05\x04\0\x02\n\x05\x12\x03#\x02\
-    \x07\n\x0c\n\x05\x04\0\x02\n\x01\x12\x03#\x08\x0f\n\x0c\n\x05\x04\0\x02\
-    \n\x03\x12\x03#\x12\x13\n\x0b\n\x04\x04\0\x02\x0b\x12\x03$\x02\x14\n\r\n\
-    \x05\x04\0\x02\x0b\x04\x12\x04$\x02#\x14\n\x0c\n\x05\x04\0\x02\x0b\x05\
-    \x12\x03$\x02\x07\n\x0c\n\x05\x04\0\x02\x0b\x01\x12\x03$\x08\x0f\n\x0c\n\
-    \x05\x04\0\x02\x0b\x03\x12\x03$\x12\x13\n3\n\x04\x04\0\x02\x0c\x12\x03'\
-    \x02\x14\x1a&\x20Layer\x203\x20protocol\x20(IPv4/IPv6/ARP/...)\n\n\r\n\
-    \x05\x04\0\x02\x0c\x04\x12\x04'\x02$\x14\n\x0c\n\x05\x04\0\x02\x0c\x05\
-    \x12\x03'\x02\x08\n\x0c\n\x05\x04\0\x02\x0c\x01\x12\x03'\t\x0e\n\x0c\n\
-    \x05\x04\0\x02\x0c\x03\x12\x03'\x11\x13\n\x1f\n\x04\x04\0\x02\r\x12\x03*\
-    \x02\x14\x1a\x12\x20Layer\x204\x20protocol\n\n\r\n\x05\x04\0\x02\r\x04\
-    \x12\x04*\x02'\x14\n\x0c\n\x05\x04\0\x02\r\x05\x12\x03*\x02\x08\n\x0c\n\
-    \x05\x04\0\x02\r\x01\x12\x03*\t\x0e\n\x0c\n\x05\x04\0\x02\r\x03\x12\x03*\
-    \x11\x13\n$\n\x04\x04\0\x02\x0e\x12\x03-\x02\x16\x1a\x17\x20Ports\x20for\
-    \x20UDP\x20and\x20TCP\n\n\r\n\x05\x04\0\x02\x0e\x04\x12\x04-\x02*\x14\n\
-    \x0c\n\x05\x04\0\x02\x0e\x05\x12\x03-\x02\x08\n\x0c\n\x05\x04\0\x02\x0e\
-    \x01\x12\x03-\t\x10\n\x0c\n\x05\x04\0\x02\x0e\x03\x12\x03-\x13\x15\n\x0b\
-    \n\x04\x04\0\x02\x0f\x12\x03.\x02\x16\n\r\n\x05\x04\0\x02\x0f\x04\x12\
-    \x04.\x02-\x16\n\x0c\n\x05\x04\0\x02\x0f\x05\x12\x03.\x02\x08\n\x0c\n\
-    \x05\x04\0\x02\x0f\x01\x12\x03.\t\x10\n\x0c\n\x05\x04\0\x02\x0f\x03\x12\
-    \x03.\x13\x15\n\x19\n\x04\x04\0\x02\x10\x12\x031\x02\x14\x1a\x0c\x20Inte\
-    rfaces\n\n\r\n\x05\x04\0\x02\x10\x04\x12\x041\x02.\x16\n\x0c\n\x05\x04\0\
-    \x02\x10\x05\x12\x031\x02\x08\n\x0c\n\x05\x04\0\x02\x10\x01\x12\x031\t\
-    \x0e\n\x0c\n\x05\x04\0\x02\x10\x03\x12\x031\x11\x13\n\x0b\n\x04\x04\0\
-    \x02\x11\x12\x032\x02\x14\n\r\n\x05\x04\0\x02\x11\x04\x12\x042\x021\x14\
-    \n\x0c\n\x05\x04\0\x02\x11\x05\x12\x032\x02\x08\n\x0c\n\x05\x04\0\x02\
-    \x11\x01\x12\x032\t\x0e\n\x0c\n\x05\x04\0\x02\x11\x03\x12\x032\x11\x13\n\
-    #\n\x04\x04\0\x02\x12\x12\x035\x02\x15\x1a\x16\x20Ethernet\x20informatio\
-    n\n\n\r\n\x05\x04\0\x02\x12\x04\x12\x045\x022\x14\n\x0c\n\x05\x04\0\x02\
-    \x12\x05\x12\x035\x02\x08\n\x0c\n\x05\x04\0\x02\x12\x01\x12\x035\t\x0f\n\
-    \x0c\n\x05\x04\0\x02\x12\x03\x12\x035\x12\x14\n\x0b\n\x04\x04\0\x02\x13\
-    \x12\x036\x02\x15\n\r\n\x05\x04\0\x02\x13\x04\x12\x046\x025\x15\n\x0c\n\
-    \x05\x04\0\x02\x13\x05\x12\x036\x02\x08\n\x0c\n\x05\x04\0\x02\x13\x01\
-    \x12\x036\t\x0f\n\x0c\n\x05\x04\0\x02\x13\x03\x12\x036\x12\x14\n\x13\n\
-    \x04\x04\0\x02\x14\x12\x039\x02\x16\x1a\x06\x20Vlan\n\n\r\n\x05\x04\0\
-    \x02\x14\x04\x12\x049\x026\x15\n\x0c\n\x05\x04\0\x02\x14\x05\x12\x039\
-    \x02\x08\n\x0c\n\x05\x04\0\x02\x14\x01\x12\x039\t\x10\n\x0c\n\x05\x04\0\
-    \x02\x14\x03\x12\x039\x13\x15\n\x0b\n\x04\x04\0\x02\x15\x12\x03:\x02\x16\
-    \n\r\n\x05\x04\0\x02\x15\x04\x12\x04:\x029\x16\n\x0c\n\x05\x04\0\x02\x15\
-    \x05\x12\x03:\x02\x08\n\x0c\n\x05\x04\0\x02\x15\x01\x12\x03:\t\x10\n\x0c\
-    \n\x05\x04\0\x02\x15\x03\x12\x03:\x13\x15\n,\n\x04\x04\0\x02\x16\x12\x03\
-    <\x02\x15\x1a\x1f\x20802.1q\x20VLAN\x20in\x20sampled\x20packet\n\n\r\n\
-    \x05\x04\0\x02\x16\x04\x12\x04<\x02:\x16\n\x0c\n\x05\x04\0\x02\x16\x05\
-    \x12\x03<\x02\x08\n\x0c\n\x05\x04\0\x02\x16\x01\x12\x03<\t\x0f\n\x0c\n\
-    \x05\x04\0\x02\x16\x03\x12\x03<\x12\x14\n\x12\n\x04\x04\0\x02\x17\x12\
-    \x03?\x02\x1b\x1a\x05\x20VRF\n\n\r\n\x05\x04\0\x02\x17\x04\x12\x04?\x02<\
-    \x15\n\x0c\n\x05\x04\0\x02\x17\x05\x12\x03?\x02\x08\n\x0c\n\x05\x04\0\
-    \x02\x17\x01\x12\x03?\t\x15\n\x0c\n\x05\x04\0\x02\x17\x03\x12\x03?\x18\
-    \x1a\n\x0b\n\x04\x04\0\x02\x18\x12\x03@\x02\x1a\n\r\n\x05\x04\0\x02\x18\
-    \x04\x12\x04@\x02?\x1b\n\x0c\n\x05\x04\0\x02\x18\x05\x12\x03@\x02\x08\n\
-    \x0c\n\x05\x04\0\x02\x18\x01\x12\x03@\t\x14\n\x0c\n\x05\x04\0\x02\x18\
-    \x03\x12\x03@\x17\x19\n'\n\x04\x04\0\x02\x19\x12\x03C\x02\x14\x1a\x1a\
-    \x20IP\x20and\x20TCP\x20special\x20flags\n\n\r\n\x05\x04\0\x02\x19\x04\
-    \x12\x04C\x02@\x1a\n\x0c\n\x05\x04\0\x02\x19\x05\x12\x03C\x02\x08\n\x0c\
-    \n\x05\x04\0\x02\x19\x01\x12\x03C\t\x0e\n\x0c\n\x05\x04\0\x02\x19\x03\
-    \x12\x03C\x11\x13\n\x0b\n\x04\x04\0\x02\x1a\x12\x03D\x02\x1f\n\r\n\x05\
-    \x04\0\x02\x1a\x04\x12\x04D\x02C\x14\n\x0c\n\x05\x04\0\x02\x1a\x05\x12\
-    \x03D\x02\x08\n\x0c\n\x05\x04\0\x02\x1a\x01\x12\x03D\t\x19\n\x0c\n\x05\
-    \x04\0\x02\x1a\x03\x12\x03D\x1c\x1e\n\x0b\n\x04\x04\0\x02\x1b\x12\x03E\
-    \x02\x14\n\r\n\x05\x04\0\x02\x1b\x04\x12\x04E\x02D\x1f\n\x0c\n\x05\x04\0\
-    \x02\x1b\x05\x12\x03E\x02\x08\n\x0c\n\x05\x04\0\x02\x1b\x01\x12\x03E\t\
-    \x0e\n\x0c\n\x05\x04\0\x02\x1b\x03\x12\x03E\x11\x13\n\x0b\n\x04\x04\0\
-    \x02\x1c\x12\x03F\x02\x17\n\r\n\x05\x04\0\x02\x1c\x04\x12\x04F\x02E\x14\
-    \n\x0c\n\x05\x04\0\x02\x1c\x05\x12\x03F\x02\x08\n\x0c\n\x05\x04\0\x02\
-    \x1c\x01\x12\x03F\t\x11\n\x0c\n\x05\x04\0\x02\x1c\x03\x12\x03F\x14\x16\n\
-    \x0b\n\x04\x04\0\x02\x1d\x12\x03G\x02\x17\n\r\n\x05\x04\0\x02\x1d\x04\
-    \x12\x04G\x02F\x17\n\x0c\n\x05\x04\0\x02\x1d\x05\x12\x03G\x02\x08\n\x0c\
-    \n\x05\x04\0\x02\x1d\x01\x12\x03G\t\x11\n\x0c\n\x05\x04\0\x02\x1d\x03\
-    \x12\x03G\x14\x16\n\x0b\n\x04\x04\0\x02\x1e\x12\x03H\x02\x17\n\r\n\x05\
-    \x04\0\x02\x1e\x04\x12\x04H\x02G\x17\n\x0c\n\x05\x04\0\x02\x1e\x05\x12\
-    \x03H\x02\x08\n\x0c\n\x05\x04\0\x02\x1e\x01\x12\x03H\t\x11\n\x0c\n\x05\
-    \x04\0\x02\x1e\x03\x12\x03H\x14\x16\n\x0b\n\x04\x04\0\x02\x1f\x12\x03I\
-    \x02\x1c\n\r\n\x05\x04\0\x02\x1f\x04\x12\x04I\x02H\x17\n\x0c\n\x05\x04\0\
-    \x02\x1f\x05\x12\x03I\x02\x08\n\x0c\n\x05\x04\0\x02\x1f\x01\x12\x03I\t\
-    \x16\n\x0c\n\x05\x04\0\x02\x1f\x03\x12\x03I\x19\x1b\n\x0b\n\x04\x04\0\
-    \x02\x20\x12\x03J\x02#\n\r\n\x05\x04\0\x02\x20\x04\x12\x04J\x02I\x1c\n\
-    \x0c\n\x05\x04\0\x02\x20\x05\x12\x03J\x02\x08\n\x0c\n\x05\x04\0\x02\x20\
-    \x01\x12\x03J\t\x1d\n\x0c\n\x05\x04\0\x02\x20\x03\x12\x03J\x20\"\n$\n\
-    \x04\x04\0\x02!\x12\x03L\x02\x19\x1a\x17\x20Fragments\x20(IPv4/IPv6)\n\n\
-    \r\n\x05\x04\0\x02!\x04\x12\x04L\x02J#\n\x0c\n\x05\x04\0\x02!\x05\x12\
-    \x03L\x02\x08\n\x0c\n\x05\x04\0\x02!\x01\x12\x03L\t\x13\n\x0c\n\x05\x04\
-    \0\x02!\x03\x12\x03L\x16\x18\n\x0b\n\x04\x04\0\x02\"\x12\x03M\x02\x1d\n\
-    \r\n\x05\x04\0\x02\"\x04\x12\x04M\x02L\x19\n\x0c\n\x05\x04\0\x02\"\x05\
-    \x12\x03M\x02\x08\n\x0c\n\x05\x04\0\x02\"\x01\x12\x03M\t\x17\n\x0c\n\x05\
-    \x04\0\x02\"\x03\x12\x03M\x1a\x1c\n\x0b\n\x04\x04\0\x02#\x12\x03N\x02\
-    \x1e\n\r\n\x05\x04\0\x02#\x04\x12\x04N\x02M\x1d\n\x0c\n\x05\x04\0\x02#\
-    \x05\x12\x03N\x02\x08\n\x0c\n\x05\x04\0\x02#\x01\x12\x03N\t\x18\n\x0c\n\
-    \x05\x04\0\x02#\x03\x12\x03N\x1b\x1d\n,\n\x04\x04\0\x02$\x12\x03Q\x02\
-    \x14\x1a\x1f\x20Autonomous\x20system\x20information\n\n\r\n\x05\x04\0\
-    \x02$\x04\x12\x04Q\x02N\x1e\n\x0c\n\x05\x04\0\x02$\x05\x12\x03Q\x02\x08\
-    \n\x0c\n\x05\x04\0\x02$\x01\x12\x03Q\t\x0e\n\x0c\n\x05\x04\0\x02$\x03\
-    \x12\x03Q\x11\x13\n\x0b\n\x04\x04\0\x02%\x12\x03R\x02\x14\n\r\n\x05\x04\
-    \0\x02%\x04\x12\x04R\x02Q\x14\n\x0c\n\x05\x04\0\x02%\x05\x12\x03R\x02\
-    \x08\n\x0c\n\x05\x04\0\x02%\x01\x12\x03R\t\x0e\n\x0c\n\x05\x04\0\x02%\
-    \x03\x12\x03R\x11\x13\n\x0b\n\x04\x04\0\x02&\x12\x03T\x02\x15\n\r\n\x05\
-    \x04\0\x02&\x04\x12\x04T\x02R\x14\n\x0c\n\x05\x04\0\x02&\x05\x12\x03T\
-    \x02\x07\n\x0c\n\x05\x04\0\x02&\x01\x12\x03T\x08\x0f\n\x0c\n\x05\x04\0\
-    \x02&\x03\x12\x03T\x12\x14\n\x0b\n\x04\x04\0\x02'\x12\x03U\x02\x18\n\r\n\
-    \x05\x04\0\x02'\x04\x12\x04U\x02T\x15\n\x0c\n\x05\x04\0\x02'\x05\x12\x03\
-    U\x02\x08\n\x0c\n\x05\x04\0\x02'\x01\x12\x03U\t\x12\n\x0c\n\x05\x04\0\
-    \x02'\x03\x12\x03U\x15\x17\n\x1a\n\x04\x04\0\x02(\x12\x03X\x02\x15\x1a\r\
-    \x20Prefix\x20size\n\n\r\n\x05\x04\0\x02(\x04\x12\x04X\x02U\x18\n\x0c\n\
-    \x05\x04\0\x02(\x05\x12\x03X\x02\x08\n\x0c\n\x05\x04\0\x02(\x01\x12\x03X\
-    \t\x0f\n\x0c\n\x05\x04\0\x02(\x03\x12\x03X\x12\x14\n\x0b\n\x04\x04\0\x02\
-    )\x12\x03Y\x02\x15\n\r\n\x05\x04\0\x02)\x04\x12\x04Y\x02X\x15\n\x0c\n\
-    \x05\x04\0\x02)\x05\x12\x03Y\x02\x08\n\x0c\n\x05\x04\0\x02)\x01\x12\x03Y\
-    \t\x0f\n\x0c\n\x05\x04\0\x02)\x03\x12\x03Y\x12\x14\n\x9f\x01\n\x04\x04\0\
-    \x02*\x12\x03`\x02\x14\x1a\x1b\x20bwNetFlow\x20enricher\x20fields\n\"0\
-    \x20Customer\x20ID\x20-\x20numerical\x20ID,\x20assigned\x20by\x20prefix\
-    \n2C\x20Custom\x20fields:\x20start\x20after\x20ID\x201000:\n\x20uint32\
-    \x20MyCustomField\x20=\x201000;\n\n\r\n\x05\x04\0\x02*\x04\x12\x04`\x02Y\
-    \x15\n\x0c\n\x05\x04\0\x02*\x05\x12\x03`\x02\x08\n\x0c\n\x05\x04\0\x02*\
-    \x01\x12\x03`\t\x0c\n\x0c\n\x05\x04\0\x02*\x03\x12\x03`\x0f\x13\nF\n\x04\
-    \x04\0\x02+\x12\x03a\x02\x1a\"9\x20Customer\x20ID\x20-\x20a\x20more\x20g\
-    eneralized\x20ID,\x20assigned\x20by\x20prefix\n\n\r\n\x05\x04\0\x02+\x04\
-    \x12\x04a\x02`\x14\n\x0c\n\x05\x04\0\x02+\x05\x12\x03a\x02\x08\n\x0c\n\
-    \x05\x04\0\x02+\x01\x12\x03a\t\x12\n\x0c\n\x05\x04\0\x02+\x03\x12\x03a\
-    \x15\x19\n\x0c\n\x04\x04\0\x04\x01\x12\x04c\x02f\x03\n\x0c\n\x05\x04\0\
-    \x04\x01\x01\x12\x03c\x07\x15\n\r\n\x06\x04\0\x04\x01\x02\0\x12\x03d\x04\
-    \x0b\n\x0e\n\x07\x04\0\x04\x01\x02\0\x01\x12\x03d\x04\x06\n\x0e\n\x07\
-    \x04\0\x04\x01\x02\0\x02\x12\x03d\t\n\n\r\n\x06\x04\0\x04\x01\x02\x01\
-    \x12\x03e\x04\x0c\n\x0e\n\x07\x04\0\x04\x01\x02\x01\x01\x12\x03e\x04\x07\
-    \n\x0e\n\x07\x04\0\x04\x01\x02\x01\x02\x12\x03e\n\x0b\nI\n\x04\x04\0\x02\
-    ,\x12\x03g\x02#\"<\x20Normalization\x20-\x20whether\x20the\x20sampling\
-    \x20rate\x20is\x20accounted\x20for\n\n\r\n\x05\x04\0\x02,\x04\x12\x04g\
-    \x02f\x03\n\x0c\n\x05\x04\0\x02,\x06\x12\x03g\x02\x10\n\x0c\n\x05\x04\0\
-    \x02,\x01\x12\x03g\x11\x1b\n\x0c\n\x05\x04\0\x02,\x03\x12\x03g\x1e\"\ni\
-    \n\x04\x04\0\x02-\x12\x03j\x02\x1a\x1a7\x20Fields\x20for\x20Interface\
-    \x20Usability\x20--\x20enriched\x20using\x20SNMP\n\"#\x20set\x20to\x20th\
-    e\x20name,\x20unset\x20by\x20default\n\n\r\n\x05\x04\0\x02-\x04\x12\x04j\
-    \x02g#\n\x0c\n\x05\x04\0\x02-\x05\x12\x03j\x02\x08\n\x0c\n\x05\x04\0\x02\
-    -\x01\x12\x03j\t\x12\n\x0c\n\x05\x04\0\x02-\x03\x12\x03j\x15\x19\nI\n\
-    \x04\x04\0\x02.\x12\x03k\x02\x1a\"<\x20set\x20to\x20the\x20descrition,\
-    \x20filtered\x20by\x20a\x20regex\x20in\x20the\x20enricher\n\n\r\n\x05\
-    \x04\0\x02.\x04\x12\x04k\x02j\x1a\n\x0c\n\x05\x04\0\x02.\x05\x12\x03k\
-    \x02\x08\n\x0c\n\x05\x04\0\x02.\x01\x12\x03k\t\x12\n\x0c\n\x05\x04\0\x02\
-    .\x03\x12\x03k\x15\x19\n\x1a\n\x04\x04\0\x02/\x12\x03l\x02\x1b\"\r\x20if\
-    ace\x20speed\n\n\r\n\x05\x04\0\x02/\x04\x12\x04l\x02k\x1a\n\x0c\n\x05\
-    \x04\0\x02/\x05\x12\x03l\x02\x08\n\x0c\n\x05\x04\0\x02/\x01\x12\x03l\t\
-    \x13\n\x0c\n\x05\x04\0\x02/\x03\x12\x03l\x16\x1a\n\x0b\n\x04\x04\0\x020\
-    \x12\x03m\x02\x1a\n\r\n\x05\x04\0\x020\x04\x12\x04m\x02l\x1b\n\x0c\n\x05\
-    \x04\0\x020\x05\x12\x03m\x02\x08\n\x0c\n\x05\x04\0\x020\x01\x12\x03m\t\
-    \x12\n\x0c\n\x05\x04\0\x020\x03\x12\x03m\x15\x19\n\x0b\n\x04\x04\0\x021\
-    \x12\x03n\x02\x1a\n\r\n\x05\x04\0\x021\x04\x12\x04n\x02m\x1a\n\x0c\n\x05\
-    \x04\0\x021\x05\x12\x03n\x02\x08\n\x0c\n\x05\x04\0\x021\x01\x12\x03n\t\
-    \x12\n\x0c\n\x05\x04\0\x021\x03\x12\x03n\x15\x19\n\x0b\n\x04\x04\0\x022\
-    \x12\x03o\x02\x1b\n\r\n\x05\x04\0\x022\x04\x12\x04o\x02n\x1a\n\x0c\n\x05\
-    \x04\0\x022\x05\x12\x03o\x02\x08\n\x0c\n\x05\x04\0\x022\x01\x12\x03o\t\
-    \x13\n\x0c\n\x05\x04\0\x022\x03\x12\x03o\x16\x1a\nQ\n\x04\x04\0\x023\x12\
-    \x03q\x02\x1a\"D\x20Protocol\x20Name\x20--\x20set\x20for\x20some\x20well\
-    \x20known\x20protocols,\x20based\x20on\x20Proto\n\n\r\n\x05\x04\0\x023\
-    \x04\x12\x04q\x02o\x1b\n\x0c\n\x05\x04\0\x023\x05\x12\x03q\x02\x08\n\x0c\
-    \n\x05\x04\0\x023\x01\x12\x03q\t\x12\n\x0c\n\x05\x04\0\x023\x03\x12\x03q\
-    \x15\x19\n=\n\x04\x04\0\x024\x12\x03r\x02\x1e\"0\x20Geolocation\x20--\
-    \x20set\x20using\x20the\x20provided\x20database\n\n\r\n\x05\x04\0\x024\
-    \x04\x12\x04r\x02q\x1a\n\x0c\n\x05\x04\0\x024\x05\x12\x03r\x02\x08\n\x0c\
-    \n\x05\x04\0\x024\x01\x12\x03r\t\x16\n\x0c\n\x05\x04\0\x024\x03\x12\x03r\
-    \x19\x1db\x06proto3\
+    \x07DstPort\x12\x12\n\x04InIf\x18\x12\x20\x01(\rR\x04InIf\x12\x14\n\x05O\
+    utIf\x18\x13\x20\x01(\rR\x05OutIf\x12\x16\n\x06SrcMac\x18\x1b\x20\x01(\
+    \x04R\x06SrcMac\x12\x16\n\x06DstMac\x18\x1c\x20\x01(\x04R\x06DstMac\x12\
+    \x18\n\x07SrcVlan\x18!\x20\x01(\rR\x07SrcVlan\x12\x18\n\x07DstVlan\x18\"\
+    \x20\x01(\rR\x07DstVlan\x12\x16\n\x06VlanId\x18\x1d\x20\x01(\rR\x06VlanI\
+    d\x12\"\n\x0cIngressVrfID\x18'\x20\x01(\rR\x0cIngressVrfID\x12\x20\n\x0b\
+    EgressVrfID\x18(\x20\x01(\rR\x0bEgressVrfID\x12\x14\n\x05IPTos\x18\x17\
+    \x20\x01(\rR\x05IPTos\x12*\n\x10ForwardingStatus\x18\x18\x20\x01(\rR\x10\
+    ForwardingStatus\x12\x14\n\x05IPTTL\x18\x19\x20\x01(\rR\x05IPTTL\x12\x1a\
+    \n\x08TCPFlags\x18\x1a\x20\x01(\rR\x08TCPFlags\x12\x1a\n\x08IcmpType\x18\
+    \x1f\x20\x01(\rR\x08IcmpType\x12\x1a\n\x08IcmpCode\x18\x20\x20\x01(\rR\
+    \x08IcmpCode\x12$\n\rIPv6FlowLabel\x18%\x20\x01(\rR\rIPv6FlowLabel\x12\
+    \x1e\n\nFragmentId\x18#\x20\x01(\rR\nFragmentId\x12&\n\x0eFragmentOffset\
+    \x18$\x20\x01(\rR\x0eFragmentOffset\x12(\n\x0fBiFlowDirection\x18)\x20\
+    \x01(\rR\x0fBiFlowDirection\x12\x14\n\x05SrcAS\x18\x0e\x20\x01(\rR\x05Sr\
+    cAS\x12\x14\n\x05DstAS\x18\x0f\x20\x01(\rR\x05DstAS\x12\x18\n\x07NextHop\
+    \x18\x0c\x20\x01(\x0cR\x07NextHop\x12\x1c\n\tNextHopAS\x18\r\x20\x01(\rR\
+    \tNextHopAS\x12\x16\n\x06SrcNet\x18\x10\x20\x01(\rR\x06SrcNet\x12\x16\n\
+    \x06DstNet\x18\x11\x20\x01(\rR\x06DstNet\x12\x1a\n\x08HasEncap\x18+\x20\
+    \x01(\x08R\x08HasEncap\x12\"\n\x0cSrcAddrEncap\x18,\x20\x01(\x0cR\x0cSrc\
+    AddrEncap\x12\"\n\x0cDstAddrEncap\x18-\x20\x01(\x0cR\x0cDstAddrEncap\x12\
+    \x1e\n\nProtoEncap\x18.\x20\x01(\rR\nProtoEncap\x12\x1e\n\nEtypeEncap\
+    \x18/\x20\x01(\rR\nEtypeEncap\x12\x1e\n\nIPTosEncap\x180\x20\x01(\rR\nIP\
+    TosEncap\x12\x1e\n\nIPTTLEncap\x181\x20\x01(\rR\nIPTTLEncap\x12.\n\x12IP\
+    v6FlowLabelEncap\x182\x20\x01(\rR\x12IPv6FlowLabelEncap\x12(\n\x0fFragme\
+    ntIdEncap\x183\x20\x01(\rR\x0fFragmentIdEncap\x120\n\x13FragmentOffsetEn\
+    cap\x184\x20\x01(\rR\x13FragmentOffsetEncap\x12\x18\n\x07HasMPLS\x185\
+    \x20\x01(\x08R\x07HasMPLS\x12\x1c\n\tMPLSCount\x186\x20\x01(\rR\tMPLSCou\
+    nt\x12\x1a\n\x08MPLS1TTL\x187\x20\x01(\rR\x08MPLS1TTL\x12\x1e\n\nMPLS1La\
+    bel\x188\x20\x01(\rR\nMPLS1Label\x12\x1a\n\x08MPLS2TTL\x189\x20\x01(\rR\
+    \x08MPLS2TTL\x12\x1e\n\nMPLS2Label\x18:\x20\x01(\rR\nMPLS2Label\x12\x1a\
+    \n\x08MPLS3TTL\x18;\x20\x01(\rR\x08MPLS3TTL\x12\x1e\n\nMPLS3Label\x18<\
+    \x20\x01(\rR\nMPLS3Label\x12\x20\n\x0bMPLSLastTTL\x18=\x20\x01(\rR\x0bMP\
+    LSLastTTL\x12$\n\rMPLSLastLabel\x18>\x20\x01(\rR\rMPLSLastLabel\x12\x16\
+    \n\x06HasPPP\x18?\x20\x01(\x08R\x06HasPPP\x12,\n\x11PPPAddressControl\
+    \x18@\x20\x01(\rR\x11PPPAddressControl\x12\x11\n\x03Cid\x18\xe8\x07\x20\
+    \x01(\rR\x03Cid\x12\x1d\n\tCidString\x18\xe9\x07\x20\x01(\tR\tCidString\
+    \x12P\n\nNormalized\x18\xea\x07\x20\x01(\x0e2/.flowmessageenriched.FlowM\
+    essage.NormalizedTypeR\nNormalized\x12\x1d\n\tSrcIfName\x18\xeb\x07\x20\
+    \x01(\tR\tSrcIfName\x12\x1d\n\tSrcIfDesc\x18\xec\x07\x20\x01(\tR\tSrcIfD\
+    esc\x12\x1f\n\nSrcIfSpeed\x18\xed\x07\x20\x01(\rR\nSrcIfSpeed\x12\x1d\n\
+    \tDstIfName\x18\xee\x07\x20\x01(\tR\tDstIfName\x12\x1d\n\tDstIfDesc\x18\
+    \xef\x07\x20\x01(\tR\tDstIfDesc\x12\x1f\n\nDstIfSpeed\x18\xf0\x07\x20\
+    \x01(\rR\nDstIfSpeed\x12\x1d\n\tProtoName\x18\xf1\x07\x20\x01(\tR\tProto\
+    Name\x12%\n\rRemoteCountry\x18\xf2\x07\x20\x01(\tR\rRemoteCountry\"S\n\
+    \x08FlowType\x12\x0f\n\x0bFLOWUNKNOWN\x10\0\x12\x0b\n\x07SFLOW_5\x10\x01\
+    \x12\x0e\n\nNETFLOW_V5\x10\x02\x12\x0e\n\nNETFLOW_V9\x10\x03\x12\t\n\x05\
+    IPFIX\x10\x04\"!\n\x0eNormalizedType\x12\x06\n\x02No\x10\0\x12\x07\n\x03\
+    Yes\x10\x01B\"\n\tbwnetflowB\x15FlowMessageEnrichedPbJ\xd4,\n\x07\x12\
+    \x05\0\0\x8d\x01\x01\n\x08\n\x01\x0c\x12\x03\0\0\x12\n\x08\n\x01\x02\x12\
+    \x03\x01\0\x1c\n\x08\n\x01\x08\x12\x03\x03\0\"\n\t\n\x02\x08\x01\x12\x03\
+    \x03\0\"\n\x08\n\x01\x08\x12\x03\x04\06\n\t\n\x02\x08\x08\x12\x03\x04\06\
+    \n\x0b\n\x02\x04\0\x12\x05\x06\0\x8d\x01\x01\n\n\n\x03\x04\0\x01\x12\x03\
+    \x06\x08\x13\n\x0c\n\x04\x04\0\x04\0\x12\x04\x07\x02\r\x03\n\x0c\n\x05\
+    \x04\0\x04\0\x01\x12\x03\x07\x07\x0f\n\r\n\x06\x04\0\x04\0\x02\0\x12\x03\
+    \x08\x04\x14\n\x0e\n\x07\x04\0\x04\0\x02\0\x01\x12\x03\x08\x04\x0f\n\x0e\
+    \n\x07\x04\0\x04\0\x02\0\x02\x12\x03\x08\x12\x13\n\r\n\x06\x04\0\x04\0\
+    \x02\x01\x12\x03\t\x04\x10\n\x0e\n\x07\x04\0\x04\0\x02\x01\x01\x12\x03\t\
+    \x04\x0b\n\x0e\n\x07\x04\0\x04\0\x02\x01\x02\x12\x03\t\x0e\x0f\n\r\n\x06\
+    \x04\0\x04\0\x02\x02\x12\x03\n\x04\x13\n\x0e\n\x07\x04\0\x04\0\x02\x02\
+    \x01\x12\x03\n\x04\x0e\n\x0e\n\x07\x04\0\x04\0\x02\x02\x02\x12\x03\n\x11\
+    \x12\n\r\n\x06\x04\0\x04\0\x02\x03\x12\x03\x0b\x04\x13\n\x0e\n\x07\x04\0\
+    \x04\0\x02\x03\x01\x12\x03\x0b\x04\x0e\n\x0e\n\x07\x04\0\x04\0\x02\x03\
+    \x02\x12\x03\x0b\x11\x12\n\r\n\x06\x04\0\x04\0\x02\x04\x12\x03\x0c\x04\
+    \x0e\n\x0e\n\x07\x04\0\x04\0\x02\x04\x01\x12\x03\x0c\x04\t\n\x0e\n\x07\
+    \x04\0\x04\0\x02\x04\x02\x12\x03\x0c\x0c\r\n\x0b\n\x04\x04\0\x02\0\x12\
+    \x03\x0e\x02\x14\n\x0c\n\x05\x04\0\x02\0\x06\x12\x03\x0e\x02\n\n\x0c\n\
+    \x05\x04\0\x02\0\x01\x12\x03\x0e\x0b\x0f\n\x0c\n\x05\x04\0\x02\0\x03\x12\
+    \x03\x0e\x12\x13\n\x0b\n\x04\x04\0\x02\x01\x12\x03\x10\x02\x1a\n\x0c\n\
+    \x05\x04\0\x02\x01\x05\x12\x03\x10\x02\x08\n\x0c\n\x05\x04\0\x02\x01\x01\
+    \x12\x03\x10\t\x15\n\x0c\n\x05\x04\0\x02\x01\x03\x12\x03\x10\x18\x19\n\
+    \x0b\n\x04\x04\0\x02\x02\x12\x03\x11\x02\x19\n\x0c\n\x05\x04\0\x02\x02\
+    \x05\x12\x03\x11\x02\x08\n\x0c\n\x05\x04\0\x02\x02\x01\x12\x03\x11\t\x14\
+    \n\x0c\n\x05\x04\0\x02\x02\x03\x12\x03\x11\x17\x18\n\x0b\n\x04\x04\0\x02\
+    \x03\x12\x03\x12\x02\x1a\n\x0c\n\x05\x04\0\x02\x03\x05\x12\x03\x12\x02\
+    \x08\n\x0c\n\x05\x04\0\x02\x03\x01\x12\x03\x12\t\x15\n\x0c\n\x05\x04\0\
+    \x02\x03\x03\x12\x03\x12\x18\x19\n\x0b\n\x04\x04\0\x02\x04\x12\x03\x14\
+    \x02\x1c\n\x0c\n\x05\x04\0\x02\x04\x05\x12\x03\x14\x02\x08\n\x0c\n\x05\
+    \x04\0\x02\x04\x01\x12\x03\x14\t\x16\n\x0c\n\x05\x04\0\x02\x04\x03\x12\
+    \x03\x14\x19\x1b\n\"\n\x04\x04\0\x02\x05\x12\x03\x17\x02\x1c\x1a\x15\x20\
+    Sampler\x20information\n\n\x0c\n\x05\x04\0\x02\x05\x05\x12\x03\x17\x02\
+    \x07\n\x0c\n\x05\x04\0\x02\x05\x01\x12\x03\x17\x08\x16\n\x0c\n\x05\x04\0\
+    \x02\x05\x03\x12\x03\x17\x19\x1b\n\"\n\x04\x04\0\x02\x06\x12\x03\x1a\x02\
+    \x1c\x1a\x15\x20Found\x20inside\x20packet\n\n\x0c\n\x05\x04\0\x02\x06\
+    \x05\x12\x03\x1a\x02\x08\n\x0c\n\x05\x04\0\x02\x06\x01\x12\x03\x1a\t\x16\
+    \n\x0c\n\x05\x04\0\x02\x06\x03\x12\x03\x1a\x19\x1b\n\x0b\n\x04\x04\0\x02\
+    \x07\x12\x03\x1b\x02\x19\n\x0c\n\x05\x04\0\x02\x07\x05\x12\x03\x1b\x02\
+    \x08\n\x0c\n\x05\x04\0\x02\x07\x01\x12\x03\x1b\t\x14\n\x0c\n\x05\x04\0\
+    \x02\x07\x03\x12\x03\x1b\x17\x18\n)\n\x04\x04\0\x02\x08\x12\x03\x1e\x02\
+    \x13\x1a\x1c\x20Size\x20of\x20the\x20sampled\x20packet\n\n\x0c\n\x05\x04\
+    \0\x02\x08\x05\x12\x03\x1e\x02\x08\n\x0c\n\x05\x04\0\x02\x08\x01\x12\x03\
+    \x1e\t\x0e\n\x0c\n\x05\x04\0\x02\x08\x03\x12\x03\x1e\x11\x12\n\x0b\n\x04\
+    \x04\0\x02\t\x12\x03\x1f\x02\x16\n\x0c\n\x05\x04\0\x02\t\x05\x12\x03\x1f\
+    \x02\x08\n\x0c\n\x05\x04\0\x02\t\x01\x12\x03\x1f\t\x10\n\x0c\n\x05\x04\0\
+    \x02\t\x03\x12\x03\x1f\x13\x15\n+\n\x04\x04\0\x02\n\x12\x03\"\x02\x14\
+    \x1a\x1e\x20Source/destination\x20addresses\n\n\x0c\n\x05\x04\0\x02\n\
+    \x05\x12\x03\"\x02\x07\n\x0c\n\x05\x04\0\x02\n\x01\x12\x03\"\x08\x0f\n\
+    \x0c\n\x05\x04\0\x02\n\x03\x12\x03\"\x12\x13\n\x0b\n\x04\x04\0\x02\x0b\
+    \x12\x03#\x02\x14\n\x0c\n\x05\x04\0\x02\x0b\x05\x12\x03#\x02\x07\n\x0c\n\
+    \x05\x04\0\x02\x0b\x01\x12\x03#\x08\x0f\n\x0c\n\x05\x04\0\x02\x0b\x03\
+    \x12\x03#\x12\x13\n7\n\x04\x04\0\x02\x0c\x12\x03&\x02\x14\x1a*\x20Layer\
+    \x203\x20protocol\x20(IPv4/IPv6/ARP/MPLS...)\n\n\x0c\n\x05\x04\0\x02\x0c\
+    \x05\x12\x03&\x02\x08\n\x0c\n\x05\x04\0\x02\x0c\x01\x12\x03&\t\x0e\n\x0c\
+    \n\x05\x04\0\x02\x0c\x03\x12\x03&\x11\x13\n\x1f\n\x04\x04\0\x02\r\x12\
+    \x03)\x02\x14\x1a\x12\x20Layer\x204\x20protocol\n\n\x0c\n\x05\x04\0\x02\
+    \r\x05\x12\x03)\x02\x08\n\x0c\n\x05\x04\0\x02\r\x01\x12\x03)\t\x0e\n\x0c\
+    \n\x05\x04\0\x02\r\x03\x12\x03)\x11\x13\n$\n\x04\x04\0\x02\x0e\x12\x03,\
+    \x02\x16\x1a\x17\x20Ports\x20for\x20UDP\x20and\x20TCP\n\n\x0c\n\x05\x04\
+    \0\x02\x0e\x05\x12\x03,\x02\x08\n\x0c\n\x05\x04\0\x02\x0e\x01\x12\x03,\t\
+    \x10\n\x0c\n\x05\x04\0\x02\x0e\x03\x12\x03,\x13\x15\n\x0b\n\x04\x04\0\
+    \x02\x0f\x12\x03-\x02\x16\n\x0c\n\x05\x04\0\x02\x0f\x05\x12\x03-\x02\x08\
+    \n\x0c\n\x05\x04\0\x02\x0f\x01\x12\x03-\t\x10\n\x0c\n\x05\x04\0\x02\x0f\
+    \x03\x12\x03-\x13\x15\n\x19\n\x04\x04\0\x02\x10\x12\x030\x02\x13\x1a\x0c\
+    \x20Interfaces\n\n\x0c\n\x05\x04\0\x02\x10\x05\x12\x030\x02\x08\n\x0c\n\
+    \x05\x04\0\x02\x10\x01\x12\x030\t\r\n\x0c\n\x05\x04\0\x02\x10\x03\x12\
+    \x030\x10\x12\n\x0b\n\x04\x04\0\x02\x11\x12\x031\x02\x14\n\x0c\n\x05\x04\
+    \0\x02\x11\x05\x12\x031\x02\x08\n\x0c\n\x05\x04\0\x02\x11\x01\x12\x031\t\
+    \x0e\n\x0c\n\x05\x04\0\x02\x11\x03\x12\x031\x11\x13\n#\n\x04\x04\0\x02\
+    \x12\x12\x034\x02\x15\x1a\x16\x20Ethernet\x20information\n\n\x0c\n\x05\
+    \x04\0\x02\x12\x05\x12\x034\x02\x08\n\x0c\n\x05\x04\0\x02\x12\x01\x12\
+    \x034\t\x0f\n\x0c\n\x05\x04\0\x02\x12\x03\x12\x034\x12\x14\n\x0b\n\x04\
+    \x04\0\x02\x13\x12\x035\x02\x15\n\x0c\n\x05\x04\0\x02\x13\x05\x12\x035\
+    \x02\x08\n\x0c\n\x05\x04\0\x02\x13\x01\x12\x035\t\x0f\n\x0c\n\x05\x04\0\
+    \x02\x13\x03\x12\x035\x12\x14\n\x13\n\x04\x04\0\x02\x14\x12\x038\x02\x16\
+    \x1a\x06\x20Vlan\n\n\x0c\n\x05\x04\0\x02\x14\x05\x12\x038\x02\x08\n\x0c\
+    \n\x05\x04\0\x02\x14\x01\x12\x038\t\x10\n\x0c\n\x05\x04\0\x02\x14\x03\
+    \x12\x038\x13\x15\n\x0b\n\x04\x04\0\x02\x15\x12\x039\x02\x16\n\x0c\n\x05\
+    \x04\0\x02\x15\x05\x12\x039\x02\x08\n\x0c\n\x05\x04\0\x02\x15\x01\x12\
+    \x039\t\x10\n\x0c\n\x05\x04\0\x02\x15\x03\x12\x039\x13\x15\n,\n\x04\x04\
+    \0\x02\x16\x12\x03;\x02\x15\x1a\x1f\x20802.1q\x20VLAN\x20in\x20sampled\
+    \x20packet\n\n\x0c\n\x05\x04\0\x02\x16\x05\x12\x03;\x02\x08\n\x0c\n\x05\
+    \x04\0\x02\x16\x01\x12\x03;\t\x0f\n\x0c\n\x05\x04\0\x02\x16\x03\x12\x03;\
+    \x12\x14\n\x12\n\x04\x04\0\x02\x17\x12\x03>\x02\x1b\x1a\x05\x20VRF\n\n\
+    \x0c\n\x05\x04\0\x02\x17\x05\x12\x03>\x02\x08\n\x0c\n\x05\x04\0\x02\x17\
+    \x01\x12\x03>\t\x15\n\x0c\n\x05\x04\0\x02\x17\x03\x12\x03>\x18\x1a\n\x0b\
+    \n\x04\x04\0\x02\x18\x12\x03?\x02\x1a\n\x0c\n\x05\x04\0\x02\x18\x05\x12\
+    \x03?\x02\x08\n\x0c\n\x05\x04\0\x02\x18\x01\x12\x03?\t\x14\n\x0c\n\x05\
+    \x04\0\x02\x18\x03\x12\x03?\x17\x19\n'\n\x04\x04\0\x02\x19\x12\x03B\x02\
+    \x14\x1a\x1a\x20IP\x20and\x20TCP\x20special\x20flags\n\n\x0c\n\x05\x04\0\
+    \x02\x19\x05\x12\x03B\x02\x08\n\x0c\n\x05\x04\0\x02\x19\x01\x12\x03B\t\
+    \x0e\n\x0c\n\x05\x04\0\x02\x19\x03\x12\x03B\x11\x13\n\x0b\n\x04\x04\0\
+    \x02\x1a\x12\x03C\x02\x1f\n\x0c\n\x05\x04\0\x02\x1a\x05\x12\x03C\x02\x08\
+    \n\x0c\n\x05\x04\0\x02\x1a\x01\x12\x03C\t\x19\n\x0c\n\x05\x04\0\x02\x1a\
+    \x03\x12\x03C\x1c\x1e\n\x0b\n\x04\x04\0\x02\x1b\x12\x03D\x02\x14\n\x0c\n\
+    \x05\x04\0\x02\x1b\x05\x12\x03D\x02\x08\n\x0c\n\x05\x04\0\x02\x1b\x01\
+    \x12\x03D\t\x0e\n\x0c\n\x05\x04\0\x02\x1b\x03\x12\x03D\x11\x13\n\x0b\n\
+    \x04\x04\0\x02\x1c\x12\x03E\x02\x17\n\x0c\n\x05\x04\0\x02\x1c\x05\x12\
+    \x03E\x02\x08\n\x0c\n\x05\x04\0\x02\x1c\x01\x12\x03E\t\x11\n\x0c\n\x05\
+    \x04\0\x02\x1c\x03\x12\x03E\x14\x16\n\x0b\n\x04\x04\0\x02\x1d\x12\x03F\
+    \x02\x17\n\x0c\n\x05\x04\0\x02\x1d\x05\x12\x03F\x02\x08\n\x0c\n\x05\x04\
+    \0\x02\x1d\x01\x12\x03F\t\x11\n\x0c\n\x05\x04\0\x02\x1d\x03\x12\x03F\x14\
+    \x16\n\x0b\n\x04\x04\0\x02\x1e\x12\x03G\x02\x17\n\x0c\n\x05\x04\0\x02\
+    \x1e\x05\x12\x03G\x02\x08\n\x0c\n\x05\x04\0\x02\x1e\x01\x12\x03G\t\x11\n\
+    \x0c\n\x05\x04\0\x02\x1e\x03\x12\x03G\x14\x16\n\x0b\n\x04\x04\0\x02\x1f\
+    \x12\x03H\x02\x1c\n\x0c\n\x05\x04\0\x02\x1f\x05\x12\x03H\x02\x08\n\x0c\n\
+    \x05\x04\0\x02\x1f\x01\x12\x03H\t\x16\n\x0c\n\x05\x04\0\x02\x1f\x03\x12\
+    \x03H\x19\x1b\n$\n\x04\x04\0\x02\x20\x12\x03J\x02\x19\x1a\x17\x20Fragmen\
+    ts\x20(IPv4/IPv6)\n\n\x0c\n\x05\x04\0\x02\x20\x05\x12\x03J\x02\x08\n\x0c\
+    \n\x05\x04\0\x02\x20\x01\x12\x03J\t\x13\n\x0c\n\x05\x04\0\x02\x20\x03\
+    \x12\x03J\x16\x18\n\x0b\n\x04\x04\0\x02!\x12\x03K\x02\x1d\n\x0c\n\x05\
+    \x04\0\x02!\x05\x12\x03K\x02\x08\n\x0c\n\x05\x04\0\x02!\x01\x12\x03K\t\
+    \x17\n\x0c\n\x05\x04\0\x02!\x03\x12\x03K\x1a\x1c\n\x0b\n\x04\x04\0\x02\"\
+    \x12\x03L\x02\x1e\n\x0c\n\x05\x04\0\x02\"\x05\x12\x03L\x02\x08\n\x0c\n\
+    \x05\x04\0\x02\"\x01\x12\x03L\t\x18\n\x0c\n\x05\x04\0\x02\"\x03\x12\x03L\
+    \x1b\x1d\n,\n\x04\x04\0\x02#\x12\x03O\x02\x14\x1a\x1f\x20Autonomous\x20s\
+    ystem\x20information\n\n\x0c\n\x05\x04\0\x02#\x05\x12\x03O\x02\x08\n\x0c\
+    \n\x05\x04\0\x02#\x01\x12\x03O\t\x0e\n\x0c\n\x05\x04\0\x02#\x03\x12\x03O\
+    \x11\x13\n\x0b\n\x04\x04\0\x02$\x12\x03P\x02\x14\n\x0c\n\x05\x04\0\x02$\
+    \x05\x12\x03P\x02\x08\n\x0c\n\x05\x04\0\x02$\x01\x12\x03P\t\x0e\n\x0c\n\
+    \x05\x04\0\x02$\x03\x12\x03P\x11\x13\n\x0b\n\x04\x04\0\x02%\x12\x03R\x02\
+    \x15\n\x0c\n\x05\x04\0\x02%\x05\x12\x03R\x02\x07\n\x0c\n\x05\x04\0\x02%\
+    \x01\x12\x03R\x08\x0f\n\x0c\n\x05\x04\0\x02%\x03\x12\x03R\x12\x14\n\x0b\
+    \n\x04\x04\0\x02&\x12\x03S\x02\x18\n\x0c\n\x05\x04\0\x02&\x05\x12\x03S\
+    \x02\x08\n\x0c\n\x05\x04\0\x02&\x01\x12\x03S\t\x12\n\x0c\n\x05\x04\0\x02\
+    &\x03\x12\x03S\x15\x17\n\x1a\n\x04\x04\0\x02'\x12\x03V\x02\x15\x1a\r\x20\
+    Prefix\x20size\n\n\x0c\n\x05\x04\0\x02'\x05\x12\x03V\x02\x08\n\x0c\n\x05\
+    \x04\0\x02'\x01\x12\x03V\t\x0f\n\x0c\n\x05\x04\0\x02'\x03\x12\x03V\x12\
+    \x14\n\x0b\n\x04\x04\0\x02(\x12\x03W\x02\x15\n\x0c\n\x05\x04\0\x02(\x05\
+    \x12\x03W\x02\x08\n\x0c\n\x05\x04\0\x02(\x01\x12\x03W\t\x0f\n\x0c\n\x05\
+    \x04\0\x02(\x03\x12\x03W\x12\x14\n+\n\x04\x04\0\x02)\x12\x03Z\x02\x15\
+    \x1a\x1e\x20IP\x20encapsulation\x20information\n\n\x0c\n\x05\x04\0\x02)\
+    \x05\x12\x03Z\x02\x06\n\x0c\n\x05\x04\0\x02)\x01\x12\x03Z\x07\x0f\n\x0c\
+    \n\x05\x04\0\x02)\x03\x12\x03Z\x12\x14\n\x0b\n\x04\x04\0\x02*\x12\x03[\
+    \x02\x1a\n\x0c\n\x05\x04\0\x02*\x05\x12\x03[\x02\x07\n\x0c\n\x05\x04\0\
+    \x02*\x01\x12\x03[\x08\x14\n\x0c\n\x05\x04\0\x02*\x03\x12\x03[\x17\x19\n\
+    \x0b\n\x04\x04\0\x02+\x12\x03\\\x02\x1a\n\x0c\n\x05\x04\0\x02+\x05\x12\
+    \x03\\\x02\x07\n\x0c\n\x05\x04\0\x02+\x01\x12\x03\\\x08\x14\n\x0c\n\x05\
+    \x04\0\x02+\x03\x12\x03\\\x17\x19\n\x0b\n\x04\x04\0\x02,\x12\x03]\x02\
+    \x19\n\x0c\n\x05\x04\0\x02,\x05\x12\x03]\x02\x08\n\x0c\n\x05\x04\0\x02,\
+    \x01\x12\x03]\t\x13\n\x0c\n\x05\x04\0\x02,\x03\x12\x03]\x16\x18\n\x0b\n\
+    \x04\x04\0\x02-\x12\x03^\x02\x19\n\x0c\n\x05\x04\0\x02-\x05\x12\x03^\x02\
+    \x08\n\x0c\n\x05\x04\0\x02-\x01\x12\x03^\t\x13\n\x0c\n\x05\x04\0\x02-\
+    \x03\x12\x03^\x16\x18\n\x0b\n\x04\x04\0\x02.\x12\x03`\x02\x19\n\x0c\n\
+    \x05\x04\0\x02.\x05\x12\x03`\x02\x08\n\x0c\n\x05\x04\0\x02.\x01\x12\x03`\
+    \t\x13\n\x0c\n\x05\x04\0\x02.\x03\x12\x03`\x16\x18\n\x0b\n\x04\x04\0\x02\
+    /\x12\x03a\x02\x19\n\x0c\n\x05\x04\0\x02/\x05\x12\x03a\x02\x08\n\x0c\n\
+    \x05\x04\0\x02/\x01\x12\x03a\t\x13\n\x0c\n\x05\x04\0\x02/\x03\x12\x03a\
+    \x16\x18\n\x0b\n\x04\x04\0\x020\x12\x03b\x02!\n\x0c\n\x05\x04\0\x020\x05\
+    \x12\x03b\x02\x08\n\x0c\n\x05\x04\0\x020\x01\x12\x03b\t\x1b\n\x0c\n\x05\
+    \x04\0\x020\x03\x12\x03b\x1e\x20\n\x0b\n\x04\x04\0\x021\x12\x03c\x02\x1e\
+    \n\x0c\n\x05\x04\0\x021\x05\x12\x03c\x02\x08\n\x0c\n\x05\x04\0\x021\x01\
+    \x12\x03c\t\x18\n\x0c\n\x05\x04\0\x021\x03\x12\x03c\x1b\x1d\n\x0b\n\x04\
+    \x04\0\x022\x12\x03d\x02\"\n\x0c\n\x05\x04\0\x022\x05\x12\x03d\x02\x08\n\
+    \x0c\n\x05\x04\0\x022\x01\x12\x03d\t\x1c\n\x0c\n\x05\x04\0\x022\x03\x12\
+    \x03d\x1f!\n\x1f\n\x04\x04\0\x023\x12\x03g\x02\x14\x1a\x12\x20MPLS\x20in\
+    formation\n\n\x0c\n\x05\x04\0\x023\x05\x12\x03g\x02\x06\n\x0c\n\x05\x04\
+    \0\x023\x01\x12\x03g\x07\x0e\n\x0c\n\x05\x04\0\x023\x03\x12\x03g\x11\x13\
+    \n\x0b\n\x04\x04\0\x024\x12\x03h\x02\x18\n\x0c\n\x05\x04\0\x024\x05\x12\
+    \x03h\x02\x08\n\x0c\n\x05\x04\0\x024\x01\x12\x03h\t\x12\n\x0c\n\x05\x04\
+    \0\x024\x03\x12\x03h\x15\x17\n\x18\n\x04\x04\0\x025\x12\x03i\x02\x17\"\
+    \x0b\x20First\x20TTL\n\n\x0c\n\x05\x04\0\x025\x05\x12\x03i\x02\x08\n\x0c\
+    \n\x05\x04\0\x025\x01\x12\x03i\t\x11\n\x0c\n\x05\x04\0\x025\x03\x12\x03i\
+    \x14\x16\n\x1a\n\x04\x04\0\x026\x12\x03j\x02\x19\"\r\x20First\x20Label\n\
+    \n\x0c\n\x05\x04\0\x026\x05\x12\x03j\x02\x08\n\x0c\n\x05\x04\0\x026\x01\
+    \x12\x03j\t\x13\n\x0c\n\x05\x04\0\x026\x03\x12\x03j\x16\x18\n\x19\n\x04\
+    \x04\0\x027\x12\x03k\x02\x17\"\x0c\x20Second\x20TTL\n\n\x0c\n\x05\x04\0\
+    \x027\x05\x12\x03k\x02\x08\n\x0c\n\x05\x04\0\x027\x01\x12\x03k\t\x11\n\
+    \x0c\n\x05\x04\0\x027\x03\x12\x03k\x14\x16\n\x1b\n\x04\x04\0\x028\x12\
+    \x03l\x02\x19\"\x0e\x20Second\x20Label\n\n\x0c\n\x05\x04\0\x028\x05\x12\
+    \x03l\x02\x08\n\x0c\n\x05\x04\0\x028\x01\x12\x03l\t\x13\n\x0c\n\x05\x04\
+    \0\x028\x03\x12\x03l\x16\x18\n\x18\n\x04\x04\0\x029\x12\x03m\x02\x17\"\
+    \x0b\x20Third\x20TTL\n\n\x0c\n\x05\x04\0\x029\x05\x12\x03m\x02\x08\n\x0c\
+    \n\x05\x04\0\x029\x01\x12\x03m\t\x11\n\x0c\n\x05\x04\0\x029\x03\x12\x03m\
+    \x14\x16\n\x1a\n\x04\x04\0\x02:\x12\x03n\x02\x19\"\r\x20Third\x20Label\n\
+    \n\x0c\n\x05\x04\0\x02:\x05\x12\x03n\x02\x08\n\x0c\n\x05\x04\0\x02:\x01\
+    \x12\x03n\t\x13\n\x0c\n\x05\x04\0\x02:\x03\x12\x03n\x16\x18\n\x17\n\x04\
+    \x04\0\x02;\x12\x03o\x02\x1a\"\n\x20Last\x20TTL\n\n\x0c\n\x05\x04\0\x02;\
+    \x05\x12\x03o\x02\x08\n\x0c\n\x05\x04\0\x02;\x01\x12\x03o\t\x14\n\x0c\n\
+    \x05\x04\0\x02;\x03\x12\x03o\x17\x19\n\x19\n\x04\x04\0\x02<\x12\x03p\x02\
+    \x1c\"\x0c\x20Last\x20Label\n\n\x0c\n\x05\x04\0\x02<\x05\x12\x03p\x02\
+    \x08\n\x0c\n\x05\x04\0\x02<\x01\x12\x03p\t\x16\n\x0c\n\x05\x04\0\x02<\
+    \x03\x12\x03p\x19\x1b\n\x1e\n\x04\x04\0\x02=\x12\x03s\x02\x13\x1a\x11\
+    \x20PPP\x20information\n\n\x0c\n\x05\x04\0\x02=\x05\x12\x03s\x02\x06\n\
+    \x0c\n\x05\x04\0\x02=\x01\x12\x03s\x07\r\n\x0c\n\x05\x04\0\x02=\x03\x12\
+    \x03s\x10\x12\n\x0b\n\x04\x04\0\x02>\x12\x03t\x02\x20\n\x0c\n\x05\x04\0\
+    \x02>\x05\x12\x03t\x02\x08\n\x0c\n\x05\x04\0\x02>\x01\x12\x03t\t\x1a\n\
+    \x0c\n\x05\x04\0\x02>\x03\x12\x03t\x1d\x1f\n\x9f\x01\n\x04\x04\0\x02?\
+    \x12\x03z\x02\x14\x1a\x1b\x20bwNetFlow\x20enricher\x20fields\n\"0\x20Cus\
+    tomer\x20ID\x20-\x20numerical\x20ID,\x20assigned\x20by\x20prefix\n2C\x20\
+    Custom\x20fields:\x20start\x20after\x20ID\x201000:\n\x20uint32\x20MyCust\
+    omField\x20=\x201000;\n\n\x0c\n\x05\x04\0\x02?\x05\x12\x03z\x02\x08\n\
+    \x0c\n\x05\x04\0\x02?\x01\x12\x03z\t\x0c\n\x0c\n\x05\x04\0\x02?\x03\x12\
+    \x03z\x0f\x13\nF\n\x04\x04\0\x02@\x12\x03{\x02\x1a\"9\x20Customer\x20ID\
+    \x20-\x20a\x20more\x20generalized\x20ID,\x20assigned\x20by\x20prefix\n\n\
+    \x0c\n\x05\x04\0\x02@\x05\x12\x03{\x02\x08\n\x0c\n\x05\x04\0\x02@\x01\
+    \x12\x03{\t\x12\n\x0c\n\x05\x04\0\x02@\x03\x12\x03{\x15\x19\n\r\n\x04\
+    \x04\0\x04\x01\x12\x05}\x02\x80\x01\x03\n\x0c\n\x05\x04\0\x04\x01\x01\
+    \x12\x03}\x07\x15\n\r\n\x06\x04\0\x04\x01\x02\0\x12\x03~\x04\x0b\n\x0e\n\
+    \x07\x04\0\x04\x01\x02\0\x01\x12\x03~\x04\x06\n\x0e\n\x07\x04\0\x04\x01\
+    \x02\0\x02\x12\x03~\t\n\n\r\n\x06\x04\0\x04\x01\x02\x01\x12\x03\x7f\x04\
+    \x0c\n\x0e\n\x07\x04\0\x04\x01\x02\x01\x01\x12\x03\x7f\x04\x07\n\x0e\n\
+    \x07\x04\0\x04\x01\x02\x01\x02\x12\x03\x7f\n\x0b\nJ\n\x04\x04\0\x02A\x12\
+    \x04\x81\x01\x02#\"<\x20Normalization\x20-\x20whether\x20the\x20sampling\
+    \x20rate\x20is\x20accounted\x20for\n\n\r\n\x05\x04\0\x02A\x06\x12\x04\
+    \x81\x01\x02\x10\n\r\n\x05\x04\0\x02A\x01\x12\x04\x81\x01\x11\x1b\n\r\n\
+    \x05\x04\0\x02A\x03\x12\x04\x81\x01\x1e\"\nj\n\x04\x04\0\x02B\x12\x04\
+    \x84\x01\x02\x1a\x1a7\x20Fields\x20for\x20Interface\x20Usability\x20--\
+    \x20enriched\x20using\x20SNMP\n\"#\x20set\x20to\x20the\x20name,\x20unset\
+    \x20by\x20default\n\n\r\n\x05\x04\0\x02B\x05\x12\x04\x84\x01\x02\x08\n\r\
+    \n\x05\x04\0\x02B\x01\x12\x04\x84\x01\t\x12\n\r\n\x05\x04\0\x02B\x03\x12\
+    \x04\x84\x01\x15\x19\nJ\n\x04\x04\0\x02C\x12\x04\x85\x01\x02\x1a\"<\x20s\
+    et\x20to\x20the\x20descrition,\x20filtered\x20by\x20a\x20regex\x20in\x20\
+    the\x20enricher\n\n\r\n\x05\x04\0\x02C\x05\x12\x04\x85\x01\x02\x08\n\r\n\
+    \x05\x04\0\x02C\x01\x12\x04\x85\x01\t\x12\n\r\n\x05\x04\0\x02C\x03\x12\
+    \x04\x85\x01\x15\x19\n\x1b\n\x04\x04\0\x02D\x12\x04\x86\x01\x02\x1b\"\r\
+    \x20iface\x20speed\n\n\r\n\x05\x04\0\x02D\x05\x12\x04\x86\x01\x02\x08\n\
+    \r\n\x05\x04\0\x02D\x01\x12\x04\x86\x01\t\x13\n\r\n\x05\x04\0\x02D\x03\
+    \x12\x04\x86\x01\x16\x1a\n\x0c\n\x04\x04\0\x02E\x12\x04\x87\x01\x02\x1a\
+    \n\r\n\x05\x04\0\x02E\x05\x12\x04\x87\x01\x02\x08\n\r\n\x05\x04\0\x02E\
+    \x01\x12\x04\x87\x01\t\x12\n\r\n\x05\x04\0\x02E\x03\x12\x04\x87\x01\x15\
+    \x19\n\x0c\n\x04\x04\0\x02F\x12\x04\x88\x01\x02\x1a\n\r\n\x05\x04\0\x02F\
+    \x05\x12\x04\x88\x01\x02\x08\n\r\n\x05\x04\0\x02F\x01\x12\x04\x88\x01\t\
+    \x12\n\r\n\x05\x04\0\x02F\x03\x12\x04\x88\x01\x15\x19\n\x0c\n\x04\x04\0\
+    \x02G\x12\x04\x89\x01\x02\x1b\n\r\n\x05\x04\0\x02G\x05\x12\x04\x89\x01\
+    \x02\x08\n\r\n\x05\x04\0\x02G\x01\x12\x04\x89\x01\t\x13\n\r\n\x05\x04\0\
+    \x02G\x03\x12\x04\x89\x01\x16\x1a\nR\n\x04\x04\0\x02H\x12\x04\x8b\x01\
+    \x02\x1a\"D\x20Protocol\x20Name\x20--\x20set\x20for\x20some\x20well\x20k\
+    nown\x20protocols,\x20based\x20on\x20Proto\n\n\r\n\x05\x04\0\x02H\x05\
+    \x12\x04\x8b\x01\x02\x08\n\r\n\x05\x04\0\x02H\x01\x12\x04\x8b\x01\t\x12\
+    \n\r\n\x05\x04\0\x02H\x03\x12\x04\x8b\x01\x15\x19\n>\n\x04\x04\0\x02I\
+    \x12\x04\x8c\x01\x02\x1e\"0\x20Geolocation\x20--\x20set\x20using\x20the\
+    \x20provided\x20database\n\n\r\n\x05\x04\0\x02I\x05\x12\x04\x8c\x01\x02\
+    \x08\n\r\n\x05\x04\0\x02I\x01\x12\x04\x8c\x01\t\x16\n\r\n\x05\x04\0\x02I\
+    \x03\x12\x04\x8c\x01\x19\x1db\x06proto3\
 ";
 
 static mut file_descriptor_proto_lazy: ::protobuf::lazy::Lazy<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::lazy::Lazy {

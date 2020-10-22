@@ -1,5 +1,4 @@
 message FlowMessage {
-
   enum FlowType {
     FLOWUNKNOWN = 0;
     SFLOW_5 = 1;
@@ -30,7 +29,7 @@ message FlowMessage {
   required bytes SrcAddr = 6;
   required bytes DstAddr = 7;
 
-  // Layer 3 protocol (IPv4/IPv6/ARP/...)
+  // Layer 3 protocol (IPv4/IPv6/ARP/MPLS...)
   required uint32 Etype = 30;
 
   // Layer 4 protocol
@@ -41,8 +40,8 @@ message FlowMessage {
   required uint32 DstPort = 22;
 
   // Interfaces
-  required uint32 SrcIf = 18;
-  required uint32 DstIf = 19;
+  required uint32 InIf = 18;
+  required uint32 OutIf = 19;
 
   // Ethernet information
   required uint64 SrcMac = 27;
@@ -66,7 +65,6 @@ message FlowMessage {
   required uint32 IcmpType = 31;
   required uint32 IcmpCode = 32;
   required uint32 IPv6FlowLabel = 37;
-  required uint32 IPv6ExtensionHeaders = 43;
   // Fragments (IPv4/IPv6)
   required uint32 FragmentId = 35;
   required uint32 FragmentOffset = 36;
@@ -83,6 +81,34 @@ message FlowMessage {
   required uint32 SrcNet = 16;
   required uint32 DstNet = 17;
 
+  // IP encapsulation information
+  bool HasEncap = 43;
+  required bytes SrcAddrEncap = 44;
+  required bytes DstAddrEncap = 45;
+  required uint32 ProtoEncap = 46;
+  required uint32 EtypeEncap = 47;
+
+  required uint32 IPTosEncap = 48;
+  required uint32 IPTTLEncap = 49;
+  required uint32 IPv6FlowLabelEncap = 50;
+  required uint32 FragmentIdEncap = 51;
+  required uint32 FragmentOffsetEncap = 52;
+
+  // MPLS information
+  bool HasMPLS = 53;
+  required uint32 MPLSCount = 54;
+  required uint32 MPLS1TTL = 55; // First TTL
+  required uint32 MPLS1Label = 56; // First Label
+  required uint32 MPLS2TTL = 57; // Second TTL
+  required uint32 MPLS2Label = 58; // Second Label
+  required uint32 MPLS3TTL = 59; // Third TTL
+  required uint32 MPLS3Label = 60; // Third Label
+  required uint32 MPLSLastTTL = 61; // Last TTL
+  required uint32 MPLSLastLabel = 62; // Last Label
+
+  // PPP information
+  bool HasPPP = 63;
+  required uint32 PPPAddressControl = 64;
 
   // Custom fields: start after ID 1000:
   // required uint32 MyCustomField = 1000;

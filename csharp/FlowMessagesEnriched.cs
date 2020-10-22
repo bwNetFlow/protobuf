@@ -25,7 +25,7 @@ namespace Flowmessageenriched {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxmbG93LW1lc3NhZ2VzLWVucmljaGVkLnByb3RvEhNmbG93bWVzc2FnZWVu",
-            "cmljaGVkIs8JCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
+            "cmljaGVkIv0MCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
             "c3NhZ2VlbnJpY2hlZC5GbG93TWVzc2FnZS5GbG93VHlwZRIUCgxUaW1lUmVj",
             "ZWl2ZWQYAiABKAQSEwoLU2VxdWVuY2VOdW0YBCABKA0SFAoMU2FtcGxpbmdS",
             "YXRlGAMgASgEEhUKDUZsb3dEaXJlY3Rpb24YKiABKA0SFgoOU2FtcGxlckFk",
@@ -33,31 +33,41 @@ namespace Flowmessageenriched {
             "d0VuZBgFIAEoBBINCgVCeXRlcxgJIAEoBBIPCgdQYWNrZXRzGAogASgEEg8K",
             "B1NyY0FkZHIYBiABKAwSDwoHRHN0QWRkchgHIAEoDBINCgVFdHlwZRgeIAEo",
             "DRINCgVQcm90bxgUIAEoDRIPCgdTcmNQb3J0GBUgASgNEg8KB0RzdFBvcnQY",
-            "FiABKA0SDQoFU3JjSWYYEiABKA0SDQoFRHN0SWYYEyABKA0SDgoGU3JjTWFj",
-            "GBsgASgEEg4KBkRzdE1hYxgcIAEoBBIPCgdTcmNWbGFuGCEgASgNEg8KB0Rz",
-            "dFZsYW4YIiABKA0SDgoGVmxhbklkGB0gASgNEhQKDEluZ3Jlc3NWcmZJRBgn",
-            "IAEoDRITCgtFZ3Jlc3NWcmZJRBgoIAEoDRINCgVJUFRvcxgXIAEoDRIYChBG",
-            "b3J3YXJkaW5nU3RhdHVzGBggASgNEg0KBUlQVFRMGBkgASgNEhAKCFRDUEZs",
-            "YWdzGBogASgNEhAKCEljbXBUeXBlGB8gASgNEhAKCEljbXBDb2RlGCAgASgN",
-            "EhUKDUlQdjZGbG93TGFiZWwYJSABKA0SHAoUSVB2NkV4dGVuc2lvbkhlYWRl",
-            "cnMYKyABKA0SEgoKRnJhZ21lbnRJZBgjIAEoDRIWCg5GcmFnbWVudE9mZnNl",
-            "dBgkIAEoDRIXCg9CaUZsb3dEaXJlY3Rpb24YKSABKA0SDQoFU3JjQVMYDiAB",
-            "KA0SDQoFRHN0QVMYDyABKA0SDwoHTmV4dEhvcBgMIAEoDBIRCglOZXh0SG9w",
-            "QVMYDSABKA0SDgoGU3JjTmV0GBAgASgNEg4KBkRzdE5ldBgRIAEoDRIMCgND",
-            "aWQY6AcgASgNEhIKCUNpZFN0cmluZxjpByABKAkSRAoKTm9ybWFsaXplZBjq",
-            "ByABKA4yLy5mbG93bWVzc2FnZWVucmljaGVkLkZsb3dNZXNzYWdlLk5vcm1h",
-            "bGl6ZWRUeXBlEhIKCVNyY0lmTmFtZRjrByABKAkSEgoJU3JjSWZEZXNjGOwH",
-            "IAEoCRITCgpTcmNJZlNwZWVkGO0HIAEoDRISCglEc3RJZk5hbWUY7gcgASgJ",
-            "EhIKCURzdElmRGVzYxjvByABKAkSEwoKRHN0SWZTcGVlZBjwByABKA0SEgoJ",
-            "UHJvdG9OYW1lGPEHIAEoCRIWCg1SZW1vdGVDb3VudHJ5GPIHIAEoCSJTCghG",
-            "bG93VHlwZRIPCgtGTE9XVU5LTk9XThAAEgsKB1NGTE9XXzUQARIOCgpORVRG",
-            "TE9XX1Y1EAISDgoKTkVURkxPV19WORADEgkKBUlQRklYEAQiIQoOTm9ybWFs",
-            "aXplZFR5cGUSBgoCTm8QABIHCgNZZXMQAUIiCglid25ldGZsb3dCFUZsb3dN",
-            "ZXNzYWdlRW5yaWNoZWRQYmIGcHJvdG8z"));
+            "FiABKA0SDAoESW5JZhgSIAEoDRINCgVPdXRJZhgTIAEoDRIOCgZTcmNNYWMY",
+            "GyABKAQSDgoGRHN0TWFjGBwgASgEEg8KB1NyY1ZsYW4YISABKA0SDwoHRHN0",
+            "VmxhbhgiIAEoDRIOCgZWbGFuSWQYHSABKA0SFAoMSW5ncmVzc1ZyZklEGCcg",
+            "ASgNEhMKC0VncmVzc1ZyZklEGCggASgNEg0KBUlQVG9zGBcgASgNEhgKEEZv",
+            "cndhcmRpbmdTdGF0dXMYGCABKA0SDQoFSVBUVEwYGSABKA0SEAoIVENQRmxh",
+            "Z3MYGiABKA0SEAoISWNtcFR5cGUYHyABKA0SEAoISWNtcENvZGUYICABKA0S",
+            "FQoNSVB2NkZsb3dMYWJlbBglIAEoDRISCgpGcmFnbWVudElkGCMgASgNEhYK",
+            "DkZyYWdtZW50T2Zmc2V0GCQgASgNEhcKD0JpRmxvd0RpcmVjdGlvbhgpIAEo",
+            "DRINCgVTcmNBUxgOIAEoDRINCgVEc3RBUxgPIAEoDRIPCgdOZXh0SG9wGAwg",
+            "ASgMEhEKCU5leHRIb3BBUxgNIAEoDRIOCgZTcmNOZXQYECABKA0SDgoGRHN0",
+            "TmV0GBEgASgNEhAKCEhhc0VuY2FwGCsgASgIEhQKDFNyY0FkZHJFbmNhcBgs",
+            "IAEoDBIUCgxEc3RBZGRyRW5jYXAYLSABKAwSEgoKUHJvdG9FbmNhcBguIAEo",
+            "DRISCgpFdHlwZUVuY2FwGC8gASgNEhIKCklQVG9zRW5jYXAYMCABKA0SEgoK",
+            "SVBUVExFbmNhcBgxIAEoDRIaChJJUHY2Rmxvd0xhYmVsRW5jYXAYMiABKA0S",
+            "FwoPRnJhZ21lbnRJZEVuY2FwGDMgASgNEhsKE0ZyYWdtZW50T2Zmc2V0RW5j",
+            "YXAYNCABKA0SDwoHSGFzTVBMUxg1IAEoCBIRCglNUExTQ291bnQYNiABKA0S",
+            "EAoITVBMUzFUVEwYNyABKA0SEgoKTVBMUzFMYWJlbBg4IAEoDRIQCghNUExT",
+            "MlRUTBg5IAEoDRISCgpNUExTMkxhYmVsGDogASgNEhAKCE1QTFMzVFRMGDsg",
+            "ASgNEhIKCk1QTFMzTGFiZWwYPCABKA0SEwoLTVBMU0xhc3RUVEwYPSABKA0S",
+            "FQoNTVBMU0xhc3RMYWJlbBg+IAEoDRIOCgZIYXNQUFAYPyABKAgSGQoRUFBQ",
+            "QWRkcmVzc0NvbnRyb2wYQCABKA0SDAoDQ2lkGOgHIAEoDRISCglDaWRTdHJp",
+            "bmcY6QcgASgJEkQKCk5vcm1hbGl6ZWQY6gcgASgOMi8uZmxvd21lc3NhZ2Vl",
+            "bnJpY2hlZC5GbG93TWVzc2FnZS5Ob3JtYWxpemVkVHlwZRISCglTcmNJZk5h",
+            "bWUY6wcgASgJEhIKCVNyY0lmRGVzYxjsByABKAkSEwoKU3JjSWZTcGVlZBjt",
+            "ByABKA0SEgoJRHN0SWZOYW1lGO4HIAEoCRISCglEc3RJZkRlc2MY7wcgASgJ",
+            "EhMKCkRzdElmU3BlZWQY8AcgASgNEhIKCVByb3RvTmFtZRjxByABKAkSFgoN",
+            "UmVtb3RlQ291bnRyeRjyByABKAkiUwoIRmxvd1R5cGUSDwoLRkxPV1VOS05P",
+            "V04QABILCgdTRkxPV181EAESDgoKTkVURkxPV19WNRACEg4KCk5FVEZMT1df",
+            "VjkQAxIJCgVJUEZJWBAEIiEKDk5vcm1hbGl6ZWRUeXBlEgYKAk5vEAASBwoD",
+            "WWVzEAFCIgoJYnduZXRmbG93QhVGbG93TWVzc2FnZUVucmljaGVkUGJiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "SrcIf", "DstIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "IPv6ExtensionHeaders", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType) }, null)
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasEncap", "SrcAddrEncap", "DstAddrEncap", "ProtoEncap", "EtypeEncap", "IPTosEncap", "IPTTLEncap", "IPv6FlowLabelEncap", "FragmentIdEncap", "FragmentOffsetEncap", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "HasPPP", "PPPAddressControl", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType) }, null, null)
           }));
     }
     #endregion
@@ -105,8 +115,8 @@ namespace Flowmessageenriched {
       proto_ = other.proto_;
       srcPort_ = other.srcPort_;
       dstPort_ = other.dstPort_;
-      srcIf_ = other.srcIf_;
-      dstIf_ = other.dstIf_;
+      inIf_ = other.inIf_;
+      outIf_ = other.outIf_;
       srcMac_ = other.srcMac_;
       dstMac_ = other.dstMac_;
       srcVlan_ = other.srcVlan_;
@@ -121,7 +131,6 @@ namespace Flowmessageenriched {
       icmpType_ = other.icmpType_;
       icmpCode_ = other.icmpCode_;
       iPv6FlowLabel_ = other.iPv6FlowLabel_;
-      iPv6ExtensionHeaders_ = other.iPv6ExtensionHeaders_;
       fragmentId_ = other.fragmentId_;
       fragmentOffset_ = other.fragmentOffset_;
       biFlowDirection_ = other.biFlowDirection_;
@@ -131,6 +140,28 @@ namespace Flowmessageenriched {
       nextHopAS_ = other.nextHopAS_;
       srcNet_ = other.srcNet_;
       dstNet_ = other.dstNet_;
+      hasEncap_ = other.hasEncap_;
+      srcAddrEncap_ = other.srcAddrEncap_;
+      dstAddrEncap_ = other.dstAddrEncap_;
+      protoEncap_ = other.protoEncap_;
+      etypeEncap_ = other.etypeEncap_;
+      iPTosEncap_ = other.iPTosEncap_;
+      iPTTLEncap_ = other.iPTTLEncap_;
+      iPv6FlowLabelEncap_ = other.iPv6FlowLabelEncap_;
+      fragmentIdEncap_ = other.fragmentIdEncap_;
+      fragmentOffsetEncap_ = other.fragmentOffsetEncap_;
+      hasMPLS_ = other.hasMPLS_;
+      mPLSCount_ = other.mPLSCount_;
+      mPLS1TTL_ = other.mPLS1TTL_;
+      mPLS1Label_ = other.mPLS1Label_;
+      mPLS2TTL_ = other.mPLS2TTL_;
+      mPLS2Label_ = other.mPLS2Label_;
+      mPLS3TTL_ = other.mPLS3TTL_;
+      mPLS3Label_ = other.mPLS3Label_;
+      mPLSLastTTL_ = other.mPLSLastTTL_;
+      mPLSLastLabel_ = other.mPLSLastLabel_;
+      hasPPP_ = other.hasPPP_;
+      pPPAddressControl_ = other.pPPAddressControl_;
       cid_ = other.cid_;
       cidString_ = other.cidString_;
       normalized_ = other.normalized_;
@@ -152,7 +183,7 @@ namespace Flowmessageenriched {
 
     /// <summary>Field number for the "Type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::Flowmessageenriched.FlowMessage.Types.FlowType type_ = 0;
+    private global::Flowmessageenriched.FlowMessage.Types.FlowType type_ = global::Flowmessageenriched.FlowMessage.Types.FlowType.Flowunknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Flowmessageenriched.FlowMessage.Types.FlowType Type {
       get { return type_; }
@@ -298,7 +329,7 @@ namespace Flowmessageenriched {
     public const int EtypeFieldNumber = 30;
     private uint etype_;
     /// <summary>
-    /// Layer 3 protocol (IPv4/IPv6/ARP/...)
+    /// Layer 3 protocol (IPv4/IPv6/ARP/MPLS...)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Etype {
@@ -347,28 +378,28 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "SrcIf" field.</summary>
-    public const int SrcIfFieldNumber = 18;
-    private uint srcIf_;
+    /// <summary>Field number for the "InIf" field.</summary>
+    public const int InIfFieldNumber = 18;
+    private uint inIf_;
     /// <summary>
     /// Interfaces
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint SrcIf {
-      get { return srcIf_; }
+    public uint InIf {
+      get { return inIf_; }
       set {
-        srcIf_ = value;
+        inIf_ = value;
       }
     }
 
-    /// <summary>Field number for the "DstIf" field.</summary>
-    public const int DstIfFieldNumber = 19;
-    private uint dstIf_;
+    /// <summary>Field number for the "OutIf" field.</summary>
+    public const int OutIfFieldNumber = 19;
+    private uint outIf_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint DstIf {
-      get { return dstIf_; }
+    public uint OutIf {
+      get { return outIf_; }
       set {
-        dstIf_ = value;
+        outIf_ = value;
       }
     }
 
@@ -541,17 +572,6 @@ namespace Flowmessageenriched {
       }
     }
 
-    /// <summary>Field number for the "IPv6ExtensionHeaders" field.</summary>
-    public const int IPv6ExtensionHeadersFieldNumber = 43;
-    private uint iPv6ExtensionHeaders_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint IPv6ExtensionHeaders {
-      get { return iPv6ExtensionHeaders_; }
-      set {
-        iPv6ExtensionHeaders_ = value;
-      }
-    }
-
     /// <summary>Field number for the "FragmentId" field.</summary>
     public const int FragmentIdFieldNumber = 35;
     private uint fragmentId_;
@@ -660,6 +680,281 @@ namespace Flowmessageenriched {
       }
     }
 
+    /// <summary>Field number for the "HasEncap" field.</summary>
+    public const int HasEncapFieldNumber = 43;
+    private bool hasEncap_;
+    /// <summary>
+    /// IP encapsulation information
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool HasEncap {
+      get { return hasEncap_; }
+      set {
+        hasEncap_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SrcAddrEncap" field.</summary>
+    public const int SrcAddrEncapFieldNumber = 44;
+    private pb::ByteString srcAddrEncap_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString SrcAddrEncap {
+      get { return srcAddrEncap_; }
+      set {
+        srcAddrEncap_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "DstAddrEncap" field.</summary>
+    public const int DstAddrEncapFieldNumber = 45;
+    private pb::ByteString dstAddrEncap_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString DstAddrEncap {
+      get { return dstAddrEncap_; }
+      set {
+        dstAddrEncap_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ProtoEncap" field.</summary>
+    public const int ProtoEncapFieldNumber = 46;
+    private uint protoEncap_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint ProtoEncap {
+      get { return protoEncap_; }
+      set {
+        protoEncap_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EtypeEncap" field.</summary>
+    public const int EtypeEncapFieldNumber = 47;
+    private uint etypeEncap_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint EtypeEncap {
+      get { return etypeEncap_; }
+      set {
+        etypeEncap_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IPTosEncap" field.</summary>
+    public const int IPTosEncapFieldNumber = 48;
+    private uint iPTosEncap_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint IPTosEncap {
+      get { return iPTosEncap_; }
+      set {
+        iPTosEncap_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IPTTLEncap" field.</summary>
+    public const int IPTTLEncapFieldNumber = 49;
+    private uint iPTTLEncap_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint IPTTLEncap {
+      get { return iPTTLEncap_; }
+      set {
+        iPTTLEncap_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IPv6FlowLabelEncap" field.</summary>
+    public const int IPv6FlowLabelEncapFieldNumber = 50;
+    private uint iPv6FlowLabelEncap_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint IPv6FlowLabelEncap {
+      get { return iPv6FlowLabelEncap_; }
+      set {
+        iPv6FlowLabelEncap_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FragmentIdEncap" field.</summary>
+    public const int FragmentIdEncapFieldNumber = 51;
+    private uint fragmentIdEncap_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint FragmentIdEncap {
+      get { return fragmentIdEncap_; }
+      set {
+        fragmentIdEncap_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FragmentOffsetEncap" field.</summary>
+    public const int FragmentOffsetEncapFieldNumber = 52;
+    private uint fragmentOffsetEncap_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint FragmentOffsetEncap {
+      get { return fragmentOffsetEncap_; }
+      set {
+        fragmentOffsetEncap_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "HasMPLS" field.</summary>
+    public const int HasMPLSFieldNumber = 53;
+    private bool hasMPLS_;
+    /// <summary>
+    /// MPLS information
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool HasMPLS {
+      get { return hasMPLS_; }
+      set {
+        hasMPLS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MPLSCount" field.</summary>
+    public const int MPLSCountFieldNumber = 54;
+    private uint mPLSCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint MPLSCount {
+      get { return mPLSCount_; }
+      set {
+        mPLSCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MPLS1TTL" field.</summary>
+    public const int MPLS1TTLFieldNumber = 55;
+    private uint mPLS1TTL_;
+    /// <summary>
+    /// First TTL
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint MPLS1TTL {
+      get { return mPLS1TTL_; }
+      set {
+        mPLS1TTL_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MPLS1Label" field.</summary>
+    public const int MPLS1LabelFieldNumber = 56;
+    private uint mPLS1Label_;
+    /// <summary>
+    /// First Label
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint MPLS1Label {
+      get { return mPLS1Label_; }
+      set {
+        mPLS1Label_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MPLS2TTL" field.</summary>
+    public const int MPLS2TTLFieldNumber = 57;
+    private uint mPLS2TTL_;
+    /// <summary>
+    /// Second TTL
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint MPLS2TTL {
+      get { return mPLS2TTL_; }
+      set {
+        mPLS2TTL_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MPLS2Label" field.</summary>
+    public const int MPLS2LabelFieldNumber = 58;
+    private uint mPLS2Label_;
+    /// <summary>
+    /// Second Label
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint MPLS2Label {
+      get { return mPLS2Label_; }
+      set {
+        mPLS2Label_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MPLS3TTL" field.</summary>
+    public const int MPLS3TTLFieldNumber = 59;
+    private uint mPLS3TTL_;
+    /// <summary>
+    /// Third TTL
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint MPLS3TTL {
+      get { return mPLS3TTL_; }
+      set {
+        mPLS3TTL_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MPLS3Label" field.</summary>
+    public const int MPLS3LabelFieldNumber = 60;
+    private uint mPLS3Label_;
+    /// <summary>
+    /// Third Label
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint MPLS3Label {
+      get { return mPLS3Label_; }
+      set {
+        mPLS3Label_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MPLSLastTTL" field.</summary>
+    public const int MPLSLastTTLFieldNumber = 61;
+    private uint mPLSLastTTL_;
+    /// <summary>
+    /// Last TTL
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint MPLSLastTTL {
+      get { return mPLSLastTTL_; }
+      set {
+        mPLSLastTTL_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MPLSLastLabel" field.</summary>
+    public const int MPLSLastLabelFieldNumber = 62;
+    private uint mPLSLastLabel_;
+    /// <summary>
+    /// Last Label
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint MPLSLastLabel {
+      get { return mPLSLastLabel_; }
+      set {
+        mPLSLastLabel_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "HasPPP" field.</summary>
+    public const int HasPPPFieldNumber = 63;
+    private bool hasPPP_;
+    /// <summary>
+    /// PPP information
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool HasPPP {
+      get { return hasPPP_; }
+      set {
+        hasPPP_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PPPAddressControl" field.</summary>
+    public const int PPPAddressControlFieldNumber = 64;
+    private uint pPPAddressControl_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint PPPAddressControl {
+      get { return pPPAddressControl_; }
+      set {
+        pPPAddressControl_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Cid" field.</summary>
     public const int CidFieldNumber = 1000;
     private uint cid_;
@@ -690,7 +985,7 @@ namespace Flowmessageenriched {
 
     /// <summary>Field number for the "Normalized" field.</summary>
     public const int NormalizedFieldNumber = 1002;
-    private global::Flowmessageenriched.FlowMessage.Types.NormalizedType normalized_ = 0;
+    private global::Flowmessageenriched.FlowMessage.Types.NormalizedType normalized_ = global::Flowmessageenriched.FlowMessage.Types.NormalizedType.No;
     /// <summary>
     /// Normalization - whether the sampling rate is accounted for
     /// </summary>
@@ -834,8 +1129,8 @@ namespace Flowmessageenriched {
       if (Proto != other.Proto) return false;
       if (SrcPort != other.SrcPort) return false;
       if (DstPort != other.DstPort) return false;
-      if (SrcIf != other.SrcIf) return false;
-      if (DstIf != other.DstIf) return false;
+      if (InIf != other.InIf) return false;
+      if (OutIf != other.OutIf) return false;
       if (SrcMac != other.SrcMac) return false;
       if (DstMac != other.DstMac) return false;
       if (SrcVlan != other.SrcVlan) return false;
@@ -850,7 +1145,6 @@ namespace Flowmessageenriched {
       if (IcmpType != other.IcmpType) return false;
       if (IcmpCode != other.IcmpCode) return false;
       if (IPv6FlowLabel != other.IPv6FlowLabel) return false;
-      if (IPv6ExtensionHeaders != other.IPv6ExtensionHeaders) return false;
       if (FragmentId != other.FragmentId) return false;
       if (FragmentOffset != other.FragmentOffset) return false;
       if (BiFlowDirection != other.BiFlowDirection) return false;
@@ -860,6 +1154,28 @@ namespace Flowmessageenriched {
       if (NextHopAS != other.NextHopAS) return false;
       if (SrcNet != other.SrcNet) return false;
       if (DstNet != other.DstNet) return false;
+      if (HasEncap != other.HasEncap) return false;
+      if (SrcAddrEncap != other.SrcAddrEncap) return false;
+      if (DstAddrEncap != other.DstAddrEncap) return false;
+      if (ProtoEncap != other.ProtoEncap) return false;
+      if (EtypeEncap != other.EtypeEncap) return false;
+      if (IPTosEncap != other.IPTosEncap) return false;
+      if (IPTTLEncap != other.IPTTLEncap) return false;
+      if (IPv6FlowLabelEncap != other.IPv6FlowLabelEncap) return false;
+      if (FragmentIdEncap != other.FragmentIdEncap) return false;
+      if (FragmentOffsetEncap != other.FragmentOffsetEncap) return false;
+      if (HasMPLS != other.HasMPLS) return false;
+      if (MPLSCount != other.MPLSCount) return false;
+      if (MPLS1TTL != other.MPLS1TTL) return false;
+      if (MPLS1Label != other.MPLS1Label) return false;
+      if (MPLS2TTL != other.MPLS2TTL) return false;
+      if (MPLS2Label != other.MPLS2Label) return false;
+      if (MPLS3TTL != other.MPLS3TTL) return false;
+      if (MPLS3Label != other.MPLS3Label) return false;
+      if (MPLSLastTTL != other.MPLSLastTTL) return false;
+      if (MPLSLastLabel != other.MPLSLastLabel) return false;
+      if (HasPPP != other.HasPPP) return false;
+      if (PPPAddressControl != other.PPPAddressControl) return false;
       if (Cid != other.Cid) return false;
       if (CidString != other.CidString) return false;
       if (Normalized != other.Normalized) return false;
@@ -877,7 +1193,7 @@ namespace Flowmessageenriched {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Type != global::Flowmessageenriched.FlowMessage.Types.FlowType.Flowunknown) hash ^= Type.GetHashCode();
       if (TimeReceived != 0UL) hash ^= TimeReceived.GetHashCode();
       if (SequenceNum != 0) hash ^= SequenceNum.GetHashCode();
       if (SamplingRate != 0UL) hash ^= SamplingRate.GetHashCode();
@@ -893,8 +1209,8 @@ namespace Flowmessageenriched {
       if (Proto != 0) hash ^= Proto.GetHashCode();
       if (SrcPort != 0) hash ^= SrcPort.GetHashCode();
       if (DstPort != 0) hash ^= DstPort.GetHashCode();
-      if (SrcIf != 0) hash ^= SrcIf.GetHashCode();
-      if (DstIf != 0) hash ^= DstIf.GetHashCode();
+      if (InIf != 0) hash ^= InIf.GetHashCode();
+      if (OutIf != 0) hash ^= OutIf.GetHashCode();
       if (SrcMac != 0UL) hash ^= SrcMac.GetHashCode();
       if (DstMac != 0UL) hash ^= DstMac.GetHashCode();
       if (SrcVlan != 0) hash ^= SrcVlan.GetHashCode();
@@ -909,7 +1225,6 @@ namespace Flowmessageenriched {
       if (IcmpType != 0) hash ^= IcmpType.GetHashCode();
       if (IcmpCode != 0) hash ^= IcmpCode.GetHashCode();
       if (IPv6FlowLabel != 0) hash ^= IPv6FlowLabel.GetHashCode();
-      if (IPv6ExtensionHeaders != 0) hash ^= IPv6ExtensionHeaders.GetHashCode();
       if (FragmentId != 0) hash ^= FragmentId.GetHashCode();
       if (FragmentOffset != 0) hash ^= FragmentOffset.GetHashCode();
       if (BiFlowDirection != 0) hash ^= BiFlowDirection.GetHashCode();
@@ -919,9 +1234,31 @@ namespace Flowmessageenriched {
       if (NextHopAS != 0) hash ^= NextHopAS.GetHashCode();
       if (SrcNet != 0) hash ^= SrcNet.GetHashCode();
       if (DstNet != 0) hash ^= DstNet.GetHashCode();
+      if (HasEncap != false) hash ^= HasEncap.GetHashCode();
+      if (SrcAddrEncap.Length != 0) hash ^= SrcAddrEncap.GetHashCode();
+      if (DstAddrEncap.Length != 0) hash ^= DstAddrEncap.GetHashCode();
+      if (ProtoEncap != 0) hash ^= ProtoEncap.GetHashCode();
+      if (EtypeEncap != 0) hash ^= EtypeEncap.GetHashCode();
+      if (IPTosEncap != 0) hash ^= IPTosEncap.GetHashCode();
+      if (IPTTLEncap != 0) hash ^= IPTTLEncap.GetHashCode();
+      if (IPv6FlowLabelEncap != 0) hash ^= IPv6FlowLabelEncap.GetHashCode();
+      if (FragmentIdEncap != 0) hash ^= FragmentIdEncap.GetHashCode();
+      if (FragmentOffsetEncap != 0) hash ^= FragmentOffsetEncap.GetHashCode();
+      if (HasMPLS != false) hash ^= HasMPLS.GetHashCode();
+      if (MPLSCount != 0) hash ^= MPLSCount.GetHashCode();
+      if (MPLS1TTL != 0) hash ^= MPLS1TTL.GetHashCode();
+      if (MPLS1Label != 0) hash ^= MPLS1Label.GetHashCode();
+      if (MPLS2TTL != 0) hash ^= MPLS2TTL.GetHashCode();
+      if (MPLS2Label != 0) hash ^= MPLS2Label.GetHashCode();
+      if (MPLS3TTL != 0) hash ^= MPLS3TTL.GetHashCode();
+      if (MPLS3Label != 0) hash ^= MPLS3Label.GetHashCode();
+      if (MPLSLastTTL != 0) hash ^= MPLSLastTTL.GetHashCode();
+      if (MPLSLastLabel != 0) hash ^= MPLSLastLabel.GetHashCode();
+      if (HasPPP != false) hash ^= HasPPP.GetHashCode();
+      if (PPPAddressControl != 0) hash ^= PPPAddressControl.GetHashCode();
       if (Cid != 0) hash ^= Cid.GetHashCode();
       if (CidString.Length != 0) hash ^= CidString.GetHashCode();
-      if (Normalized != 0) hash ^= Normalized.GetHashCode();
+      if (Normalized != global::Flowmessageenriched.FlowMessage.Types.NormalizedType.No) hash ^= Normalized.GetHashCode();
       if (SrcIfName.Length != 0) hash ^= SrcIfName.GetHashCode();
       if (SrcIfDesc.Length != 0) hash ^= SrcIfDesc.GetHashCode();
       if (SrcIfSpeed != 0) hash ^= SrcIfSpeed.GetHashCode();
@@ -943,7 +1280,7 @@ namespace Flowmessageenriched {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Type != 0) {
+      if (Type != global::Flowmessageenriched.FlowMessage.Types.FlowType.Flowunknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
@@ -1007,13 +1344,13 @@ namespace Flowmessageenriched {
         output.WriteRawTag(136, 1);
         output.WriteUInt32(DstNet);
       }
-      if (SrcIf != 0) {
+      if (InIf != 0) {
         output.WriteRawTag(144, 1);
-        output.WriteUInt32(SrcIf);
+        output.WriteUInt32(InIf);
       }
-      if (DstIf != 0) {
+      if (OutIf != 0) {
         output.WriteRawTag(152, 1);
-        output.WriteUInt32(DstIf);
+        output.WriteUInt32(OutIf);
       }
       if (Proto != 0) {
         output.WriteRawTag(160, 1);
@@ -1107,9 +1444,93 @@ namespace Flowmessageenriched {
         output.WriteRawTag(208, 2);
         output.WriteUInt32(FlowDirection);
       }
-      if (IPv6ExtensionHeaders != 0) {
+      if (HasEncap != false) {
         output.WriteRawTag(216, 2);
-        output.WriteUInt32(IPv6ExtensionHeaders);
+        output.WriteBool(HasEncap);
+      }
+      if (SrcAddrEncap.Length != 0) {
+        output.WriteRawTag(226, 2);
+        output.WriteBytes(SrcAddrEncap);
+      }
+      if (DstAddrEncap.Length != 0) {
+        output.WriteRawTag(234, 2);
+        output.WriteBytes(DstAddrEncap);
+      }
+      if (ProtoEncap != 0) {
+        output.WriteRawTag(240, 2);
+        output.WriteUInt32(ProtoEncap);
+      }
+      if (EtypeEncap != 0) {
+        output.WriteRawTag(248, 2);
+        output.WriteUInt32(EtypeEncap);
+      }
+      if (IPTosEncap != 0) {
+        output.WriteRawTag(128, 3);
+        output.WriteUInt32(IPTosEncap);
+      }
+      if (IPTTLEncap != 0) {
+        output.WriteRawTag(136, 3);
+        output.WriteUInt32(IPTTLEncap);
+      }
+      if (IPv6FlowLabelEncap != 0) {
+        output.WriteRawTag(144, 3);
+        output.WriteUInt32(IPv6FlowLabelEncap);
+      }
+      if (FragmentIdEncap != 0) {
+        output.WriteRawTag(152, 3);
+        output.WriteUInt32(FragmentIdEncap);
+      }
+      if (FragmentOffsetEncap != 0) {
+        output.WriteRawTag(160, 3);
+        output.WriteUInt32(FragmentOffsetEncap);
+      }
+      if (HasMPLS != false) {
+        output.WriteRawTag(168, 3);
+        output.WriteBool(HasMPLS);
+      }
+      if (MPLSCount != 0) {
+        output.WriteRawTag(176, 3);
+        output.WriteUInt32(MPLSCount);
+      }
+      if (MPLS1TTL != 0) {
+        output.WriteRawTag(184, 3);
+        output.WriteUInt32(MPLS1TTL);
+      }
+      if (MPLS1Label != 0) {
+        output.WriteRawTag(192, 3);
+        output.WriteUInt32(MPLS1Label);
+      }
+      if (MPLS2TTL != 0) {
+        output.WriteRawTag(200, 3);
+        output.WriteUInt32(MPLS2TTL);
+      }
+      if (MPLS2Label != 0) {
+        output.WriteRawTag(208, 3);
+        output.WriteUInt32(MPLS2Label);
+      }
+      if (MPLS3TTL != 0) {
+        output.WriteRawTag(216, 3);
+        output.WriteUInt32(MPLS3TTL);
+      }
+      if (MPLS3Label != 0) {
+        output.WriteRawTag(224, 3);
+        output.WriteUInt32(MPLS3Label);
+      }
+      if (MPLSLastTTL != 0) {
+        output.WriteRawTag(232, 3);
+        output.WriteUInt32(MPLSLastTTL);
+      }
+      if (MPLSLastLabel != 0) {
+        output.WriteRawTag(240, 3);
+        output.WriteUInt32(MPLSLastLabel);
+      }
+      if (HasPPP != false) {
+        output.WriteRawTag(248, 3);
+        output.WriteBool(HasPPP);
+      }
+      if (PPPAddressControl != 0) {
+        output.WriteRawTag(128, 4);
+        output.WriteUInt32(PPPAddressControl);
       }
       if (Cid != 0) {
         output.WriteRawTag(192, 62);
@@ -1119,7 +1540,7 @@ namespace Flowmessageenriched {
         output.WriteRawTag(202, 62);
         output.WriteString(CidString);
       }
-      if (Normalized != 0) {
+      if (Normalized != global::Flowmessageenriched.FlowMessage.Types.NormalizedType.No) {
         output.WriteRawTag(208, 62);
         output.WriteEnum((int) Normalized);
       }
@@ -1163,7 +1584,7 @@ namespace Flowmessageenriched {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Type != 0) {
+      if (Type != global::Flowmessageenriched.FlowMessage.Types.FlowType.Flowunknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (TimeReceived != 0UL) {
@@ -1211,11 +1632,11 @@ namespace Flowmessageenriched {
       if (DstPort != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstPort);
       }
-      if (SrcIf != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(SrcIf);
+      if (InIf != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(InIf);
       }
-      if (DstIf != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstIf);
+      if (OutIf != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(OutIf);
       }
       if (SrcMac != 0UL) {
         size += 2 + pb::CodedOutputStream.ComputeUInt64Size(SrcMac);
@@ -1259,9 +1680,6 @@ namespace Flowmessageenriched {
       if (IPv6FlowLabel != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPv6FlowLabel);
       }
-      if (IPv6ExtensionHeaders != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPv6ExtensionHeaders);
-      }
       if (FragmentId != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(FragmentId);
       }
@@ -1289,13 +1707,79 @@ namespace Flowmessageenriched {
       if (DstNet != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstNet);
       }
+      if (HasEncap != false) {
+        size += 2 + 1;
+      }
+      if (SrcAddrEncap.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeBytesSize(SrcAddrEncap);
+      }
+      if (DstAddrEncap.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeBytesSize(DstAddrEncap);
+      }
+      if (ProtoEncap != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ProtoEncap);
+      }
+      if (EtypeEncap != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(EtypeEncap);
+      }
+      if (IPTosEncap != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPTosEncap);
+      }
+      if (IPTTLEncap != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPTTLEncap);
+      }
+      if (IPv6FlowLabelEncap != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(IPv6FlowLabelEncap);
+      }
+      if (FragmentIdEncap != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(FragmentIdEncap);
+      }
+      if (FragmentOffsetEncap != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(FragmentOffsetEncap);
+      }
+      if (HasMPLS != false) {
+        size += 2 + 1;
+      }
+      if (MPLSCount != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MPLSCount);
+      }
+      if (MPLS1TTL != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MPLS1TTL);
+      }
+      if (MPLS1Label != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MPLS1Label);
+      }
+      if (MPLS2TTL != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MPLS2TTL);
+      }
+      if (MPLS2Label != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MPLS2Label);
+      }
+      if (MPLS3TTL != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MPLS3TTL);
+      }
+      if (MPLS3Label != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MPLS3Label);
+      }
+      if (MPLSLastTTL != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MPLSLastTTL);
+      }
+      if (MPLSLastLabel != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MPLSLastLabel);
+      }
+      if (HasPPP != false) {
+        size += 2 + 1;
+      }
+      if (PPPAddressControl != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(PPPAddressControl);
+      }
       if (Cid != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Cid);
       }
       if (CidString.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(CidString);
       }
-      if (Normalized != 0) {
+      if (Normalized != global::Flowmessageenriched.FlowMessage.Types.NormalizedType.No) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Normalized);
       }
       if (SrcIfName.Length != 0) {
@@ -1333,7 +1817,7 @@ namespace Flowmessageenriched {
       if (other == null) {
         return;
       }
-      if (other.Type != 0) {
+      if (other.Type != global::Flowmessageenriched.FlowMessage.Types.FlowType.Flowunknown) {
         Type = other.Type;
       }
       if (other.TimeReceived != 0UL) {
@@ -1381,11 +1865,11 @@ namespace Flowmessageenriched {
       if (other.DstPort != 0) {
         DstPort = other.DstPort;
       }
-      if (other.SrcIf != 0) {
-        SrcIf = other.SrcIf;
+      if (other.InIf != 0) {
+        InIf = other.InIf;
       }
-      if (other.DstIf != 0) {
-        DstIf = other.DstIf;
+      if (other.OutIf != 0) {
+        OutIf = other.OutIf;
       }
       if (other.SrcMac != 0UL) {
         SrcMac = other.SrcMac;
@@ -1429,9 +1913,6 @@ namespace Flowmessageenriched {
       if (other.IPv6FlowLabel != 0) {
         IPv6FlowLabel = other.IPv6FlowLabel;
       }
-      if (other.IPv6ExtensionHeaders != 0) {
-        IPv6ExtensionHeaders = other.IPv6ExtensionHeaders;
-      }
       if (other.FragmentId != 0) {
         FragmentId = other.FragmentId;
       }
@@ -1459,13 +1940,79 @@ namespace Flowmessageenriched {
       if (other.DstNet != 0) {
         DstNet = other.DstNet;
       }
+      if (other.HasEncap != false) {
+        HasEncap = other.HasEncap;
+      }
+      if (other.SrcAddrEncap.Length != 0) {
+        SrcAddrEncap = other.SrcAddrEncap;
+      }
+      if (other.DstAddrEncap.Length != 0) {
+        DstAddrEncap = other.DstAddrEncap;
+      }
+      if (other.ProtoEncap != 0) {
+        ProtoEncap = other.ProtoEncap;
+      }
+      if (other.EtypeEncap != 0) {
+        EtypeEncap = other.EtypeEncap;
+      }
+      if (other.IPTosEncap != 0) {
+        IPTosEncap = other.IPTosEncap;
+      }
+      if (other.IPTTLEncap != 0) {
+        IPTTLEncap = other.IPTTLEncap;
+      }
+      if (other.IPv6FlowLabelEncap != 0) {
+        IPv6FlowLabelEncap = other.IPv6FlowLabelEncap;
+      }
+      if (other.FragmentIdEncap != 0) {
+        FragmentIdEncap = other.FragmentIdEncap;
+      }
+      if (other.FragmentOffsetEncap != 0) {
+        FragmentOffsetEncap = other.FragmentOffsetEncap;
+      }
+      if (other.HasMPLS != false) {
+        HasMPLS = other.HasMPLS;
+      }
+      if (other.MPLSCount != 0) {
+        MPLSCount = other.MPLSCount;
+      }
+      if (other.MPLS1TTL != 0) {
+        MPLS1TTL = other.MPLS1TTL;
+      }
+      if (other.MPLS1Label != 0) {
+        MPLS1Label = other.MPLS1Label;
+      }
+      if (other.MPLS2TTL != 0) {
+        MPLS2TTL = other.MPLS2TTL;
+      }
+      if (other.MPLS2Label != 0) {
+        MPLS2Label = other.MPLS2Label;
+      }
+      if (other.MPLS3TTL != 0) {
+        MPLS3TTL = other.MPLS3TTL;
+      }
+      if (other.MPLS3Label != 0) {
+        MPLS3Label = other.MPLS3Label;
+      }
+      if (other.MPLSLastTTL != 0) {
+        MPLSLastTTL = other.MPLSLastTTL;
+      }
+      if (other.MPLSLastLabel != 0) {
+        MPLSLastLabel = other.MPLSLastLabel;
+      }
+      if (other.HasPPP != false) {
+        HasPPP = other.HasPPP;
+      }
+      if (other.PPPAddressControl != 0) {
+        PPPAddressControl = other.PPPAddressControl;
+      }
       if (other.Cid != 0) {
         Cid = other.Cid;
       }
       if (other.CidString.Length != 0) {
         CidString = other.CidString;
       }
-      if (other.Normalized != 0) {
+      if (other.Normalized != global::Flowmessageenriched.FlowMessage.Types.NormalizedType.No) {
         Normalized = other.Normalized;
       }
       if (other.SrcIfName.Length != 0) {
@@ -1568,11 +2115,11 @@ namespace Flowmessageenriched {
             break;
           }
           case 144: {
-            SrcIf = input.ReadUInt32();
+            InIf = input.ReadUInt32();
             break;
           }
           case 152: {
-            DstIf = input.ReadUInt32();
+            OutIf = input.ReadUInt32();
             break;
           }
           case 160: {
@@ -1668,7 +2215,91 @@ namespace Flowmessageenriched {
             break;
           }
           case 344: {
-            IPv6ExtensionHeaders = input.ReadUInt32();
+            HasEncap = input.ReadBool();
+            break;
+          }
+          case 354: {
+            SrcAddrEncap = input.ReadBytes();
+            break;
+          }
+          case 362: {
+            DstAddrEncap = input.ReadBytes();
+            break;
+          }
+          case 368: {
+            ProtoEncap = input.ReadUInt32();
+            break;
+          }
+          case 376: {
+            EtypeEncap = input.ReadUInt32();
+            break;
+          }
+          case 384: {
+            IPTosEncap = input.ReadUInt32();
+            break;
+          }
+          case 392: {
+            IPTTLEncap = input.ReadUInt32();
+            break;
+          }
+          case 400: {
+            IPv6FlowLabelEncap = input.ReadUInt32();
+            break;
+          }
+          case 408: {
+            FragmentIdEncap = input.ReadUInt32();
+            break;
+          }
+          case 416: {
+            FragmentOffsetEncap = input.ReadUInt32();
+            break;
+          }
+          case 424: {
+            HasMPLS = input.ReadBool();
+            break;
+          }
+          case 432: {
+            MPLSCount = input.ReadUInt32();
+            break;
+          }
+          case 440: {
+            MPLS1TTL = input.ReadUInt32();
+            break;
+          }
+          case 448: {
+            MPLS1Label = input.ReadUInt32();
+            break;
+          }
+          case 456: {
+            MPLS2TTL = input.ReadUInt32();
+            break;
+          }
+          case 464: {
+            MPLS2Label = input.ReadUInt32();
+            break;
+          }
+          case 472: {
+            MPLS3TTL = input.ReadUInt32();
+            break;
+          }
+          case 480: {
+            MPLS3Label = input.ReadUInt32();
+            break;
+          }
+          case 488: {
+            MPLSLastTTL = input.ReadUInt32();
+            break;
+          }
+          case 496: {
+            MPLSLastLabel = input.ReadUInt32();
+            break;
+          }
+          case 504: {
+            HasPPP = input.ReadBool();
+            break;
+          }
+          case 512: {
+            PPPAddressControl = input.ReadUInt32();
             break;
           }
           case 8000: {

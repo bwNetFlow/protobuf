@@ -1,3 +1,4 @@
+// source: flow-messages-enriched.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -41,13 +42,15 @@ if (goog.DEBUG && !COMPILED) {
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
 /**
- * Creates an object representation of this proto suitable for use in Soy templates.
+ * Creates an object representation of this proto.
  * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
  * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
  * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
  * @return {!Object}
  */
 proto.flowmessageenriched.FlowMessage.prototype.toObject = function(opt_includeInstance) {
@@ -57,15 +60,15 @@ proto.flowmessageenriched.FlowMessage.prototype.toObject = function(opt_includeI
 
 /**
  * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
  * @param {!proto.flowmessageenriched.FlowMessage} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) {
-  var obj = {
+  var f, obj = {
     type: jspb.Message.getFieldWithDefault(msg, 1, 0),
     timereceived: jspb.Message.getFieldWithDefault(msg, 2, 0),
     sequencenum: jspb.Message.getFieldWithDefault(msg, 4, 0),
@@ -82,8 +85,8 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     proto: jspb.Message.getFieldWithDefault(msg, 20, 0),
     srcport: jspb.Message.getFieldWithDefault(msg, 21, 0),
     dstport: jspb.Message.getFieldWithDefault(msg, 22, 0),
-    srcif: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    dstif: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    inif: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    outif: jspb.Message.getFieldWithDefault(msg, 19, 0),
     srcmac: jspb.Message.getFieldWithDefault(msg, 27, 0),
     dstmac: jspb.Message.getFieldWithDefault(msg, 28, 0),
     srcvlan: jspb.Message.getFieldWithDefault(msg, 33, 0),
@@ -98,7 +101,6 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     icmptype: jspb.Message.getFieldWithDefault(msg, 31, 0),
     icmpcode: jspb.Message.getFieldWithDefault(msg, 32, 0),
     ipv6flowlabel: jspb.Message.getFieldWithDefault(msg, 37, 0),
-    ipv6extensionheaders: jspb.Message.getFieldWithDefault(msg, 43, 0),
     fragmentid: jspb.Message.getFieldWithDefault(msg, 35, 0),
     fragmentoffset: jspb.Message.getFieldWithDefault(msg, 36, 0),
     biflowdirection: jspb.Message.getFieldWithDefault(msg, 41, 0),
@@ -108,6 +110,28 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     nexthopas: jspb.Message.getFieldWithDefault(msg, 13, 0),
     srcnet: jspb.Message.getFieldWithDefault(msg, 16, 0),
     dstnet: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    hasencap: jspb.Message.getBooleanFieldWithDefault(msg, 43, false),
+    srcaddrencap: msg.getSrcaddrencap_asB64(),
+    dstaddrencap: msg.getDstaddrencap_asB64(),
+    protoencap: jspb.Message.getFieldWithDefault(msg, 46, 0),
+    etypeencap: jspb.Message.getFieldWithDefault(msg, 47, 0),
+    iptosencap: jspb.Message.getFieldWithDefault(msg, 48, 0),
+    ipttlencap: jspb.Message.getFieldWithDefault(msg, 49, 0),
+    ipv6flowlabelencap: jspb.Message.getFieldWithDefault(msg, 50, 0),
+    fragmentidencap: jspb.Message.getFieldWithDefault(msg, 51, 0),
+    fragmentoffsetencap: jspb.Message.getFieldWithDefault(msg, 52, 0),
+    hasmpls: jspb.Message.getBooleanFieldWithDefault(msg, 53, false),
+    mplscount: jspb.Message.getFieldWithDefault(msg, 54, 0),
+    mpls1ttl: jspb.Message.getFieldWithDefault(msg, 55, 0),
+    mpls1label: jspb.Message.getFieldWithDefault(msg, 56, 0),
+    mpls2ttl: jspb.Message.getFieldWithDefault(msg, 57, 0),
+    mpls2label: jspb.Message.getFieldWithDefault(msg, 58, 0),
+    mpls3ttl: jspb.Message.getFieldWithDefault(msg, 59, 0),
+    mpls3label: jspb.Message.getFieldWithDefault(msg, 60, 0),
+    mplslastttl: jspb.Message.getFieldWithDefault(msg, 61, 0),
+    mplslastlabel: jspb.Message.getFieldWithDefault(msg, 62, 0),
+    hasppp: jspb.Message.getBooleanFieldWithDefault(msg, 63, false),
+    pppaddresscontrol: jspb.Message.getFieldWithDefault(msg, 64, 0),
     cid: jspb.Message.getFieldWithDefault(msg, 1000, 0),
     cidstring: jspb.Message.getFieldWithDefault(msg, 1001, ""),
     normalized: jspb.Message.getFieldWithDefault(msg, 1002, 0),
@@ -221,11 +245,11 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
       break;
     case 18:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setSrcif(value);
+      msg.setInif(value);
       break;
     case 19:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setDstif(value);
+      msg.setOutif(value);
       break;
     case 27:
       var value = /** @type {number} */ (reader.readUint64());
@@ -283,10 +307,6 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
       var value = /** @type {number} */ (reader.readUint32());
       msg.setIpv6flowlabel(value);
       break;
-    case 43:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setIpv6extensionheaders(value);
-      break;
     case 35:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setFragmentid(value);
@@ -322,6 +342,94 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
     case 17:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setDstnet(value);
+      break;
+    case 43:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setHasencap(value);
+      break;
+    case 44:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setSrcaddrencap(value);
+      break;
+    case 45:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setDstaddrencap(value);
+      break;
+    case 46:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setProtoencap(value);
+      break;
+    case 47:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setEtypeencap(value);
+      break;
+    case 48:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setIptosencap(value);
+      break;
+    case 49:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setIpttlencap(value);
+      break;
+    case 50:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setIpv6flowlabelencap(value);
+      break;
+    case 51:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setFragmentidencap(value);
+      break;
+    case 52:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setFragmentoffsetencap(value);
+      break;
+    case 53:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setHasmpls(value);
+      break;
+    case 54:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMplscount(value);
+      break;
+    case 55:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMpls1ttl(value);
+      break;
+    case 56:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMpls1label(value);
+      break;
+    case 57:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMpls2ttl(value);
+      break;
+    case 58:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMpls2label(value);
+      break;
+    case 59:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMpls3ttl(value);
+      break;
+    case 60:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMpls3label(value);
+      break;
+    case 61:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMplslastttl(value);
+      break;
+    case 62:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMplslastlabel(value);
+      break;
+    case 63:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setHasppp(value);
+      break;
+    case 64:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setPppaddresscontrol(value);
       break;
     case 1000:
       var value = /** @type {number} */ (reader.readUint32());
@@ -508,14 +616,14 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
       f
     );
   }
-  f = message.getSrcif();
+  f = message.getInif();
   if (f !== 0) {
     writer.writeUint32(
       18,
       f
     );
   }
-  f = message.getDstif();
+  f = message.getOutif();
   if (f !== 0) {
     writer.writeUint32(
       19,
@@ -620,13 +728,6 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
       f
     );
   }
-  f = message.getIpv6extensionheaders();
-  if (f !== 0) {
-    writer.writeUint32(
-      43,
-      f
-    );
-  }
   f = message.getFragmentid();
   if (f !== 0) {
     writer.writeUint32(
@@ -687,6 +788,160 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeUint32(
       17,
+      f
+    );
+  }
+  f = message.getHasencap();
+  if (f) {
+    writer.writeBool(
+      43,
+      f
+    );
+  }
+  f = message.getSrcaddrencap_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      44,
+      f
+    );
+  }
+  f = message.getDstaddrencap_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      45,
+      f
+    );
+  }
+  f = message.getProtoencap();
+  if (f !== 0) {
+    writer.writeUint32(
+      46,
+      f
+    );
+  }
+  f = message.getEtypeencap();
+  if (f !== 0) {
+    writer.writeUint32(
+      47,
+      f
+    );
+  }
+  f = message.getIptosencap();
+  if (f !== 0) {
+    writer.writeUint32(
+      48,
+      f
+    );
+  }
+  f = message.getIpttlencap();
+  if (f !== 0) {
+    writer.writeUint32(
+      49,
+      f
+    );
+  }
+  f = message.getIpv6flowlabelencap();
+  if (f !== 0) {
+    writer.writeUint32(
+      50,
+      f
+    );
+  }
+  f = message.getFragmentidencap();
+  if (f !== 0) {
+    writer.writeUint32(
+      51,
+      f
+    );
+  }
+  f = message.getFragmentoffsetencap();
+  if (f !== 0) {
+    writer.writeUint32(
+      52,
+      f
+    );
+  }
+  f = message.getHasmpls();
+  if (f) {
+    writer.writeBool(
+      53,
+      f
+    );
+  }
+  f = message.getMplscount();
+  if (f !== 0) {
+    writer.writeUint32(
+      54,
+      f
+    );
+  }
+  f = message.getMpls1ttl();
+  if (f !== 0) {
+    writer.writeUint32(
+      55,
+      f
+    );
+  }
+  f = message.getMpls1label();
+  if (f !== 0) {
+    writer.writeUint32(
+      56,
+      f
+    );
+  }
+  f = message.getMpls2ttl();
+  if (f !== 0) {
+    writer.writeUint32(
+      57,
+      f
+    );
+  }
+  f = message.getMpls2label();
+  if (f !== 0) {
+    writer.writeUint32(
+      58,
+      f
+    );
+  }
+  f = message.getMpls3ttl();
+  if (f !== 0) {
+    writer.writeUint32(
+      59,
+      f
+    );
+  }
+  f = message.getMpls3label();
+  if (f !== 0) {
+    writer.writeUint32(
+      60,
+      f
+    );
+  }
+  f = message.getMplslastttl();
+  if (f !== 0) {
+    writer.writeUint32(
+      61,
+      f
+    );
+  }
+  f = message.getMplslastlabel();
+  if (f !== 0) {
+    writer.writeUint32(
+      62,
+      f
+    );
+  }
+  f = message.getHasppp();
+  if (f) {
+    writer.writeBool(
+      63,
+      f
+    );
+  }
+  f = message.getPppaddresscontrol();
+  if (f !== 0) {
+    writer.writeUint32(
+      64,
       f
     );
   }
@@ -798,9 +1053,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getType = function() {
 };
 
 
-/** @param {!proto.flowmessageenriched.FlowMessage.FlowType} value */
+/**
+ * @param {!proto.flowmessageenriched.FlowMessage.FlowType} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setType = function(value) {
-  jspb.Message.setProto3EnumField(this, 1, value);
+  return jspb.Message.setProto3EnumField(this, 1, value);
 };
 
 
@@ -813,9 +1071,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getTimereceived = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setTimereceived = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -828,9 +1089,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSequencenum = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSequencenum = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -843,9 +1107,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSamplingrate = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSamplingrate = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -858,9 +1125,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getFlowdirection = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setFlowdirection = function(value) {
-  jspb.Message.setProto3IntField(this, 42, value);
+  return jspb.Message.setProto3IntField(this, 42, value);
 };
 
 
@@ -897,9 +1167,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSampleraddress_asU8 = functio
 };
 
 
-/** @param {!(string|Uint8Array)} value */
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSampleraddress = function(value) {
-  jspb.Message.setProto3BytesField(this, 11, value);
+  return jspb.Message.setProto3BytesField(this, 11, value);
 };
 
 
@@ -912,9 +1185,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getTimeflowstart = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setTimeflowstart = function(value) {
-  jspb.Message.setProto3IntField(this, 38, value);
+  return jspb.Message.setProto3IntField(this, 38, value);
 };
 
 
@@ -927,9 +1203,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getTimeflowend = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setTimeflowend = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -942,9 +1221,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getBytes = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setBytes = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -957,9 +1239,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getPackets = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setPackets = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -996,9 +1281,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSrcaddr_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value */
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSrcaddr = function(value) {
-  jspb.Message.setProto3BytesField(this, 6, value);
+  return jspb.Message.setProto3BytesField(this, 6, value);
 };
 
 
@@ -1035,9 +1323,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstaddr_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value */
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setDstaddr = function(value) {
-  jspb.Message.setProto3BytesField(this, 7, value);
+  return jspb.Message.setProto3BytesField(this, 7, value);
 };
 
 
@@ -1050,9 +1341,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getEtype = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setEtype = function(value) {
-  jspb.Message.setProto3IntField(this, 30, value);
+  return jspb.Message.setProto3IntField(this, 30, value);
 };
 
 
@@ -1065,9 +1359,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getProto = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setProto = function(value) {
-  jspb.Message.setProto3IntField(this, 20, value);
+  return jspb.Message.setProto3IntField(this, 20, value);
 };
 
 
@@ -1080,9 +1377,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSrcport = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSrcport = function(value) {
-  jspb.Message.setProto3IntField(this, 21, value);
+  return jspb.Message.setProto3IntField(this, 21, value);
 };
 
 
@@ -1095,39 +1395,48 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstport = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setDstport = function(value) {
-  jspb.Message.setProto3IntField(this, 22, value);
+  return jspb.Message.setProto3IntField(this, 22, value);
 };
 
 
 /**
- * optional uint32 SrcIf = 18;
+ * optional uint32 InIf = 18;
  * @return {number}
  */
-proto.flowmessageenriched.FlowMessage.prototype.getSrcif = function() {
+proto.flowmessageenriched.FlowMessage.prototype.getInif = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
 };
 
 
-/** @param {number} value */
-proto.flowmessageenriched.FlowMessage.prototype.setSrcif = function(value) {
-  jspb.Message.setProto3IntField(this, 18, value);
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setInif = function(value) {
+  return jspb.Message.setProto3IntField(this, 18, value);
 };
 
 
 /**
- * optional uint32 DstIf = 19;
+ * optional uint32 OutIf = 19;
  * @return {number}
  */
-proto.flowmessageenriched.FlowMessage.prototype.getDstif = function() {
+proto.flowmessageenriched.FlowMessage.prototype.getOutif = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
 };
 
 
-/** @param {number} value */
-proto.flowmessageenriched.FlowMessage.prototype.setDstif = function(value) {
-  jspb.Message.setProto3IntField(this, 19, value);
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setOutif = function(value) {
+  return jspb.Message.setProto3IntField(this, 19, value);
 };
 
 
@@ -1140,9 +1449,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSrcmac = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSrcmac = function(value) {
-  jspb.Message.setProto3IntField(this, 27, value);
+  return jspb.Message.setProto3IntField(this, 27, value);
 };
 
 
@@ -1155,9 +1467,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstmac = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setDstmac = function(value) {
-  jspb.Message.setProto3IntField(this, 28, value);
+  return jspb.Message.setProto3IntField(this, 28, value);
 };
 
 
@@ -1170,9 +1485,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSrcvlan = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSrcvlan = function(value) {
-  jspb.Message.setProto3IntField(this, 33, value);
+  return jspb.Message.setProto3IntField(this, 33, value);
 };
 
 
@@ -1185,9 +1503,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstvlan = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setDstvlan = function(value) {
-  jspb.Message.setProto3IntField(this, 34, value);
+  return jspb.Message.setProto3IntField(this, 34, value);
 };
 
 
@@ -1200,9 +1521,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getVlanid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setVlanid = function(value) {
-  jspb.Message.setProto3IntField(this, 29, value);
+  return jspb.Message.setProto3IntField(this, 29, value);
 };
 
 
@@ -1215,9 +1539,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getIngressvrfid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setIngressvrfid = function(value) {
-  jspb.Message.setProto3IntField(this, 39, value);
+  return jspb.Message.setProto3IntField(this, 39, value);
 };
 
 
@@ -1230,9 +1557,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getEgressvrfid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setEgressvrfid = function(value) {
-  jspb.Message.setProto3IntField(this, 40, value);
+  return jspb.Message.setProto3IntField(this, 40, value);
 };
 
 
@@ -1245,9 +1575,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getIptos = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setIptos = function(value) {
-  jspb.Message.setProto3IntField(this, 23, value);
+  return jspb.Message.setProto3IntField(this, 23, value);
 };
 
 
@@ -1260,9 +1593,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getForwardingstatus = function()
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setForwardingstatus = function(value) {
-  jspb.Message.setProto3IntField(this, 24, value);
+  return jspb.Message.setProto3IntField(this, 24, value);
 };
 
 
@@ -1275,9 +1611,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getIpttl = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setIpttl = function(value) {
-  jspb.Message.setProto3IntField(this, 25, value);
+  return jspb.Message.setProto3IntField(this, 25, value);
 };
 
 
@@ -1290,9 +1629,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getTcpflags = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setTcpflags = function(value) {
-  jspb.Message.setProto3IntField(this, 26, value);
+  return jspb.Message.setProto3IntField(this, 26, value);
 };
 
 
@@ -1305,9 +1647,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getIcmptype = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setIcmptype = function(value) {
-  jspb.Message.setProto3IntField(this, 31, value);
+  return jspb.Message.setProto3IntField(this, 31, value);
 };
 
 
@@ -1320,9 +1665,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getIcmpcode = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setIcmpcode = function(value) {
-  jspb.Message.setProto3IntField(this, 32, value);
+  return jspb.Message.setProto3IntField(this, 32, value);
 };
 
 
@@ -1335,24 +1683,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getIpv6flowlabel = function() {
 };
 
 
-/** @param {number} value */
-proto.flowmessageenriched.FlowMessage.prototype.setIpv6flowlabel = function(value) {
-  jspb.Message.setProto3IntField(this, 37, value);
-};
-
-
 /**
- * optional uint32 IPv6ExtensionHeaders = 43;
- * @return {number}
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
  */
-proto.flowmessageenriched.FlowMessage.prototype.getIpv6extensionheaders = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 43, 0));
-};
-
-
-/** @param {number} value */
-proto.flowmessageenriched.FlowMessage.prototype.setIpv6extensionheaders = function(value) {
-  jspb.Message.setProto3IntField(this, 43, value);
+proto.flowmessageenriched.FlowMessage.prototype.setIpv6flowlabel = function(value) {
+  return jspb.Message.setProto3IntField(this, 37, value);
 };
 
 
@@ -1365,9 +1701,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getFragmentid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setFragmentid = function(value) {
-  jspb.Message.setProto3IntField(this, 35, value);
+  return jspb.Message.setProto3IntField(this, 35, value);
 };
 
 
@@ -1380,9 +1719,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getFragmentoffset = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setFragmentoffset = function(value) {
-  jspb.Message.setProto3IntField(this, 36, value);
+  return jspb.Message.setProto3IntField(this, 36, value);
 };
 
 
@@ -1395,9 +1737,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getBiflowdirection = function() 
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setBiflowdirection = function(value) {
-  jspb.Message.setProto3IntField(this, 41, value);
+  return jspb.Message.setProto3IntField(this, 41, value);
 };
 
 
@@ -1410,9 +1755,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSrcas = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSrcas = function(value) {
-  jspb.Message.setProto3IntField(this, 14, value);
+  return jspb.Message.setProto3IntField(this, 14, value);
 };
 
 
@@ -1425,9 +1773,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstas = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setDstas = function(value) {
-  jspb.Message.setProto3IntField(this, 15, value);
+  return jspb.Message.setProto3IntField(this, 15, value);
 };
 
 
@@ -1464,9 +1815,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getNexthop_asU8 = function() {
 };
 
 
-/** @param {!(string|Uint8Array)} value */
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setNexthop = function(value) {
-  jspb.Message.setProto3BytesField(this, 12, value);
+  return jspb.Message.setProto3BytesField(this, 12, value);
 };
 
 
@@ -1479,9 +1833,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getNexthopas = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setNexthopas = function(value) {
-  jspb.Message.setProto3IntField(this, 13, value);
+  return jspb.Message.setProto3IntField(this, 13, value);
 };
 
 
@@ -1494,9 +1851,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSrcnet = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSrcnet = function(value) {
-  jspb.Message.setProto3IntField(this, 16, value);
+  return jspb.Message.setProto3IntField(this, 16, value);
 };
 
 
@@ -1509,9 +1869,456 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstnet = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setDstnet = function(value) {
-  jspb.Message.setProto3IntField(this, 17, value);
+  return jspb.Message.setProto3IntField(this, 17, value);
+};
+
+
+/**
+ * optional bool HasEncap = 43;
+ * @return {boolean}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getHasencap = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 43, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setHasencap = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 43, value);
+};
+
+
+/**
+ * optional bytes SrcAddrEncap = 44;
+ * @return {string}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getSrcaddrencap = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 44, ""));
+};
+
+
+/**
+ * optional bytes SrcAddrEncap = 44;
+ * This is a type-conversion wrapper around `getSrcaddrencap()`
+ * @return {string}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getSrcaddrencap_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getSrcaddrencap()));
+};
+
+
+/**
+ * optional bytes SrcAddrEncap = 44;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getSrcaddrencap()`
+ * @return {!Uint8Array}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getSrcaddrencap_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getSrcaddrencap()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setSrcaddrencap = function(value) {
+  return jspb.Message.setProto3BytesField(this, 44, value);
+};
+
+
+/**
+ * optional bytes DstAddrEncap = 45;
+ * @return {string}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getDstaddrencap = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 45, ""));
+};
+
+
+/**
+ * optional bytes DstAddrEncap = 45;
+ * This is a type-conversion wrapper around `getDstaddrencap()`
+ * @return {string}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getDstaddrencap_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getDstaddrencap()));
+};
+
+
+/**
+ * optional bytes DstAddrEncap = 45;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getDstaddrencap()`
+ * @return {!Uint8Array}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getDstaddrencap_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getDstaddrencap()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setDstaddrencap = function(value) {
+  return jspb.Message.setProto3BytesField(this, 45, value);
+};
+
+
+/**
+ * optional uint32 ProtoEncap = 46;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getProtoencap = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 46, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setProtoencap = function(value) {
+  return jspb.Message.setProto3IntField(this, 46, value);
+};
+
+
+/**
+ * optional uint32 EtypeEncap = 47;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getEtypeencap = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 47, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setEtypeencap = function(value) {
+  return jspb.Message.setProto3IntField(this, 47, value);
+};
+
+
+/**
+ * optional uint32 IPTosEncap = 48;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getIptosencap = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 48, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setIptosencap = function(value) {
+  return jspb.Message.setProto3IntField(this, 48, value);
+};
+
+
+/**
+ * optional uint32 IPTTLEncap = 49;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getIpttlencap = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 49, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setIpttlencap = function(value) {
+  return jspb.Message.setProto3IntField(this, 49, value);
+};
+
+
+/**
+ * optional uint32 IPv6FlowLabelEncap = 50;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getIpv6flowlabelencap = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 50, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setIpv6flowlabelencap = function(value) {
+  return jspb.Message.setProto3IntField(this, 50, value);
+};
+
+
+/**
+ * optional uint32 FragmentIdEncap = 51;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getFragmentidencap = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 51, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setFragmentidencap = function(value) {
+  return jspb.Message.setProto3IntField(this, 51, value);
+};
+
+
+/**
+ * optional uint32 FragmentOffsetEncap = 52;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getFragmentoffsetencap = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 52, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setFragmentoffsetencap = function(value) {
+  return jspb.Message.setProto3IntField(this, 52, value);
+};
+
+
+/**
+ * optional bool HasMPLS = 53;
+ * @return {boolean}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getHasmpls = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 53, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setHasmpls = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 53, value);
+};
+
+
+/**
+ * optional uint32 MPLSCount = 54;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getMplscount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 54, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setMplscount = function(value) {
+  return jspb.Message.setProto3IntField(this, 54, value);
+};
+
+
+/**
+ * optional uint32 MPLS1TTL = 55;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getMpls1ttl = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 55, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setMpls1ttl = function(value) {
+  return jspb.Message.setProto3IntField(this, 55, value);
+};
+
+
+/**
+ * optional uint32 MPLS1Label = 56;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getMpls1label = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 56, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setMpls1label = function(value) {
+  return jspb.Message.setProto3IntField(this, 56, value);
+};
+
+
+/**
+ * optional uint32 MPLS2TTL = 57;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getMpls2ttl = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 57, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setMpls2ttl = function(value) {
+  return jspb.Message.setProto3IntField(this, 57, value);
+};
+
+
+/**
+ * optional uint32 MPLS2Label = 58;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getMpls2label = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 58, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setMpls2label = function(value) {
+  return jspb.Message.setProto3IntField(this, 58, value);
+};
+
+
+/**
+ * optional uint32 MPLS3TTL = 59;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getMpls3ttl = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 59, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setMpls3ttl = function(value) {
+  return jspb.Message.setProto3IntField(this, 59, value);
+};
+
+
+/**
+ * optional uint32 MPLS3Label = 60;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getMpls3label = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 60, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setMpls3label = function(value) {
+  return jspb.Message.setProto3IntField(this, 60, value);
+};
+
+
+/**
+ * optional uint32 MPLSLastTTL = 61;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getMplslastttl = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 61, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setMplslastttl = function(value) {
+  return jspb.Message.setProto3IntField(this, 61, value);
+};
+
+
+/**
+ * optional uint32 MPLSLastLabel = 62;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getMplslastlabel = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 62, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setMplslastlabel = function(value) {
+  return jspb.Message.setProto3IntField(this, 62, value);
+};
+
+
+/**
+ * optional bool HasPPP = 63;
+ * @return {boolean}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getHasppp = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 63, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setHasppp = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 63, value);
+};
+
+
+/**
+ * optional uint32 PPPAddressControl = 64;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getPppaddresscontrol = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 64, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setPppaddresscontrol = function(value) {
+  return jspb.Message.setProto3IntField(this, 64, value);
 };
 
 
@@ -1524,9 +2331,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getCid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setCid = function(value) {
-  jspb.Message.setProto3IntField(this, 1000, value);
+  return jspb.Message.setProto3IntField(this, 1000, value);
 };
 
 
@@ -1539,9 +2349,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getCidstring = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setCidstring = function(value) {
-  jspb.Message.setProto3StringField(this, 1001, value);
+  return jspb.Message.setProto3StringField(this, 1001, value);
 };
 
 
@@ -1554,9 +2367,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getNormalized = function() {
 };
 
 
-/** @param {!proto.flowmessageenriched.FlowMessage.NormalizedType} value */
+/**
+ * @param {!proto.flowmessageenriched.FlowMessage.NormalizedType} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setNormalized = function(value) {
-  jspb.Message.setProto3EnumField(this, 1002, value);
+  return jspb.Message.setProto3EnumField(this, 1002, value);
 };
 
 
@@ -1569,9 +2385,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSrcifname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSrcifname = function(value) {
-  jspb.Message.setProto3StringField(this, 1003, value);
+  return jspb.Message.setProto3StringField(this, 1003, value);
 };
 
 
@@ -1584,9 +2403,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSrcifdesc = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSrcifdesc = function(value) {
-  jspb.Message.setProto3StringField(this, 1004, value);
+  return jspb.Message.setProto3StringField(this, 1004, value);
 };
 
 
@@ -1599,9 +2421,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getSrcifspeed = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setSrcifspeed = function(value) {
-  jspb.Message.setProto3IntField(this, 1005, value);
+  return jspb.Message.setProto3IntField(this, 1005, value);
 };
 
 
@@ -1614,9 +2439,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstifname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setDstifname = function(value) {
-  jspb.Message.setProto3StringField(this, 1006, value);
+  return jspb.Message.setProto3StringField(this, 1006, value);
 };
 
 
@@ -1629,9 +2457,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstifdesc = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setDstifdesc = function(value) {
-  jspb.Message.setProto3StringField(this, 1007, value);
+  return jspb.Message.setProto3StringField(this, 1007, value);
 };
 
 
@@ -1644,9 +2475,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getDstifspeed = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setDstifspeed = function(value) {
-  jspb.Message.setProto3IntField(this, 1008, value);
+  return jspb.Message.setProto3IntField(this, 1008, value);
 };
 
 
@@ -1659,9 +2493,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getProtoname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setProtoname = function(value) {
-  jspb.Message.setProto3StringField(this, 1009, value);
+  return jspb.Message.setProto3StringField(this, 1009, value);
 };
 
 
@@ -1674,9 +2511,12 @@ proto.flowmessageenriched.FlowMessage.prototype.getRemotecountry = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
 proto.flowmessageenriched.FlowMessage.prototype.setRemotecountry = function(value) {
-  jspb.Message.setProto3StringField(this, 1010, value);
+  return jspb.Message.setProto3StringField(this, 1010, value);
 };
 
 
