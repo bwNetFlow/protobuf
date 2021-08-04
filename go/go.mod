@@ -1,5 +1,5 @@
 module github.com/bwNetFlow/protobuf/go
 
-go 1.14
+go 1.16
 
-require github.com/golang/protobuf v1.3.2
+require google.golang.org/protobuf v1.27.1

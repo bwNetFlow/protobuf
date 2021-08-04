@@ -47,16 +47,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :NextHopAS, :uint32, 13
       optional :SrcNet, :uint32, 16
       optional :DstNet, :uint32, 17
-      optional :HasEncap, :bool, 43
-      optional :SrcAddrEncap, :bytes, 44
-      optional :DstAddrEncap, :bytes, 45
-      optional :ProtoEncap, :uint32, 46
-      optional :EtypeEncap, :uint32, 47
-      optional :IPTosEncap, :uint32, 48
-      optional :IPTTLEncap, :uint32, 49
-      optional :IPv6FlowLabelEncap, :uint32, 50
-      optional :FragmentIdEncap, :uint32, 51
-      optional :FragmentOffsetEncap, :uint32, 52
       optional :HasMPLS, :bool, 53
       optional :MPLSCount, :uint32, 54
       optional :MPLS1TTL, :uint32, 55
@@ -67,8 +57,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :MPLS3Label, :uint32, 60
       optional :MPLSLastTTL, :uint32, 61
       optional :MPLSLastLabel, :uint32, 62
-      optional :HasPPP, :bool, 63
-      optional :PPPAddressControl, :uint32, 64
       optional :Cid, :uint32, 1000
       optional :CidString, :string, 1001
       optional :Normalized, :enum, 1002, "flowmessageenriched.FlowMessage.NormalizedType"
@@ -80,6 +68,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :DstIfSpeed, :uint32, 1008
       optional :ProtoName, :string, 1009
       optional :RemoteCountry, :string, 1010
+      optional :RemoteAddr, :enum, 1011, "flowmessageenriched.FlowMessage.RemoteAddrType"
     end
     add_enum "flowmessageenriched.FlowMessage.FlowType" do
       value :FLOWUNKNOWN, 0
@@ -92,6 +81,11 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       value :No, 0
       value :Yes, 1
     end
+    add_enum "flowmessageenriched.FlowMessage.RemoteAddrType" do
+      value :Neither, 0
+      value :Src, 1
+      value :Dst, 2
+    end
   end
 end
 
@@ -99,4 +93,5 @@ module Flowmessageenriched
   FlowMessage = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage").msgclass
   FlowMessage::FlowType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.FlowType").enummodule
   FlowMessage::NormalizedType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.NormalizedType").enummodule
+  FlowMessage::RemoteAddrType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("flowmessageenriched.FlowMessage.RemoteAddrType").enummodule
 end

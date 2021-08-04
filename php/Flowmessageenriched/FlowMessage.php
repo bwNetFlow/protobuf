@@ -210,48 +210,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     protected $DstNet = 0;
     /**
-     * IP encapsulation information
-     *
-     * Generated from protobuf field <code>bool HasEncap = 43;</code>
-     */
-    protected $HasEncap = false;
-    /**
-     * Generated from protobuf field <code>bytes SrcAddrEncap = 44;</code>
-     */
-    protected $SrcAddrEncap = '';
-    /**
-     * Generated from protobuf field <code>bytes DstAddrEncap = 45;</code>
-     */
-    protected $DstAddrEncap = '';
-    /**
-     * Generated from protobuf field <code>uint32 ProtoEncap = 46;</code>
-     */
-    protected $ProtoEncap = 0;
-    /**
-     * Generated from protobuf field <code>uint32 EtypeEncap = 47;</code>
-     */
-    protected $EtypeEncap = 0;
-    /**
-     * Generated from protobuf field <code>uint32 IPTosEncap = 48;</code>
-     */
-    protected $IPTosEncap = 0;
-    /**
-     * Generated from protobuf field <code>uint32 IPTTLEncap = 49;</code>
-     */
-    protected $IPTTLEncap = 0;
-    /**
-     * Generated from protobuf field <code>uint32 IPv6FlowLabelEncap = 50;</code>
-     */
-    protected $IPv6FlowLabelEncap = 0;
-    /**
-     * Generated from protobuf field <code>uint32 FragmentIdEncap = 51;</code>
-     */
-    protected $FragmentIdEncap = 0;
-    /**
-     * Generated from protobuf field <code>uint32 FragmentOffsetEncap = 52;</code>
-     */
-    protected $FragmentOffsetEncap = 0;
-    /**
      * MPLS information
      *
      * Generated from protobuf field <code>bool HasMPLS = 53;</code>
@@ -309,16 +267,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 MPLSLastLabel = 62;</code>
      */
     protected $MPLSLastLabel = 0;
-    /**
-     * PPP information
-     *
-     * Generated from protobuf field <code>bool HasPPP = 63;</code>
-     */
-    protected $HasPPP = false;
-    /**
-     * Generated from protobuf field <code>uint32 PPPAddressControl = 64;</code>
-     */
-    protected $PPPAddressControl = 0;
     /**
      * bwNetFlow enricher fields
      *
@@ -379,6 +327,12 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string RemoteCountry = 1010;</code>
      */
     protected $RemoteCountry = '';
+    /**
+     * RemoteAddr - which Addr field contains the remote/local address
+     *
+     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+     */
+    protected $RemoteAddr = 0;
 
     /**
      * Constructor.
@@ -443,17 +397,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *     @type int $SrcNet
      *           Prefix size
      *     @type int $DstNet
-     *     @type bool $HasEncap
-     *           IP encapsulation information
-     *     @type string $SrcAddrEncap
-     *     @type string $DstAddrEncap
-     *     @type int $ProtoEncap
-     *     @type int $EtypeEncap
-     *     @type int $IPTosEncap
-     *     @type int $IPTTLEncap
-     *     @type int $IPv6FlowLabelEncap
-     *     @type int $FragmentIdEncap
-     *     @type int $FragmentOffsetEncap
      *     @type bool $HasMPLS
      *           MPLS information
      *     @type int $MPLSCount
@@ -473,9 +416,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *           Last TTL
      *     @type int $MPLSLastLabel
      *           Last Label
-     *     @type bool $HasPPP
-     *           PPP information
-     *     @type int $PPPAddressControl
      *     @type int $Cid
      *           bwNetFlow enricher fields
      *     @type string $CidString
@@ -495,6 +435,8 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *           Protocol Name -- set for some well known protocols, based on Proto
      *     @type string $RemoteCountry
      *           Geolocation -- set using the provided database
+     *     @type int $RemoteAddr
+     *           RemoteAddr - which Addr field contains the remote/local address
      * }
      */
     public function __construct($data = NULL) {
@@ -518,7 +460,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     public function setType($var)
     {
-        GPBUtil::checkEnum($var, \Flowmessageenriched\FlowMessage_FlowType::class);
+        GPBUtil::checkEnum($var, \Flowmessageenriched\FlowMessage\FlowType::class);
         $this->Type = $var;
 
         return $this;
@@ -1469,230 +1411,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * IP encapsulation information
-     *
-     * Generated from protobuf field <code>bool HasEncap = 43;</code>
-     * @return bool
-     */
-    public function getHasEncap()
-    {
-        return $this->HasEncap;
-    }
-
-    /**
-     * IP encapsulation information
-     *
-     * Generated from protobuf field <code>bool HasEncap = 43;</code>
-     * @param bool $var
-     * @return $this
-     */
-    public function setHasEncap($var)
-    {
-        GPBUtil::checkBool($var);
-        $this->HasEncap = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>bytes SrcAddrEncap = 44;</code>
-     * @return string
-     */
-    public function getSrcAddrEncap()
-    {
-        return $this->SrcAddrEncap;
-    }
-
-    /**
-     * Generated from protobuf field <code>bytes SrcAddrEncap = 44;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setSrcAddrEncap($var)
-    {
-        GPBUtil::checkString($var, False);
-        $this->SrcAddrEncap = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>bytes DstAddrEncap = 45;</code>
-     * @return string
-     */
-    public function getDstAddrEncap()
-    {
-        return $this->DstAddrEncap;
-    }
-
-    /**
-     * Generated from protobuf field <code>bytes DstAddrEncap = 45;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setDstAddrEncap($var)
-    {
-        GPBUtil::checkString($var, False);
-        $this->DstAddrEncap = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 ProtoEncap = 46;</code>
-     * @return int
-     */
-    public function getProtoEncap()
-    {
-        return $this->ProtoEncap;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 ProtoEncap = 46;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setProtoEncap($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->ProtoEncap = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 EtypeEncap = 47;</code>
-     * @return int
-     */
-    public function getEtypeEncap()
-    {
-        return $this->EtypeEncap;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 EtypeEncap = 47;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setEtypeEncap($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->EtypeEncap = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 IPTosEncap = 48;</code>
-     * @return int
-     */
-    public function getIPTosEncap()
-    {
-        return $this->IPTosEncap;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 IPTosEncap = 48;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setIPTosEncap($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->IPTosEncap = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 IPTTLEncap = 49;</code>
-     * @return int
-     */
-    public function getIPTTLEncap()
-    {
-        return $this->IPTTLEncap;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 IPTTLEncap = 49;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setIPTTLEncap($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->IPTTLEncap = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 IPv6FlowLabelEncap = 50;</code>
-     * @return int
-     */
-    public function getIPv6FlowLabelEncap()
-    {
-        return $this->IPv6FlowLabelEncap;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 IPv6FlowLabelEncap = 50;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setIPv6FlowLabelEncap($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->IPv6FlowLabelEncap = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 FragmentIdEncap = 51;</code>
-     * @return int
-     */
-    public function getFragmentIdEncap()
-    {
-        return $this->FragmentIdEncap;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 FragmentIdEncap = 51;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setFragmentIdEncap($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->FragmentIdEncap = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 FragmentOffsetEncap = 52;</code>
-     * @return int
-     */
-    public function getFragmentOffsetEncap()
-    {
-        return $this->FragmentOffsetEncap;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 FragmentOffsetEncap = 52;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setFragmentOffsetEncap($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->FragmentOffsetEncap = $var;
-
-        return $this;
-    }
-
-    /**
      * MPLS information
      *
      * Generated from protobuf field <code>bool HasMPLS = 53;</code>
@@ -1949,54 +1667,6 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * PPP information
-     *
-     * Generated from protobuf field <code>bool HasPPP = 63;</code>
-     * @return bool
-     */
-    public function getHasPPP()
-    {
-        return $this->HasPPP;
-    }
-
-    /**
-     * PPP information
-     *
-     * Generated from protobuf field <code>bool HasPPP = 63;</code>
-     * @param bool $var
-     * @return $this
-     */
-    public function setHasPPP($var)
-    {
-        GPBUtil::checkBool($var);
-        $this->HasPPP = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 PPPAddressControl = 64;</code>
-     * @return int
-     */
-    public function getPPPAddressControl()
-    {
-        return $this->PPPAddressControl;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 PPPAddressControl = 64;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setPPPAddressControl($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->PPPAddressControl = $var;
-
-        return $this;
-    }
-
-    /**
      * bwNetFlow enricher fields
      *
      * Generated from protobuf field <code>uint32 Cid = 1000;</code>
@@ -2068,7 +1738,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     public function setNormalized($var)
     {
-        GPBUtil::checkEnum($var, \Flowmessageenriched\FlowMessage_NormalizedType::class);
+        GPBUtil::checkEnum($var, \Flowmessageenriched\FlowMessage\NormalizedType::class);
         $this->Normalized = $var;
 
         return $this;
@@ -2266,6 +1936,32 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->RemoteCountry = $var;
+
+        return $this;
+    }
+
+    /**
+     * RemoteAddr - which Addr field contains the remote/local address
+     *
+     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+     * @return int
+     */
+    public function getRemoteAddr()
+    {
+        return $this->RemoteAddr;
+    }
+
+    /**
+     * RemoteAddr - which Addr field contains the remote/local address
+     *
+     * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setRemoteAddr($var)
+    {
+        GPBUtil::checkEnum($var, \Flowmessageenriched\FlowMessage\RemoteAddrType::class);
+        $this->RemoteAddr = $var;
 
         return $this;
     }

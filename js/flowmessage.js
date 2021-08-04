@@ -2,15 +2,19 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 goog.provide('proto.flowmessageenriched.FlowMessage');
 goog.provide('proto.flowmessageenriched.FlowMessage.FlowType');
 goog.provide('proto.flowmessageenriched.FlowMessage.NormalizedType');
+goog.provide('proto.flowmessageenriched.FlowMessage.RemoteAddrType');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -110,16 +114,6 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     nexthopas: jspb.Message.getFieldWithDefault(msg, 13, 0),
     srcnet: jspb.Message.getFieldWithDefault(msg, 16, 0),
     dstnet: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    hasencap: jspb.Message.getBooleanFieldWithDefault(msg, 43, false),
-    srcaddrencap: msg.getSrcaddrencap_asB64(),
-    dstaddrencap: msg.getDstaddrencap_asB64(),
-    protoencap: jspb.Message.getFieldWithDefault(msg, 46, 0),
-    etypeencap: jspb.Message.getFieldWithDefault(msg, 47, 0),
-    iptosencap: jspb.Message.getFieldWithDefault(msg, 48, 0),
-    ipttlencap: jspb.Message.getFieldWithDefault(msg, 49, 0),
-    ipv6flowlabelencap: jspb.Message.getFieldWithDefault(msg, 50, 0),
-    fragmentidencap: jspb.Message.getFieldWithDefault(msg, 51, 0),
-    fragmentoffsetencap: jspb.Message.getFieldWithDefault(msg, 52, 0),
     hasmpls: jspb.Message.getBooleanFieldWithDefault(msg, 53, false),
     mplscount: jspb.Message.getFieldWithDefault(msg, 54, 0),
     mpls1ttl: jspb.Message.getFieldWithDefault(msg, 55, 0),
@@ -130,8 +124,6 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     mpls3label: jspb.Message.getFieldWithDefault(msg, 60, 0),
     mplslastttl: jspb.Message.getFieldWithDefault(msg, 61, 0),
     mplslastlabel: jspb.Message.getFieldWithDefault(msg, 62, 0),
-    hasppp: jspb.Message.getBooleanFieldWithDefault(msg, 63, false),
-    pppaddresscontrol: jspb.Message.getFieldWithDefault(msg, 64, 0),
     cid: jspb.Message.getFieldWithDefault(msg, 1000, 0),
     cidstring: jspb.Message.getFieldWithDefault(msg, 1001, ""),
     normalized: jspb.Message.getFieldWithDefault(msg, 1002, 0),
@@ -142,7 +134,8 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     dstifdesc: jspb.Message.getFieldWithDefault(msg, 1007, ""),
     dstifspeed: jspb.Message.getFieldWithDefault(msg, 1008, 0),
     protoname: jspb.Message.getFieldWithDefault(msg, 1009, ""),
-    remotecountry: jspb.Message.getFieldWithDefault(msg, 1010, "")
+    remotecountry: jspb.Message.getFieldWithDefault(msg, 1010, ""),
+    remoteaddr: jspb.Message.getFieldWithDefault(msg, 1011, 0)
   };
 
   if (includeInstance) {
@@ -343,46 +336,6 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
       var value = /** @type {number} */ (reader.readUint32());
       msg.setDstnet(value);
       break;
-    case 43:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setHasencap(value);
-      break;
-    case 44:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setSrcaddrencap(value);
-      break;
-    case 45:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setDstaddrencap(value);
-      break;
-    case 46:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setProtoencap(value);
-      break;
-    case 47:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setEtypeencap(value);
-      break;
-    case 48:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setIptosencap(value);
-      break;
-    case 49:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setIpttlencap(value);
-      break;
-    case 50:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setIpv6flowlabelencap(value);
-      break;
-    case 51:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setFragmentidencap(value);
-      break;
-    case 52:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setFragmentoffsetencap(value);
-      break;
     case 53:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setHasmpls(value);
@@ -422,14 +375,6 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
     case 62:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setMplslastlabel(value);
-      break;
-    case 63:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setHasppp(value);
-      break;
-    case 64:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setPppaddresscontrol(value);
       break;
     case 1000:
       var value = /** @type {number} */ (reader.readUint32());
@@ -474,6 +419,10 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
     case 1010:
       var value = /** @type {string} */ (reader.readString());
       msg.setRemotecountry(value);
+      break;
+    case 1011:
+      var value = /** @type {!proto.flowmessageenriched.FlowMessage.RemoteAddrType} */ (reader.readEnum());
+      msg.setRemoteaddr(value);
       break;
     default:
       reader.skipField();
@@ -791,76 +740,6 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
       f
     );
   }
-  f = message.getHasencap();
-  if (f) {
-    writer.writeBool(
-      43,
-      f
-    );
-  }
-  f = message.getSrcaddrencap_asU8();
-  if (f.length > 0) {
-    writer.writeBytes(
-      44,
-      f
-    );
-  }
-  f = message.getDstaddrencap_asU8();
-  if (f.length > 0) {
-    writer.writeBytes(
-      45,
-      f
-    );
-  }
-  f = message.getProtoencap();
-  if (f !== 0) {
-    writer.writeUint32(
-      46,
-      f
-    );
-  }
-  f = message.getEtypeencap();
-  if (f !== 0) {
-    writer.writeUint32(
-      47,
-      f
-    );
-  }
-  f = message.getIptosencap();
-  if (f !== 0) {
-    writer.writeUint32(
-      48,
-      f
-    );
-  }
-  f = message.getIpttlencap();
-  if (f !== 0) {
-    writer.writeUint32(
-      49,
-      f
-    );
-  }
-  f = message.getIpv6flowlabelencap();
-  if (f !== 0) {
-    writer.writeUint32(
-      50,
-      f
-    );
-  }
-  f = message.getFragmentidencap();
-  if (f !== 0) {
-    writer.writeUint32(
-      51,
-      f
-    );
-  }
-  f = message.getFragmentoffsetencap();
-  if (f !== 0) {
-    writer.writeUint32(
-      52,
-      f
-    );
-  }
   f = message.getHasmpls();
   if (f) {
     writer.writeBool(
@@ -928,20 +807,6 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeUint32(
       62,
-      f
-    );
-  }
-  f = message.getHasppp();
-  if (f) {
-    writer.writeBool(
-      63,
-      f
-    );
-  }
-  f = message.getPppaddresscontrol();
-  if (f !== 0) {
-    writer.writeUint32(
-      64,
       f
     );
   }
@@ -1022,6 +887,13 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
       f
     );
   }
+  f = message.getRemoteaddr();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      1011,
+      f
+    );
+  }
 };
 
 
@@ -1042,6 +914,15 @@ proto.flowmessageenriched.FlowMessage.FlowType = {
 proto.flowmessageenriched.FlowMessage.NormalizedType = {
   NO: 0,
   YES: 1
+};
+
+/**
+ * @enum {number}
+ */
+proto.flowmessageenriched.FlowMessage.RemoteAddrType = {
+  NEITHER: 0,
+  SRC: 1,
+  DST: 2
 };
 
 /**
@@ -1879,234 +1760,6 @@ proto.flowmessageenriched.FlowMessage.prototype.setDstnet = function(value) {
 
 
 /**
- * optional bool HasEncap = 43;
- * @return {boolean}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getHasencap = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 43, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setHasencap = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 43, value);
-};
-
-
-/**
- * optional bytes SrcAddrEncap = 44;
- * @return {string}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getSrcaddrencap = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 44, ""));
-};
-
-
-/**
- * optional bytes SrcAddrEncap = 44;
- * This is a type-conversion wrapper around `getSrcaddrencap()`
- * @return {string}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getSrcaddrencap_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getSrcaddrencap()));
-};
-
-
-/**
- * optional bytes SrcAddrEncap = 44;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getSrcaddrencap()`
- * @return {!Uint8Array}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getSrcaddrencap_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getSrcaddrencap()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setSrcaddrencap = function(value) {
-  return jspb.Message.setProto3BytesField(this, 44, value);
-};
-
-
-/**
- * optional bytes DstAddrEncap = 45;
- * @return {string}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getDstaddrencap = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 45, ""));
-};
-
-
-/**
- * optional bytes DstAddrEncap = 45;
- * This is a type-conversion wrapper around `getDstaddrencap()`
- * @return {string}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getDstaddrencap_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getDstaddrencap()));
-};
-
-
-/**
- * optional bytes DstAddrEncap = 45;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getDstaddrencap()`
- * @return {!Uint8Array}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getDstaddrencap_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getDstaddrencap()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setDstaddrencap = function(value) {
-  return jspb.Message.setProto3BytesField(this, 45, value);
-};
-
-
-/**
- * optional uint32 ProtoEncap = 46;
- * @return {number}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getProtoencap = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 46, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setProtoencap = function(value) {
-  return jspb.Message.setProto3IntField(this, 46, value);
-};
-
-
-/**
- * optional uint32 EtypeEncap = 47;
- * @return {number}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getEtypeencap = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 47, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setEtypeencap = function(value) {
-  return jspb.Message.setProto3IntField(this, 47, value);
-};
-
-
-/**
- * optional uint32 IPTosEncap = 48;
- * @return {number}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getIptosencap = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 48, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setIptosencap = function(value) {
-  return jspb.Message.setProto3IntField(this, 48, value);
-};
-
-
-/**
- * optional uint32 IPTTLEncap = 49;
- * @return {number}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getIpttlencap = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 49, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setIpttlencap = function(value) {
-  return jspb.Message.setProto3IntField(this, 49, value);
-};
-
-
-/**
- * optional uint32 IPv6FlowLabelEncap = 50;
- * @return {number}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getIpv6flowlabelencap = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 50, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setIpv6flowlabelencap = function(value) {
-  return jspb.Message.setProto3IntField(this, 50, value);
-};
-
-
-/**
- * optional uint32 FragmentIdEncap = 51;
- * @return {number}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getFragmentidencap = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 51, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setFragmentidencap = function(value) {
-  return jspb.Message.setProto3IntField(this, 51, value);
-};
-
-
-/**
- * optional uint32 FragmentOffsetEncap = 52;
- * @return {number}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getFragmentoffsetencap = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 52, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setFragmentoffsetencap = function(value) {
-  return jspb.Message.setProto3IntField(this, 52, value);
-};
-
-
-/**
  * optional bool HasMPLS = 53;
  * @return {boolean}
  */
@@ -2283,42 +1936,6 @@ proto.flowmessageenriched.FlowMessage.prototype.getMplslastlabel = function() {
  */
 proto.flowmessageenriched.FlowMessage.prototype.setMplslastlabel = function(value) {
   return jspb.Message.setProto3IntField(this, 62, value);
-};
-
-
-/**
- * optional bool HasPPP = 63;
- * @return {boolean}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getHasppp = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 63, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setHasppp = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 63, value);
-};
-
-
-/**
- * optional uint32 PPPAddressControl = 64;
- * @return {number}
- */
-proto.flowmessageenriched.FlowMessage.prototype.getPppaddresscontrol = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 64, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.flowmessageenriched.FlowMessage} returns this
- */
-proto.flowmessageenriched.FlowMessage.prototype.setPppaddresscontrol = function(value) {
-  return jspb.Message.setProto3IntField(this, 64, value);
 };
 
 
@@ -2517,6 +2134,24 @@ proto.flowmessageenriched.FlowMessage.prototype.getRemotecountry = function() {
  */
 proto.flowmessageenriched.FlowMessage.prototype.setRemotecountry = function(value) {
   return jspb.Message.setProto3StringField(this, 1010, value);
+};
+
+
+/**
+ * optional RemoteAddrType RemoteAddr = 1011;
+ * @return {!proto.flowmessageenriched.FlowMessage.RemoteAddrType}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getRemoteaddr = function() {
+  return /** @type {!proto.flowmessageenriched.FlowMessage.RemoteAddrType} */ (jspb.Message.getFieldWithDefault(this, 1011, 0));
+};
+
+
+/**
+ * @param {!proto.flowmessageenriched.FlowMessage.RemoteAddrType} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setRemoteaddr = function(value) {
+  return jspb.Message.setProto3EnumField(this, 1011, value);
 };
 
 

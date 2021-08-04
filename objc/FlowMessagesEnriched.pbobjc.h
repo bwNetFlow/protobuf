@@ -74,6 +74,28 @@ GPBEnumDescriptor *FlowMessage_NormalizedType_EnumDescriptor(void);
  **/
 BOOL FlowMessage_NormalizedType_IsValidValue(int32_t value);
 
+#pragma mark - Enum FlowMessage_RemoteAddrType
+
+typedef GPB_ENUM(FlowMessage_RemoteAddrType) {
+  /**
+   * Value used if any message's field encounters a value that is not defined
+   * by this enum. The message will also have C functions to get/set the rawValue
+   * of the field.
+   **/
+  FlowMessage_RemoteAddrType_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  FlowMessage_RemoteAddrType_Neither = 0,
+  FlowMessage_RemoteAddrType_Src = 1,
+  FlowMessage_RemoteAddrType_Dst = 2,
+};
+
+GPBEnumDescriptor *FlowMessage_RemoteAddrType_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL FlowMessage_RemoteAddrType_IsValidValue(int32_t value);
+
 #pragma mark - FlowMessagesEnrichedRoot
 
 /**
@@ -133,16 +155,6 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_EgressVrfId = 40,
   FlowMessage_FieldNumber_BiFlowDirection = 41,
   FlowMessage_FieldNumber_FlowDirection = 42,
-  FlowMessage_FieldNumber_HasEncap = 43,
-  FlowMessage_FieldNumber_SrcAddrEncap = 44,
-  FlowMessage_FieldNumber_DstAddrEncap = 45,
-  FlowMessage_FieldNumber_ProtoEncap = 46,
-  FlowMessage_FieldNumber_EtypeEncap = 47,
-  FlowMessage_FieldNumber_IptosEncap = 48,
-  FlowMessage_FieldNumber_Ipttlencap = 49,
-  FlowMessage_FieldNumber_Ipv6FlowLabelEncap = 50,
-  FlowMessage_FieldNumber_FragmentIdEncap = 51,
-  FlowMessage_FieldNumber_FragmentOffsetEncap = 52,
   FlowMessage_FieldNumber_HasMpls = 53,
   FlowMessage_FieldNumber_Mplscount = 54,
   FlowMessage_FieldNumber_Mpls1Ttl = 55,
@@ -153,8 +165,6 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_Mpls3Label = 60,
   FlowMessage_FieldNumber_MplslastTtl = 61,
   FlowMessage_FieldNumber_MplslastLabel = 62,
-  FlowMessage_FieldNumber_HasPpp = 63,
-  FlowMessage_FieldNumber_PppaddressControl = 64,
   FlowMessage_FieldNumber_Cid = 1000,
   FlowMessage_FieldNumber_CidString = 1001,
   FlowMessage_FieldNumber_Normalized = 1002,
@@ -166,6 +176,7 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_DstIfSpeed = 1008,
   FlowMessage_FieldNumber_ProtoName = 1009,
   FlowMessage_FieldNumber_RemoteCountry = 1010,
+  FlowMessage_FieldNumber_RemoteAddr = 1011,
 };
 
 GPB_FINAL @interface FlowMessage : GPBMessage
@@ -268,27 +279,6 @@ GPB_FINAL @interface FlowMessage : GPBMessage
 
 @property(nonatomic, readwrite) uint32_t dstNet;
 
-/** IP encapsulation information */
-@property(nonatomic, readwrite) BOOL hasEncap;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *srcAddrEncap;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSData *dstAddrEncap;
-
-@property(nonatomic, readwrite) uint32_t protoEncap;
-
-@property(nonatomic, readwrite) uint32_t etypeEncap;
-
-@property(nonatomic, readwrite) uint32_t iptosEncap;
-
-@property(nonatomic, readwrite) uint32_t ipttlencap;
-
-@property(nonatomic, readwrite) uint32_t ipv6FlowLabelEncap;
-
-@property(nonatomic, readwrite) uint32_t fragmentIdEncap;
-
-@property(nonatomic, readwrite) uint32_t fragmentOffsetEncap;
-
 /** MPLS information */
 @property(nonatomic, readwrite) BOOL hasMpls;
 
@@ -317,11 +307,6 @@ GPB_FINAL @interface FlowMessage : GPBMessage
 
 /** Last Label */
 @property(nonatomic, readwrite) uint32_t mplslastLabel;
-
-/** PPP information */
-@property(nonatomic, readwrite) BOOL hasPpp;
-
-@property(nonatomic, readwrite) uint32_t pppaddressControl;
 
 /** bwNetFlow enricher fields */
 @property(nonatomic, readwrite) uint32_t cid;
@@ -353,6 +338,9 @@ GPB_FINAL @interface FlowMessage : GPBMessage
 /** Geolocation -- set using the provided database */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *remoteCountry;
 
+/** RemoteAddr - which Addr field contains the remote/local address */
+@property(nonatomic, readwrite) FlowMessage_RemoteAddrType remoteAddr;
+
 @end
 
 /**
@@ -378,6 +366,18 @@ int32_t FlowMessage_Normalized_RawValue(FlowMessage *message);
  * was generated.
  **/
 void SetFlowMessage_Normalized_RawValue(FlowMessage *message, int32_t value);
+
+/**
+ * Fetches the raw value of a @c FlowMessage's @c remoteAddr property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t FlowMessage_RemoteAddr_RawValue(FlowMessage *message);
+/**
+ * Sets the raw value of an @c FlowMessage's @c remoteAddr property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetFlowMessage_RemoteAddr_RawValue(FlowMessage *message, int32_t value);
 
 NS_ASSUME_NONNULL_END
 

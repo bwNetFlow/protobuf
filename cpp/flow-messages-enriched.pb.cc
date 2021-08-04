@@ -14,28 +14,89 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+
+PROTOBUF_PRAGMA_INIT_SEG
 namespace flowmessageenriched {
-class FlowMessageDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<FlowMessage> _instance;
-} _FlowMessage_default_instance_;
+constexpr FlowMessage::FlowMessage(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : srcaddr_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , dstaddr_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , sampleraddress_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , nexthop_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , cidstring_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , srcifname_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , srcifdesc_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , dstifname_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , dstifdesc_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , protoname_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , remotecountry_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , timereceived_(uint64_t{0u})
+  , type_(0)
+
+  , sequencenum_(0u)
+  , samplingrate_(uint64_t{0u})
+  , timeflowend_(uint64_t{0u})
+  , bytes_(uint64_t{0u})
+  , packets_(uint64_t{0u})
+  , nexthopas_(0u)
+  , srcas_(0u)
+  , dstas_(0u)
+  , srcnet_(0u)
+  , dstnet_(0u)
+  , inif_(0u)
+  , outif_(0u)
+  , proto_(0u)
+  , srcport_(0u)
+  , dstport_(0u)
+  , iptos_(0u)
+  , forwardingstatus_(0u)
+  , ipttl_(0u)
+  , tcpflags_(0u)
+  , srcmac_(uint64_t{0u})
+  , dstmac_(uint64_t{0u})
+  , vlanid_(0u)
+  , etype_(0u)
+  , icmptype_(0u)
+  , icmpcode_(0u)
+  , srcvlan_(0u)
+  , dstvlan_(0u)
+  , fragmentid_(0u)
+  , fragmentoffset_(0u)
+  , timeflowstart_(uint64_t{0u})
+  , ipv6flowlabel_(0u)
+  , ingressvrfid_(0u)
+  , egressvrfid_(0u)
+  , biflowdirection_(0u)
+  , flowdirection_(0u)
+  , hasmpls_(false)
+  , mplscount_(0u)
+  , mpls1ttl_(0u)
+  , mpls1label_(0u)
+  , mpls2ttl_(0u)
+  , mpls2label_(0u)
+  , mpls3ttl_(0u)
+  , mpls3label_(0u)
+  , mplslastttl_(0u)
+  , mplslastlabel_(0u)
+  , cid_(0u)
+  , normalized_(0)
+
+  , srcifspeed_(0u)
+  , dstifspeed_(0u)
+  , remoteaddr_(0)
+{}
+struct FlowMessageDefaultTypeInternal {
+  constexpr FlowMessageDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~FlowMessageDefaultTypeInternal() {}
+  union {
+    FlowMessage _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT FlowMessageDefaultTypeInternal _FlowMessage_default_instance_;
 }  // namespace flowmessageenriched
-static void InitDefaultsscc_info_FlowMessage_flow_2dmessages_2denriched_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::flowmessageenriched::_FlowMessage_default_instance_;
-    new (ptr) ::flowmessageenriched::FlowMessage();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::flowmessageenriched::FlowMessage::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FlowMessage_flow_2dmessages_2denriched_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_FlowMessage_flow_2dmessages_2denriched_2eproto}, {}};
-
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_flow_2dmessages_2denriched_2eproto[1];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_flow_2dmessages_2denriched_2eproto[2];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_flow_2dmessages_2denriched_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_flow_2dmessages_2denriched_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_flow_2dmessages_2denriched_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -85,16 +146,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_flow_2dmessages_2denriched_2ep
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, nexthopas_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcnet_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstnet_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, hasencap_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcaddrencap_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstaddrencap_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, protoencap_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, etypeencap_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, iptosencap_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, ipttlencap_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, ipv6flowlabelencap_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, fragmentidencap_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, fragmentoffsetencap_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, hasmpls_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, mplscount_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, mpls1ttl_),
@@ -105,8 +156,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_flow_2dmessages_2denriched_2ep
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, mpls3label_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, mplslastttl_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, mplslastlabel_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, hasppp_),
-  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, pppaddresscontrol_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, cid_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, cidstring_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, normalized_),
@@ -118,6 +167,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_flow_2dmessages_2denriched_2ep
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstifspeed_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, protoname_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, remotecountry_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, remoteaddr_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::flowmessageenriched::FlowMessage)},
@@ -129,7 +179,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_flow_2dmessages_2denriched_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\034flow-messages-enriched.proto\022\023flowmess"
-  "ageenriched\"\375\014\n\013FlowMessage\0227\n\004Type\030\001 \001("
+  "ageenriched\"\351\013\n\013FlowMessage\0227\n\004Type\030\001 \001("
   "\0162).flowmessageenriched.FlowMessage.Flow"
   "Type\022\024\n\014TimeReceived\030\002 \001(\004\022\023\n\013SequenceNu"
   "m\030\004 \001(\r\022\024\n\014SamplingRate\030\003 \001(\004\022\025\n\rFlowDir"
@@ -149,45 +199,41 @@ const char descriptor_table_protodef_flow_2dmessages_2denriched_2eproto[] PROTOB
   "\016FragmentOffset\030$ \001(\r\022\027\n\017BiFlowDirection"
   "\030) \001(\r\022\r\n\005SrcAS\030\016 \001(\r\022\r\n\005DstAS\030\017 \001(\r\022\017\n\007"
   "NextHop\030\014 \001(\014\022\021\n\tNextHopAS\030\r \001(\r\022\016\n\006SrcN"
-  "et\030\020 \001(\r\022\016\n\006DstNet\030\021 \001(\r\022\020\n\010HasEncap\030+ \001"
-  "(\010\022\024\n\014SrcAddrEncap\030, \001(\014\022\024\n\014DstAddrEncap"
-  "\030- \001(\014\022\022\n\nProtoEncap\030. \001(\r\022\022\n\nEtypeEncap"
-  "\030/ \001(\r\022\022\n\nIPTosEncap\0300 \001(\r\022\022\n\nIPTTLEncap"
-  "\0301 \001(\r\022\032\n\022IPv6FlowLabelEncap\0302 \001(\r\022\027\n\017Fr"
-  "agmentIdEncap\0303 \001(\r\022\033\n\023FragmentOffsetEnc"
-  "ap\0304 \001(\r\022\017\n\007HasMPLS\0305 \001(\010\022\021\n\tMPLSCount\0306"
-  " \001(\r\022\020\n\010MPLS1TTL\0307 \001(\r\022\022\n\nMPLS1Label\0308 \001"
-  "(\r\022\020\n\010MPLS2TTL\0309 \001(\r\022\022\n\nMPLS2Label\030: \001(\r"
-  "\022\020\n\010MPLS3TTL\030; \001(\r\022\022\n\nMPLS3Label\030< \001(\r\022\023"
-  "\n\013MPLSLastTTL\030= \001(\r\022\025\n\rMPLSLastLabel\030> \001"
-  "(\r\022\016\n\006HasPPP\030\? \001(\010\022\031\n\021PPPAddressControl\030"
-  "@ \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022\022\n\tCidString\030\351\007 \001(\t\022"
-  "D\n\nNormalized\030\352\007 \001(\0162/.flowmessageenrich"
-  "ed.FlowMessage.NormalizedType\022\022\n\tSrcIfNa"
-  "me\030\353\007 \001(\t\022\022\n\tSrcIfDesc\030\354\007 \001(\t\022\023\n\nSrcIfSp"
-  "eed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 \001(\t\022\022\n\tDstIfD"
-  "esc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007 \001(\r\022\022\n\tProto"
-  "Name\030\361\007 \001(\t\022\026\n\rRemoteCountry\030\362\007 \001(\t\"S\n\010F"
-  "lowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007SFLOW_5\020\001\022\016\n"
-  "\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020\003\022\t\n\005IPFIX\020\004"
-  "\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007\n\003Yes\020\001B\"\n\tb"
-  "wnetflowB\025FlowMessageEnrichedPbb\006proto3"
+  "et\030\020 \001(\r\022\016\n\006DstNet\030\021 \001(\r\022\017\n\007HasMPLS\0305 \001("
+  "\010\022\021\n\tMPLSCount\0306 \001(\r\022\020\n\010MPLS1TTL\0307 \001(\r\022\022"
+  "\n\nMPLS1Label\0308 \001(\r\022\020\n\010MPLS2TTL\0309 \001(\r\022\022\n\n"
+  "MPLS2Label\030: \001(\r\022\020\n\010MPLS3TTL\030; \001(\r\022\022\n\nMP"
+  "LS3Label\030< \001(\r\022\023\n\013MPLSLastTTL\030= \001(\r\022\025\n\rM"
+  "PLSLastLabel\030> \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022\022\n\tCidS"
+  "tring\030\351\007 \001(\t\022D\n\nNormalized\030\352\007 \001(\0162/.flow"
+  "messageenriched.FlowMessage.NormalizedTy"
+  "pe\022\022\n\tSrcIfName\030\353\007 \001(\t\022\022\n\tSrcIfDesc\030\354\007 \001"
+  "(\t\022\023\n\nSrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 "
+  "\001(\t\022\022\n\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007"
+  " \001(\r\022\022\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemoteCountr"
+  "y\030\362\007 \001(\t\022D\n\nRemoteAddr\030\363\007 \001(\0162/.flowmess"
+  "ageenriched.FlowMessage.RemoteAddrType\"S"
+  "\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007SFLOW_5\020\001"
+  "\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020\003\022\t\n\005IPFI"
+  "X\020\004\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007\n\003Yes\020\001\"/"
+  "\n\016RemoteAddrType\022\013\n\007Neither\020\000\022\007\n\003Src\020\001\022\007"
+  "\n\003Dst\020\002BX\n\tbwnetflowB\025FlowMessageEnriche"
+  "dPbZ4github.com/bwNetFlow/protobuf/go;fl"
+  "owmessageenrichedb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_flow_2dmessages_2denriched_2eproto_deps[1] = {
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_flow_2dmessages_2denriched_2eproto_sccs[1] = {
-  &scc_info_FlowMessage_flow_2dmessages_2denriched_2eproto.base,
-};
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_flow_2dmessages_2denriched_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_flow_2dmessages_2denriched_2eproto = {
-  false, false, descriptor_table_protodef_flow_2dmessages_2denriched_2eproto, "flow-messages-enriched.proto", 1759,
-  &descriptor_table_flow_2dmessages_2denriched_2eproto_once, descriptor_table_flow_2dmessages_2denriched_2eproto_sccs, descriptor_table_flow_2dmessages_2denriched_2eproto_deps, 1, 0,
+  false, false, 1665, descriptor_table_protodef_flow_2dmessages_2denriched_2eproto, "flow-messages-enriched.proto", 
+  &descriptor_table_flow_2dmessages_2denriched_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_flow_2dmessages_2denriched_2eproto::offsets,
-  file_level_metadata_flow_2dmessages_2denriched_2eproto, 1, file_level_enum_descriptors_flow_2dmessages_2denriched_2eproto, file_level_service_descriptors_flow_2dmessages_2denriched_2eproto,
+  file_level_metadata_flow_2dmessages_2denriched_2eproto, file_level_enum_descriptors_flow_2dmessages_2denriched_2eproto, file_level_service_descriptors_flow_2dmessages_2denriched_2eproto,
 };
+PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_flow_2dmessages_2denriched_2eproto_getter() {
+  return &descriptor_table_flow_2dmessages_2denriched_2eproto;
+}
 
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_flow_2dmessages_2denriched_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_flow_2dmessages_2denriched_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_flow_2dmessages_2denriched_2eproto(&descriptor_table_flow_2dmessages_2denriched_2eproto);
 namespace flowmessageenriched {
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FlowMessage_FlowType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_flow_2dmessages_2denriched_2eproto);
@@ -237,19 +283,43 @@ constexpr FlowMessage_NormalizedType FlowMessage::NormalizedType_MIN;
 constexpr FlowMessage_NormalizedType FlowMessage::NormalizedType_MAX;
 constexpr int FlowMessage::NormalizedType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* FlowMessage_RemoteAddrType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_flow_2dmessages_2denriched_2eproto);
+  return file_level_enum_descriptors_flow_2dmessages_2denriched_2eproto[2];
+}
+bool FlowMessage_RemoteAddrType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr FlowMessage_RemoteAddrType FlowMessage::Neither;
+constexpr FlowMessage_RemoteAddrType FlowMessage::Src;
+constexpr FlowMessage_RemoteAddrType FlowMessage::Dst;
+constexpr FlowMessage_RemoteAddrType FlowMessage::RemoteAddrType_MIN;
+constexpr FlowMessage_RemoteAddrType FlowMessage::RemoteAddrType_MAX;
+constexpr int FlowMessage::RemoteAddrType_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 
 // ===================================================================
 
-void FlowMessage::InitAsDefaultInstance() {
-}
 class FlowMessage::_Internal {
  public:
 };
 
-FlowMessage::FlowMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+FlowMessage::FlowMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:flowmessageenriched.FlowMessage)
 }
 FlowMessage::FlowMessage(const FlowMessage& from)
@@ -257,109 +327,96 @@ FlowMessage::FlowMessage(const FlowMessage& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   srcaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_srcaddr().empty()) {
-    srcaddr_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_srcaddr(),
-      GetArena());
+    srcaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_srcaddr(), 
+      GetArenaForAllocation());
   }
   dstaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_dstaddr().empty()) {
-    dstaddr_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_dstaddr(),
-      GetArena());
+    dstaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_dstaddr(), 
+      GetArenaForAllocation());
   }
   sampleraddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_sampleraddress().empty()) {
-    sampleraddress_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_sampleraddress(),
-      GetArena());
+    sampleraddress_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sampleraddress(), 
+      GetArenaForAllocation());
   }
   nexthop_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_nexthop().empty()) {
-    nexthop_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_nexthop(),
-      GetArena());
-  }
-  srcaddrencap_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_srcaddrencap().empty()) {
-    srcaddrencap_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_srcaddrencap(),
-      GetArena());
-  }
-  dstaddrencap_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_dstaddrencap().empty()) {
-    dstaddrencap_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_dstaddrencap(),
-      GetArena());
+    nexthop_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_nexthop(), 
+      GetArenaForAllocation());
   }
   cidstring_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_cidstring().empty()) {
-    cidstring_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_cidstring(),
-      GetArena());
+    cidstring_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_cidstring(), 
+      GetArenaForAllocation());
   }
   srcifname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_srcifname().empty()) {
-    srcifname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_srcifname(),
-      GetArena());
+    srcifname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_srcifname(), 
+      GetArenaForAllocation());
   }
   srcifdesc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_srcifdesc().empty()) {
-    srcifdesc_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_srcifdesc(),
-      GetArena());
+    srcifdesc_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_srcifdesc(), 
+      GetArenaForAllocation());
   }
   dstifname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_dstifname().empty()) {
-    dstifname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_dstifname(),
-      GetArena());
+    dstifname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_dstifname(), 
+      GetArenaForAllocation());
   }
   dstifdesc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_dstifdesc().empty()) {
-    dstifdesc_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_dstifdesc(),
-      GetArena());
+    dstifdesc_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_dstifdesc(), 
+      GetArenaForAllocation());
   }
   protoname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_protoname().empty()) {
-    protoname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_protoname(),
-      GetArena());
+    protoname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_protoname(), 
+      GetArenaForAllocation());
   }
   remotecountry_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_remotecountry().empty()) {
-    remotecountry_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_remotecountry(),
-      GetArena());
+    remotecountry_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_remotecountry(), 
+      GetArenaForAllocation());
   }
   ::memcpy(&timereceived_, &from.timereceived_,
-    static_cast<size_t>(reinterpret_cast<char*>(&srcifspeed_) -
-    reinterpret_cast<char*>(&timereceived_)) + sizeof(srcifspeed_));
+    static_cast<size_t>(reinterpret_cast<char*>(&remoteaddr_) -
+    reinterpret_cast<char*>(&timereceived_)) + sizeof(remoteaddr_));
   // @@protoc_insertion_point(copy_constructor:flowmessageenriched.FlowMessage)
 }
 
-void FlowMessage::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_FlowMessage_flow_2dmessages_2denriched_2eproto.base);
-  srcaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  dstaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  sampleraddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  nexthop_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  srcaddrencap_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  dstaddrencap_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  cidstring_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  srcifname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  srcifdesc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  dstifname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  dstifdesc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  protoname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  remotecountry_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&timereceived_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&srcifspeed_) -
-      reinterpret_cast<char*>(&timereceived_)) + sizeof(srcifspeed_));
+inline void FlowMessage::SharedCtor() {
+srcaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+dstaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+sampleraddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+nexthop_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+cidstring_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+srcifname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+srcifdesc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+dstifname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+dstifdesc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+protoname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+remotecountry_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&timereceived_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&remoteaddr_) -
+    reinterpret_cast<char*>(&timereceived_)) + sizeof(remoteaddr_));
 }
 
 FlowMessage::~FlowMessage() {
   // @@protoc_insertion_point(destructor:flowmessageenriched.FlowMessage)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void FlowMessage::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void FlowMessage::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   srcaddr_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   dstaddr_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   sampleraddress_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   nexthop_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  srcaddrencap_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  dstaddrencap_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   cidstring_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   srcifname_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   srcifdesc_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -378,11 +435,6 @@ void FlowMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void FlowMessage::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const FlowMessage& FlowMessage::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_FlowMessage_flow_2dmessages_2denriched_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void FlowMessage::Clear() {
 // @@protoc_insertion_point(message_clear_start:flowmessageenriched.FlowMessage)
@@ -390,32 +442,28 @@ void FlowMessage::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  srcaddr_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  dstaddr_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  sampleraddress_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  nexthop_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  srcaddrencap_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  dstaddrencap_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  cidstring_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  srcifname_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  srcifdesc_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  dstifname_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  dstifdesc_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  protoname_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  remotecountry_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  srcaddr_.ClearToEmpty();
+  dstaddr_.ClearToEmpty();
+  sampleraddress_.ClearToEmpty();
+  nexthop_.ClearToEmpty();
+  cidstring_.ClearToEmpty();
+  srcifname_.ClearToEmpty();
+  srcifdesc_.ClearToEmpty();
+  dstifname_.ClearToEmpty();
+  dstifdesc_.ClearToEmpty();
+  protoname_.ClearToEmpty();
+  remotecountry_.ClearToEmpty();
   ::memset(&timereceived_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&srcifspeed_) -
-      reinterpret_cast<char*>(&timereceived_)) + sizeof(srcifspeed_));
+      reinterpret_cast<char*>(&remoteaddr_) -
+      reinterpret_cast<char*>(&timereceived_)) + sizeof(remoteaddr_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* FlowMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .flowmessageenriched.FlowMessage.FlowType Type = 1;
       case 1:
@@ -709,78 +757,6 @@ const char* FlowMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool HasEncap = 43;
-      case 43:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
-          hasencap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bytes SrcAddrEncap = 44;
-      case 44:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
-          auto str = _internal_mutable_srcaddrencap();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bytes DstAddrEncap = 45;
-      case 45:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
-          auto str = _internal_mutable_dstaddrencap();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 ProtoEncap = 46;
-      case 46:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
-          protoencap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 EtypeEncap = 47;
-      case 47:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
-          etypeencap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 IPTosEncap = 48;
-      case 48:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
-          iptosencap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 IPTTLEncap = 49;
-      case 49:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
-          ipttlencap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 IPv6FlowLabelEncap = 50;
-      case 50:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
-          ipv6flowlabelencap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 FragmentIdEncap = 51;
-      case 51:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
-          fragmentidencap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 FragmentOffsetEncap = 52;
-      case 52:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 160)) {
-          fragmentoffsetencap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       // bool HasMPLS = 53;
       case 53:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 168)) {
@@ -848,20 +824,6 @@ const char* FlowMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       case 62:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 240)) {
           mplslastlabel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool HasPPP = 63;
-      case 63:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 248)) {
-          hasppp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 PPPAddressControl = 64;
-      case 64:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 0)) {
-          pppaddresscontrol_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -957,9 +919,18 @@ const char* FlowMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // .flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;
+      case 1011:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_remoteaddr(static_cast<::flowmessageenriched::FlowMessage_RemoteAddrType>(val));
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
           ctx->SetLastTag(tag);
           goto success;
         }
@@ -986,392 +957,320 @@ failure:
   (void) cached_has_bits;
 
   // .flowmessageenriched.FlowMessage.FlowType Type = 1;
-  if (this->type() != 0) {
+  if (this->_internal_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_type(), target);
   }
 
   // uint64 TimeReceived = 2;
-  if (this->timereceived() != 0) {
+  if (this->_internal_timereceived() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_timereceived(), target);
   }
 
   // uint64 SamplingRate = 3;
-  if (this->samplingrate() != 0) {
+  if (this->_internal_samplingrate() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_samplingrate(), target);
   }
 
   // uint32 SequenceNum = 4;
-  if (this->sequencenum() != 0) {
+  if (this->_internal_sequencenum() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_sequencenum(), target);
   }
 
   // uint64 TimeFlowEnd = 5;
-  if (this->timeflowend() != 0) {
+  if (this->_internal_timeflowend() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_timeflowend(), target);
   }
 
   // bytes SrcAddr = 6;
-  if (this->srcaddr().size() > 0) {
+  if (!this->_internal_srcaddr().empty()) {
     target = stream->WriteBytesMaybeAliased(
         6, this->_internal_srcaddr(), target);
   }
 
   // bytes DstAddr = 7;
-  if (this->dstaddr().size() > 0) {
+  if (!this->_internal_dstaddr().empty()) {
     target = stream->WriteBytesMaybeAliased(
         7, this->_internal_dstaddr(), target);
   }
 
   // uint64 Bytes = 9;
-  if (this->bytes() != 0) {
+  if (this->_internal_bytes() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(9, this->_internal_bytes(), target);
   }
 
   // uint64 Packets = 10;
-  if (this->packets() != 0) {
+  if (this->_internal_packets() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(10, this->_internal_packets(), target);
   }
 
   // bytes SamplerAddress = 11;
-  if (this->sampleraddress().size() > 0) {
+  if (!this->_internal_sampleraddress().empty()) {
     target = stream->WriteBytesMaybeAliased(
         11, this->_internal_sampleraddress(), target);
   }
 
   // bytes NextHop = 12;
-  if (this->nexthop().size() > 0) {
+  if (!this->_internal_nexthop().empty()) {
     target = stream->WriteBytesMaybeAliased(
         12, this->_internal_nexthop(), target);
   }
 
   // uint32 NextHopAS = 13;
-  if (this->nexthopas() != 0) {
+  if (this->_internal_nexthopas() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_nexthopas(), target);
   }
 
   // uint32 SrcAS = 14;
-  if (this->srcas() != 0) {
+  if (this->_internal_srcas() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(14, this->_internal_srcas(), target);
   }
 
   // uint32 DstAS = 15;
-  if (this->dstas() != 0) {
+  if (this->_internal_dstas() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(15, this->_internal_dstas(), target);
   }
 
   // uint32 SrcNet = 16;
-  if (this->srcnet() != 0) {
+  if (this->_internal_srcnet() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(16, this->_internal_srcnet(), target);
   }
 
   // uint32 DstNet = 17;
-  if (this->dstnet() != 0) {
+  if (this->_internal_dstnet() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(17, this->_internal_dstnet(), target);
   }
 
   // uint32 InIf = 18;
-  if (this->inif() != 0) {
+  if (this->_internal_inif() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(18, this->_internal_inif(), target);
   }
 
   // uint32 OutIf = 19;
-  if (this->outif() != 0) {
+  if (this->_internal_outif() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(19, this->_internal_outif(), target);
   }
 
   // uint32 Proto = 20;
-  if (this->proto() != 0) {
+  if (this->_internal_proto() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(20, this->_internal_proto(), target);
   }
 
   // uint32 SrcPort = 21;
-  if (this->srcport() != 0) {
+  if (this->_internal_srcport() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(21, this->_internal_srcport(), target);
   }
 
   // uint32 DstPort = 22;
-  if (this->dstport() != 0) {
+  if (this->_internal_dstport() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(22, this->_internal_dstport(), target);
   }
 
   // uint32 IPTos = 23;
-  if (this->iptos() != 0) {
+  if (this->_internal_iptos() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(23, this->_internal_iptos(), target);
   }
 
   // uint32 ForwardingStatus = 24;
-  if (this->forwardingstatus() != 0) {
+  if (this->_internal_forwardingstatus() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(24, this->_internal_forwardingstatus(), target);
   }
 
   // uint32 IPTTL = 25;
-  if (this->ipttl() != 0) {
+  if (this->_internal_ipttl() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(25, this->_internal_ipttl(), target);
   }
 
   // uint32 TCPFlags = 26;
-  if (this->tcpflags() != 0) {
+  if (this->_internal_tcpflags() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(26, this->_internal_tcpflags(), target);
   }
 
   // uint64 SrcMac = 27;
-  if (this->srcmac() != 0) {
+  if (this->_internal_srcmac() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(27, this->_internal_srcmac(), target);
   }
 
   // uint64 DstMac = 28;
-  if (this->dstmac() != 0) {
+  if (this->_internal_dstmac() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(28, this->_internal_dstmac(), target);
   }
 
   // uint32 VlanId = 29;
-  if (this->vlanid() != 0) {
+  if (this->_internal_vlanid() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(29, this->_internal_vlanid(), target);
   }
 
   // uint32 Etype = 30;
-  if (this->etype() != 0) {
+  if (this->_internal_etype() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(30, this->_internal_etype(), target);
   }
 
   // uint32 IcmpType = 31;
-  if (this->icmptype() != 0) {
+  if (this->_internal_icmptype() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(31, this->_internal_icmptype(), target);
   }
 
   // uint32 IcmpCode = 32;
-  if (this->icmpcode() != 0) {
+  if (this->_internal_icmpcode() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(32, this->_internal_icmpcode(), target);
   }
 
   // uint32 SrcVlan = 33;
-  if (this->srcvlan() != 0) {
+  if (this->_internal_srcvlan() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(33, this->_internal_srcvlan(), target);
   }
 
   // uint32 DstVlan = 34;
-  if (this->dstvlan() != 0) {
+  if (this->_internal_dstvlan() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(34, this->_internal_dstvlan(), target);
   }
 
   // uint32 FragmentId = 35;
-  if (this->fragmentid() != 0) {
+  if (this->_internal_fragmentid() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(35, this->_internal_fragmentid(), target);
   }
 
   // uint32 FragmentOffset = 36;
-  if (this->fragmentoffset() != 0) {
+  if (this->_internal_fragmentoffset() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(36, this->_internal_fragmentoffset(), target);
   }
 
   // uint32 IPv6FlowLabel = 37;
-  if (this->ipv6flowlabel() != 0) {
+  if (this->_internal_ipv6flowlabel() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(37, this->_internal_ipv6flowlabel(), target);
   }
 
   // uint64 TimeFlowStart = 38;
-  if (this->timeflowstart() != 0) {
+  if (this->_internal_timeflowstart() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(38, this->_internal_timeflowstart(), target);
   }
 
   // uint32 IngressVrfID = 39;
-  if (this->ingressvrfid() != 0) {
+  if (this->_internal_ingressvrfid() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(39, this->_internal_ingressvrfid(), target);
   }
 
   // uint32 EgressVrfID = 40;
-  if (this->egressvrfid() != 0) {
+  if (this->_internal_egressvrfid() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(40, this->_internal_egressvrfid(), target);
   }
 
   // uint32 BiFlowDirection = 41;
-  if (this->biflowdirection() != 0) {
+  if (this->_internal_biflowdirection() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(41, this->_internal_biflowdirection(), target);
   }
 
   // uint32 FlowDirection = 42;
-  if (this->flowdirection() != 0) {
+  if (this->_internal_flowdirection() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(42, this->_internal_flowdirection(), target);
   }
 
-  // bool HasEncap = 43;
-  if (this->hasencap() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(43, this->_internal_hasencap(), target);
-  }
-
-  // bytes SrcAddrEncap = 44;
-  if (this->srcaddrencap().size() > 0) {
-    target = stream->WriteBytesMaybeAliased(
-        44, this->_internal_srcaddrencap(), target);
-  }
-
-  // bytes DstAddrEncap = 45;
-  if (this->dstaddrencap().size() > 0) {
-    target = stream->WriteBytesMaybeAliased(
-        45, this->_internal_dstaddrencap(), target);
-  }
-
-  // uint32 ProtoEncap = 46;
-  if (this->protoencap() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(46, this->_internal_protoencap(), target);
-  }
-
-  // uint32 EtypeEncap = 47;
-  if (this->etypeencap() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(47, this->_internal_etypeencap(), target);
-  }
-
-  // uint32 IPTosEncap = 48;
-  if (this->iptosencap() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(48, this->_internal_iptosencap(), target);
-  }
-
-  // uint32 IPTTLEncap = 49;
-  if (this->ipttlencap() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(49, this->_internal_ipttlencap(), target);
-  }
-
-  // uint32 IPv6FlowLabelEncap = 50;
-  if (this->ipv6flowlabelencap() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(50, this->_internal_ipv6flowlabelencap(), target);
-  }
-
-  // uint32 FragmentIdEncap = 51;
-  if (this->fragmentidencap() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(51, this->_internal_fragmentidencap(), target);
-  }
-
-  // uint32 FragmentOffsetEncap = 52;
-  if (this->fragmentoffsetencap() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(52, this->_internal_fragmentoffsetencap(), target);
-  }
-
   // bool HasMPLS = 53;
-  if (this->hasmpls() != 0) {
+  if (this->_internal_hasmpls() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(53, this->_internal_hasmpls(), target);
   }
 
   // uint32 MPLSCount = 54;
-  if (this->mplscount() != 0) {
+  if (this->_internal_mplscount() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(54, this->_internal_mplscount(), target);
   }
 
   // uint32 MPLS1TTL = 55;
-  if (this->mpls1ttl() != 0) {
+  if (this->_internal_mpls1ttl() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(55, this->_internal_mpls1ttl(), target);
   }
 
   // uint32 MPLS1Label = 56;
-  if (this->mpls1label() != 0) {
+  if (this->_internal_mpls1label() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(56, this->_internal_mpls1label(), target);
   }
 
   // uint32 MPLS2TTL = 57;
-  if (this->mpls2ttl() != 0) {
+  if (this->_internal_mpls2ttl() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(57, this->_internal_mpls2ttl(), target);
   }
 
   // uint32 MPLS2Label = 58;
-  if (this->mpls2label() != 0) {
+  if (this->_internal_mpls2label() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(58, this->_internal_mpls2label(), target);
   }
 
   // uint32 MPLS3TTL = 59;
-  if (this->mpls3ttl() != 0) {
+  if (this->_internal_mpls3ttl() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(59, this->_internal_mpls3ttl(), target);
   }
 
   // uint32 MPLS3Label = 60;
-  if (this->mpls3label() != 0) {
+  if (this->_internal_mpls3label() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(60, this->_internal_mpls3label(), target);
   }
 
   // uint32 MPLSLastTTL = 61;
-  if (this->mplslastttl() != 0) {
+  if (this->_internal_mplslastttl() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(61, this->_internal_mplslastttl(), target);
   }
 
   // uint32 MPLSLastLabel = 62;
-  if (this->mplslastlabel() != 0) {
+  if (this->_internal_mplslastlabel() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(62, this->_internal_mplslastlabel(), target);
   }
 
-  // bool HasPPP = 63;
-  if (this->hasppp() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(63, this->_internal_hasppp(), target);
-  }
-
-  // uint32 PPPAddressControl = 64;
-  if (this->pppaddresscontrol() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(64, this->_internal_pppaddresscontrol(), target);
-  }
-
   // uint32 Cid = 1000;
-  if (this->cid() != 0) {
+  if (this->_internal_cid() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1000, this->_internal_cid(), target);
   }
 
   // string CidString = 1001;
-  if (this->cidstring().size() > 0) {
+  if (!this->_internal_cidstring().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_cidstring().data(), static_cast<int>(this->_internal_cidstring().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -1381,14 +1280,14 @@ failure:
   }
 
   // .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
-  if (this->normalized() != 0) {
+  if (this->_internal_normalized() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1002, this->_internal_normalized(), target);
   }
 
   // string SrcIfName = 1003;
-  if (this->srcifname().size() > 0) {
+  if (!this->_internal_srcifname().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_srcifname().data(), static_cast<int>(this->_internal_srcifname().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -1398,7 +1297,7 @@ failure:
   }
 
   // string SrcIfDesc = 1004;
-  if (this->srcifdesc().size() > 0) {
+  if (!this->_internal_srcifdesc().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_srcifdesc().data(), static_cast<int>(this->_internal_srcifdesc().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -1408,13 +1307,13 @@ failure:
   }
 
   // uint32 SrcIfSpeed = 1005;
-  if (this->srcifspeed() != 0) {
+  if (this->_internal_srcifspeed() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1005, this->_internal_srcifspeed(), target);
   }
 
   // string DstIfName = 1006;
-  if (this->dstifname().size() > 0) {
+  if (!this->_internal_dstifname().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_dstifname().data(), static_cast<int>(this->_internal_dstifname().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -1424,7 +1323,7 @@ failure:
   }
 
   // string DstIfDesc = 1007;
-  if (this->dstifdesc().size() > 0) {
+  if (!this->_internal_dstifdesc().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_dstifdesc().data(), static_cast<int>(this->_internal_dstifdesc().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -1434,13 +1333,13 @@ failure:
   }
 
   // uint32 DstIfSpeed = 1008;
-  if (this->dstifspeed() != 0) {
+  if (this->_internal_dstifspeed() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1008, this->_internal_dstifspeed(), target);
   }
 
   // string ProtoName = 1009;
-  if (this->protoname().size() > 0) {
+  if (!this->_internal_protoname().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_protoname().data(), static_cast<int>(this->_internal_protoname().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -1450,13 +1349,20 @@ failure:
   }
 
   // string RemoteCountry = 1010;
-  if (this->remotecountry().size() > 0) {
+  if (!this->_internal_remotecountry().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_remotecountry().data(), static_cast<int>(this->_internal_remotecountry().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "flowmessageenriched.FlowMessage.RemoteCountry");
     target = stream->WriteStringMaybeAliased(
         1010, this->_internal_remotecountry(), target);
+  }
+
+  // .flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;
+  if (this->_internal_remoteaddr() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1011, this->_internal_remoteaddr(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1476,513 +1382,439 @@ size_t FlowMessage::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // bytes SrcAddr = 6;
-  if (this->srcaddr().size() > 0) {
+  if (!this->_internal_srcaddr().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_srcaddr());
   }
 
   // bytes DstAddr = 7;
-  if (this->dstaddr().size() > 0) {
+  if (!this->_internal_dstaddr().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_dstaddr());
   }
 
   // bytes SamplerAddress = 11;
-  if (this->sampleraddress().size() > 0) {
+  if (!this->_internal_sampleraddress().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_sampleraddress());
   }
 
   // bytes NextHop = 12;
-  if (this->nexthop().size() > 0) {
+  if (!this->_internal_nexthop().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_nexthop());
   }
 
-  // bytes SrcAddrEncap = 44;
-  if (this->srcaddrencap().size() > 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_srcaddrencap());
-  }
-
-  // bytes DstAddrEncap = 45;
-  if (this->dstaddrencap().size() > 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_dstaddrencap());
-  }
-
   // string CidString = 1001;
-  if (this->cidstring().size() > 0) {
+  if (!this->_internal_cidstring().empty()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_cidstring());
   }
 
   // string SrcIfName = 1003;
-  if (this->srcifname().size() > 0) {
+  if (!this->_internal_srcifname().empty()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_srcifname());
   }
 
   // string SrcIfDesc = 1004;
-  if (this->srcifdesc().size() > 0) {
+  if (!this->_internal_srcifdesc().empty()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_srcifdesc());
   }
 
   // string DstIfName = 1006;
-  if (this->dstifname().size() > 0) {
+  if (!this->_internal_dstifname().empty()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_dstifname());
   }
 
   // string DstIfDesc = 1007;
-  if (this->dstifdesc().size() > 0) {
+  if (!this->_internal_dstifdesc().empty()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_dstifdesc());
   }
 
   // string ProtoName = 1009;
-  if (this->protoname().size() > 0) {
+  if (!this->_internal_protoname().empty()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_protoname());
   }
 
   // string RemoteCountry = 1010;
-  if (this->remotecountry().size() > 0) {
+  if (!this->_internal_remotecountry().empty()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_remotecountry());
   }
 
   // uint64 TimeReceived = 2;
-  if (this->timereceived() != 0) {
+  if (this->_internal_timereceived() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_timereceived());
   }
 
   // .flowmessageenriched.FlowMessage.FlowType Type = 1;
-  if (this->type() != 0) {
+  if (this->_internal_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
   }
 
   // uint32 SequenceNum = 4;
-  if (this->sequencenum() != 0) {
+  if (this->_internal_sequencenum() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_sequencenum());
   }
 
   // uint64 SamplingRate = 3;
-  if (this->samplingrate() != 0) {
+  if (this->_internal_samplingrate() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_samplingrate());
   }
 
   // uint64 TimeFlowEnd = 5;
-  if (this->timeflowend() != 0) {
+  if (this->_internal_timeflowend() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_timeflowend());
   }
 
   // uint64 Bytes = 9;
-  if (this->bytes() != 0) {
+  if (this->_internal_bytes() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_bytes());
   }
 
   // uint64 Packets = 10;
-  if (this->packets() != 0) {
+  if (this->_internal_packets() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_packets());
   }
 
   // uint32 NextHopAS = 13;
-  if (this->nexthopas() != 0) {
+  if (this->_internal_nexthopas() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_nexthopas());
   }
 
   // uint32 SrcAS = 14;
-  if (this->srcas() != 0) {
+  if (this->_internal_srcas() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_srcas());
   }
 
   // uint32 DstAS = 15;
-  if (this->dstas() != 0) {
+  if (this->_internal_dstas() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_dstas());
   }
 
   // uint32 SrcNet = 16;
-  if (this->srcnet() != 0) {
+  if (this->_internal_srcnet() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_srcnet());
   }
 
   // uint32 DstNet = 17;
-  if (this->dstnet() != 0) {
+  if (this->_internal_dstnet() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_dstnet());
   }
 
   // uint32 InIf = 18;
-  if (this->inif() != 0) {
+  if (this->_internal_inif() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_inif());
   }
 
   // uint32 OutIf = 19;
-  if (this->outif() != 0) {
+  if (this->_internal_outif() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_outif());
   }
 
   // uint32 Proto = 20;
-  if (this->proto() != 0) {
+  if (this->_internal_proto() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_proto());
   }
 
   // uint32 SrcPort = 21;
-  if (this->srcport() != 0) {
+  if (this->_internal_srcport() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_srcport());
   }
 
   // uint32 DstPort = 22;
-  if (this->dstport() != 0) {
+  if (this->_internal_dstport() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_dstport());
   }
 
   // uint32 IPTos = 23;
-  if (this->iptos() != 0) {
+  if (this->_internal_iptos() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_iptos());
   }
 
   // uint32 ForwardingStatus = 24;
-  if (this->forwardingstatus() != 0) {
+  if (this->_internal_forwardingstatus() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_forwardingstatus());
   }
 
   // uint32 IPTTL = 25;
-  if (this->ipttl() != 0) {
+  if (this->_internal_ipttl() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_ipttl());
   }
 
   // uint32 TCPFlags = 26;
-  if (this->tcpflags() != 0) {
+  if (this->_internal_tcpflags() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_tcpflags());
   }
 
   // uint64 SrcMac = 27;
-  if (this->srcmac() != 0) {
+  if (this->_internal_srcmac() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_srcmac());
   }
 
   // uint64 DstMac = 28;
-  if (this->dstmac() != 0) {
+  if (this->_internal_dstmac() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_dstmac());
   }
 
   // uint32 VlanId = 29;
-  if (this->vlanid() != 0) {
+  if (this->_internal_vlanid() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_vlanid());
   }
 
   // uint32 Etype = 30;
-  if (this->etype() != 0) {
+  if (this->_internal_etype() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_etype());
   }
 
   // uint32 IcmpType = 31;
-  if (this->icmptype() != 0) {
+  if (this->_internal_icmptype() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_icmptype());
   }
 
   // uint32 IcmpCode = 32;
-  if (this->icmpcode() != 0) {
+  if (this->_internal_icmpcode() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_icmpcode());
   }
 
   // uint32 SrcVlan = 33;
-  if (this->srcvlan() != 0) {
+  if (this->_internal_srcvlan() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_srcvlan());
   }
 
   // uint32 DstVlan = 34;
-  if (this->dstvlan() != 0) {
+  if (this->_internal_dstvlan() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_dstvlan());
   }
 
   // uint32 FragmentId = 35;
-  if (this->fragmentid() != 0) {
+  if (this->_internal_fragmentid() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_fragmentid());
   }
 
   // uint32 FragmentOffset = 36;
-  if (this->fragmentoffset() != 0) {
+  if (this->_internal_fragmentoffset() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_fragmentoffset());
   }
 
   // uint64 TimeFlowStart = 38;
-  if (this->timeflowstart() != 0) {
+  if (this->_internal_timeflowstart() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_timeflowstart());
   }
 
   // uint32 IPv6FlowLabel = 37;
-  if (this->ipv6flowlabel() != 0) {
+  if (this->_internal_ipv6flowlabel() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_ipv6flowlabel());
   }
 
   // uint32 IngressVrfID = 39;
-  if (this->ingressvrfid() != 0) {
+  if (this->_internal_ingressvrfid() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_ingressvrfid());
   }
 
   // uint32 EgressVrfID = 40;
-  if (this->egressvrfid() != 0) {
+  if (this->_internal_egressvrfid() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_egressvrfid());
   }
 
   // uint32 BiFlowDirection = 41;
-  if (this->biflowdirection() != 0) {
+  if (this->_internal_biflowdirection() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_biflowdirection());
   }
 
   // uint32 FlowDirection = 42;
-  if (this->flowdirection() != 0) {
+  if (this->_internal_flowdirection() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_flowdirection());
   }
 
-  // uint32 ProtoEncap = 46;
-  if (this->protoencap() != 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_protoencap());
-  }
-
-  // uint32 EtypeEncap = 47;
-  if (this->etypeencap() != 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_etypeencap());
-  }
-
-  // uint32 IPTosEncap = 48;
-  if (this->iptosencap() != 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_iptosencap());
-  }
-
-  // uint32 IPTTLEncap = 49;
-  if (this->ipttlencap() != 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_ipttlencap());
-  }
-
-  // uint32 IPv6FlowLabelEncap = 50;
-  if (this->ipv6flowlabelencap() != 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_ipv6flowlabelencap());
-  }
-
-  // uint32 FragmentIdEncap = 51;
-  if (this->fragmentidencap() != 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_fragmentidencap());
-  }
-
-  // uint32 FragmentOffsetEncap = 52;
-  if (this->fragmentoffsetencap() != 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_fragmentoffsetencap());
-  }
-
-  // bool HasEncap = 43;
-  if (this->hasencap() != 0) {
-    total_size += 2 + 1;
-  }
-
   // bool HasMPLS = 53;
-  if (this->hasmpls() != 0) {
-    total_size += 2 + 1;
-  }
-
-  // bool HasPPP = 63;
-  if (this->hasppp() != 0) {
+  if (this->_internal_hasmpls() != 0) {
     total_size += 2 + 1;
   }
 
   // uint32 MPLSCount = 54;
-  if (this->mplscount() != 0) {
+  if (this->_internal_mplscount() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_mplscount());
   }
 
   // uint32 MPLS1TTL = 55;
-  if (this->mpls1ttl() != 0) {
+  if (this->_internal_mpls1ttl() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_mpls1ttl());
   }
 
   // uint32 MPLS1Label = 56;
-  if (this->mpls1label() != 0) {
+  if (this->_internal_mpls1label() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_mpls1label());
   }
 
   // uint32 MPLS2TTL = 57;
-  if (this->mpls2ttl() != 0) {
+  if (this->_internal_mpls2ttl() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_mpls2ttl());
   }
 
   // uint32 MPLS2Label = 58;
-  if (this->mpls2label() != 0) {
+  if (this->_internal_mpls2label() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_mpls2label());
   }
 
   // uint32 MPLS3TTL = 59;
-  if (this->mpls3ttl() != 0) {
+  if (this->_internal_mpls3ttl() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_mpls3ttl());
   }
 
   // uint32 MPLS3Label = 60;
-  if (this->mpls3label() != 0) {
+  if (this->_internal_mpls3label() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_mpls3label());
   }
 
   // uint32 MPLSLastTTL = 61;
-  if (this->mplslastttl() != 0) {
+  if (this->_internal_mplslastttl() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_mplslastttl());
   }
 
   // uint32 MPLSLastLabel = 62;
-  if (this->mplslastlabel() != 0) {
+  if (this->_internal_mplslastlabel() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_mplslastlabel());
   }
 
-  // uint32 DstIfSpeed = 1008;
-  if (this->dstifspeed() != 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_dstifspeed());
-  }
-
-  // uint32 PPPAddressControl = 64;
-  if (this->pppaddresscontrol() != 0) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_pppaddresscontrol());
-  }
-
   // uint32 Cid = 1000;
-  if (this->cid() != 0) {
+  if (this->_internal_cid() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_cid());
   }
 
   // .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
-  if (this->normalized() != 0) {
+  if (this->_internal_normalized() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_normalized());
   }
 
   // uint32 SrcIfSpeed = 1005;
-  if (this->srcifspeed() != 0) {
+  if (this->_internal_srcifspeed() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_srcifspeed());
+  }
+
+  // uint32 DstIfSpeed = 1008;
+  if (this->_internal_dstifspeed() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_dstifspeed());
+  }
+
+  // .flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;
+  if (this->_internal_remoteaddr() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_remoteaddr());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1994,257 +1826,215 @@ size_t FlowMessage::ByteSizeLong() const {
   return total_size;
 }
 
-void FlowMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:flowmessageenriched.FlowMessage)
-  GOOGLE_DCHECK_NE(&from, this);
-  const FlowMessage* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<FlowMessage>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:flowmessageenriched.FlowMessage)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:flowmessageenriched.FlowMessage)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData FlowMessage::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    FlowMessage::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*FlowMessage::GetClassData() const { return &_class_data_; }
+
+void FlowMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message*to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message&from) {
+  static_cast<FlowMessage *>(to)->MergeFrom(
+      static_cast<const FlowMessage &>(from));
 }
+
 
 void FlowMessage::MergeFrom(const FlowMessage& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:flowmessageenriched.FlowMessage)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.srcaddr().size() > 0) {
+  if (!from._internal_srcaddr().empty()) {
     _internal_set_srcaddr(from._internal_srcaddr());
   }
-  if (from.dstaddr().size() > 0) {
+  if (!from._internal_dstaddr().empty()) {
     _internal_set_dstaddr(from._internal_dstaddr());
   }
-  if (from.sampleraddress().size() > 0) {
+  if (!from._internal_sampleraddress().empty()) {
     _internal_set_sampleraddress(from._internal_sampleraddress());
   }
-  if (from.nexthop().size() > 0) {
+  if (!from._internal_nexthop().empty()) {
     _internal_set_nexthop(from._internal_nexthop());
   }
-  if (from.srcaddrencap().size() > 0) {
-    _internal_set_srcaddrencap(from._internal_srcaddrencap());
-  }
-  if (from.dstaddrencap().size() > 0) {
-    _internal_set_dstaddrencap(from._internal_dstaddrencap());
-  }
-  if (from.cidstring().size() > 0) {
+  if (!from._internal_cidstring().empty()) {
     _internal_set_cidstring(from._internal_cidstring());
   }
-  if (from.srcifname().size() > 0) {
+  if (!from._internal_srcifname().empty()) {
     _internal_set_srcifname(from._internal_srcifname());
   }
-  if (from.srcifdesc().size() > 0) {
+  if (!from._internal_srcifdesc().empty()) {
     _internal_set_srcifdesc(from._internal_srcifdesc());
   }
-  if (from.dstifname().size() > 0) {
+  if (!from._internal_dstifname().empty()) {
     _internal_set_dstifname(from._internal_dstifname());
   }
-  if (from.dstifdesc().size() > 0) {
+  if (!from._internal_dstifdesc().empty()) {
     _internal_set_dstifdesc(from._internal_dstifdesc());
   }
-  if (from.protoname().size() > 0) {
+  if (!from._internal_protoname().empty()) {
     _internal_set_protoname(from._internal_protoname());
   }
-  if (from.remotecountry().size() > 0) {
+  if (!from._internal_remotecountry().empty()) {
     _internal_set_remotecountry(from._internal_remotecountry());
   }
-  if (from.timereceived() != 0) {
+  if (from._internal_timereceived() != 0) {
     _internal_set_timereceived(from._internal_timereceived());
   }
-  if (from.type() != 0) {
+  if (from._internal_type() != 0) {
     _internal_set_type(from._internal_type());
   }
-  if (from.sequencenum() != 0) {
+  if (from._internal_sequencenum() != 0) {
     _internal_set_sequencenum(from._internal_sequencenum());
   }
-  if (from.samplingrate() != 0) {
+  if (from._internal_samplingrate() != 0) {
     _internal_set_samplingrate(from._internal_samplingrate());
   }
-  if (from.timeflowend() != 0) {
+  if (from._internal_timeflowend() != 0) {
     _internal_set_timeflowend(from._internal_timeflowend());
   }
-  if (from.bytes() != 0) {
+  if (from._internal_bytes() != 0) {
     _internal_set_bytes(from._internal_bytes());
   }
-  if (from.packets() != 0) {
+  if (from._internal_packets() != 0) {
     _internal_set_packets(from._internal_packets());
   }
-  if (from.nexthopas() != 0) {
+  if (from._internal_nexthopas() != 0) {
     _internal_set_nexthopas(from._internal_nexthopas());
   }
-  if (from.srcas() != 0) {
+  if (from._internal_srcas() != 0) {
     _internal_set_srcas(from._internal_srcas());
   }
-  if (from.dstas() != 0) {
+  if (from._internal_dstas() != 0) {
     _internal_set_dstas(from._internal_dstas());
   }
-  if (from.srcnet() != 0) {
+  if (from._internal_srcnet() != 0) {
     _internal_set_srcnet(from._internal_srcnet());
   }
-  if (from.dstnet() != 0) {
+  if (from._internal_dstnet() != 0) {
     _internal_set_dstnet(from._internal_dstnet());
   }
-  if (from.inif() != 0) {
+  if (from._internal_inif() != 0) {
     _internal_set_inif(from._internal_inif());
   }
-  if (from.outif() != 0) {
+  if (from._internal_outif() != 0) {
     _internal_set_outif(from._internal_outif());
   }
-  if (from.proto() != 0) {
+  if (from._internal_proto() != 0) {
     _internal_set_proto(from._internal_proto());
   }
-  if (from.srcport() != 0) {
+  if (from._internal_srcport() != 0) {
     _internal_set_srcport(from._internal_srcport());
   }
-  if (from.dstport() != 0) {
+  if (from._internal_dstport() != 0) {
     _internal_set_dstport(from._internal_dstport());
   }
-  if (from.iptos() != 0) {
+  if (from._internal_iptos() != 0) {
     _internal_set_iptos(from._internal_iptos());
   }
-  if (from.forwardingstatus() != 0) {
+  if (from._internal_forwardingstatus() != 0) {
     _internal_set_forwardingstatus(from._internal_forwardingstatus());
   }
-  if (from.ipttl() != 0) {
+  if (from._internal_ipttl() != 0) {
     _internal_set_ipttl(from._internal_ipttl());
   }
-  if (from.tcpflags() != 0) {
+  if (from._internal_tcpflags() != 0) {
     _internal_set_tcpflags(from._internal_tcpflags());
   }
-  if (from.srcmac() != 0) {
+  if (from._internal_srcmac() != 0) {
     _internal_set_srcmac(from._internal_srcmac());
   }
-  if (from.dstmac() != 0) {
+  if (from._internal_dstmac() != 0) {
     _internal_set_dstmac(from._internal_dstmac());
   }
-  if (from.vlanid() != 0) {
+  if (from._internal_vlanid() != 0) {
     _internal_set_vlanid(from._internal_vlanid());
   }
-  if (from.etype() != 0) {
+  if (from._internal_etype() != 0) {
     _internal_set_etype(from._internal_etype());
   }
-  if (from.icmptype() != 0) {
+  if (from._internal_icmptype() != 0) {
     _internal_set_icmptype(from._internal_icmptype());
   }
-  if (from.icmpcode() != 0) {
+  if (from._internal_icmpcode() != 0) {
     _internal_set_icmpcode(from._internal_icmpcode());
   }
-  if (from.srcvlan() != 0) {
+  if (from._internal_srcvlan() != 0) {
     _internal_set_srcvlan(from._internal_srcvlan());
   }
-  if (from.dstvlan() != 0) {
+  if (from._internal_dstvlan() != 0) {
     _internal_set_dstvlan(from._internal_dstvlan());
   }
-  if (from.fragmentid() != 0) {
+  if (from._internal_fragmentid() != 0) {
     _internal_set_fragmentid(from._internal_fragmentid());
   }
-  if (from.fragmentoffset() != 0) {
+  if (from._internal_fragmentoffset() != 0) {
     _internal_set_fragmentoffset(from._internal_fragmentoffset());
   }
-  if (from.timeflowstart() != 0) {
+  if (from._internal_timeflowstart() != 0) {
     _internal_set_timeflowstart(from._internal_timeflowstart());
   }
-  if (from.ipv6flowlabel() != 0) {
+  if (from._internal_ipv6flowlabel() != 0) {
     _internal_set_ipv6flowlabel(from._internal_ipv6flowlabel());
   }
-  if (from.ingressvrfid() != 0) {
+  if (from._internal_ingressvrfid() != 0) {
     _internal_set_ingressvrfid(from._internal_ingressvrfid());
   }
-  if (from.egressvrfid() != 0) {
+  if (from._internal_egressvrfid() != 0) {
     _internal_set_egressvrfid(from._internal_egressvrfid());
   }
-  if (from.biflowdirection() != 0) {
+  if (from._internal_biflowdirection() != 0) {
     _internal_set_biflowdirection(from._internal_biflowdirection());
   }
-  if (from.flowdirection() != 0) {
+  if (from._internal_flowdirection() != 0) {
     _internal_set_flowdirection(from._internal_flowdirection());
   }
-  if (from.protoencap() != 0) {
-    _internal_set_protoencap(from._internal_protoencap());
-  }
-  if (from.etypeencap() != 0) {
-    _internal_set_etypeencap(from._internal_etypeencap());
-  }
-  if (from.iptosencap() != 0) {
-    _internal_set_iptosencap(from._internal_iptosencap());
-  }
-  if (from.ipttlencap() != 0) {
-    _internal_set_ipttlencap(from._internal_ipttlencap());
-  }
-  if (from.ipv6flowlabelencap() != 0) {
-    _internal_set_ipv6flowlabelencap(from._internal_ipv6flowlabelencap());
-  }
-  if (from.fragmentidencap() != 0) {
-    _internal_set_fragmentidencap(from._internal_fragmentidencap());
-  }
-  if (from.fragmentoffsetencap() != 0) {
-    _internal_set_fragmentoffsetencap(from._internal_fragmentoffsetencap());
-  }
-  if (from.hasencap() != 0) {
-    _internal_set_hasencap(from._internal_hasencap());
-  }
-  if (from.hasmpls() != 0) {
+  if (from._internal_hasmpls() != 0) {
     _internal_set_hasmpls(from._internal_hasmpls());
   }
-  if (from.hasppp() != 0) {
-    _internal_set_hasppp(from._internal_hasppp());
-  }
-  if (from.mplscount() != 0) {
+  if (from._internal_mplscount() != 0) {
     _internal_set_mplscount(from._internal_mplscount());
   }
-  if (from.mpls1ttl() != 0) {
+  if (from._internal_mpls1ttl() != 0) {
     _internal_set_mpls1ttl(from._internal_mpls1ttl());
   }
-  if (from.mpls1label() != 0) {
+  if (from._internal_mpls1label() != 0) {
     _internal_set_mpls1label(from._internal_mpls1label());
   }
-  if (from.mpls2ttl() != 0) {
+  if (from._internal_mpls2ttl() != 0) {
     _internal_set_mpls2ttl(from._internal_mpls2ttl());
   }
-  if (from.mpls2label() != 0) {
+  if (from._internal_mpls2label() != 0) {
     _internal_set_mpls2label(from._internal_mpls2label());
   }
-  if (from.mpls3ttl() != 0) {
+  if (from._internal_mpls3ttl() != 0) {
     _internal_set_mpls3ttl(from._internal_mpls3ttl());
   }
-  if (from.mpls3label() != 0) {
+  if (from._internal_mpls3label() != 0) {
     _internal_set_mpls3label(from._internal_mpls3label());
   }
-  if (from.mplslastttl() != 0) {
+  if (from._internal_mplslastttl() != 0) {
     _internal_set_mplslastttl(from._internal_mplslastttl());
   }
-  if (from.mplslastlabel() != 0) {
+  if (from._internal_mplslastlabel() != 0) {
     _internal_set_mplslastlabel(from._internal_mplslastlabel());
   }
-  if (from.dstifspeed() != 0) {
-    _internal_set_dstifspeed(from._internal_dstifspeed());
-  }
-  if (from.pppaddresscontrol() != 0) {
-    _internal_set_pppaddresscontrol(from._internal_pppaddresscontrol());
-  }
-  if (from.cid() != 0) {
+  if (from._internal_cid() != 0) {
     _internal_set_cid(from._internal_cid());
   }
-  if (from.normalized() != 0) {
+  if (from._internal_normalized() != 0) {
     _internal_set_normalized(from._internal_normalized());
   }
-  if (from.srcifspeed() != 0) {
+  if (from._internal_srcifspeed() != 0) {
     _internal_set_srcifspeed(from._internal_srcifspeed());
   }
-}
-
-void FlowMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:flowmessageenriched.FlowMessage)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  if (from._internal_dstifspeed() != 0) {
+    _internal_set_dstifspeed(from._internal_dstifspeed());
+  }
+  if (from._internal_remoteaddr() != 0) {
+    _internal_set_remoteaddr(from._internal_remoteaddr());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void FlowMessage::CopyFrom(const FlowMessage& from) {
@@ -2260,32 +2050,75 @@ bool FlowMessage::IsInitialized() const {
 
 void FlowMessage::InternalSwap(FlowMessage* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  srcaddr_.Swap(&other->srcaddr_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  dstaddr_.Swap(&other->dstaddr_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  sampleraddress_.Swap(&other->sampleraddress_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  nexthop_.Swap(&other->nexthop_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  srcaddrencap_.Swap(&other->srcaddrencap_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  dstaddrencap_.Swap(&other->dstaddrencap_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  cidstring_.Swap(&other->cidstring_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  srcifname_.Swap(&other->srcifname_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  srcifdesc_.Swap(&other->srcifdesc_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  dstifname_.Swap(&other->dstifname_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  dstifdesc_.Swap(&other->dstifdesc_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  protoname_.Swap(&other->protoname_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  remotecountry_.Swap(&other->remotecountry_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &srcaddr_, GetArenaForAllocation(),
+      &other->srcaddr_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &dstaddr_, GetArenaForAllocation(),
+      &other->dstaddr_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &sampleraddress_, GetArenaForAllocation(),
+      &other->sampleraddress_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &nexthop_, GetArenaForAllocation(),
+      &other->nexthop_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &cidstring_, GetArenaForAllocation(),
+      &other->cidstring_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &srcifname_, GetArenaForAllocation(),
+      &other->srcifname_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &srcifdesc_, GetArenaForAllocation(),
+      &other->srcifdesc_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &dstifname_, GetArenaForAllocation(),
+      &other->dstifname_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &dstifdesc_, GetArenaForAllocation(),
+      &other->dstifdesc_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &protoname_, GetArenaForAllocation(),
+      &other->protoname_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &remotecountry_, GetArenaForAllocation(),
+      &other->remotecountry_, other->GetArenaForAllocation()
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(FlowMessage, srcifspeed_)
-      + sizeof(FlowMessage::srcifspeed_)
+      PROTOBUF_FIELD_OFFSET(FlowMessage, remoteaddr_)
+      + sizeof(FlowMessage::remoteaddr_)
       - PROTOBUF_FIELD_OFFSET(FlowMessage, timereceived_)>(
           reinterpret_cast<char*>(&timereceived_),
           reinterpret_cast<char*>(&other->timereceived_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowMessage::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_flow_2dmessages_2denriched_2eproto_getter, &descriptor_table_flow_2dmessages_2denriched_2eproto_once,
+      file_level_metadata_flow_2dmessages_2denriched_2eproto[0]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace flowmessageenriched

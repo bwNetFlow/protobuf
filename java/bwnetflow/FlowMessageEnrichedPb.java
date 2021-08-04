@@ -335,70 +335,6 @@ public final class FlowMessageEnrichedPb {
 
     /**
      * <pre>
-     * IP encapsulation information
-     * </pre>
-     *
-     * <code>bool HasEncap = 43;</code>
-     * @return The hasEncap.
-     */
-    boolean getHasEncap();
-
-    /**
-     * <code>bytes SrcAddrEncap = 44;</code>
-     * @return The srcAddrEncap.
-     */
-    com.google.protobuf.ByteString getSrcAddrEncap();
-
-    /**
-     * <code>bytes DstAddrEncap = 45;</code>
-     * @return The dstAddrEncap.
-     */
-    com.google.protobuf.ByteString getDstAddrEncap();
-
-    /**
-     * <code>uint32 ProtoEncap = 46;</code>
-     * @return The protoEncap.
-     */
-    int getProtoEncap();
-
-    /**
-     * <code>uint32 EtypeEncap = 47;</code>
-     * @return The etypeEncap.
-     */
-    int getEtypeEncap();
-
-    /**
-     * <code>uint32 IPTosEncap = 48;</code>
-     * @return The iPTosEncap.
-     */
-    int getIPTosEncap();
-
-    /**
-     * <code>uint32 IPTTLEncap = 49;</code>
-     * @return The iPTTLEncap.
-     */
-    int getIPTTLEncap();
-
-    /**
-     * <code>uint32 IPv6FlowLabelEncap = 50;</code>
-     * @return The iPv6FlowLabelEncap.
-     */
-    int getIPv6FlowLabelEncap();
-
-    /**
-     * <code>uint32 FragmentIdEncap = 51;</code>
-     * @return The fragmentIdEncap.
-     */
-    int getFragmentIdEncap();
-
-    /**
-     * <code>uint32 FragmentOffsetEncap = 52;</code>
-     * @return The fragmentOffsetEncap.
-     */
-    int getFragmentOffsetEncap();
-
-    /**
-     * <pre>
      * MPLS information
      * </pre>
      *
@@ -492,22 +428,6 @@ public final class FlowMessageEnrichedPb {
      * @return The mPLSLastLabel.
      */
     int getMPLSLastLabel();
-
-    /**
-     * <pre>
-     * PPP information
-     * </pre>
-     *
-     * <code>bool HasPPP = 63;</code>
-     * @return The hasPPP.
-     */
-    boolean getHasPPP();
-
-    /**
-     * <code>uint32 PPPAddressControl = 64;</code>
-     * @return The pPPAddressControl.
-     */
-    int getPPPAddressControl();
 
     /**
      * <pre>
@@ -677,6 +597,25 @@ public final class FlowMessageEnrichedPb {
      */
     com.google.protobuf.ByteString
         getRemoteCountryBytes();
+
+    /**
+     * <pre>
+     * RemoteAddr - which Addr field contains the remote/local address
+     * </pre>
+     *
+     * <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+     * @return The enum numeric value on the wire for remoteAddr.
+     */
+    int getRemoteAddrValue();
+    /**
+     * <pre>
+     * RemoteAddr - which Addr field contains the remote/local address
+     * </pre>
+     *
+     * <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+     * @return The remoteAddr.
+     */
+    bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType getRemoteAddr();
   }
   /**
    * Protobuf type {@code flowmessageenriched.FlowMessage}
@@ -696,8 +635,6 @@ public final class FlowMessageEnrichedPb {
       srcAddr_ = com.google.protobuf.ByteString.EMPTY;
       dstAddr_ = com.google.protobuf.ByteString.EMPTY;
       nextHop_ = com.google.protobuf.ByteString.EMPTY;
-      srcAddrEncap_ = com.google.protobuf.ByteString.EMPTY;
-      dstAddrEncap_ = com.google.protobuf.ByteString.EMPTY;
       cidString_ = "";
       normalized_ = 0;
       srcIfName_ = "";
@@ -706,6 +643,7 @@ public final class FlowMessageEnrichedPb {
       dstIfDesc_ = "";
       protoName_ = "";
       remoteCountry_ = "";
+      remoteAddr_ = 0;
     }
 
     @java.lang.Override
@@ -944,56 +882,6 @@ public final class FlowMessageEnrichedPb {
               flowDirection_ = input.readUInt32();
               break;
             }
-            case 344: {
-
-              hasEncap_ = input.readBool();
-              break;
-            }
-            case 354: {
-
-              srcAddrEncap_ = input.readBytes();
-              break;
-            }
-            case 362: {
-
-              dstAddrEncap_ = input.readBytes();
-              break;
-            }
-            case 368: {
-
-              protoEncap_ = input.readUInt32();
-              break;
-            }
-            case 376: {
-
-              etypeEncap_ = input.readUInt32();
-              break;
-            }
-            case 384: {
-
-              iPTosEncap_ = input.readUInt32();
-              break;
-            }
-            case 392: {
-
-              iPTTLEncap_ = input.readUInt32();
-              break;
-            }
-            case 400: {
-
-              iPv6FlowLabelEncap_ = input.readUInt32();
-              break;
-            }
-            case 408: {
-
-              fragmentIdEncap_ = input.readUInt32();
-              break;
-            }
-            case 416: {
-
-              fragmentOffsetEncap_ = input.readUInt32();
-              break;
-            }
             case 424: {
 
               hasMPLS_ = input.readBool();
@@ -1042,16 +930,6 @@ public final class FlowMessageEnrichedPb {
             case 496: {
 
               mPLSLastLabel_ = input.readUInt32();
-              break;
-            }
-            case 504: {
-
-              hasPPP_ = input.readBool();
-              break;
-            }
-            case 512: {
-
-              pPPAddressControl_ = input.readUInt32();
               break;
             }
             case 8000: {
@@ -1115,6 +993,12 @@ public final class FlowMessageEnrichedPb {
               java.lang.String s = input.readStringRequireUtf8();
 
               remoteCountry_ = s;
+              break;
+            }
+            case 8088: {
+              int rawValue = input.readEnum();
+
+              remoteAddr_ = rawValue;
               break;
             }
             default: {
@@ -1390,6 +1274,123 @@ public final class FlowMessageEnrichedPb {
       }
 
       // @@protoc_insertion_point(enum_scope:flowmessageenriched.FlowMessage.NormalizedType)
+    }
+
+    /**
+     * Protobuf enum {@code flowmessageenriched.FlowMessage.RemoteAddrType}
+     */
+    public enum RemoteAddrType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>Neither = 0;</code>
+       */
+      Neither(0),
+      /**
+       * <code>Src = 1;</code>
+       */
+      Src(1),
+      /**
+       * <code>Dst = 2;</code>
+       */
+      Dst(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>Neither = 0;</code>
+       */
+      public static final int Neither_VALUE = 0;
+      /**
+       * <code>Src = 1;</code>
+       */
+      public static final int Src_VALUE = 1;
+      /**
+       * <code>Dst = 2;</code>
+       */
+      public static final int Dst_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static RemoteAddrType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static RemoteAddrType forNumber(int value) {
+        switch (value) {
+          case 0: return Neither;
+          case 1: return Src;
+          case 2: return Dst;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<RemoteAddrType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          RemoteAddrType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<RemoteAddrType>() {
+              public RemoteAddrType findValueByNumber(int number) {
+                return RemoteAddrType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return bwnetflow.FlowMessageEnrichedPb.FlowMessage.getDescriptor().getEnumTypes().get(2);
+      }
+
+      private static final RemoteAddrType[] VALUES = values();
+
+      public static RemoteAddrType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private RemoteAddrType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:flowmessageenriched.FlowMessage.RemoteAddrType)
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
@@ -1915,120 +1916,6 @@ public final class FlowMessageEnrichedPb {
       return dstNet_;
     }
 
-    public static final int HASENCAP_FIELD_NUMBER = 43;
-    private boolean hasEncap_;
-    /**
-     * <pre>
-     * IP encapsulation information
-     * </pre>
-     *
-     * <code>bool HasEncap = 43;</code>
-     * @return The hasEncap.
-     */
-    @java.lang.Override
-    public boolean getHasEncap() {
-      return hasEncap_;
-    }
-
-    public static final int SRCADDRENCAP_FIELD_NUMBER = 44;
-    private com.google.protobuf.ByteString srcAddrEncap_;
-    /**
-     * <code>bytes SrcAddrEncap = 44;</code>
-     * @return The srcAddrEncap.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getSrcAddrEncap() {
-      return srcAddrEncap_;
-    }
-
-    public static final int DSTADDRENCAP_FIELD_NUMBER = 45;
-    private com.google.protobuf.ByteString dstAddrEncap_;
-    /**
-     * <code>bytes DstAddrEncap = 45;</code>
-     * @return The dstAddrEncap.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getDstAddrEncap() {
-      return dstAddrEncap_;
-    }
-
-    public static final int PROTOENCAP_FIELD_NUMBER = 46;
-    private int protoEncap_;
-    /**
-     * <code>uint32 ProtoEncap = 46;</code>
-     * @return The protoEncap.
-     */
-    @java.lang.Override
-    public int getProtoEncap() {
-      return protoEncap_;
-    }
-
-    public static final int ETYPEENCAP_FIELD_NUMBER = 47;
-    private int etypeEncap_;
-    /**
-     * <code>uint32 EtypeEncap = 47;</code>
-     * @return The etypeEncap.
-     */
-    @java.lang.Override
-    public int getEtypeEncap() {
-      return etypeEncap_;
-    }
-
-    public static final int IPTOSENCAP_FIELD_NUMBER = 48;
-    private int iPTosEncap_;
-    /**
-     * <code>uint32 IPTosEncap = 48;</code>
-     * @return The iPTosEncap.
-     */
-    @java.lang.Override
-    public int getIPTosEncap() {
-      return iPTosEncap_;
-    }
-
-    public static final int IPTTLENCAP_FIELD_NUMBER = 49;
-    private int iPTTLEncap_;
-    /**
-     * <code>uint32 IPTTLEncap = 49;</code>
-     * @return The iPTTLEncap.
-     */
-    @java.lang.Override
-    public int getIPTTLEncap() {
-      return iPTTLEncap_;
-    }
-
-    public static final int IPV6FLOWLABELENCAP_FIELD_NUMBER = 50;
-    private int iPv6FlowLabelEncap_;
-    /**
-     * <code>uint32 IPv6FlowLabelEncap = 50;</code>
-     * @return The iPv6FlowLabelEncap.
-     */
-    @java.lang.Override
-    public int getIPv6FlowLabelEncap() {
-      return iPv6FlowLabelEncap_;
-    }
-
-    public static final int FRAGMENTIDENCAP_FIELD_NUMBER = 51;
-    private int fragmentIdEncap_;
-    /**
-     * <code>uint32 FragmentIdEncap = 51;</code>
-     * @return The fragmentIdEncap.
-     */
-    @java.lang.Override
-    public int getFragmentIdEncap() {
-      return fragmentIdEncap_;
-    }
-
-    public static final int FRAGMENTOFFSETENCAP_FIELD_NUMBER = 52;
-    private int fragmentOffsetEncap_;
-    /**
-     * <code>uint32 FragmentOffsetEncap = 52;</code>
-     * @return The fragmentOffsetEncap.
-     */
-    @java.lang.Override
-    public int getFragmentOffsetEncap() {
-      return fragmentOffsetEncap_;
-    }
-
     public static final int HASMPLS_FIELD_NUMBER = 53;
     private boolean hasMPLS_;
     /**
@@ -2173,32 +2060,6 @@ public final class FlowMessageEnrichedPb {
     @java.lang.Override
     public int getMPLSLastLabel() {
       return mPLSLastLabel_;
-    }
-
-    public static final int HASPPP_FIELD_NUMBER = 63;
-    private boolean hasPPP_;
-    /**
-     * <pre>
-     * PPP information
-     * </pre>
-     *
-     * <code>bool HasPPP = 63;</code>
-     * @return The hasPPP.
-     */
-    @java.lang.Override
-    public boolean getHasPPP() {
-      return hasPPP_;
-    }
-
-    public static final int PPPADDRESSCONTROL_FIELD_NUMBER = 64;
-    private int pPPAddressControl_;
-    /**
-     * <code>uint32 PPPAddressControl = 64;</code>
-     * @return The pPPAddressControl.
-     */
-    @java.lang.Override
-    public int getPPPAddressControl() {
-      return pPPAddressControl_;
     }
 
     public static final int CID_FIELD_NUMBER = 1000;
@@ -2575,6 +2436,33 @@ public final class FlowMessageEnrichedPb {
       }
     }
 
+    public static final int REMOTEADDR_FIELD_NUMBER = 1011;
+    private int remoteAddr_;
+    /**
+     * <pre>
+     * RemoteAddr - which Addr field contains the remote/local address
+     * </pre>
+     *
+     * <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+     * @return The enum numeric value on the wire for remoteAddr.
+     */
+    @java.lang.Override public int getRemoteAddrValue() {
+      return remoteAddr_;
+    }
+    /**
+     * <pre>
+     * RemoteAddr - which Addr field contains the remote/local address
+     * </pre>
+     *
+     * <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+     * @return The remoteAddr.
+     */
+    @java.lang.Override public bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType getRemoteAddr() {
+      @SuppressWarnings("deprecation")
+      bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType result = bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType.valueOf(remoteAddr_);
+      return result == null ? bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2712,36 +2600,6 @@ public final class FlowMessageEnrichedPb {
       if (flowDirection_ != 0) {
         output.writeUInt32(42, flowDirection_);
       }
-      if (hasEncap_ != false) {
-        output.writeBool(43, hasEncap_);
-      }
-      if (!srcAddrEncap_.isEmpty()) {
-        output.writeBytes(44, srcAddrEncap_);
-      }
-      if (!dstAddrEncap_.isEmpty()) {
-        output.writeBytes(45, dstAddrEncap_);
-      }
-      if (protoEncap_ != 0) {
-        output.writeUInt32(46, protoEncap_);
-      }
-      if (etypeEncap_ != 0) {
-        output.writeUInt32(47, etypeEncap_);
-      }
-      if (iPTosEncap_ != 0) {
-        output.writeUInt32(48, iPTosEncap_);
-      }
-      if (iPTTLEncap_ != 0) {
-        output.writeUInt32(49, iPTTLEncap_);
-      }
-      if (iPv6FlowLabelEncap_ != 0) {
-        output.writeUInt32(50, iPv6FlowLabelEncap_);
-      }
-      if (fragmentIdEncap_ != 0) {
-        output.writeUInt32(51, fragmentIdEncap_);
-      }
-      if (fragmentOffsetEncap_ != 0) {
-        output.writeUInt32(52, fragmentOffsetEncap_);
-      }
       if (hasMPLS_ != false) {
         output.writeBool(53, hasMPLS_);
       }
@@ -2771,12 +2629,6 @@ public final class FlowMessageEnrichedPb {
       }
       if (mPLSLastLabel_ != 0) {
         output.writeUInt32(62, mPLSLastLabel_);
-      }
-      if (hasPPP_ != false) {
-        output.writeBool(63, hasPPP_);
-      }
-      if (pPPAddressControl_ != 0) {
-        output.writeUInt32(64, pPPAddressControl_);
       }
       if (cid_ != 0) {
         output.writeUInt32(1000, cid_);
@@ -2810,6 +2662,9 @@ public final class FlowMessageEnrichedPb {
       }
       if (!getRemoteCountryBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1010, remoteCountry_);
+      }
+      if (remoteAddr_ != bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType.Neither.getNumber()) {
+        output.writeEnum(1011, remoteAddr_);
       }
       unknownFields.writeTo(output);
     }
@@ -2984,46 +2839,6 @@ public final class FlowMessageEnrichedPb {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(42, flowDirection_);
       }
-      if (hasEncap_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(43, hasEncap_);
-      }
-      if (!srcAddrEncap_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(44, srcAddrEncap_);
-      }
-      if (!dstAddrEncap_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(45, dstAddrEncap_);
-      }
-      if (protoEncap_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(46, protoEncap_);
-      }
-      if (etypeEncap_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(47, etypeEncap_);
-      }
-      if (iPTosEncap_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(48, iPTosEncap_);
-      }
-      if (iPTTLEncap_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(49, iPTTLEncap_);
-      }
-      if (iPv6FlowLabelEncap_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(50, iPv6FlowLabelEncap_);
-      }
-      if (fragmentIdEncap_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(51, fragmentIdEncap_);
-      }
-      if (fragmentOffsetEncap_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(52, fragmentOffsetEncap_);
-      }
       if (hasMPLS_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(53, hasMPLS_);
@@ -3064,14 +2879,6 @@ public final class FlowMessageEnrichedPb {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(62, mPLSLastLabel_);
       }
-      if (hasPPP_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(63, hasPPP_);
-      }
-      if (pPPAddressControl_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(64, pPPAddressControl_);
-      }
       if (cid_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1000, cid_);
@@ -3108,6 +2915,10 @@ public final class FlowMessageEnrichedPb {
       }
       if (!getRemoteCountryBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1010, remoteCountry_);
+      }
+      if (remoteAddr_ != bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType.Neither.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1011, remoteAddr_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3205,26 +3016,6 @@ public final class FlowMessageEnrichedPb {
           != other.getSrcNet()) return false;
       if (getDstNet()
           != other.getDstNet()) return false;
-      if (getHasEncap()
-          != other.getHasEncap()) return false;
-      if (!getSrcAddrEncap()
-          .equals(other.getSrcAddrEncap())) return false;
-      if (!getDstAddrEncap()
-          .equals(other.getDstAddrEncap())) return false;
-      if (getProtoEncap()
-          != other.getProtoEncap()) return false;
-      if (getEtypeEncap()
-          != other.getEtypeEncap()) return false;
-      if (getIPTosEncap()
-          != other.getIPTosEncap()) return false;
-      if (getIPTTLEncap()
-          != other.getIPTTLEncap()) return false;
-      if (getIPv6FlowLabelEncap()
-          != other.getIPv6FlowLabelEncap()) return false;
-      if (getFragmentIdEncap()
-          != other.getFragmentIdEncap()) return false;
-      if (getFragmentOffsetEncap()
-          != other.getFragmentOffsetEncap()) return false;
       if (getHasMPLS()
           != other.getHasMPLS()) return false;
       if (getMPLSCount()
@@ -3245,10 +3036,6 @@ public final class FlowMessageEnrichedPb {
           != other.getMPLSLastTTL()) return false;
       if (getMPLSLastLabel()
           != other.getMPLSLastLabel()) return false;
-      if (getHasPPP()
-          != other.getHasPPP()) return false;
-      if (getPPPAddressControl()
-          != other.getPPPAddressControl()) return false;
       if (getCid()
           != other.getCid()) return false;
       if (!getCidString()
@@ -3270,6 +3057,7 @@ public final class FlowMessageEnrichedPb {
           .equals(other.getProtoName())) return false;
       if (!getRemoteCountry()
           .equals(other.getRemoteCountry())) return false;
+      if (remoteAddr_ != other.remoteAddr_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3371,27 +3159,6 @@ public final class FlowMessageEnrichedPb {
       hash = (53 * hash) + getSrcNet();
       hash = (37 * hash) + DSTNET_FIELD_NUMBER;
       hash = (53 * hash) + getDstNet();
-      hash = (37 * hash) + HASENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getHasEncap());
-      hash = (37 * hash) + SRCADDRENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + getSrcAddrEncap().hashCode();
-      hash = (37 * hash) + DSTADDRENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + getDstAddrEncap().hashCode();
-      hash = (37 * hash) + PROTOENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + getProtoEncap();
-      hash = (37 * hash) + ETYPEENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + getEtypeEncap();
-      hash = (37 * hash) + IPTOSENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + getIPTosEncap();
-      hash = (37 * hash) + IPTTLENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + getIPTTLEncap();
-      hash = (37 * hash) + IPV6FLOWLABELENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + getIPv6FlowLabelEncap();
-      hash = (37 * hash) + FRAGMENTIDENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + getFragmentIdEncap();
-      hash = (37 * hash) + FRAGMENTOFFSETENCAP_FIELD_NUMBER;
-      hash = (53 * hash) + getFragmentOffsetEncap();
       hash = (37 * hash) + HASMPLS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getHasMPLS());
@@ -3413,11 +3180,6 @@ public final class FlowMessageEnrichedPb {
       hash = (53 * hash) + getMPLSLastTTL();
       hash = (37 * hash) + MPLSLASTLABEL_FIELD_NUMBER;
       hash = (53 * hash) + getMPLSLastLabel();
-      hash = (37 * hash) + HASPPP_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getHasPPP());
-      hash = (37 * hash) + PPPADDRESSCONTROL_FIELD_NUMBER;
-      hash = (53 * hash) + getPPPAddressControl();
       hash = (37 * hash) + CID_FIELD_NUMBER;
       hash = (53 * hash) + getCid();
       hash = (37 * hash) + CIDSTRING_FIELD_NUMBER;
@@ -3440,6 +3202,8 @@ public final class FlowMessageEnrichedPb {
       hash = (53 * hash) + getProtoName().hashCode();
       hash = (37 * hash) + REMOTECOUNTRY_FIELD_NUMBER;
       hash = (53 * hash) + getRemoteCountry().hashCode();
+      hash = (37 * hash) + REMOTEADDR_FIELD_NUMBER;
+      hash = (53 * hash) + remoteAddr_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3655,26 +3419,6 @@ public final class FlowMessageEnrichedPb {
 
         dstNet_ = 0;
 
-        hasEncap_ = false;
-
-        srcAddrEncap_ = com.google.protobuf.ByteString.EMPTY;
-
-        dstAddrEncap_ = com.google.protobuf.ByteString.EMPTY;
-
-        protoEncap_ = 0;
-
-        etypeEncap_ = 0;
-
-        iPTosEncap_ = 0;
-
-        iPTTLEncap_ = 0;
-
-        iPv6FlowLabelEncap_ = 0;
-
-        fragmentIdEncap_ = 0;
-
-        fragmentOffsetEncap_ = 0;
-
         hasMPLS_ = false;
 
         mPLSCount_ = 0;
@@ -3694,10 +3438,6 @@ public final class FlowMessageEnrichedPb {
         mPLSLastTTL_ = 0;
 
         mPLSLastLabel_ = 0;
-
-        hasPPP_ = false;
-
-        pPPAddressControl_ = 0;
 
         cid_ = 0;
 
@@ -3720,6 +3460,8 @@ public final class FlowMessageEnrichedPb {
         protoName_ = "";
 
         remoteCountry_ = "";
+
+        remoteAddr_ = 0;
 
         return this;
       }
@@ -3788,16 +3530,6 @@ public final class FlowMessageEnrichedPb {
         result.nextHopAS_ = nextHopAS_;
         result.srcNet_ = srcNet_;
         result.dstNet_ = dstNet_;
-        result.hasEncap_ = hasEncap_;
-        result.srcAddrEncap_ = srcAddrEncap_;
-        result.dstAddrEncap_ = dstAddrEncap_;
-        result.protoEncap_ = protoEncap_;
-        result.etypeEncap_ = etypeEncap_;
-        result.iPTosEncap_ = iPTosEncap_;
-        result.iPTTLEncap_ = iPTTLEncap_;
-        result.iPv6FlowLabelEncap_ = iPv6FlowLabelEncap_;
-        result.fragmentIdEncap_ = fragmentIdEncap_;
-        result.fragmentOffsetEncap_ = fragmentOffsetEncap_;
         result.hasMPLS_ = hasMPLS_;
         result.mPLSCount_ = mPLSCount_;
         result.mPLS1TTL_ = mPLS1TTL_;
@@ -3808,8 +3540,6 @@ public final class FlowMessageEnrichedPb {
         result.mPLS3Label_ = mPLS3Label_;
         result.mPLSLastTTL_ = mPLSLastTTL_;
         result.mPLSLastLabel_ = mPLSLastLabel_;
-        result.hasPPP_ = hasPPP_;
-        result.pPPAddressControl_ = pPPAddressControl_;
         result.cid_ = cid_;
         result.cidString_ = cidString_;
         result.normalized_ = normalized_;
@@ -3821,6 +3551,7 @@ public final class FlowMessageEnrichedPb {
         result.dstIfSpeed_ = dstIfSpeed_;
         result.protoName_ = protoName_;
         result.remoteCountry_ = remoteCountry_;
+        result.remoteAddr_ = remoteAddr_;
         onBuilt();
         return result;
       }
@@ -3992,36 +3723,6 @@ public final class FlowMessageEnrichedPb {
         if (other.getDstNet() != 0) {
           setDstNet(other.getDstNet());
         }
-        if (other.getHasEncap() != false) {
-          setHasEncap(other.getHasEncap());
-        }
-        if (other.getSrcAddrEncap() != com.google.protobuf.ByteString.EMPTY) {
-          setSrcAddrEncap(other.getSrcAddrEncap());
-        }
-        if (other.getDstAddrEncap() != com.google.protobuf.ByteString.EMPTY) {
-          setDstAddrEncap(other.getDstAddrEncap());
-        }
-        if (other.getProtoEncap() != 0) {
-          setProtoEncap(other.getProtoEncap());
-        }
-        if (other.getEtypeEncap() != 0) {
-          setEtypeEncap(other.getEtypeEncap());
-        }
-        if (other.getIPTosEncap() != 0) {
-          setIPTosEncap(other.getIPTosEncap());
-        }
-        if (other.getIPTTLEncap() != 0) {
-          setIPTTLEncap(other.getIPTTLEncap());
-        }
-        if (other.getIPv6FlowLabelEncap() != 0) {
-          setIPv6FlowLabelEncap(other.getIPv6FlowLabelEncap());
-        }
-        if (other.getFragmentIdEncap() != 0) {
-          setFragmentIdEncap(other.getFragmentIdEncap());
-        }
-        if (other.getFragmentOffsetEncap() != 0) {
-          setFragmentOffsetEncap(other.getFragmentOffsetEncap());
-        }
         if (other.getHasMPLS() != false) {
           setHasMPLS(other.getHasMPLS());
         }
@@ -4051,12 +3752,6 @@ public final class FlowMessageEnrichedPb {
         }
         if (other.getMPLSLastLabel() != 0) {
           setMPLSLastLabel(other.getMPLSLastLabel());
-        }
-        if (other.getHasPPP() != false) {
-          setHasPPP(other.getHasPPP());
-        }
-        if (other.getPPPAddressControl() != 0) {
-          setPPPAddressControl(other.getPPPAddressControl());
         }
         if (other.getCid() != 0) {
           setCid(other.getCid());
@@ -4097,6 +3792,9 @@ public final class FlowMessageEnrichedPb {
         if (!other.getRemoteCountry().isEmpty()) {
           remoteCountry_ = other.remoteCountry_;
           onChanged();
+        }
+        if (other.remoteAddr_ != 0) {
+          setRemoteAddrValue(other.getRemoteAddrValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5625,334 +5323,6 @@ public final class FlowMessageEnrichedPb {
         return this;
       }
 
-      private boolean hasEncap_ ;
-      /**
-       * <pre>
-       * IP encapsulation information
-       * </pre>
-       *
-       * <code>bool HasEncap = 43;</code>
-       * @return The hasEncap.
-       */
-      @java.lang.Override
-      public boolean getHasEncap() {
-        return hasEncap_;
-      }
-      /**
-       * <pre>
-       * IP encapsulation information
-       * </pre>
-       *
-       * <code>bool HasEncap = 43;</code>
-       * @param value The hasEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setHasEncap(boolean value) {
-        
-        hasEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * IP encapsulation information
-       * </pre>
-       *
-       * <code>bool HasEncap = 43;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearHasEncap() {
-        
-        hasEncap_ = false;
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString srcAddrEncap_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes SrcAddrEncap = 44;</code>
-       * @return The srcAddrEncap.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getSrcAddrEncap() {
-        return srcAddrEncap_;
-      }
-      /**
-       * <code>bytes SrcAddrEncap = 44;</code>
-       * @param value The srcAddrEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSrcAddrEncap(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        srcAddrEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes SrcAddrEncap = 44;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSrcAddrEncap() {
-        
-        srcAddrEncap_ = getDefaultInstance().getSrcAddrEncap();
-        onChanged();
-        return this;
-      }
-
-      private com.google.protobuf.ByteString dstAddrEncap_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>bytes DstAddrEncap = 45;</code>
-       * @return The dstAddrEncap.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getDstAddrEncap() {
-        return dstAddrEncap_;
-      }
-      /**
-       * <code>bytes DstAddrEncap = 45;</code>
-       * @param value The dstAddrEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDstAddrEncap(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        dstAddrEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bytes DstAddrEncap = 45;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDstAddrEncap() {
-        
-        dstAddrEncap_ = getDefaultInstance().getDstAddrEncap();
-        onChanged();
-        return this;
-      }
-
-      private int protoEncap_ ;
-      /**
-       * <code>uint32 ProtoEncap = 46;</code>
-       * @return The protoEncap.
-       */
-      @java.lang.Override
-      public int getProtoEncap() {
-        return protoEncap_;
-      }
-      /**
-       * <code>uint32 ProtoEncap = 46;</code>
-       * @param value The protoEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setProtoEncap(int value) {
-        
-        protoEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 ProtoEncap = 46;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearProtoEncap() {
-        
-        protoEncap_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int etypeEncap_ ;
-      /**
-       * <code>uint32 EtypeEncap = 47;</code>
-       * @return The etypeEncap.
-       */
-      @java.lang.Override
-      public int getEtypeEncap() {
-        return etypeEncap_;
-      }
-      /**
-       * <code>uint32 EtypeEncap = 47;</code>
-       * @param value The etypeEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setEtypeEncap(int value) {
-        
-        etypeEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 EtypeEncap = 47;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearEtypeEncap() {
-        
-        etypeEncap_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int iPTosEncap_ ;
-      /**
-       * <code>uint32 IPTosEncap = 48;</code>
-       * @return The iPTosEncap.
-       */
-      @java.lang.Override
-      public int getIPTosEncap() {
-        return iPTosEncap_;
-      }
-      /**
-       * <code>uint32 IPTosEncap = 48;</code>
-       * @param value The iPTosEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIPTosEncap(int value) {
-        
-        iPTosEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 IPTosEncap = 48;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIPTosEncap() {
-        
-        iPTosEncap_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int iPTTLEncap_ ;
-      /**
-       * <code>uint32 IPTTLEncap = 49;</code>
-       * @return The iPTTLEncap.
-       */
-      @java.lang.Override
-      public int getIPTTLEncap() {
-        return iPTTLEncap_;
-      }
-      /**
-       * <code>uint32 IPTTLEncap = 49;</code>
-       * @param value The iPTTLEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIPTTLEncap(int value) {
-        
-        iPTTLEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 IPTTLEncap = 49;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIPTTLEncap() {
-        
-        iPTTLEncap_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int iPv6FlowLabelEncap_ ;
-      /**
-       * <code>uint32 IPv6FlowLabelEncap = 50;</code>
-       * @return The iPv6FlowLabelEncap.
-       */
-      @java.lang.Override
-      public int getIPv6FlowLabelEncap() {
-        return iPv6FlowLabelEncap_;
-      }
-      /**
-       * <code>uint32 IPv6FlowLabelEncap = 50;</code>
-       * @param value The iPv6FlowLabelEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIPv6FlowLabelEncap(int value) {
-        
-        iPv6FlowLabelEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 IPv6FlowLabelEncap = 50;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIPv6FlowLabelEncap() {
-        
-        iPv6FlowLabelEncap_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int fragmentIdEncap_ ;
-      /**
-       * <code>uint32 FragmentIdEncap = 51;</code>
-       * @return The fragmentIdEncap.
-       */
-      @java.lang.Override
-      public int getFragmentIdEncap() {
-        return fragmentIdEncap_;
-      }
-      /**
-       * <code>uint32 FragmentIdEncap = 51;</code>
-       * @param value The fragmentIdEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setFragmentIdEncap(int value) {
-        
-        fragmentIdEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 FragmentIdEncap = 51;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearFragmentIdEncap() {
-        
-        fragmentIdEncap_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int fragmentOffsetEncap_ ;
-      /**
-       * <code>uint32 FragmentOffsetEncap = 52;</code>
-       * @return The fragmentOffsetEncap.
-       */
-      @java.lang.Override
-      public int getFragmentOffsetEncap() {
-        return fragmentOffsetEncap_;
-      }
-      /**
-       * <code>uint32 FragmentOffsetEncap = 52;</code>
-       * @param value The fragmentOffsetEncap to set.
-       * @return This builder for chaining.
-       */
-      public Builder setFragmentOffsetEncap(int value) {
-        
-        fragmentOffsetEncap_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 FragmentOffsetEncap = 52;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearFragmentOffsetEncap() {
-        
-        fragmentOffsetEncap_ = 0;
-        onChanged();
-        return this;
-      }
-
       private boolean hasMPLS_ ;
       /**
        * <pre>
@@ -6367,80 +5737,6 @@ public final class FlowMessageEnrichedPb {
       public Builder clearMPLSLastLabel() {
         
         mPLSLastLabel_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private boolean hasPPP_ ;
-      /**
-       * <pre>
-       * PPP information
-       * </pre>
-       *
-       * <code>bool HasPPP = 63;</code>
-       * @return The hasPPP.
-       */
-      @java.lang.Override
-      public boolean getHasPPP() {
-        return hasPPP_;
-      }
-      /**
-       * <pre>
-       * PPP information
-       * </pre>
-       *
-       * <code>bool HasPPP = 63;</code>
-       * @param value The hasPPP to set.
-       * @return This builder for chaining.
-       */
-      public Builder setHasPPP(boolean value) {
-        
-        hasPPP_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * PPP information
-       * </pre>
-       *
-       * <code>bool HasPPP = 63;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearHasPPP() {
-        
-        hasPPP_ = false;
-        onChanged();
-        return this;
-      }
-
-      private int pPPAddressControl_ ;
-      /**
-       * <code>uint32 PPPAddressControl = 64;</code>
-       * @return The pPPAddressControl.
-       */
-      @java.lang.Override
-      public int getPPPAddressControl() {
-        return pPPAddressControl_;
-      }
-      /**
-       * <code>uint32 PPPAddressControl = 64;</code>
-       * @param value The pPPAddressControl to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPPPAddressControl(int value) {
-        
-        pPPAddressControl_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 PPPAddressControl = 64;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPPPAddressControl() {
-        
-        pPPAddressControl_ = 0;
         onChanged();
         return this;
       }
@@ -7267,6 +6563,80 @@ public final class FlowMessageEnrichedPb {
         onChanged();
         return this;
       }
+
+      private int remoteAddr_ = 0;
+      /**
+       * <pre>
+       * RemoteAddr - which Addr field contains the remote/local address
+       * </pre>
+       *
+       * <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+       * @return The enum numeric value on the wire for remoteAddr.
+       */
+      @java.lang.Override public int getRemoteAddrValue() {
+        return remoteAddr_;
+      }
+      /**
+       * <pre>
+       * RemoteAddr - which Addr field contains the remote/local address
+       * </pre>
+       *
+       * <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+       * @param value The enum numeric value on the wire for remoteAddr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRemoteAddrValue(int value) {
+        
+        remoteAddr_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * RemoteAddr - which Addr field contains the remote/local address
+       * </pre>
+       *
+       * <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+       * @return The remoteAddr.
+       */
+      @java.lang.Override
+      public bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType getRemoteAddr() {
+        @SuppressWarnings("deprecation")
+        bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType result = bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType.valueOf(remoteAddr_);
+        return result == null ? bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * RemoteAddr - which Addr field contains the remote/local address
+       * </pre>
+       *
+       * <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+       * @param value The remoteAddr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRemoteAddr(bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        remoteAddr_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * RemoteAddr - which Addr field contains the remote/local address
+       * </pre>
+       *
+       * <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRemoteAddr() {
+        
+        remoteAddr_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7335,7 +6705,7 @@ public final class FlowMessageEnrichedPb {
   static {
     java.lang.String[] descriptorData = {
       "\n\034flow-messages-enriched.proto\022\023flowmess" +
-      "ageenriched\"\375\014\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
+      "ageenriched\"\351\013\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
       "\0162).flowmessageenriched.FlowMessage.Flow" +
       "Type\022\024\n\014TimeReceived\030\002 \001(\004\022\023\n\013SequenceNu" +
       "m\030\004 \001(\r\022\024\n\014SamplingRate\030\003 \001(\004\022\025\n\rFlowDir" +
@@ -7355,29 +6725,27 @@ public final class FlowMessageEnrichedPb {
       "\016FragmentOffset\030$ \001(\r\022\027\n\017BiFlowDirection" +
       "\030) \001(\r\022\r\n\005SrcAS\030\016 \001(\r\022\r\n\005DstAS\030\017 \001(\r\022\017\n\007" +
       "NextHop\030\014 \001(\014\022\021\n\tNextHopAS\030\r \001(\r\022\016\n\006SrcN" +
-      "et\030\020 \001(\r\022\016\n\006DstNet\030\021 \001(\r\022\020\n\010HasEncap\030+ \001" +
-      "(\010\022\024\n\014SrcAddrEncap\030, \001(\014\022\024\n\014DstAddrEncap" +
-      "\030- \001(\014\022\022\n\nProtoEncap\030. \001(\r\022\022\n\nEtypeEncap" +
-      "\030/ \001(\r\022\022\n\nIPTosEncap\0300 \001(\r\022\022\n\nIPTTLEncap" +
-      "\0301 \001(\r\022\032\n\022IPv6FlowLabelEncap\0302 \001(\r\022\027\n\017Fr" +
-      "agmentIdEncap\0303 \001(\r\022\033\n\023FragmentOffsetEnc" +
-      "ap\0304 \001(\r\022\017\n\007HasMPLS\0305 \001(\010\022\021\n\tMPLSCount\0306" +
-      " \001(\r\022\020\n\010MPLS1TTL\0307 \001(\r\022\022\n\nMPLS1Label\0308 \001" +
-      "(\r\022\020\n\010MPLS2TTL\0309 \001(\r\022\022\n\nMPLS2Label\030: \001(\r" +
-      "\022\020\n\010MPLS3TTL\030; \001(\r\022\022\n\nMPLS3Label\030< \001(\r\022\023" +
-      "\n\013MPLSLastTTL\030= \001(\r\022\025\n\rMPLSLastLabel\030> \001" +
-      "(\r\022\016\n\006HasPPP\030? \001(\010\022\031\n\021PPPAddressControl\030" +
-      "@ \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022\022\n\tCidString\030\351\007 \001(\t\022" +
-      "D\n\nNormalized\030\352\007 \001(\0162/.flowmessageenrich" +
-      "ed.FlowMessage.NormalizedType\022\022\n\tSrcIfNa" +
-      "me\030\353\007 \001(\t\022\022\n\tSrcIfDesc\030\354\007 \001(\t\022\023\n\nSrcIfSp" +
-      "eed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 \001(\t\022\022\n\tDstIfD" +
-      "esc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007 \001(\r\022\022\n\tProto" +
-      "Name\030\361\007 \001(\t\022\026\n\rRemoteCountry\030\362\007 \001(\t\"S\n\010F" +
-      "lowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007SFLOW_5\020\001\022\016\n" +
-      "\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020\003\022\t\n\005IPFIX\020\004" +
-      "\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007\n\003Yes\020\001B\"\n\tb" +
-      "wnetflowB\025FlowMessageEnrichedPbb\006proto3"
+      "et\030\020 \001(\r\022\016\n\006DstNet\030\021 \001(\r\022\017\n\007HasMPLS\0305 \001(" +
+      "\010\022\021\n\tMPLSCount\0306 \001(\r\022\020\n\010MPLS1TTL\0307 \001(\r\022\022" +
+      "\n\nMPLS1Label\0308 \001(\r\022\020\n\010MPLS2TTL\0309 \001(\r\022\022\n\n" +
+      "MPLS2Label\030: \001(\r\022\020\n\010MPLS3TTL\030; \001(\r\022\022\n\nMP" +
+      "LS3Label\030< \001(\r\022\023\n\013MPLSLastTTL\030= \001(\r\022\025\n\rM" +
+      "PLSLastLabel\030> \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022\022\n\tCidS" +
+      "tring\030\351\007 \001(\t\022D\n\nNormalized\030\352\007 \001(\0162/.flow" +
+      "messageenriched.FlowMessage.NormalizedTy" +
+      "pe\022\022\n\tSrcIfName\030\353\007 \001(\t\022\022\n\tSrcIfDesc\030\354\007 \001" +
+      "(\t\022\023\n\nSrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 " +
+      "\001(\t\022\022\n\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007" +
+      " \001(\r\022\022\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemoteCountr" +
+      "y\030\362\007 \001(\t\022D\n\nRemoteAddr\030\363\007 \001(\0162/.flowmess" +
+      "ageenriched.FlowMessage.RemoteAddrType\"S" +
+      "\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007SFLOW_5\020\001" +
+      "\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020\003\022\t\n\005IPFI" +
+      "X\020\004\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007\n\003Yes\020\001\"/" +
+      "\n\016RemoteAddrType\022\013\n\007Neither\020\000\022\007\n\003Src\020\001\022\007" +
+      "\n\003Dst\020\002BX\n\tbwnetflowB\025FlowMessageEnriche" +
+      "dPbZ4github.com/bwNetFlow/protobuf/go;fl" +
+      "owmessageenrichedb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7388,7 +6756,7 @@ public final class FlowMessageEnrichedPb {
     internal_static_flowmessageenriched_FlowMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_flowmessageenriched_FlowMessage_descriptor,
-        new java.lang.String[] { "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasEncap", "SrcAddrEncap", "DstAddrEncap", "ProtoEncap", "EtypeEncap", "IPTosEncap", "IPTTLEncap", "IPv6FlowLabelEncap", "FragmentIdEncap", "FragmentOffsetEncap", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "HasPPP", "PPPAddressControl", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", });
+        new java.lang.String[] { "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", "RemoteAddr", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
