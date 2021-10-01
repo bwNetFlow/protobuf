@@ -177,6 +177,9 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_ProtoName = 1009,
   FlowMessage_FieldNumber_RemoteCountry = 1010,
   FlowMessage_FieldNumber_RemoteAddr = 1011,
+  FlowMessage_FieldNumber_SrcCid = 1012,
+  FlowMessage_FieldNumber_DstCid = 1013,
+  FlowMessage_FieldNumber_Note = 1014,
 };
 
 GPB_FINAL @interface FlowMessage : GPBMessage
@@ -311,8 +314,14 @@ GPB_FINAL @interface FlowMessage : GPBMessage
 /** bwNetFlow enricher fields */
 @property(nonatomic, readwrite) uint32_t cid;
 
-/** Customer ID - a more generalized ID, assigned by prefix */
+/** deprecated */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *cidString;
+
+/** Src Customer ID - numerical ID, usually assigned by prefix */
+@property(nonatomic, readwrite) uint32_t srcCid;
+
+/** Dst Customer ID - numerical ID, usually assigned by prefix */
+@property(nonatomic, readwrite) uint32_t dstCid;
 
 /** Normalization - whether the sampling rate is accounted for */
 @property(nonatomic, readwrite) FlowMessage_NormalizedType normalized;
@@ -340,6 +349,9 @@ GPB_FINAL @interface FlowMessage : GPBMessage
 
 /** RemoteAddr - which Addr field contains the remote/local address */
 @property(nonatomic, readwrite) FlowMessage_RemoteAddrType remoteAddr;
+
+/** free-form field to implement anything */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *note;
 
 @end
 

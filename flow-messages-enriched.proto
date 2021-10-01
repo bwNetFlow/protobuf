@@ -103,8 +103,11 @@ message FlowMessage {
   // uint32 MyCustomField = 1000;
 
   // bwNetFlow enricher fields
-  uint32 Cid = 1000; // Customer ID - numerical ID, assigned by prefix
-  string CidString = 1001; // Customer ID - a more generalized ID, assigned by prefix
+  uint32 Cid = 1000; // Customer ID - numerical ID, usually assigned by prefix, used in cases where any flow is directly mappable to a single customer
+  string CidString = 1001; // deprecated
+  uint32 SrcCid = 1012; // Src Customer ID - numerical ID, usually assigned by prefix
+  uint32 DstCid = 1013; // Dst Customer ID - numerical ID, usually assigned by prefix
+
 
   enum NormalizedType {
     No = 0;
@@ -129,4 +132,6 @@ message FlowMessage {
     Dst = 2;
   }
   RemoteAddrType RemoteAddr = 1011; // RemoteAddr - which Addr field contains the remote/local address
+
+  string Note = 1014; // free-form field to implement anything
 }

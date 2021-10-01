@@ -25,7 +25,7 @@ namespace Flowmessageenriched {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxmbG93LW1lc3NhZ2VzLWVucmljaGVkLnByb3RvEhNmbG93bWVzc2FnZWVu",
-            "cmljaGVkIukLCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
+            "cmljaGVkIpoMCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
             "c3NhZ2VlbnJpY2hlZC5GbG93TWVzc2FnZS5GbG93VHlwZRIUCgxUaW1lUmVj",
             "ZWl2ZWQYAiABKAQSEwoLU2VxdWVuY2VOdW0YBCABKA0SFAoMU2FtcGxpbmdS",
             "YXRlGAMgASgEEhUKDUZsb3dEaXJlY3Rpb24YKiABKA0SFgoOU2FtcGxlckFk",
@@ -48,23 +48,25 @@ namespace Flowmessageenriched {
             "UzJUVEwYOSABKA0SEgoKTVBMUzJMYWJlbBg6IAEoDRIQCghNUExTM1RUTBg7",
             "IAEoDRISCgpNUExTM0xhYmVsGDwgASgNEhMKC01QTFNMYXN0VFRMGD0gASgN",
             "EhUKDU1QTFNMYXN0TGFiZWwYPiABKA0SDAoDQ2lkGOgHIAEoDRISCglDaWRT",
-            "dHJpbmcY6QcgASgJEkQKCk5vcm1hbGl6ZWQY6gcgASgOMi8uZmxvd21lc3Nh",
-            "Z2VlbnJpY2hlZC5GbG93TWVzc2FnZS5Ob3JtYWxpemVkVHlwZRISCglTcmNJ",
-            "Zk5hbWUY6wcgASgJEhIKCVNyY0lmRGVzYxjsByABKAkSEwoKU3JjSWZTcGVl",
-            "ZBjtByABKA0SEgoJRHN0SWZOYW1lGO4HIAEoCRISCglEc3RJZkRlc2MY7wcg",
-            "ASgJEhMKCkRzdElmU3BlZWQY8AcgASgNEhIKCVByb3RvTmFtZRjxByABKAkS",
-            "FgoNUmVtb3RlQ291bnRyeRjyByABKAkSRAoKUmVtb3RlQWRkchjzByABKA4y",
-            "Ly5mbG93bWVzc2FnZWVucmljaGVkLkZsb3dNZXNzYWdlLlJlbW90ZUFkZHJU",
-            "eXBlIlMKCEZsb3dUeXBlEg8KC0ZMT1dVTktOT1dOEAASCwoHU0ZMT1dfNRAB",
-            "Eg4KCk5FVEZMT1dfVjUQAhIOCgpORVRGTE9XX1Y5EAMSCQoFSVBGSVgQBCIh",
-            "Cg5Ob3JtYWxpemVkVHlwZRIGCgJObxAAEgcKA1llcxABIi8KDlJlbW90ZUFk",
-            "ZHJUeXBlEgsKB05laXRoZXIQABIHCgNTcmMQARIHCgNEc3QQAkJYCglid25l",
-            "dGZsb3dCFUZsb3dNZXNzYWdlRW5yaWNoZWRQYlo0Z2l0aHViLmNvbS9id05l",
-            "dEZsb3cvcHJvdG9idWYvZ287Zmxvd21lc3NhZ2VlbnJpY2hlZGIGcHJvdG8z"));
+            "dHJpbmcY6QcgASgJEg8KBlNyY0NpZBj0ByABKA0SDwoGRHN0Q2lkGPUHIAEo",
+            "DRJECgpOb3JtYWxpemVkGOoHIAEoDjIvLmZsb3dtZXNzYWdlZW5yaWNoZWQu",
+            "Rmxvd01lc3NhZ2UuTm9ybWFsaXplZFR5cGUSEgoJU3JjSWZOYW1lGOsHIAEo",
+            "CRISCglTcmNJZkRlc2MY7AcgASgJEhMKClNyY0lmU3BlZWQY7QcgASgNEhIK",
+            "CURzdElmTmFtZRjuByABKAkSEgoJRHN0SWZEZXNjGO8HIAEoCRITCgpEc3RJ",
+            "ZlNwZWVkGPAHIAEoDRISCglQcm90b05hbWUY8QcgASgJEhYKDVJlbW90ZUNv",
+            "dW50cnkY8gcgASgJEkQKClJlbW90ZUFkZHIY8wcgASgOMi8uZmxvd21lc3Nh",
+            "Z2VlbnJpY2hlZC5GbG93TWVzc2FnZS5SZW1vdGVBZGRyVHlwZRINCgROb3Rl",
+            "GPYHIAEoCSJTCghGbG93VHlwZRIPCgtGTE9XVU5LTk9XThAAEgsKB1NGTE9X",
+            "XzUQARIOCgpORVRGTE9XX1Y1EAISDgoKTkVURkxPV19WORADEgkKBUlQRklY",
+            "EAQiIQoOTm9ybWFsaXplZFR5cGUSBgoCTm8QABIHCgNZZXMQASIvCg5SZW1v",
+            "dGVBZGRyVHlwZRILCgdOZWl0aGVyEAASBwoDU3JjEAESBwoDRHN0EAJCWAoJ",
+            "YnduZXRmbG93QhVGbG93TWVzc2FnZUVucmljaGVkUGJaNGdpdGh1Yi5jb20v",
+            "YndOZXRGbG93L3Byb3RvYnVmL2dvO2Zsb3dtZXNzYWdlZW5yaWNoZWRiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", "RemoteAddr" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType), typeof(global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType) }, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "Cid", "CidString", "SrcCid", "DstCid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", "RemoteAddr", "Note" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType), typeof(global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType) }, null, null)
           }));
     }
     #endregion
@@ -158,6 +160,8 @@ namespace Flowmessageenriched {
       mPLSLastLabel_ = other.mPLSLastLabel_;
       cid_ = other.cid_;
       cidString_ = other.cidString_;
+      srcCid_ = other.srcCid_;
+      dstCid_ = other.dstCid_;
       normalized_ = other.normalized_;
       srcIfName_ = other.srcIfName_;
       srcIfDesc_ = other.srcIfDesc_;
@@ -168,6 +172,7 @@ namespace Flowmessageenriched {
       protoName_ = other.protoName_;
       remoteCountry_ = other.remoteCountry_;
       remoteAddr_ = other.remoteAddr_;
+      note_ = other.note_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -883,7 +888,7 @@ namespace Flowmessageenriched {
     public const int CidStringFieldNumber = 1001;
     private string cidString_ = "";
     /// <summary>
-    /// Customer ID - a more generalized ID, assigned by prefix
+    /// deprecated
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -891,6 +896,36 @@ namespace Flowmessageenriched {
       get { return cidString_; }
       set {
         cidString_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "SrcCid" field.</summary>
+    public const int SrcCidFieldNumber = 1012;
+    private uint srcCid_;
+    /// <summary>
+    /// Src Customer ID - numerical ID, usually assigned by prefix
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint SrcCid {
+      get { return srcCid_; }
+      set {
+        srcCid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DstCid" field.</summary>
+    public const int DstCidFieldNumber = 1013;
+    private uint dstCid_;
+    /// <summary>
+    /// Dst Customer ID - numerical ID, usually assigned by prefix
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint DstCid {
+      get { return dstCid_; }
+      set {
+        dstCid_ = value;
       }
     }
 
@@ -1035,6 +1070,21 @@ namespace Flowmessageenriched {
       }
     }
 
+    /// <summary>Field number for the "Note" field.</summary>
+    public const int NoteFieldNumber = 1014;
+    private string note_ = "";
+    /// <summary>
+    /// free-form field to implement anything
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Note {
+      get { return note_; }
+      set {
+        note_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1103,6 +1153,8 @@ namespace Flowmessageenriched {
       if (MPLSLastLabel != other.MPLSLastLabel) return false;
       if (Cid != other.Cid) return false;
       if (CidString != other.CidString) return false;
+      if (SrcCid != other.SrcCid) return false;
+      if (DstCid != other.DstCid) return false;
       if (Normalized != other.Normalized) return false;
       if (SrcIfName != other.SrcIfName) return false;
       if (SrcIfDesc != other.SrcIfDesc) return false;
@@ -1113,6 +1165,7 @@ namespace Flowmessageenriched {
       if (ProtoName != other.ProtoName) return false;
       if (RemoteCountry != other.RemoteCountry) return false;
       if (RemoteAddr != other.RemoteAddr) return false;
+      if (Note != other.Note) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1173,6 +1226,8 @@ namespace Flowmessageenriched {
       if (MPLSLastLabel != 0) hash ^= MPLSLastLabel.GetHashCode();
       if (Cid != 0) hash ^= Cid.GetHashCode();
       if (CidString.Length != 0) hash ^= CidString.GetHashCode();
+      if (SrcCid != 0) hash ^= SrcCid.GetHashCode();
+      if (DstCid != 0) hash ^= DstCid.GetHashCode();
       if (Normalized != global::Flowmessageenriched.FlowMessage.Types.NormalizedType.No) hash ^= Normalized.GetHashCode();
       if (SrcIfName.Length != 0) hash ^= SrcIfName.GetHashCode();
       if (SrcIfDesc.Length != 0) hash ^= SrcIfDesc.GetHashCode();
@@ -1183,6 +1238,7 @@ namespace Flowmessageenriched {
       if (ProtoName.Length != 0) hash ^= ProtoName.GetHashCode();
       if (RemoteCountry.Length != 0) hash ^= RemoteCountry.GetHashCode();
       if (RemoteAddr != global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType.Neither) hash ^= RemoteAddr.GetHashCode();
+      if (Note.Length != 0) hash ^= Note.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1453,6 +1509,18 @@ namespace Flowmessageenriched {
         output.WriteRawTag(152, 63);
         output.WriteEnum((int) RemoteAddr);
       }
+      if (SrcCid != 0) {
+        output.WriteRawTag(160, 63);
+        output.WriteUInt32(SrcCid);
+      }
+      if (DstCid != 0) {
+        output.WriteRawTag(168, 63);
+        output.WriteUInt32(DstCid);
+      }
+      if (Note.Length != 0) {
+        output.WriteRawTag(178, 63);
+        output.WriteString(Note);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1715,6 +1783,18 @@ namespace Flowmessageenriched {
         output.WriteRawTag(152, 63);
         output.WriteEnum((int) RemoteAddr);
       }
+      if (SrcCid != 0) {
+        output.WriteRawTag(160, 63);
+        output.WriteUInt32(SrcCid);
+      }
+      if (DstCid != 0) {
+        output.WriteRawTag(168, 63);
+        output.WriteUInt32(DstCid);
+      }
+      if (Note.Length != 0) {
+        output.WriteRawTag(178, 63);
+        output.WriteString(Note);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1884,6 +1964,12 @@ namespace Flowmessageenriched {
       if (CidString.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(CidString);
       }
+      if (SrcCid != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(SrcCid);
+      }
+      if (DstCid != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(DstCid);
+      }
       if (Normalized != global::Flowmessageenriched.FlowMessage.Types.NormalizedType.No) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Normalized);
       }
@@ -1913,6 +1999,9 @@ namespace Flowmessageenriched {
       }
       if (RemoteAddr != global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType.Neither) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) RemoteAddr);
+      }
+      if (Note.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Note);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2085,6 +2174,12 @@ namespace Flowmessageenriched {
       if (other.CidString.Length != 0) {
         CidString = other.CidString;
       }
+      if (other.SrcCid != 0) {
+        SrcCid = other.SrcCid;
+      }
+      if (other.DstCid != 0) {
+        DstCid = other.DstCid;
+      }
       if (other.Normalized != global::Flowmessageenriched.FlowMessage.Types.NormalizedType.No) {
         Normalized = other.Normalized;
       }
@@ -2114,6 +2209,9 @@ namespace Flowmessageenriched {
       }
       if (other.RemoteAddr != global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType.Neither) {
         RemoteAddr = other.RemoteAddr;
+      }
+      if (other.Note.Length != 0) {
+        Note = other.Note;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2382,6 +2480,18 @@ namespace Flowmessageenriched {
             RemoteAddr = (global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType) input.ReadEnum();
             break;
           }
+          case 8096: {
+            SrcCid = input.ReadUInt32();
+            break;
+          }
+          case 8104: {
+            DstCid = input.ReadUInt32();
+            break;
+          }
+          case 8114: {
+            Note = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -2647,6 +2757,18 @@ namespace Flowmessageenriched {
           }
           case 8088: {
             RemoteAddr = (global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType) input.ReadEnum();
+            break;
+          }
+          case 8096: {
+            SrcCid = input.ReadUInt32();
+            break;
+          }
+          case 8104: {
+            DstCid = input.ReadUInt32();
+            break;
+          }
+          case 8114: {
+            Note = input.ReadString();
             break;
           }
         }

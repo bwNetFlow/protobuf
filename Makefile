@@ -12,4 +12,4 @@ all: flow-messages-enriched.proto
 	    --ruby_out=ruby \
 	    --rust_out=rust \
 	    ./flow-messages-enriched.proto;
-	cd go && go mod init && go mod tidy;
+	cd go && go mod init github.com/bwNetFlow/protobuf/go || go mod tidy;

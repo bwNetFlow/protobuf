@@ -369,6 +369,7 @@ class FlowMessage final :
     kDstIfDescFieldNumber = 1007,
     kProtoNameFieldNumber = 1009,
     kRemoteCountryFieldNumber = 1010,
+    kNoteFieldNumber = 1014,
     kTimeReceivedFieldNumber = 2,
     kTypeFieldNumber = 1,
     kSequenceNumFieldNumber = 4,
@@ -421,6 +422,8 @@ class FlowMessage final :
     kSrcIfSpeedFieldNumber = 1005,
     kDstIfSpeedFieldNumber = 1008,
     kRemoteAddrFieldNumber = 1011,
+    kSrcCidFieldNumber = 1012,
+    kDstCidFieldNumber = 1013,
   };
   // bytes SrcAddr = 6;
   void clear_srcaddr();
@@ -574,6 +577,20 @@ class FlowMessage final :
   const std::string& _internal_remotecountry() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_remotecountry(const std::string& value);
   std::string* _internal_mutable_remotecountry();
+  public:
+
+  // string Note = 1014;
+  void clear_note();
+  const std::string& note() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_note(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_note();
+  PROTOBUF_MUST_USE_RESULT std::string* release_note();
+  void set_allocated_note(std::string* note);
+  private:
+  const std::string& _internal_note() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_note(const std::string& value);
+  std::string* _internal_mutable_note();
   public:
 
   // uint64 TimeReceived = 2;
@@ -1044,6 +1061,24 @@ class FlowMessage final :
   void _internal_set_remoteaddr(::flowmessageenriched::FlowMessage_RemoteAddrType value);
   public:
 
+  // uint32 SrcCid = 1012;
+  void clear_srccid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 srccid() const;
+  void set_srccid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_srccid() const;
+  void _internal_set_srccid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 DstCid = 1013;
+  void clear_dstcid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 dstcid() const;
+  void set_dstcid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_dstcid() const;
+  void _internal_set_dstcid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:flowmessageenriched.FlowMessage)
  private:
   class _Internal;
@@ -1062,6 +1097,7 @@ class FlowMessage final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dstifdesc_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr protoname_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr remotecountry_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr note_;
   ::PROTOBUF_NAMESPACE_ID::uint64 timereceived_;
   int type_;
   ::PROTOBUF_NAMESPACE_ID::uint32 sequencenum_;
@@ -1114,6 +1150,8 @@ class FlowMessage final :
   ::PROTOBUF_NAMESPACE_ID::uint32 srcifspeed_;
   ::PROTOBUF_NAMESPACE_ID::uint32 dstifspeed_;
   int remoteaddr_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 srccid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 dstcid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_flow_2dmessages_2denriched_2eproto;
 };
@@ -2318,6 +2356,46 @@ inline void FlowMessage::set_allocated_cidstring(std::string* cidstring) {
   // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.CidString)
 }
 
+// uint32 SrcCid = 1012;
+inline void FlowMessage::clear_srccid() {
+  srccid_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 FlowMessage::_internal_srccid() const {
+  return srccid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 FlowMessage::srccid() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcCid)
+  return _internal_srccid();
+}
+inline void FlowMessage::_internal_set_srccid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  srccid_ = value;
+}
+inline void FlowMessage::set_srccid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_srccid(value);
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcCid)
+}
+
+// uint32 DstCid = 1013;
+inline void FlowMessage::clear_dstcid() {
+  dstcid_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 FlowMessage::_internal_dstcid() const {
+  return dstcid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 FlowMessage::dstcid() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstCid)
+  return _internal_dstcid();
+}
+inline void FlowMessage::_internal_set_dstcid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  dstcid_ = value;
+}
+inline void FlowMessage::set_dstcid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_dstcid(value);
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstCid)
+}
+
 // .flowmessageenriched.FlowMessage.NormalizedType Normalized = 1002;
 inline void FlowMessage::clear_normalized() {
   normalized_ = 0;
@@ -2672,6 +2750,52 @@ inline void FlowMessage::_internal_set_remoteaddr(::flowmessageenriched::FlowMes
 inline void FlowMessage::set_remoteaddr(::flowmessageenriched::FlowMessage_RemoteAddrType value) {
   _internal_set_remoteaddr(value);
   // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.RemoteAddr)
+}
+
+// string Note = 1014;
+inline void FlowMessage::clear_note() {
+  note_.ClearToEmpty();
+}
+inline const std::string& FlowMessage::note() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.Note)
+  return _internal_note();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FlowMessage::set_note(ArgT0&& arg0, ArgT... args) {
+ 
+ note_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.Note)
+}
+inline std::string* FlowMessage::mutable_note() {
+  std::string* _s = _internal_mutable_note();
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.Note)
+  return _s;
+}
+inline const std::string& FlowMessage::_internal_note() const {
+  return note_.Get();
+}
+inline void FlowMessage::_internal_set_note(const std::string& value) {
+  
+  note_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* FlowMessage::_internal_mutable_note() {
+  
+  return note_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* FlowMessage::release_note() {
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.Note)
+  return note_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void FlowMessage::set_allocated_note(std::string* note) {
+  if (note != nullptr) {
+    
+  } else {
+    
+  }
+  note_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), note,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.Note)
 }
 
 #ifdef __GNUC__

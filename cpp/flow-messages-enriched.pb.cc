@@ -30,6 +30,7 @@ constexpr FlowMessage::FlowMessage(
   , dstifdesc_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , protoname_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , remotecountry_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , note_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , timereceived_(uint64_t{0u})
   , type_(0)
 
@@ -84,7 +85,9 @@ constexpr FlowMessage::FlowMessage(
   , srcifspeed_(0u)
   , dstifspeed_(0u)
   , remoteaddr_(0)
-{}
+
+  , srccid_(0u)
+  , dstcid_(0u){}
 struct FlowMessageDefaultTypeInternal {
   constexpr FlowMessageDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -158,6 +161,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_flow_2dmessages_2denriched_2ep
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, mplslastlabel_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, cid_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, cidstring_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srccid_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, dstcid_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, normalized_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcifname_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, srcifdesc_),
@@ -168,6 +173,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_flow_2dmessages_2denriched_2ep
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, protoname_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, remotecountry_),
   PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, remoteaddr_),
+  PROTOBUF_FIELD_OFFSET(::flowmessageenriched::FlowMessage, note_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::flowmessageenriched::FlowMessage)},
@@ -179,7 +185,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_flow_2dmessages_2denriched_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\034flow-messages-enriched.proto\022\023flowmess"
-  "ageenriched\"\351\013\n\013FlowMessage\0227\n\004Type\030\001 \001("
+  "ageenriched\"\232\014\n\013FlowMessage\0227\n\004Type\030\001 \001("
   "\0162).flowmessageenriched.FlowMessage.Flow"
   "Type\022\024\n\014TimeReceived\030\002 \001(\004\022\023\n\013SequenceNu"
   "m\030\004 \001(\r\022\024\n\014SamplingRate\030\003 \001(\004\022\025\n\rFlowDir"
@@ -205,25 +211,26 @@ const char descriptor_table_protodef_flow_2dmessages_2denriched_2eproto[] PROTOB
   "MPLS2Label\030: \001(\r\022\020\n\010MPLS3TTL\030; \001(\r\022\022\n\nMP"
   "LS3Label\030< \001(\r\022\023\n\013MPLSLastTTL\030= \001(\r\022\025\n\rM"
   "PLSLastLabel\030> \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022\022\n\tCidS"
-  "tring\030\351\007 \001(\t\022D\n\nNormalized\030\352\007 \001(\0162/.flow"
-  "messageenriched.FlowMessage.NormalizedTy"
-  "pe\022\022\n\tSrcIfName\030\353\007 \001(\t\022\022\n\tSrcIfDesc\030\354\007 \001"
-  "(\t\022\023\n\nSrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 "
-  "\001(\t\022\022\n\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007"
-  " \001(\r\022\022\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemoteCountr"
-  "y\030\362\007 \001(\t\022D\n\nRemoteAddr\030\363\007 \001(\0162/.flowmess"
-  "ageenriched.FlowMessage.RemoteAddrType\"S"
-  "\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007SFLOW_5\020\001"
-  "\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020\003\022\t\n\005IPFI"
-  "X\020\004\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007\n\003Yes\020\001\"/"
-  "\n\016RemoteAddrType\022\013\n\007Neither\020\000\022\007\n\003Src\020\001\022\007"
-  "\n\003Dst\020\002BX\n\tbwnetflowB\025FlowMessageEnriche"
-  "dPbZ4github.com/bwNetFlow/protobuf/go;fl"
-  "owmessageenrichedb\006proto3"
+  "tring\030\351\007 \001(\t\022\017\n\006SrcCid\030\364\007 \001(\r\022\017\n\006DstCid\030"
+  "\365\007 \001(\r\022D\n\nNormalized\030\352\007 \001(\0162/.flowmessag"
+  "eenriched.FlowMessage.NormalizedType\022\022\n\t"
+  "SrcIfName\030\353\007 \001(\t\022\022\n\tSrcIfDesc\030\354\007 \001(\t\022\023\n\n"
+  "SrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 \001(\t\022\022\n"
+  "\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007 \001(\r\022\022"
+  "\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemoteCountry\030\362\007 \001"
+  "(\t\022D\n\nRemoteAddr\030\363\007 \001(\0162/.flowmessageenr"
+  "iched.FlowMessage.RemoteAddrType\022\r\n\004Note"
+  "\030\366\007 \001(\t\"S\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007"
+  "SFLOW_5\020\001\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020"
+  "\003\022\t\n\005IPFIX\020\004\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007"
+  "\n\003Yes\020\001\"/\n\016RemoteAddrType\022\013\n\007Neither\020\000\022\007"
+  "\n\003Src\020\001\022\007\n\003Dst\020\002BX\n\tbwnetflowB\025FlowMessa"
+  "geEnrichedPbZ4github.com/bwNetFlow/proto"
+  "buf/go;flowmessageenrichedb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_flow_2dmessages_2denriched_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_flow_2dmessages_2denriched_2eproto = {
-  false, false, 1665, descriptor_table_protodef_flow_2dmessages_2denriched_2eproto, "flow-messages-enriched.proto", 
+  false, false, 1714, descriptor_table_protodef_flow_2dmessages_2denriched_2eproto, "flow-messages-enriched.proto", 
   &descriptor_table_flow_2dmessages_2denriched_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_flow_2dmessages_2denriched_2eproto::offsets,
   file_level_metadata_flow_2dmessages_2denriched_2eproto, file_level_enum_descriptors_flow_2dmessages_2denriched_2eproto, file_level_service_descriptors_flow_2dmessages_2denriched_2eproto,
@@ -380,9 +387,14 @@ FlowMessage::FlowMessage(const FlowMessage& from)
     remotecountry_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_remotecountry(), 
       GetArenaForAllocation());
   }
+  note_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_note().empty()) {
+    note_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_note(), 
+      GetArenaForAllocation());
+  }
   ::memcpy(&timereceived_, &from.timereceived_,
-    static_cast<size_t>(reinterpret_cast<char*>(&remoteaddr_) -
-    reinterpret_cast<char*>(&timereceived_)) + sizeof(remoteaddr_));
+    static_cast<size_t>(reinterpret_cast<char*>(&dstcid_) -
+    reinterpret_cast<char*>(&timereceived_)) + sizeof(dstcid_));
   // @@protoc_insertion_point(copy_constructor:flowmessageenriched.FlowMessage)
 }
 
@@ -398,10 +410,11 @@ dstifname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAl
 dstifdesc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 protoname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 remotecountry_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+note_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&timereceived_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&remoteaddr_) -
-    reinterpret_cast<char*>(&timereceived_)) + sizeof(remoteaddr_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&dstcid_) -
+    reinterpret_cast<char*>(&timereceived_)) + sizeof(dstcid_));
 }
 
 FlowMessage::~FlowMessage() {
@@ -424,6 +437,7 @@ inline void FlowMessage::SharedDtor() {
   dstifdesc_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   protoname_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   remotecountry_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  note_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void FlowMessage::ArenaDtor(void* object) {
@@ -453,9 +467,10 @@ void FlowMessage::Clear() {
   dstifdesc_.ClearToEmpty();
   protoname_.ClearToEmpty();
   remotecountry_.ClearToEmpty();
+  note_.ClearToEmpty();
   ::memset(&timereceived_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&remoteaddr_) -
-      reinterpret_cast<char*>(&timereceived_)) + sizeof(remoteaddr_));
+      reinterpret_cast<char*>(&dstcid_) -
+      reinterpret_cast<char*>(&timereceived_)) + sizeof(dstcid_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -927,6 +942,29 @@ const char* FlowMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           _internal_set_remoteaddr(static_cast<::flowmessageenriched::FlowMessage_RemoteAddrType>(val));
         } else goto handle_unusual;
         continue;
+      // uint32 SrcCid = 1012;
+      case 1012:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 160)) {
+          srccid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 DstCid = 1013;
+      case 1013:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 168)) {
+          dstcid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string Note = 1014;
+      case 1014:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 178)) {
+          auto str = _internal_mutable_note();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "flowmessageenriched.FlowMessage.Note"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag == 0) || ((tag & 7) == 4)) {
@@ -1365,6 +1403,28 @@ failure:
       1011, this->_internal_remoteaddr(), target);
   }
 
+  // uint32 SrcCid = 1012;
+  if (this->_internal_srccid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1012, this->_internal_srccid(), target);
+  }
+
+  // uint32 DstCid = 1013;
+  if (this->_internal_dstcid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1013, this->_internal_dstcid(), target);
+  }
+
+  // string Note = 1014;
+  if (!this->_internal_note().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_note().data(), static_cast<int>(this->_internal_note().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "flowmessageenriched.FlowMessage.Note");
+    target = stream->WriteStringMaybeAliased(
+        1014, this->_internal_note(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1456,6 +1516,13 @@ size_t FlowMessage::ByteSizeLong() const {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_remotecountry());
+  }
+
+  // string Note = 1014;
+  if (!this->_internal_note().empty()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_note());
   }
 
   // uint64 TimeReceived = 2;
@@ -1817,6 +1884,20 @@ size_t FlowMessage::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_remoteaddr());
   }
 
+  // uint32 SrcCid = 1012;
+  if (this->_internal_srccid() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_srccid());
+  }
+
+  // uint32 DstCid = 1013;
+  if (this->_internal_dstcid() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_dstcid());
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -1877,6 +1958,9 @@ void FlowMessage::MergeFrom(const FlowMessage& from) {
   }
   if (!from._internal_remotecountry().empty()) {
     _internal_set_remotecountry(from._internal_remotecountry());
+  }
+  if (!from._internal_note().empty()) {
+    _internal_set_note(from._internal_note());
   }
   if (from._internal_timereceived() != 0) {
     _internal_set_timereceived(from._internal_timereceived());
@@ -2034,6 +2118,12 @@ void FlowMessage::MergeFrom(const FlowMessage& from) {
   if (from._internal_remoteaddr() != 0) {
     _internal_set_remoteaddr(from._internal_remoteaddr());
   }
+  if (from._internal_srccid() != 0) {
+    _internal_set_srccid(from._internal_srccid());
+  }
+  if (from._internal_dstcid() != 0) {
+    _internal_set_dstcid(from._internal_dstcid());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -2106,9 +2196,14 @@ void FlowMessage::InternalSwap(FlowMessage* other) {
       &remotecountry_, GetArenaForAllocation(),
       &other->remotecountry_, other->GetArenaForAllocation()
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &note_, GetArenaForAllocation(),
+      &other->note_, other->GetArenaForAllocation()
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(FlowMessage, remoteaddr_)
-      + sizeof(FlowMessage::remoteaddr_)
+      PROTOBUF_FIELD_OFFSET(FlowMessage, dstcid_)
+      + sizeof(FlowMessage::dstcid_)
       - PROTOBUF_FIELD_OFFSET(FlowMessage, timereceived_)>(
           reinterpret_cast<char*>(&timereceived_),
           reinterpret_cast<char*>(&other->timereceived_));

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\tbwnetflowB\025FlowMessageEnrichedPbZ4github.com/bwNetFlow/protobuf/go;flowmessageenriched',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1c\x66low-messages-enriched.proto\x12\x13\x66lowmessageenriched\"\xe9\x0b\n\x0b\x46lowMessage\x12\x37\n\x04Type\x18\x01 \x01(\x0e\x32).flowmessageenriched.FlowMessage.FlowType\x12\x14\n\x0cTimeReceived\x18\x02 \x01(\x04\x12\x13\n\x0bSequenceNum\x18\x04 \x01(\r\x12\x14\n\x0cSamplingRate\x18\x03 \x01(\x04\x12\x15\n\rFlowDirection\x18* \x01(\r\x12\x16\n\x0eSamplerAddress\x18\x0b \x01(\x0c\x12\x15\n\rTimeFlowStart\x18& \x01(\x04\x12\x13\n\x0bTimeFlowEnd\x18\x05 \x01(\x04\x12\r\n\x05\x42ytes\x18\t \x01(\x04\x12\x0f\n\x07Packets\x18\n \x01(\x04\x12\x0f\n\x07SrcAddr\x18\x06 \x01(\x0c\x12\x0f\n\x07\x44stAddr\x18\x07 \x01(\x0c\x12\r\n\x05\x45type\x18\x1e \x01(\r\x12\r\n\x05Proto\x18\x14 \x01(\r\x12\x0f\n\x07SrcPort\x18\x15 \x01(\r\x12\x0f\n\x07\x44stPort\x18\x16 \x01(\r\x12\x0c\n\x04InIf\x18\x12 \x01(\r\x12\r\n\x05OutIf\x18\x13 \x01(\r\x12\x0e\n\x06SrcMac\x18\x1b \x01(\x04\x12\x0e\n\x06\x44stMac\x18\x1c \x01(\x04\x12\x0f\n\x07SrcVlan\x18! \x01(\r\x12\x0f\n\x07\x44stVlan\x18\" \x01(\r\x12\x0e\n\x06VlanId\x18\x1d \x01(\r\x12\x14\n\x0cIngressVrfID\x18\' \x01(\r\x12\x13\n\x0b\x45gressVrfID\x18( \x01(\r\x12\r\n\x05IPTos\x18\x17 \x01(\r\x12\x18\n\x10\x46orwardingStatus\x18\x18 \x01(\r\x12\r\n\x05IPTTL\x18\x19 \x01(\r\x12\x10\n\x08TCPFlags\x18\x1a \x01(\r\x12\x10\n\x08IcmpType\x18\x1f \x01(\r\x12\x10\n\x08IcmpCode\x18  \x01(\r\x12\x15\n\rIPv6FlowLabel\x18% \x01(\r\x12\x12\n\nFragmentId\x18# \x01(\r\x12\x16\n\x0e\x46ragmentOffset\x18$ \x01(\r\x12\x17\n\x0f\x42iFlowDirection\x18) \x01(\r\x12\r\n\x05SrcAS\x18\x0e \x01(\r\x12\r\n\x05\x44stAS\x18\x0f \x01(\r\x12\x0f\n\x07NextHop\x18\x0c \x01(\x0c\x12\x11\n\tNextHopAS\x18\r \x01(\r\x12\x0e\n\x06SrcNet\x18\x10 \x01(\r\x12\x0e\n\x06\x44stNet\x18\x11 \x01(\r\x12\x0f\n\x07HasMPLS\x18\x35 \x01(\x08\x12\x11\n\tMPLSCount\x18\x36 \x01(\r\x12\x10\n\x08MPLS1TTL\x18\x37 \x01(\r\x12\x12\n\nMPLS1Label\x18\x38 \x01(\r\x12\x10\n\x08MPLS2TTL\x18\x39 \x01(\r\x12\x12\n\nMPLS2Label\x18: \x01(\r\x12\x10\n\x08MPLS3TTL\x18; \x01(\r\x12\x12\n\nMPLS3Label\x18< \x01(\r\x12\x13\n\x0bMPLSLastTTL\x18= \x01(\r\x12\x15\n\rMPLSLastLabel\x18> \x01(\r\x12\x0c\n\x03\x43id\x18\xe8\x07 \x01(\r\x12\x12\n\tCidString\x18\xe9\x07 \x01(\t\x12\x44\n\nNormalized\x18\xea\x07 \x01(\x0e\x32/.flowmessageenriched.FlowMessage.NormalizedType\x12\x12\n\tSrcIfName\x18\xeb\x07 \x01(\t\x12\x12\n\tSrcIfDesc\x18\xec\x07 \x01(\t\x12\x13\n\nSrcIfSpeed\x18\xed\x07 \x01(\r\x12\x12\n\tDstIfName\x18\xee\x07 \x01(\t\x12\x12\n\tDstIfDesc\x18\xef\x07 \x01(\t\x12\x13\n\nDstIfSpeed\x18\xf0\x07 \x01(\r\x12\x12\n\tProtoName\x18\xf1\x07 \x01(\t\x12\x16\n\rRemoteCountry\x18\xf2\x07 \x01(\t\x12\x44\n\nRemoteAddr\x18\xf3\x07 \x01(\x0e\x32/.flowmessageenriched.FlowMessage.RemoteAddrType\"S\n\x08\x46lowType\x12\x0f\n\x0b\x46LOWUNKNOWN\x10\x00\x12\x0b\n\x07SFLOW_5\x10\x01\x12\x0e\n\nNETFLOW_V5\x10\x02\x12\x0e\n\nNETFLOW_V9\x10\x03\x12\t\n\x05IPFIX\x10\x04\"!\n\x0eNormalizedType\x12\x06\n\x02No\x10\x00\x12\x07\n\x03Yes\x10\x01\"/\n\x0eRemoteAddrType\x12\x0b\n\x07Neither\x10\x00\x12\x07\n\x03Src\x10\x01\x12\x07\n\x03\x44st\x10\x02\x42X\n\tbwnetflowB\x15\x46lowMessageEnrichedPbZ4github.com/bwNetFlow/protobuf/go;flowmessageenrichedb\x06proto3'
+  serialized_pb=b'\n\x1c\x66low-messages-enriched.proto\x12\x13\x66lowmessageenriched\"\x9a\x0c\n\x0b\x46lowMessage\x12\x37\n\x04Type\x18\x01 \x01(\x0e\x32).flowmessageenriched.FlowMessage.FlowType\x12\x14\n\x0cTimeReceived\x18\x02 \x01(\x04\x12\x13\n\x0bSequenceNum\x18\x04 \x01(\r\x12\x14\n\x0cSamplingRate\x18\x03 \x01(\x04\x12\x15\n\rFlowDirection\x18* \x01(\r\x12\x16\n\x0eSamplerAddress\x18\x0b \x01(\x0c\x12\x15\n\rTimeFlowStart\x18& \x01(\x04\x12\x13\n\x0bTimeFlowEnd\x18\x05 \x01(\x04\x12\r\n\x05\x42ytes\x18\t \x01(\x04\x12\x0f\n\x07Packets\x18\n \x01(\x04\x12\x0f\n\x07SrcAddr\x18\x06 \x01(\x0c\x12\x0f\n\x07\x44stAddr\x18\x07 \x01(\x0c\x12\r\n\x05\x45type\x18\x1e \x01(\r\x12\r\n\x05Proto\x18\x14 \x01(\r\x12\x0f\n\x07SrcPort\x18\x15 \x01(\r\x12\x0f\n\x07\x44stPort\x18\x16 \x01(\r\x12\x0c\n\x04InIf\x18\x12 \x01(\r\x12\r\n\x05OutIf\x18\x13 \x01(\r\x12\x0e\n\x06SrcMac\x18\x1b \x01(\x04\x12\x0e\n\x06\x44stMac\x18\x1c \x01(\x04\x12\x0f\n\x07SrcVlan\x18! \x01(\r\x12\x0f\n\x07\x44stVlan\x18\" \x01(\r\x12\x0e\n\x06VlanId\x18\x1d \x01(\r\x12\x14\n\x0cIngressVrfID\x18\' \x01(\r\x12\x13\n\x0b\x45gressVrfID\x18( \x01(\r\x12\r\n\x05IPTos\x18\x17 \x01(\r\x12\x18\n\x10\x46orwardingStatus\x18\x18 \x01(\r\x12\r\n\x05IPTTL\x18\x19 \x01(\r\x12\x10\n\x08TCPFlags\x18\x1a \x01(\r\x12\x10\n\x08IcmpType\x18\x1f \x01(\r\x12\x10\n\x08IcmpCode\x18  \x01(\r\x12\x15\n\rIPv6FlowLabel\x18% \x01(\r\x12\x12\n\nFragmentId\x18# \x01(\r\x12\x16\n\x0e\x46ragmentOffset\x18$ \x01(\r\x12\x17\n\x0f\x42iFlowDirection\x18) \x01(\r\x12\r\n\x05SrcAS\x18\x0e \x01(\r\x12\r\n\x05\x44stAS\x18\x0f \x01(\r\x12\x0f\n\x07NextHop\x18\x0c \x01(\x0c\x12\x11\n\tNextHopAS\x18\r \x01(\r\x12\x0e\n\x06SrcNet\x18\x10 \x01(\r\x12\x0e\n\x06\x44stNet\x18\x11 \x01(\r\x12\x0f\n\x07HasMPLS\x18\x35 \x01(\x08\x12\x11\n\tMPLSCount\x18\x36 \x01(\r\x12\x10\n\x08MPLS1TTL\x18\x37 \x01(\r\x12\x12\n\nMPLS1Label\x18\x38 \x01(\r\x12\x10\n\x08MPLS2TTL\x18\x39 \x01(\r\x12\x12\n\nMPLS2Label\x18: \x01(\r\x12\x10\n\x08MPLS3TTL\x18; \x01(\r\x12\x12\n\nMPLS3Label\x18< \x01(\r\x12\x13\n\x0bMPLSLastTTL\x18= \x01(\r\x12\x15\n\rMPLSLastLabel\x18> \x01(\r\x12\x0c\n\x03\x43id\x18\xe8\x07 \x01(\r\x12\x12\n\tCidString\x18\xe9\x07 \x01(\t\x12\x0f\n\x06SrcCid\x18\xf4\x07 \x01(\r\x12\x0f\n\x06\x44stCid\x18\xf5\x07 \x01(\r\x12\x44\n\nNormalized\x18\xea\x07 \x01(\x0e\x32/.flowmessageenriched.FlowMessage.NormalizedType\x12\x12\n\tSrcIfName\x18\xeb\x07 \x01(\t\x12\x12\n\tSrcIfDesc\x18\xec\x07 \x01(\t\x12\x13\n\nSrcIfSpeed\x18\xed\x07 \x01(\r\x12\x12\n\tDstIfName\x18\xee\x07 \x01(\t\x12\x12\n\tDstIfDesc\x18\xef\x07 \x01(\t\x12\x13\n\nDstIfSpeed\x18\xf0\x07 \x01(\r\x12\x12\n\tProtoName\x18\xf1\x07 \x01(\t\x12\x16\n\rRemoteCountry\x18\xf2\x07 \x01(\t\x12\x44\n\nRemoteAddr\x18\xf3\x07 \x01(\x0e\x32/.flowmessageenriched.FlowMessage.RemoteAddrType\x12\r\n\x04Note\x18\xf6\x07 \x01(\t\"S\n\x08\x46lowType\x12\x0f\n\x0b\x46LOWUNKNOWN\x10\x00\x12\x0b\n\x07SFLOW_5\x10\x01\x12\x0e\n\nNETFLOW_V5\x10\x02\x12\x0e\n\nNETFLOW_V9\x10\x03\x12\t\n\x05IPFIX\x10\x04\"!\n\x0eNormalizedType\x12\x06\n\x02No\x10\x00\x12\x07\n\x03Yes\x10\x01\"/\n\x0eRemoteAddrType\x12\x0b\n\x07Neither\x10\x00\x12\x07\n\x03Src\x10\x01\x12\x07\n\x03\x44st\x10\x02\x42X\n\tbwnetflowB\x15\x46lowMessageEnrichedPbZ4github.com/bwNetFlow/protobuf/go;flowmessageenrichedb\x06proto3'
 )
 
 
@@ -59,8 +59,8 @@ _FLOWMESSAGE_FLOWTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1400,
-  serialized_end=1483,
+  serialized_start=1449,
+  serialized_end=1532,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWMESSAGE_FLOWTYPE)
 
@@ -84,8 +84,8 @@ _FLOWMESSAGE_NORMALIZEDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1485,
-  serialized_end=1518,
+  serialized_start=1534,
+  serialized_end=1567,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWMESSAGE_NORMALIZEDTYPE)
 
@@ -114,8 +114,8 @@ _FLOWMESSAGE_REMOTEADDRTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1520,
-  serialized_end=1567,
+  serialized_start=1569,
+  serialized_end=1616,
 )
 _sym_db.RegisterEnumDescriptor(_FLOWMESSAGE_REMOTEADDRTYPE)
 
@@ -500,72 +500,93 @@ _FLOWMESSAGE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Normalized', full_name='flowmessageenriched.FlowMessage.Normalized', index=53,
+      name='SrcCid', full_name='flowmessageenriched.FlowMessage.SrcCid', index=53,
+      number=1012, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='DstCid', full_name='flowmessageenriched.FlowMessage.DstCid', index=54,
+      number=1013, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Normalized', full_name='flowmessageenriched.FlowMessage.Normalized', index=55,
       number=1002, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SrcIfName', full_name='flowmessageenriched.FlowMessage.SrcIfName', index=54,
+      name='SrcIfName', full_name='flowmessageenriched.FlowMessage.SrcIfName', index=56,
       number=1003, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SrcIfDesc', full_name='flowmessageenriched.FlowMessage.SrcIfDesc', index=55,
+      name='SrcIfDesc', full_name='flowmessageenriched.FlowMessage.SrcIfDesc', index=57,
       number=1004, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='SrcIfSpeed', full_name='flowmessageenriched.FlowMessage.SrcIfSpeed', index=56,
+      name='SrcIfSpeed', full_name='flowmessageenriched.FlowMessage.SrcIfSpeed', index=58,
       number=1005, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DstIfName', full_name='flowmessageenriched.FlowMessage.DstIfName', index=57,
+      name='DstIfName', full_name='flowmessageenriched.FlowMessage.DstIfName', index=59,
       number=1006, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DstIfDesc', full_name='flowmessageenriched.FlowMessage.DstIfDesc', index=58,
+      name='DstIfDesc', full_name='flowmessageenriched.FlowMessage.DstIfDesc', index=60,
       number=1007, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='DstIfSpeed', full_name='flowmessageenriched.FlowMessage.DstIfSpeed', index=59,
+      name='DstIfSpeed', full_name='flowmessageenriched.FlowMessage.DstIfSpeed', index=61,
       number=1008, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ProtoName', full_name='flowmessageenriched.FlowMessage.ProtoName', index=60,
+      name='ProtoName', full_name='flowmessageenriched.FlowMessage.ProtoName', index=62,
       number=1009, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='RemoteCountry', full_name='flowmessageenriched.FlowMessage.RemoteCountry', index=61,
+      name='RemoteCountry', full_name='flowmessageenriched.FlowMessage.RemoteCountry', index=63,
       number=1010, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='RemoteAddr', full_name='flowmessageenriched.FlowMessage.RemoteAddr', index=62,
+      name='RemoteAddr', full_name='flowmessageenriched.FlowMessage.RemoteAddr', index=64,
       number=1011, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Note', full_name='flowmessageenriched.FlowMessage.Note', index=65,
+      number=1014, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -585,7 +606,7 @@ _FLOWMESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=54,
-  serialized_end=1567,
+  serialized_end=1616,
 )
 
 _FLOWMESSAGE.fields_by_name['Type'].enum_type = _FLOWMESSAGE_FLOWTYPE

@@ -274,11 +274,23 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     protected $Cid = 0;
     /**
-     * Customer ID - a more generalized ID, assigned by prefix
+     * deprecated
      *
      * Generated from protobuf field <code>string CidString = 1001;</code>
      */
     protected $CidString = '';
+    /**
+     * Src Customer ID - numerical ID, usually assigned by prefix
+     *
+     * Generated from protobuf field <code>uint32 SrcCid = 1012;</code>
+     */
+    protected $SrcCid = 0;
+    /**
+     * Dst Customer ID - numerical ID, usually assigned by prefix
+     *
+     * Generated from protobuf field <code>uint32 DstCid = 1013;</code>
+     */
+    protected $DstCid = 0;
     /**
      * Normalization - whether the sampling rate is accounted for
      *
@@ -333,6 +345,12 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
      */
     protected $RemoteAddr = 0;
+    /**
+     * free-form field to implement anything
+     *
+     * Generated from protobuf field <code>string Note = 1014;</code>
+     */
+    protected $Note = '';
 
     /**
      * Constructor.
@@ -419,7 +437,11 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *     @type int $Cid
      *           bwNetFlow enricher fields
      *     @type string $CidString
-     *           Customer ID - a more generalized ID, assigned by prefix
+     *           deprecated
+     *     @type int $SrcCid
+     *           Src Customer ID - numerical ID, usually assigned by prefix
+     *     @type int $DstCid
+     *           Dst Customer ID - numerical ID, usually assigned by prefix
      *     @type int $Normalized
      *           Normalization - whether the sampling rate is accounted for
      *     @type string $SrcIfName
@@ -437,6 +459,8 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *           Geolocation -- set using the provided database
      *     @type int $RemoteAddr
      *           RemoteAddr - which Addr field contains the remote/local address
+     *     @type string $Note
+     *           free-form field to implement anything
      * }
      */
     public function __construct($data = NULL) {
@@ -1693,7 +1717,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Customer ID - a more generalized ID, assigned by prefix
+     * deprecated
      *
      * Generated from protobuf field <code>string CidString = 1001;</code>
      * @return string
@@ -1704,7 +1728,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Customer ID - a more generalized ID, assigned by prefix
+     * deprecated
      *
      * Generated from protobuf field <code>string CidString = 1001;</code>
      * @param string $var
@@ -1714,6 +1738,58 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->CidString = $var;
+
+        return $this;
+    }
+
+    /**
+     * Src Customer ID - numerical ID, usually assigned by prefix
+     *
+     * Generated from protobuf field <code>uint32 SrcCid = 1012;</code>
+     * @return int
+     */
+    public function getSrcCid()
+    {
+        return $this->SrcCid;
+    }
+
+    /**
+     * Src Customer ID - numerical ID, usually assigned by prefix
+     *
+     * Generated from protobuf field <code>uint32 SrcCid = 1012;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setSrcCid($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->SrcCid = $var;
+
+        return $this;
+    }
+
+    /**
+     * Dst Customer ID - numerical ID, usually assigned by prefix
+     *
+     * Generated from protobuf field <code>uint32 DstCid = 1013;</code>
+     * @return int
+     */
+    public function getDstCid()
+    {
+        return $this->DstCid;
+    }
+
+    /**
+     * Dst Customer ID - numerical ID, usually assigned by prefix
+     *
+     * Generated from protobuf field <code>uint32 DstCid = 1013;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setDstCid($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->DstCid = $var;
 
         return $this;
     }
@@ -1962,6 +2038,32 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Flowmessageenriched\FlowMessage\RemoteAddrType::class);
         $this->RemoteAddr = $var;
+
+        return $this;
+    }
+
+    /**
+     * free-form field to implement anything
+     *
+     * Generated from protobuf field <code>string Note = 1014;</code>
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->Note;
+    }
+
+    /**
+     * free-form field to implement anything
+     *
+     * Generated from protobuf field <code>string Note = 1014;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setNote($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->Note = $var;
 
         return $this;
     }

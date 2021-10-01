@@ -59,6 +59,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :MPLSLastLabel, :uint32, 62
       optional :Cid, :uint32, 1000
       optional :CidString, :string, 1001
+      optional :SrcCid, :uint32, 1012
+      optional :DstCid, :uint32, 1013
       optional :Normalized, :enum, 1002, "flowmessageenriched.FlowMessage.NormalizedType"
       optional :SrcIfName, :string, 1003
       optional :SrcIfDesc, :string, 1004
@@ -69,6 +71,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :ProtoName, :string, 1009
       optional :RemoteCountry, :string, 1010
       optional :RemoteAddr, :enum, 1011, "flowmessageenriched.FlowMessage.RemoteAddrType"
+      optional :Note, :string, 1014
     end
     add_enum "flowmessageenriched.FlowMessage.FlowType" do
       value :FLOWUNKNOWN, 0

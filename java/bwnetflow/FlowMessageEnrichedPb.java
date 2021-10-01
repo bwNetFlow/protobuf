@@ -441,7 +441,7 @@ public final class FlowMessageEnrichedPb {
 
     /**
      * <pre>
-     * Customer ID - a more generalized ID, assigned by prefix
+     * deprecated
      * </pre>
      *
      * <code>string CidString = 1001;</code>
@@ -450,7 +450,7 @@ public final class FlowMessageEnrichedPb {
     java.lang.String getCidString();
     /**
      * <pre>
-     * Customer ID - a more generalized ID, assigned by prefix
+     * deprecated
      * </pre>
      *
      * <code>string CidString = 1001;</code>
@@ -458,6 +458,26 @@ public final class FlowMessageEnrichedPb {
      */
     com.google.protobuf.ByteString
         getCidStringBytes();
+
+    /**
+     * <pre>
+     * Src Customer ID - numerical ID, usually assigned by prefix
+     * </pre>
+     *
+     * <code>uint32 SrcCid = 1012;</code>
+     * @return The srcCid.
+     */
+    int getSrcCid();
+
+    /**
+     * <pre>
+     * Dst Customer ID - numerical ID, usually assigned by prefix
+     * </pre>
+     *
+     * <code>uint32 DstCid = 1013;</code>
+     * @return The dstCid.
+     */
+    int getDstCid();
 
     /**
      * <pre>
@@ -616,6 +636,26 @@ public final class FlowMessageEnrichedPb {
      * @return The remoteAddr.
      */
     bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType getRemoteAddr();
+
+    /**
+     * <pre>
+     * free-form field to implement anything
+     * </pre>
+     *
+     * <code>string Note = 1014;</code>
+     * @return The note.
+     */
+    java.lang.String getNote();
+    /**
+     * <pre>
+     * free-form field to implement anything
+     * </pre>
+     *
+     * <code>string Note = 1014;</code>
+     * @return The bytes for note.
+     */
+    com.google.protobuf.ByteString
+        getNoteBytes();
   }
   /**
    * Protobuf type {@code flowmessageenriched.FlowMessage}
@@ -644,6 +684,7 @@ public final class FlowMessageEnrichedPb {
       protoName_ = "";
       remoteCountry_ = "";
       remoteAddr_ = 0;
+      note_ = "";
     }
 
     @java.lang.Override
@@ -999,6 +1040,22 @@ public final class FlowMessageEnrichedPb {
               int rawValue = input.readEnum();
 
               remoteAddr_ = rawValue;
+              break;
+            }
+            case 8096: {
+
+              srcCid_ = input.readUInt32();
+              break;
+            }
+            case 8104: {
+
+              dstCid_ = input.readUInt32();
+              break;
+            }
+            case 8114: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              note_ = s;
               break;
             }
             default: {
@@ -2081,7 +2138,7 @@ public final class FlowMessageEnrichedPb {
     private volatile java.lang.Object cidString_;
     /**
      * <pre>
-     * Customer ID - a more generalized ID, assigned by prefix
+     * deprecated
      * </pre>
      *
      * <code>string CidString = 1001;</code>
@@ -2102,7 +2159,7 @@ public final class FlowMessageEnrichedPb {
     }
     /**
      * <pre>
-     * Customer ID - a more generalized ID, assigned by prefix
+     * deprecated
      * </pre>
      *
      * <code>string CidString = 1001;</code>
@@ -2121,6 +2178,36 @@ public final class FlowMessageEnrichedPb {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int SRCCID_FIELD_NUMBER = 1012;
+    private int srcCid_;
+    /**
+     * <pre>
+     * Src Customer ID - numerical ID, usually assigned by prefix
+     * </pre>
+     *
+     * <code>uint32 SrcCid = 1012;</code>
+     * @return The srcCid.
+     */
+    @java.lang.Override
+    public int getSrcCid() {
+      return srcCid_;
+    }
+
+    public static final int DSTCID_FIELD_NUMBER = 1013;
+    private int dstCid_;
+    /**
+     * <pre>
+     * Dst Customer ID - numerical ID, usually assigned by prefix
+     * </pre>
+     *
+     * <code>uint32 DstCid = 1013;</code>
+     * @return The dstCid.
+     */
+    @java.lang.Override
+    public int getDstCid() {
+      return dstCid_;
     }
 
     public static final int NORMALIZED_FIELD_NUMBER = 1002;
@@ -2463,6 +2550,52 @@ public final class FlowMessageEnrichedPb {
       return result == null ? bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType.UNRECOGNIZED : result;
     }
 
+    public static final int NOTE_FIELD_NUMBER = 1014;
+    private volatile java.lang.Object note_;
+    /**
+     * <pre>
+     * free-form field to implement anything
+     * </pre>
+     *
+     * <code>string Note = 1014;</code>
+     * @return The note.
+     */
+    @java.lang.Override
+    public java.lang.String getNote() {
+      java.lang.Object ref = note_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        note_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * free-form field to implement anything
+     * </pre>
+     *
+     * <code>string Note = 1014;</code>
+     * @return The bytes for note.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNoteBytes() {
+      java.lang.Object ref = note_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        note_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2665,6 +2798,15 @@ public final class FlowMessageEnrichedPb {
       }
       if (remoteAddr_ != bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType.Neither.getNumber()) {
         output.writeEnum(1011, remoteAddr_);
+      }
+      if (srcCid_ != 0) {
+        output.writeUInt32(1012, srcCid_);
+      }
+      if (dstCid_ != 0) {
+        output.writeUInt32(1013, dstCid_);
+      }
+      if (!getNoteBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1014, note_);
       }
       unknownFields.writeTo(output);
     }
@@ -2920,6 +3062,17 @@ public final class FlowMessageEnrichedPb {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1011, remoteAddr_);
       }
+      if (srcCid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1012, srcCid_);
+      }
+      if (dstCid_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1013, dstCid_);
+      }
+      if (!getNoteBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1014, note_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3040,6 +3193,10 @@ public final class FlowMessageEnrichedPb {
           != other.getCid()) return false;
       if (!getCidString()
           .equals(other.getCidString())) return false;
+      if (getSrcCid()
+          != other.getSrcCid()) return false;
+      if (getDstCid()
+          != other.getDstCid()) return false;
       if (normalized_ != other.normalized_) return false;
       if (!getSrcIfName()
           .equals(other.getSrcIfName())) return false;
@@ -3058,6 +3215,8 @@ public final class FlowMessageEnrichedPb {
       if (!getRemoteCountry()
           .equals(other.getRemoteCountry())) return false;
       if (remoteAddr_ != other.remoteAddr_) return false;
+      if (!getNote()
+          .equals(other.getNote())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3184,6 +3343,10 @@ public final class FlowMessageEnrichedPb {
       hash = (53 * hash) + getCid();
       hash = (37 * hash) + CIDSTRING_FIELD_NUMBER;
       hash = (53 * hash) + getCidString().hashCode();
+      hash = (37 * hash) + SRCCID_FIELD_NUMBER;
+      hash = (53 * hash) + getSrcCid();
+      hash = (37 * hash) + DSTCID_FIELD_NUMBER;
+      hash = (53 * hash) + getDstCid();
       hash = (37 * hash) + NORMALIZED_FIELD_NUMBER;
       hash = (53 * hash) + normalized_;
       hash = (37 * hash) + SRCIFNAME_FIELD_NUMBER;
@@ -3204,6 +3367,8 @@ public final class FlowMessageEnrichedPb {
       hash = (53 * hash) + getRemoteCountry().hashCode();
       hash = (37 * hash) + REMOTEADDR_FIELD_NUMBER;
       hash = (53 * hash) + remoteAddr_;
+      hash = (37 * hash) + NOTE_FIELD_NUMBER;
+      hash = (53 * hash) + getNote().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3443,6 +3608,10 @@ public final class FlowMessageEnrichedPb {
 
         cidString_ = "";
 
+        srcCid_ = 0;
+
+        dstCid_ = 0;
+
         normalized_ = 0;
 
         srcIfName_ = "";
@@ -3462,6 +3631,8 @@ public final class FlowMessageEnrichedPb {
         remoteCountry_ = "";
 
         remoteAddr_ = 0;
+
+        note_ = "";
 
         return this;
       }
@@ -3542,6 +3713,8 @@ public final class FlowMessageEnrichedPb {
         result.mPLSLastLabel_ = mPLSLastLabel_;
         result.cid_ = cid_;
         result.cidString_ = cidString_;
+        result.srcCid_ = srcCid_;
+        result.dstCid_ = dstCid_;
         result.normalized_ = normalized_;
         result.srcIfName_ = srcIfName_;
         result.srcIfDesc_ = srcIfDesc_;
@@ -3552,6 +3725,7 @@ public final class FlowMessageEnrichedPb {
         result.protoName_ = protoName_;
         result.remoteCountry_ = remoteCountry_;
         result.remoteAddr_ = remoteAddr_;
+        result.note_ = note_;
         onBuilt();
         return result;
       }
@@ -3760,6 +3934,12 @@ public final class FlowMessageEnrichedPb {
           cidString_ = other.cidString_;
           onChanged();
         }
+        if (other.getSrcCid() != 0) {
+          setSrcCid(other.getSrcCid());
+        }
+        if (other.getDstCid() != 0) {
+          setDstCid(other.getDstCid());
+        }
         if (other.normalized_ != 0) {
           setNormalizedValue(other.getNormalizedValue());
         }
@@ -3795,6 +3975,10 @@ public final class FlowMessageEnrichedPb {
         }
         if (other.remoteAddr_ != 0) {
           setRemoteAddrValue(other.getRemoteAddrValue());
+        }
+        if (!other.getNote().isEmpty()) {
+          note_ = other.note_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5787,7 +5971,7 @@ public final class FlowMessageEnrichedPb {
       private java.lang.Object cidString_ = "";
       /**
        * <pre>
-       * Customer ID - a more generalized ID, assigned by prefix
+       * deprecated
        * </pre>
        *
        * <code>string CidString = 1001;</code>
@@ -5807,7 +5991,7 @@ public final class FlowMessageEnrichedPb {
       }
       /**
        * <pre>
-       * Customer ID - a more generalized ID, assigned by prefix
+       * deprecated
        * </pre>
        *
        * <code>string CidString = 1001;</code>
@@ -5828,7 +6012,7 @@ public final class FlowMessageEnrichedPb {
       }
       /**
        * <pre>
-       * Customer ID - a more generalized ID, assigned by prefix
+       * deprecated
        * </pre>
        *
        * <code>string CidString = 1001;</code>
@@ -5847,7 +6031,7 @@ public final class FlowMessageEnrichedPb {
       }
       /**
        * <pre>
-       * Customer ID - a more generalized ID, assigned by prefix
+       * deprecated
        * </pre>
        *
        * <code>string CidString = 1001;</code>
@@ -5861,7 +6045,7 @@ public final class FlowMessageEnrichedPb {
       }
       /**
        * <pre>
-       * Customer ID - a more generalized ID, assigned by prefix
+       * deprecated
        * </pre>
        *
        * <code>string CidString = 1001;</code>
@@ -5876,6 +6060,92 @@ public final class FlowMessageEnrichedPb {
   checkByteStringIsUtf8(value);
         
         cidString_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int srcCid_ ;
+      /**
+       * <pre>
+       * Src Customer ID - numerical ID, usually assigned by prefix
+       * </pre>
+       *
+       * <code>uint32 SrcCid = 1012;</code>
+       * @return The srcCid.
+       */
+      @java.lang.Override
+      public int getSrcCid() {
+        return srcCid_;
+      }
+      /**
+       * <pre>
+       * Src Customer ID - numerical ID, usually assigned by prefix
+       * </pre>
+       *
+       * <code>uint32 SrcCid = 1012;</code>
+       * @param value The srcCid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSrcCid(int value) {
+        
+        srcCid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Src Customer ID - numerical ID, usually assigned by prefix
+       * </pre>
+       *
+       * <code>uint32 SrcCid = 1012;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSrcCid() {
+        
+        srcCid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int dstCid_ ;
+      /**
+       * <pre>
+       * Dst Customer ID - numerical ID, usually assigned by prefix
+       * </pre>
+       *
+       * <code>uint32 DstCid = 1013;</code>
+       * @return The dstCid.
+       */
+      @java.lang.Override
+      public int getDstCid() {
+        return dstCid_;
+      }
+      /**
+       * <pre>
+       * Dst Customer ID - numerical ID, usually assigned by prefix
+       * </pre>
+       *
+       * <code>uint32 DstCid = 1013;</code>
+       * @param value The dstCid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDstCid(int value) {
+        
+        dstCid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Dst Customer ID - numerical ID, usually assigned by prefix
+       * </pre>
+       *
+       * <code>uint32 DstCid = 1013;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDstCid() {
+        
+        dstCid_ = 0;
         onChanged();
         return this;
       }
@@ -6637,6 +6907,102 @@ public final class FlowMessageEnrichedPb {
         onChanged();
         return this;
       }
+
+      private java.lang.Object note_ = "";
+      /**
+       * <pre>
+       * free-form field to implement anything
+       * </pre>
+       *
+       * <code>string Note = 1014;</code>
+       * @return The note.
+       */
+      public java.lang.String getNote() {
+        java.lang.Object ref = note_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          note_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * free-form field to implement anything
+       * </pre>
+       *
+       * <code>string Note = 1014;</code>
+       * @return The bytes for note.
+       */
+      public com.google.protobuf.ByteString
+          getNoteBytes() {
+        java.lang.Object ref = note_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          note_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * free-form field to implement anything
+       * </pre>
+       *
+       * <code>string Note = 1014;</code>
+       * @param value The note to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNote(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        note_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * free-form field to implement anything
+       * </pre>
+       *
+       * <code>string Note = 1014;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNote() {
+        
+        note_ = getDefaultInstance().getNote();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * free-form field to implement anything
+       * </pre>
+       *
+       * <code>string Note = 1014;</code>
+       * @param value The bytes for note to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNoteBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        note_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6705,7 +7071,7 @@ public final class FlowMessageEnrichedPb {
   static {
     java.lang.String[] descriptorData = {
       "\n\034flow-messages-enriched.proto\022\023flowmess" +
-      "ageenriched\"\351\013\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
+      "ageenriched\"\232\014\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
       "\0162).flowmessageenriched.FlowMessage.Flow" +
       "Type\022\024\n\014TimeReceived\030\002 \001(\004\022\023\n\013SequenceNu" +
       "m\030\004 \001(\r\022\024\n\014SamplingRate\030\003 \001(\004\022\025\n\rFlowDir" +
@@ -6731,21 +7097,22 @@ public final class FlowMessageEnrichedPb {
       "MPLS2Label\030: \001(\r\022\020\n\010MPLS3TTL\030; \001(\r\022\022\n\nMP" +
       "LS3Label\030< \001(\r\022\023\n\013MPLSLastTTL\030= \001(\r\022\025\n\rM" +
       "PLSLastLabel\030> \001(\r\022\014\n\003Cid\030\350\007 \001(\r\022\022\n\tCidS" +
-      "tring\030\351\007 \001(\t\022D\n\nNormalized\030\352\007 \001(\0162/.flow" +
-      "messageenriched.FlowMessage.NormalizedTy" +
-      "pe\022\022\n\tSrcIfName\030\353\007 \001(\t\022\022\n\tSrcIfDesc\030\354\007 \001" +
-      "(\t\022\023\n\nSrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 " +
-      "\001(\t\022\022\n\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007" +
-      " \001(\r\022\022\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemoteCountr" +
-      "y\030\362\007 \001(\t\022D\n\nRemoteAddr\030\363\007 \001(\0162/.flowmess" +
-      "ageenriched.FlowMessage.RemoteAddrType\"S" +
-      "\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007SFLOW_5\020\001" +
-      "\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020\003\022\t\n\005IPFI" +
-      "X\020\004\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007\n\003Yes\020\001\"/" +
-      "\n\016RemoteAddrType\022\013\n\007Neither\020\000\022\007\n\003Src\020\001\022\007" +
-      "\n\003Dst\020\002BX\n\tbwnetflowB\025FlowMessageEnriche" +
-      "dPbZ4github.com/bwNetFlow/protobuf/go;fl" +
-      "owmessageenrichedb\006proto3"
+      "tring\030\351\007 \001(\t\022\017\n\006SrcCid\030\364\007 \001(\r\022\017\n\006DstCid\030" +
+      "\365\007 \001(\r\022D\n\nNormalized\030\352\007 \001(\0162/.flowmessag" +
+      "eenriched.FlowMessage.NormalizedType\022\022\n\t" +
+      "SrcIfName\030\353\007 \001(\t\022\022\n\tSrcIfDesc\030\354\007 \001(\t\022\023\n\n" +
+      "SrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 \001(\t\022\022\n" +
+      "\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007 \001(\r\022\022" +
+      "\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemoteCountry\030\362\007 \001" +
+      "(\t\022D\n\nRemoteAddr\030\363\007 \001(\0162/.flowmessageenr" +
+      "iched.FlowMessage.RemoteAddrType\022\r\n\004Note" +
+      "\030\366\007 \001(\t\"S\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007" +
+      "SFLOW_5\020\001\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020" +
+      "\003\022\t\n\005IPFIX\020\004\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007" +
+      "\n\003Yes\020\001\"/\n\016RemoteAddrType\022\013\n\007Neither\020\000\022\007" +
+      "\n\003Src\020\001\022\007\n\003Dst\020\002BX\n\tbwnetflowB\025FlowMessa" +
+      "geEnrichedPbZ4github.com/bwNetFlow/proto" +
+      "buf/go;flowmessageenrichedb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6756,7 +7123,7 @@ public final class FlowMessageEnrichedPb {
     internal_static_flowmessageenriched_FlowMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_flowmessageenriched_FlowMessage_descriptor,
-        new java.lang.String[] { "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "Cid", "CidString", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", "RemoteAddr", });
+        new java.lang.String[] { "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "Cid", "CidString", "SrcCid", "DstCid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", "RemoteAddr", "Note", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

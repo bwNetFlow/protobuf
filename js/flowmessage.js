@@ -126,6 +126,8 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     mplslastlabel: jspb.Message.getFieldWithDefault(msg, 62, 0),
     cid: jspb.Message.getFieldWithDefault(msg, 1000, 0),
     cidstring: jspb.Message.getFieldWithDefault(msg, 1001, ""),
+    srccid: jspb.Message.getFieldWithDefault(msg, 1012, 0),
+    dstcid: jspb.Message.getFieldWithDefault(msg, 1013, 0),
     normalized: jspb.Message.getFieldWithDefault(msg, 1002, 0),
     srcifname: jspb.Message.getFieldWithDefault(msg, 1003, ""),
     srcifdesc: jspb.Message.getFieldWithDefault(msg, 1004, ""),
@@ -135,7 +137,8 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     dstifspeed: jspb.Message.getFieldWithDefault(msg, 1008, 0),
     protoname: jspb.Message.getFieldWithDefault(msg, 1009, ""),
     remotecountry: jspb.Message.getFieldWithDefault(msg, 1010, ""),
-    remoteaddr: jspb.Message.getFieldWithDefault(msg, 1011, 0)
+    remoteaddr: jspb.Message.getFieldWithDefault(msg, 1011, 0),
+    note: jspb.Message.getFieldWithDefault(msg, 1014, "")
   };
 
   if (includeInstance) {
@@ -384,6 +387,14 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
       var value = /** @type {string} */ (reader.readString());
       msg.setCidstring(value);
       break;
+    case 1012:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setSrccid(value);
+      break;
+    case 1013:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setDstcid(value);
+      break;
     case 1002:
       var value = /** @type {!proto.flowmessageenriched.FlowMessage.NormalizedType} */ (reader.readEnum());
       msg.setNormalized(value);
@@ -423,6 +434,10 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
     case 1011:
       var value = /** @type {!proto.flowmessageenriched.FlowMessage.RemoteAddrType} */ (reader.readEnum());
       msg.setRemoteaddr(value);
+      break;
+    case 1014:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNote(value);
       break;
     default:
       reader.skipField();
@@ -824,6 +839,20 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
       f
     );
   }
+  f = message.getSrccid();
+  if (f !== 0) {
+    writer.writeUint32(
+      1012,
+      f
+    );
+  }
+  f = message.getDstcid();
+  if (f !== 0) {
+    writer.writeUint32(
+      1013,
+      f
+    );
+  }
   f = message.getNormalized();
   if (f !== 0.0) {
     writer.writeEnum(
@@ -891,6 +920,13 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
   if (f !== 0.0) {
     writer.writeEnum(
       1011,
+      f
+    );
+  }
+  f = message.getNote();
+  if (f.length > 0) {
+    writer.writeString(
+      1014,
       f
     );
   }
@@ -1976,6 +2012,42 @@ proto.flowmessageenriched.FlowMessage.prototype.setCidstring = function(value) {
 
 
 /**
+ * optional uint32 SrcCid = 1012;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getSrccid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1012, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setSrccid = function(value) {
+  return jspb.Message.setProto3IntField(this, 1012, value);
+};
+
+
+/**
+ * optional uint32 DstCid = 1013;
+ * @return {number}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getDstcid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1013, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setDstcid = function(value) {
+  return jspb.Message.setProto3IntField(this, 1013, value);
+};
+
+
+/**
  * optional NormalizedType Normalized = 1002;
  * @return {!proto.flowmessageenriched.FlowMessage.NormalizedType}
  */
@@ -2152,6 +2224,24 @@ proto.flowmessageenriched.FlowMessage.prototype.getRemoteaddr = function() {
  */
 proto.flowmessageenriched.FlowMessage.prototype.setRemoteaddr = function(value) {
   return jspb.Message.setProto3EnumField(this, 1011, value);
+};
+
+
+/**
+ * optional string Note = 1014;
+ * @return {string}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getNote = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1014, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setNote = function(value) {
+  return jspb.Message.setProto3StringField(this, 1014, value);
 };
 
 
