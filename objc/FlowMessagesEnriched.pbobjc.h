@@ -179,7 +179,9 @@ typedef GPB_ENUM(FlowMessage_FieldNumber) {
   FlowMessage_FieldNumber_RemoteAddr = 1011,
   FlowMessage_FieldNumber_SrcCid = 1012,
   FlowMessage_FieldNumber_DstCid = 1013,
-  FlowMessage_FieldNumber_Note = 1014,
+  FlowMessage_FieldNumber_SrcCountry = 1014,
+  FlowMessage_FieldNumber_DstCountry = 1015,
+  FlowMessage_FieldNumber_Note = 1016,
 };
 
 GPB_FINAL @interface FlowMessage : GPBMessage
@@ -346,6 +348,12 @@ GPB_FINAL @interface FlowMessage : GPBMessage
 
 /** Geolocation -- set using the provided database */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *remoteCountry;
+
+/** Src Geolocation */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *srcCountry;
+
+/** Dst Geolocation */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *dstCountry;
 
 /** RemoteAddr - which Addr field contains the remote/local address */
 @property(nonatomic, readwrite) FlowMessage_RemoteAddrType remoteAddr;

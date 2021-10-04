@@ -25,7 +25,7 @@ namespace Flowmessageenriched {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxmbG93LW1lc3NhZ2VzLWVucmljaGVkLnByb3RvEhNmbG93bWVzc2FnZWVu",
-            "cmljaGVkIpoMCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
+            "cmljaGVkIsQMCgtGbG93TWVzc2FnZRI3CgRUeXBlGAEgASgOMikuZmxvd21l",
             "c3NhZ2VlbnJpY2hlZC5GbG93TWVzc2FnZS5GbG93VHlwZRIUCgxUaW1lUmVj",
             "ZWl2ZWQYAiABKAQSEwoLU2VxdWVuY2VOdW0YBCABKA0SFAoMU2FtcGxpbmdS",
             "YXRlGAMgASgEEhUKDUZsb3dEaXJlY3Rpb24YKiABKA0SFgoOU2FtcGxlckFk",
@@ -54,19 +54,20 @@ namespace Flowmessageenriched {
             "CRISCglTcmNJZkRlc2MY7AcgASgJEhMKClNyY0lmU3BlZWQY7QcgASgNEhIK",
             "CURzdElmTmFtZRjuByABKAkSEgoJRHN0SWZEZXNjGO8HIAEoCRITCgpEc3RJ",
             "ZlNwZWVkGPAHIAEoDRISCglQcm90b05hbWUY8QcgASgJEhYKDVJlbW90ZUNv",
-            "dW50cnkY8gcgASgJEkQKClJlbW90ZUFkZHIY8wcgASgOMi8uZmxvd21lc3Nh",
-            "Z2VlbnJpY2hlZC5GbG93TWVzc2FnZS5SZW1vdGVBZGRyVHlwZRINCgROb3Rl",
-            "GPYHIAEoCSJTCghGbG93VHlwZRIPCgtGTE9XVU5LTk9XThAAEgsKB1NGTE9X",
-            "XzUQARIOCgpORVRGTE9XX1Y1EAISDgoKTkVURkxPV19WORADEgkKBUlQRklY",
-            "EAQiIQoOTm9ybWFsaXplZFR5cGUSBgoCTm8QABIHCgNZZXMQASIvCg5SZW1v",
-            "dGVBZGRyVHlwZRILCgdOZWl0aGVyEAASBwoDU3JjEAESBwoDRHN0EAJCWAoJ",
-            "YnduZXRmbG93QhVGbG93TWVzc2FnZUVucmljaGVkUGJaNGdpdGh1Yi5jb20v",
-            "YndOZXRGbG93L3Byb3RvYnVmL2dvO2Zsb3dtZXNzYWdlZW5yaWNoZWRiBnBy",
-            "b3RvMw=="));
+            "dW50cnkY8gcgASgJEhMKClNyY0NvdW50cnkY9gcgASgJEhMKCkRzdENvdW50",
+            "cnkY9wcgASgJEkQKClJlbW90ZUFkZHIY8wcgASgOMi8uZmxvd21lc3NhZ2Vl",
+            "bnJpY2hlZC5GbG93TWVzc2FnZS5SZW1vdGVBZGRyVHlwZRINCgROb3RlGPgH",
+            "IAEoCSJTCghGbG93VHlwZRIPCgtGTE9XVU5LTk9XThAAEgsKB1NGTE9XXzUQ",
+            "ARIOCgpORVRGTE9XX1Y1EAISDgoKTkVURkxPV19WORADEgkKBUlQRklYEAQi",
+            "IQoOTm9ybWFsaXplZFR5cGUSBgoCTm8QABIHCgNZZXMQASIvCg5SZW1vdGVB",
+            "ZGRyVHlwZRILCgdOZWl0aGVyEAASBwoDU3JjEAESBwoDRHN0EAJCWAoJYndu",
+            "ZXRmbG93QhVGbG93TWVzc2FnZUVucmljaGVkUGJaNGdpdGh1Yi5jb20vYndO",
+            "ZXRGbG93L3Byb3RvYnVmL2dvO2Zsb3dtZXNzYWdlZW5yaWNoZWRiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "Cid", "CidString", "SrcCid", "DstCid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", "RemoteAddr", "Note" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType), typeof(global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType) }, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Flowmessageenriched.FlowMessage), global::Flowmessageenriched.FlowMessage.Parser, new[]{ "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "Cid", "CidString", "SrcCid", "DstCid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", "SrcCountry", "DstCountry", "RemoteAddr", "Note" }, null, new[]{ typeof(global::Flowmessageenriched.FlowMessage.Types.FlowType), typeof(global::Flowmessageenriched.FlowMessage.Types.NormalizedType), typeof(global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType) }, null, null)
           }));
     }
     #endregion
@@ -171,6 +172,8 @@ namespace Flowmessageenriched {
       dstIfSpeed_ = other.dstIfSpeed_;
       protoName_ = other.protoName_;
       remoteCountry_ = other.remoteCountry_;
+      srcCountry_ = other.srcCountry_;
+      dstCountry_ = other.dstCountry_;
       remoteAddr_ = other.remoteAddr_;
       note_ = other.note_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1055,6 +1058,36 @@ namespace Flowmessageenriched {
       }
     }
 
+    /// <summary>Field number for the "SrcCountry" field.</summary>
+    public const int SrcCountryFieldNumber = 1014;
+    private string srcCountry_ = "";
+    /// <summary>
+    /// Src Geolocation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SrcCountry {
+      get { return srcCountry_; }
+      set {
+        srcCountry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "DstCountry" field.</summary>
+    public const int DstCountryFieldNumber = 1015;
+    private string dstCountry_ = "";
+    /// <summary>
+    /// Dst Geolocation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string DstCountry {
+      get { return dstCountry_; }
+      set {
+        dstCountry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "RemoteAddr" field.</summary>
     public const int RemoteAddrFieldNumber = 1011;
     private global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType remoteAddr_ = global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType.Neither;
@@ -1071,7 +1104,7 @@ namespace Flowmessageenriched {
     }
 
     /// <summary>Field number for the "Note" field.</summary>
-    public const int NoteFieldNumber = 1014;
+    public const int NoteFieldNumber = 1016;
     private string note_ = "";
     /// <summary>
     /// free-form field to implement anything
@@ -1164,6 +1197,8 @@ namespace Flowmessageenriched {
       if (DstIfSpeed != other.DstIfSpeed) return false;
       if (ProtoName != other.ProtoName) return false;
       if (RemoteCountry != other.RemoteCountry) return false;
+      if (SrcCountry != other.SrcCountry) return false;
+      if (DstCountry != other.DstCountry) return false;
       if (RemoteAddr != other.RemoteAddr) return false;
       if (Note != other.Note) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1237,6 +1272,8 @@ namespace Flowmessageenriched {
       if (DstIfSpeed != 0) hash ^= DstIfSpeed.GetHashCode();
       if (ProtoName.Length != 0) hash ^= ProtoName.GetHashCode();
       if (RemoteCountry.Length != 0) hash ^= RemoteCountry.GetHashCode();
+      if (SrcCountry.Length != 0) hash ^= SrcCountry.GetHashCode();
+      if (DstCountry.Length != 0) hash ^= DstCountry.GetHashCode();
       if (RemoteAddr != global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType.Neither) hash ^= RemoteAddr.GetHashCode();
       if (Note.Length != 0) hash ^= Note.GetHashCode();
       if (_unknownFields != null) {
@@ -1517,8 +1554,16 @@ namespace Flowmessageenriched {
         output.WriteRawTag(168, 63);
         output.WriteUInt32(DstCid);
       }
-      if (Note.Length != 0) {
+      if (SrcCountry.Length != 0) {
         output.WriteRawTag(178, 63);
+        output.WriteString(SrcCountry);
+      }
+      if (DstCountry.Length != 0) {
+        output.WriteRawTag(186, 63);
+        output.WriteString(DstCountry);
+      }
+      if (Note.Length != 0) {
+        output.WriteRawTag(194, 63);
         output.WriteString(Note);
       }
       if (_unknownFields != null) {
@@ -1791,8 +1836,16 @@ namespace Flowmessageenriched {
         output.WriteRawTag(168, 63);
         output.WriteUInt32(DstCid);
       }
-      if (Note.Length != 0) {
+      if (SrcCountry.Length != 0) {
         output.WriteRawTag(178, 63);
+        output.WriteString(SrcCountry);
+      }
+      if (DstCountry.Length != 0) {
+        output.WriteRawTag(186, 63);
+        output.WriteString(DstCountry);
+      }
+      if (Note.Length != 0) {
+        output.WriteRawTag(194, 63);
         output.WriteString(Note);
       }
       if (_unknownFields != null) {
@@ -1996,6 +2049,12 @@ namespace Flowmessageenriched {
       }
       if (RemoteCountry.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(RemoteCountry);
+      }
+      if (SrcCountry.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SrcCountry);
+      }
+      if (DstCountry.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(DstCountry);
       }
       if (RemoteAddr != global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType.Neither) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) RemoteAddr);
@@ -2206,6 +2265,12 @@ namespace Flowmessageenriched {
       }
       if (other.RemoteCountry.Length != 0) {
         RemoteCountry = other.RemoteCountry;
+      }
+      if (other.SrcCountry.Length != 0) {
+        SrcCountry = other.SrcCountry;
+      }
+      if (other.DstCountry.Length != 0) {
+        DstCountry = other.DstCountry;
       }
       if (other.RemoteAddr != global::Flowmessageenriched.FlowMessage.Types.RemoteAddrType.Neither) {
         RemoteAddr = other.RemoteAddr;
@@ -2489,6 +2554,14 @@ namespace Flowmessageenriched {
             break;
           }
           case 8114: {
+            SrcCountry = input.ReadString();
+            break;
+          }
+          case 8122: {
+            DstCountry = input.ReadString();
+            break;
+          }
+          case 8130: {
             Note = input.ReadString();
             break;
           }
@@ -2768,6 +2841,14 @@ namespace Flowmessageenriched {
             break;
           }
           case 8114: {
+            SrcCountry = input.ReadString();
+            break;
+          }
+          case 8122: {
+            DstCountry = input.ReadString();
+            break;
+          }
+          case 8130: {
             Note = input.ReadString();
             break;
           }

@@ -137,8 +137,10 @@ proto.flowmessageenriched.FlowMessage.toObject = function(includeInstance, msg) 
     dstifspeed: jspb.Message.getFieldWithDefault(msg, 1008, 0),
     protoname: jspb.Message.getFieldWithDefault(msg, 1009, ""),
     remotecountry: jspb.Message.getFieldWithDefault(msg, 1010, ""),
+    srccountry: jspb.Message.getFieldWithDefault(msg, 1014, ""),
+    dstcountry: jspb.Message.getFieldWithDefault(msg, 1015, ""),
     remoteaddr: jspb.Message.getFieldWithDefault(msg, 1011, 0),
-    note: jspb.Message.getFieldWithDefault(msg, 1014, "")
+    note: jspb.Message.getFieldWithDefault(msg, 1016, "")
   };
 
   if (includeInstance) {
@@ -431,11 +433,19 @@ proto.flowmessageenriched.FlowMessage.deserializeBinaryFromReader = function(msg
       var value = /** @type {string} */ (reader.readString());
       msg.setRemotecountry(value);
       break;
+    case 1014:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSrccountry(value);
+      break;
+    case 1015:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDstcountry(value);
+      break;
     case 1011:
       var value = /** @type {!proto.flowmessageenriched.FlowMessage.RemoteAddrType} */ (reader.readEnum());
       msg.setRemoteaddr(value);
       break;
-    case 1014:
+    case 1016:
       var value = /** @type {string} */ (reader.readString());
       msg.setNote(value);
       break;
@@ -916,6 +926,20 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
       f
     );
   }
+  f = message.getSrccountry();
+  if (f.length > 0) {
+    writer.writeString(
+      1014,
+      f
+    );
+  }
+  f = message.getDstcountry();
+  if (f.length > 0) {
+    writer.writeString(
+      1015,
+      f
+    );
+  }
   f = message.getRemoteaddr();
   if (f !== 0.0) {
     writer.writeEnum(
@@ -926,7 +950,7 @@ proto.flowmessageenriched.FlowMessage.serializeBinaryToWriter = function(message
   f = message.getNote();
   if (f.length > 0) {
     writer.writeString(
-      1014,
+      1016,
       f
     );
   }
@@ -2210,6 +2234,42 @@ proto.flowmessageenriched.FlowMessage.prototype.setRemotecountry = function(valu
 
 
 /**
+ * optional string SrcCountry = 1014;
+ * @return {string}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getSrccountry = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1014, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setSrccountry = function(value) {
+  return jspb.Message.setProto3StringField(this, 1014, value);
+};
+
+
+/**
+ * optional string DstCountry = 1015;
+ * @return {string}
+ */
+proto.flowmessageenriched.FlowMessage.prototype.getDstcountry = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1015, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.flowmessageenriched.FlowMessage} returns this
+ */
+proto.flowmessageenriched.FlowMessage.prototype.setDstcountry = function(value) {
+  return jspb.Message.setProto3StringField(this, 1015, value);
+};
+
+
+/**
  * optional RemoteAddrType RemoteAddr = 1011;
  * @return {!proto.flowmessageenriched.FlowMessage.RemoteAddrType}
  */
@@ -2228,11 +2288,11 @@ proto.flowmessageenriched.FlowMessage.prototype.setRemoteaddr = function(value) 
 
 
 /**
- * optional string Note = 1014;
+ * optional string Note = 1016;
  * @return {string}
  */
 proto.flowmessageenriched.FlowMessage.prototype.getNote = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1014, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1016, ""));
 };
 
 
@@ -2241,7 +2301,7 @@ proto.flowmessageenriched.FlowMessage.prototype.getNote = function() {
  * @return {!proto.flowmessageenriched.FlowMessage} returns this
  */
 proto.flowmessageenriched.FlowMessage.prototype.setNote = function(value) {
-  return jspb.Message.setProto3StringField(this, 1014, value);
+  return jspb.Message.setProto3StringField(this, 1016, value);
 };
 
 

@@ -125,6 +125,8 @@ message FlowMessage {
 
   string ProtoName = 1009; // Protocol Name -- set for some well known protocols, based on Proto
   string RemoteCountry = 1010; // Geolocation -- set using the provided database
+  string SrcCountry = 1014; // Src Geolocation
+  string DstCountry = 1015; // Dst Geolocation
 
   enum RemoteAddrType {
     Neither = 0;
@@ -133,5 +135,5 @@ message FlowMessage {
   }
   RemoteAddrType RemoteAddr = 1011; // RemoteAddr - which Addr field contains the remote/local address
 
-  string Note = 1014; // free-form field to implement anything
+  string Note = 1016; // free-form field to implement anything
 }

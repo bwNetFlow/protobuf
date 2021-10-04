@@ -70,8 +70,10 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :DstIfSpeed, :uint32, 1008
       optional :ProtoName, :string, 1009
       optional :RemoteCountry, :string, 1010
+      optional :SrcCountry, :string, 1014
+      optional :DstCountry, :string, 1015
       optional :RemoteAddr, :enum, 1011, "flowmessageenriched.FlowMessage.RemoteAddrType"
-      optional :Note, :string, 1014
+      optional :Note, :string, 1016
     end
     add_enum "flowmessageenriched.FlowMessage.FlowType" do
       value :FLOWUNKNOWN, 0

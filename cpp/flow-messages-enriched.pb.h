@@ -369,7 +369,9 @@ class FlowMessage final :
     kDstIfDescFieldNumber = 1007,
     kProtoNameFieldNumber = 1009,
     kRemoteCountryFieldNumber = 1010,
-    kNoteFieldNumber = 1014,
+    kSrcCountryFieldNumber = 1014,
+    kDstCountryFieldNumber = 1015,
+    kNoteFieldNumber = 1016,
     kTimeReceivedFieldNumber = 2,
     kTypeFieldNumber = 1,
     kSequenceNumFieldNumber = 4,
@@ -579,7 +581,35 @@ class FlowMessage final :
   std::string* _internal_mutable_remotecountry();
   public:
 
-  // string Note = 1014;
+  // string SrcCountry = 1014;
+  void clear_srccountry();
+  const std::string& srccountry() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_srccountry(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_srccountry();
+  PROTOBUF_MUST_USE_RESULT std::string* release_srccountry();
+  void set_allocated_srccountry(std::string* srccountry);
+  private:
+  const std::string& _internal_srccountry() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_srccountry(const std::string& value);
+  std::string* _internal_mutable_srccountry();
+  public:
+
+  // string DstCountry = 1015;
+  void clear_dstcountry();
+  const std::string& dstcountry() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_dstcountry(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_dstcountry();
+  PROTOBUF_MUST_USE_RESULT std::string* release_dstcountry();
+  void set_allocated_dstcountry(std::string* dstcountry);
+  private:
+  const std::string& _internal_dstcountry() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_dstcountry(const std::string& value);
+  std::string* _internal_mutable_dstcountry();
+  public:
+
+  // string Note = 1016;
   void clear_note();
   const std::string& note() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1097,6 +1127,8 @@ class FlowMessage final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dstifdesc_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr protoname_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr remotecountry_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr srccountry_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr dstcountry_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr note_;
   ::PROTOBUF_NAMESPACE_ID::uint64 timereceived_;
   int type_;
@@ -2732,6 +2764,98 @@ inline void FlowMessage::set_allocated_remotecountry(std::string* remotecountry)
   // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.RemoteCountry)
 }
 
+// string SrcCountry = 1014;
+inline void FlowMessage::clear_srccountry() {
+  srccountry_.ClearToEmpty();
+}
+inline const std::string& FlowMessage::srccountry() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.SrcCountry)
+  return _internal_srccountry();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FlowMessage::set_srccountry(ArgT0&& arg0, ArgT... args) {
+ 
+ srccountry_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.SrcCountry)
+}
+inline std::string* FlowMessage::mutable_srccountry() {
+  std::string* _s = _internal_mutable_srccountry();
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.SrcCountry)
+  return _s;
+}
+inline const std::string& FlowMessage::_internal_srccountry() const {
+  return srccountry_.Get();
+}
+inline void FlowMessage::_internal_set_srccountry(const std::string& value) {
+  
+  srccountry_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* FlowMessage::_internal_mutable_srccountry() {
+  
+  return srccountry_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* FlowMessage::release_srccountry() {
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.SrcCountry)
+  return srccountry_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void FlowMessage::set_allocated_srccountry(std::string* srccountry) {
+  if (srccountry != nullptr) {
+    
+  } else {
+    
+  }
+  srccountry_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), srccountry,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.SrcCountry)
+}
+
+// string DstCountry = 1015;
+inline void FlowMessage::clear_dstcountry() {
+  dstcountry_.ClearToEmpty();
+}
+inline const std::string& FlowMessage::dstcountry() const {
+  // @@protoc_insertion_point(field_get:flowmessageenriched.FlowMessage.DstCountry)
+  return _internal_dstcountry();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FlowMessage::set_dstcountry(ArgT0&& arg0, ArgT... args) {
+ 
+ dstcountry_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.DstCountry)
+}
+inline std::string* FlowMessage::mutable_dstcountry() {
+  std::string* _s = _internal_mutable_dstcountry();
+  // @@protoc_insertion_point(field_mutable:flowmessageenriched.FlowMessage.DstCountry)
+  return _s;
+}
+inline const std::string& FlowMessage::_internal_dstcountry() const {
+  return dstcountry_.Get();
+}
+inline void FlowMessage::_internal_set_dstcountry(const std::string& value) {
+  
+  dstcountry_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* FlowMessage::_internal_mutable_dstcountry() {
+  
+  return dstcountry_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* FlowMessage::release_dstcountry() {
+  // @@protoc_insertion_point(field_release:flowmessageenriched.FlowMessage.DstCountry)
+  return dstcountry_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void FlowMessage::set_allocated_dstcountry(std::string* dstcountry) {
+  if (dstcountry != nullptr) {
+    
+  } else {
+    
+  }
+  dstcountry_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), dstcountry,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:flowmessageenriched.FlowMessage.DstCountry)
+}
+
 // .flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;
 inline void FlowMessage::clear_remoteaddr() {
   remoteaddr_ = 0;
@@ -2752,7 +2876,7 @@ inline void FlowMessage::set_remoteaddr(::flowmessageenriched::FlowMessage_Remot
   // @@protoc_insertion_point(field_set:flowmessageenriched.FlowMessage.RemoteAddr)
 }
 
-// string Note = 1014;
+// string Note = 1016;
 inline void FlowMessage::clear_note() {
   note_.ClearToEmpty();
 }

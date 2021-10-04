@@ -620,6 +620,46 @@ public final class FlowMessageEnrichedPb {
 
     /**
      * <pre>
+     * Src Geolocation
+     * </pre>
+     *
+     * <code>string SrcCountry = 1014;</code>
+     * @return The srcCountry.
+     */
+    java.lang.String getSrcCountry();
+    /**
+     * <pre>
+     * Src Geolocation
+     * </pre>
+     *
+     * <code>string SrcCountry = 1014;</code>
+     * @return The bytes for srcCountry.
+     */
+    com.google.protobuf.ByteString
+        getSrcCountryBytes();
+
+    /**
+     * <pre>
+     * Dst Geolocation
+     * </pre>
+     *
+     * <code>string DstCountry = 1015;</code>
+     * @return The dstCountry.
+     */
+    java.lang.String getDstCountry();
+    /**
+     * <pre>
+     * Dst Geolocation
+     * </pre>
+     *
+     * <code>string DstCountry = 1015;</code>
+     * @return The bytes for dstCountry.
+     */
+    com.google.protobuf.ByteString
+        getDstCountryBytes();
+
+    /**
+     * <pre>
      * RemoteAddr - which Addr field contains the remote/local address
      * </pre>
      *
@@ -642,7 +682,7 @@ public final class FlowMessageEnrichedPb {
      * free-form field to implement anything
      * </pre>
      *
-     * <code>string Note = 1014;</code>
+     * <code>string Note = 1016;</code>
      * @return The note.
      */
     java.lang.String getNote();
@@ -651,7 +691,7 @@ public final class FlowMessageEnrichedPb {
      * free-form field to implement anything
      * </pre>
      *
-     * <code>string Note = 1014;</code>
+     * <code>string Note = 1016;</code>
      * @return The bytes for note.
      */
     com.google.protobuf.ByteString
@@ -683,6 +723,8 @@ public final class FlowMessageEnrichedPb {
       dstIfDesc_ = "";
       protoName_ = "";
       remoteCountry_ = "";
+      srcCountry_ = "";
+      dstCountry_ = "";
       remoteAddr_ = 0;
       note_ = "";
     }
@@ -1053,6 +1095,18 @@ public final class FlowMessageEnrichedPb {
               break;
             }
             case 8114: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              srcCountry_ = s;
+              break;
+            }
+            case 8122: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dstCountry_ = s;
+              break;
+            }
+            case 8130: {
               java.lang.String s = input.readStringRequireUtf8();
 
               note_ = s;
@@ -2523,6 +2577,98 @@ public final class FlowMessageEnrichedPb {
       }
     }
 
+    public static final int SRCCOUNTRY_FIELD_NUMBER = 1014;
+    private volatile java.lang.Object srcCountry_;
+    /**
+     * <pre>
+     * Src Geolocation
+     * </pre>
+     *
+     * <code>string SrcCountry = 1014;</code>
+     * @return The srcCountry.
+     */
+    @java.lang.Override
+    public java.lang.String getSrcCountry() {
+      java.lang.Object ref = srcCountry_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        srcCountry_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Src Geolocation
+     * </pre>
+     *
+     * <code>string SrcCountry = 1014;</code>
+     * @return The bytes for srcCountry.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSrcCountryBytes() {
+      java.lang.Object ref = srcCountry_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        srcCountry_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DSTCOUNTRY_FIELD_NUMBER = 1015;
+    private volatile java.lang.Object dstCountry_;
+    /**
+     * <pre>
+     * Dst Geolocation
+     * </pre>
+     *
+     * <code>string DstCountry = 1015;</code>
+     * @return The dstCountry.
+     */
+    @java.lang.Override
+    public java.lang.String getDstCountry() {
+      java.lang.Object ref = dstCountry_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dstCountry_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Dst Geolocation
+     * </pre>
+     *
+     * <code>string DstCountry = 1015;</code>
+     * @return The bytes for dstCountry.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDstCountryBytes() {
+      java.lang.Object ref = dstCountry_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dstCountry_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int REMOTEADDR_FIELD_NUMBER = 1011;
     private int remoteAddr_;
     /**
@@ -2550,14 +2696,14 @@ public final class FlowMessageEnrichedPb {
       return result == null ? bwnetflow.FlowMessageEnrichedPb.FlowMessage.RemoteAddrType.UNRECOGNIZED : result;
     }
 
-    public static final int NOTE_FIELD_NUMBER = 1014;
+    public static final int NOTE_FIELD_NUMBER = 1016;
     private volatile java.lang.Object note_;
     /**
      * <pre>
      * free-form field to implement anything
      * </pre>
      *
-     * <code>string Note = 1014;</code>
+     * <code>string Note = 1016;</code>
      * @return The note.
      */
     @java.lang.Override
@@ -2578,7 +2724,7 @@ public final class FlowMessageEnrichedPb {
      * free-form field to implement anything
      * </pre>
      *
-     * <code>string Note = 1014;</code>
+     * <code>string Note = 1016;</code>
      * @return The bytes for note.
      */
     @java.lang.Override
@@ -2805,8 +2951,14 @@ public final class FlowMessageEnrichedPb {
       if (dstCid_ != 0) {
         output.writeUInt32(1013, dstCid_);
       }
+      if (!getSrcCountryBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1014, srcCountry_);
+      }
+      if (!getDstCountryBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1015, dstCountry_);
+      }
       if (!getNoteBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1014, note_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1016, note_);
       }
       unknownFields.writeTo(output);
     }
@@ -3070,8 +3222,14 @@ public final class FlowMessageEnrichedPb {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1013, dstCid_);
       }
+      if (!getSrcCountryBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1014, srcCountry_);
+      }
+      if (!getDstCountryBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1015, dstCountry_);
+      }
       if (!getNoteBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1014, note_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1016, note_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3214,6 +3372,10 @@ public final class FlowMessageEnrichedPb {
           .equals(other.getProtoName())) return false;
       if (!getRemoteCountry()
           .equals(other.getRemoteCountry())) return false;
+      if (!getSrcCountry()
+          .equals(other.getSrcCountry())) return false;
+      if (!getDstCountry()
+          .equals(other.getDstCountry())) return false;
       if (remoteAddr_ != other.remoteAddr_) return false;
       if (!getNote()
           .equals(other.getNote())) return false;
@@ -3365,6 +3527,10 @@ public final class FlowMessageEnrichedPb {
       hash = (53 * hash) + getProtoName().hashCode();
       hash = (37 * hash) + REMOTECOUNTRY_FIELD_NUMBER;
       hash = (53 * hash) + getRemoteCountry().hashCode();
+      hash = (37 * hash) + SRCCOUNTRY_FIELD_NUMBER;
+      hash = (53 * hash) + getSrcCountry().hashCode();
+      hash = (37 * hash) + DSTCOUNTRY_FIELD_NUMBER;
+      hash = (53 * hash) + getDstCountry().hashCode();
       hash = (37 * hash) + REMOTEADDR_FIELD_NUMBER;
       hash = (53 * hash) + remoteAddr_;
       hash = (37 * hash) + NOTE_FIELD_NUMBER;
@@ -3630,6 +3796,10 @@ public final class FlowMessageEnrichedPb {
 
         remoteCountry_ = "";
 
+        srcCountry_ = "";
+
+        dstCountry_ = "";
+
         remoteAddr_ = 0;
 
         note_ = "";
@@ -3724,6 +3894,8 @@ public final class FlowMessageEnrichedPb {
         result.dstIfSpeed_ = dstIfSpeed_;
         result.protoName_ = protoName_;
         result.remoteCountry_ = remoteCountry_;
+        result.srcCountry_ = srcCountry_;
+        result.dstCountry_ = dstCountry_;
         result.remoteAddr_ = remoteAddr_;
         result.note_ = note_;
         onBuilt();
@@ -3971,6 +4143,14 @@ public final class FlowMessageEnrichedPb {
         }
         if (!other.getRemoteCountry().isEmpty()) {
           remoteCountry_ = other.remoteCountry_;
+          onChanged();
+        }
+        if (!other.getSrcCountry().isEmpty()) {
+          srcCountry_ = other.srcCountry_;
+          onChanged();
+        }
+        if (!other.getDstCountry().isEmpty()) {
+          dstCountry_ = other.dstCountry_;
           onChanged();
         }
         if (other.remoteAddr_ != 0) {
@@ -6834,6 +7014,198 @@ public final class FlowMessageEnrichedPb {
         return this;
       }
 
+      private java.lang.Object srcCountry_ = "";
+      /**
+       * <pre>
+       * Src Geolocation
+       * </pre>
+       *
+       * <code>string SrcCountry = 1014;</code>
+       * @return The srcCountry.
+       */
+      public java.lang.String getSrcCountry() {
+        java.lang.Object ref = srcCountry_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          srcCountry_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Src Geolocation
+       * </pre>
+       *
+       * <code>string SrcCountry = 1014;</code>
+       * @return The bytes for srcCountry.
+       */
+      public com.google.protobuf.ByteString
+          getSrcCountryBytes() {
+        java.lang.Object ref = srcCountry_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          srcCountry_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Src Geolocation
+       * </pre>
+       *
+       * <code>string SrcCountry = 1014;</code>
+       * @param value The srcCountry to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSrcCountry(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        srcCountry_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Src Geolocation
+       * </pre>
+       *
+       * <code>string SrcCountry = 1014;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSrcCountry() {
+        
+        srcCountry_ = getDefaultInstance().getSrcCountry();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Src Geolocation
+       * </pre>
+       *
+       * <code>string SrcCountry = 1014;</code>
+       * @param value The bytes for srcCountry to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSrcCountryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        srcCountry_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dstCountry_ = "";
+      /**
+       * <pre>
+       * Dst Geolocation
+       * </pre>
+       *
+       * <code>string DstCountry = 1015;</code>
+       * @return The dstCountry.
+       */
+      public java.lang.String getDstCountry() {
+        java.lang.Object ref = dstCountry_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dstCountry_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Dst Geolocation
+       * </pre>
+       *
+       * <code>string DstCountry = 1015;</code>
+       * @return The bytes for dstCountry.
+       */
+      public com.google.protobuf.ByteString
+          getDstCountryBytes() {
+        java.lang.Object ref = dstCountry_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dstCountry_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Dst Geolocation
+       * </pre>
+       *
+       * <code>string DstCountry = 1015;</code>
+       * @param value The dstCountry to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDstCountry(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dstCountry_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Dst Geolocation
+       * </pre>
+       *
+       * <code>string DstCountry = 1015;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDstCountry() {
+        
+        dstCountry_ = getDefaultInstance().getDstCountry();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Dst Geolocation
+       * </pre>
+       *
+       * <code>string DstCountry = 1015;</code>
+       * @param value The bytes for dstCountry to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDstCountryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dstCountry_ = value;
+        onChanged();
+        return this;
+      }
+
       private int remoteAddr_ = 0;
       /**
        * <pre>
@@ -6914,7 +7286,7 @@ public final class FlowMessageEnrichedPb {
        * free-form field to implement anything
        * </pre>
        *
-       * <code>string Note = 1014;</code>
+       * <code>string Note = 1016;</code>
        * @return The note.
        */
       public java.lang.String getNote() {
@@ -6934,7 +7306,7 @@ public final class FlowMessageEnrichedPb {
        * free-form field to implement anything
        * </pre>
        *
-       * <code>string Note = 1014;</code>
+       * <code>string Note = 1016;</code>
        * @return The bytes for note.
        */
       public com.google.protobuf.ByteString
@@ -6955,7 +7327,7 @@ public final class FlowMessageEnrichedPb {
        * free-form field to implement anything
        * </pre>
        *
-       * <code>string Note = 1014;</code>
+       * <code>string Note = 1016;</code>
        * @param value The note to set.
        * @return This builder for chaining.
        */
@@ -6974,7 +7346,7 @@ public final class FlowMessageEnrichedPb {
        * free-form field to implement anything
        * </pre>
        *
-       * <code>string Note = 1014;</code>
+       * <code>string Note = 1016;</code>
        * @return This builder for chaining.
        */
       public Builder clearNote() {
@@ -6988,7 +7360,7 @@ public final class FlowMessageEnrichedPb {
        * free-form field to implement anything
        * </pre>
        *
-       * <code>string Note = 1014;</code>
+       * <code>string Note = 1016;</code>
        * @param value The bytes for note to set.
        * @return This builder for chaining.
        */
@@ -7071,7 +7443,7 @@ public final class FlowMessageEnrichedPb {
   static {
     java.lang.String[] descriptorData = {
       "\n\034flow-messages-enriched.proto\022\023flowmess" +
-      "ageenriched\"\232\014\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
+      "ageenriched\"\304\014\n\013FlowMessage\0227\n\004Type\030\001 \001(" +
       "\0162).flowmessageenriched.FlowMessage.Flow" +
       "Type\022\024\n\014TimeReceived\030\002 \001(\004\022\023\n\013SequenceNu" +
       "m\030\004 \001(\r\022\024\n\014SamplingRate\030\003 \001(\004\022\025\n\rFlowDir" +
@@ -7104,15 +7476,16 @@ public final class FlowMessageEnrichedPb {
       "SrcIfSpeed\030\355\007 \001(\r\022\022\n\tDstIfName\030\356\007 \001(\t\022\022\n" +
       "\tDstIfDesc\030\357\007 \001(\t\022\023\n\nDstIfSpeed\030\360\007 \001(\r\022\022" +
       "\n\tProtoName\030\361\007 \001(\t\022\026\n\rRemoteCountry\030\362\007 \001" +
-      "(\t\022D\n\nRemoteAddr\030\363\007 \001(\0162/.flowmessageenr" +
-      "iched.FlowMessage.RemoteAddrType\022\r\n\004Note" +
-      "\030\366\007 \001(\t\"S\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\013\n\007" +
-      "SFLOW_5\020\001\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V9\020" +
-      "\003\022\t\n\005IPFIX\020\004\"!\n\016NormalizedType\022\006\n\002No\020\000\022\007" +
-      "\n\003Yes\020\001\"/\n\016RemoteAddrType\022\013\n\007Neither\020\000\022\007" +
-      "\n\003Src\020\001\022\007\n\003Dst\020\002BX\n\tbwnetflowB\025FlowMessa" +
-      "geEnrichedPbZ4github.com/bwNetFlow/proto" +
-      "buf/go;flowmessageenrichedb\006proto3"
+      "(\t\022\023\n\nSrcCountry\030\366\007 \001(\t\022\023\n\nDstCountry\030\367\007" +
+      " \001(\t\022D\n\nRemoteAddr\030\363\007 \001(\0162/.flowmessagee" +
+      "nriched.FlowMessage.RemoteAddrType\022\r\n\004No" +
+      "te\030\370\007 \001(\t\"S\n\010FlowType\022\017\n\013FLOWUNKNOWN\020\000\022\013" +
+      "\n\007SFLOW_5\020\001\022\016\n\nNETFLOW_V5\020\002\022\016\n\nNETFLOW_V" +
+      "9\020\003\022\t\n\005IPFIX\020\004\"!\n\016NormalizedType\022\006\n\002No\020\000" +
+      "\022\007\n\003Yes\020\001\"/\n\016RemoteAddrType\022\013\n\007Neither\020\000" +
+      "\022\007\n\003Src\020\001\022\007\n\003Dst\020\002BX\n\tbwnetflowB\025FlowMes" +
+      "sageEnrichedPbZ4github.com/bwNetFlow/pro" +
+      "tobuf/go;flowmessageenrichedb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7123,7 +7496,7 @@ public final class FlowMessageEnrichedPb {
     internal_static_flowmessageenriched_FlowMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_flowmessageenriched_FlowMessage_descriptor,
-        new java.lang.String[] { "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "Cid", "CidString", "SrcCid", "DstCid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", "RemoteAddr", "Note", });
+        new java.lang.String[] { "Type", "TimeReceived", "SequenceNum", "SamplingRate", "FlowDirection", "SamplerAddress", "TimeFlowStart", "TimeFlowEnd", "Bytes", "Packets", "SrcAddr", "DstAddr", "Etype", "Proto", "SrcPort", "DstPort", "InIf", "OutIf", "SrcMac", "DstMac", "SrcVlan", "DstVlan", "VlanId", "IngressVrfID", "EgressVrfID", "IPTos", "ForwardingStatus", "IPTTL", "TCPFlags", "IcmpType", "IcmpCode", "IPv6FlowLabel", "FragmentId", "FragmentOffset", "BiFlowDirection", "SrcAS", "DstAS", "NextHop", "NextHopAS", "SrcNet", "DstNet", "HasMPLS", "MPLSCount", "MPLS1TTL", "MPLS1Label", "MPLS2TTL", "MPLS2Label", "MPLS3TTL", "MPLS3Label", "MPLSLastTTL", "MPLSLastLabel", "Cid", "CidString", "SrcCid", "DstCid", "Normalized", "SrcIfName", "SrcIfDesc", "SrcIfSpeed", "DstIfName", "DstIfDesc", "DstIfSpeed", "ProtoName", "RemoteCountry", "SrcCountry", "DstCountry", "RemoteAddr", "Note", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

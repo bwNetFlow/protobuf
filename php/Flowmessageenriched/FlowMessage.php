@@ -340,6 +340,18 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      */
     protected $RemoteCountry = '';
     /**
+     * Src Geolocation
+     *
+     * Generated from protobuf field <code>string SrcCountry = 1014;</code>
+     */
+    protected $SrcCountry = '';
+    /**
+     * Dst Geolocation
+     *
+     * Generated from protobuf field <code>string DstCountry = 1015;</code>
+     */
+    protected $DstCountry = '';
+    /**
      * RemoteAddr - which Addr field contains the remote/local address
      *
      * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
@@ -348,7 +360,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     /**
      * free-form field to implement anything
      *
-     * Generated from protobuf field <code>string Note = 1014;</code>
+     * Generated from protobuf field <code>string Note = 1016;</code>
      */
     protected $Note = '';
 
@@ -457,6 +469,10 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
      *           Protocol Name -- set for some well known protocols, based on Proto
      *     @type string $RemoteCountry
      *           Geolocation -- set using the provided database
+     *     @type string $SrcCountry
+     *           Src Geolocation
+     *     @type string $DstCountry
+     *           Dst Geolocation
      *     @type int $RemoteAddr
      *           RemoteAddr - which Addr field contains the remote/local address
      *     @type string $Note
@@ -2017,6 +2033,58 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Src Geolocation
+     *
+     * Generated from protobuf field <code>string SrcCountry = 1014;</code>
+     * @return string
+     */
+    public function getSrcCountry()
+    {
+        return $this->SrcCountry;
+    }
+
+    /**
+     * Src Geolocation
+     *
+     * Generated from protobuf field <code>string SrcCountry = 1014;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setSrcCountry($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->SrcCountry = $var;
+
+        return $this;
+    }
+
+    /**
+     * Dst Geolocation
+     *
+     * Generated from protobuf field <code>string DstCountry = 1015;</code>
+     * @return string
+     */
+    public function getDstCountry()
+    {
+        return $this->DstCountry;
+    }
+
+    /**
+     * Dst Geolocation
+     *
+     * Generated from protobuf field <code>string DstCountry = 1015;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDstCountry($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->DstCountry = $var;
+
+        return $this;
+    }
+
+    /**
      * RemoteAddr - which Addr field contains the remote/local address
      *
      * Generated from protobuf field <code>.flowmessageenriched.FlowMessage.RemoteAddrType RemoteAddr = 1011;</code>
@@ -2045,7 +2113,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     /**
      * free-form field to implement anything
      *
-     * Generated from protobuf field <code>string Note = 1014;</code>
+     * Generated from protobuf field <code>string Note = 1016;</code>
      * @return string
      */
     public function getNote()
@@ -2056,7 +2124,7 @@ class FlowMessage extends \Google\Protobuf\Internal\Message
     /**
      * free-form field to implement anything
      *
-     * Generated from protobuf field <code>string Note = 1014;</code>
+     * Generated from protobuf field <code>string Note = 1016;</code>
      * @param string $var
      * @return $this
      */

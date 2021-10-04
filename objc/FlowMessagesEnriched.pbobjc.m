@@ -112,6 +112,8 @@ static GPBFileDescriptor *FlowMessagesEnrichedRoot_FileDescriptor(void) {
 @dynamic dstIfSpeed;
 @dynamic protoName;
 @dynamic remoteCountry;
+@dynamic srcCountry;
+@dynamic dstCountry;
 @dynamic remoteAddr;
 @dynamic note;
 
@@ -173,6 +175,8 @@ typedef struct FlowMessage__storage_ {
   NSString *dstIfDesc;
   NSString *protoName;
   NSString *remoteCountry;
+  NSString *srcCountry;
+  NSString *dstCountry;
   NSString *note;
   uint64_t timeReceived;
   uint64_t samplingRate;
@@ -752,7 +756,7 @@ typedef struct FlowMessage__storage_ {
         .name = "remoteAddr",
         .dataTypeSpecific.enumDescFunc = FlowMessage_RemoteAddrType_EnumDescriptor,
         .number = FlowMessage_FieldNumber_RemoteAddr,
-        .hasIndex = 65,
+        .hasIndex = 67,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, remoteAddr),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeEnum,
@@ -776,10 +780,28 @@ typedef struct FlowMessage__storage_ {
         .dataType = GPBDataTypeUInt32,
       },
       {
+        .name = "srcCountry",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_SrcCountry,
+        .hasIndex = 65,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, srcCountry),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "dstCountry",
+        .dataTypeSpecific.clazz = Nil,
+        .number = FlowMessage_FieldNumber_DstCountry,
+        .hasIndex = 66,
+        .offset = (uint32_t)offsetof(FlowMessage__storage_, dstCountry),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
         .name = "note",
         .dataTypeSpecific.clazz = Nil,
         .number = FlowMessage_FieldNumber_Note,
-        .hasIndex = 66,
+        .hasIndex = 68,
         .offset = (uint32_t)offsetof(FlowMessage__storage_, note),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
@@ -795,12 +817,13 @@ typedef struct FlowMessage__storage_ {
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "B\001D\000\002L\000\003L\000\004K\000\005K\000\006G\000\007G\000\tE\000\nG\000\013N\000\014G\000\rHA\000\016D"
+        "D\001D\000\002L\000\003L\000\004K\000\005K\000\006G\000\007G\000\tE\000\nG\000\013N\000\014G\000\rHA\000\016D"
         "A\000\017DA\000\020F\000\021F\000\022D\000\023E\000\024E\000\025G\000\026G\000\027c\002\000\030P\000\031e\000\032d\004"
         "\000\033F\000\034F\000\035F\000\036E\000\037H\000 H\000!G\000\"G\000#J\000$N\000%b\013\000&M\000\'K"
         "A\000(JA\000)O\000*M\0005Dc\0006e\004\0007d\002b\0008d\006\0009d\002b\000:d\006\000;d"
         "\002b\000<d\006\000=e\004b\000>e\010\000\350\007C\000\351\007I\000\352\007J\000\353\007I\000\354\007I\000\355\007J\000"
-        "\356\007I\000\357\007I\000\360\007J\000\361\007I\000\362\007M\000\363\007J\000\364\007F\000\365\007F\000\366\007D\000";
+        "\356\007I\000\357\007I\000\360\007J\000\361\007I\000\362\007M\000\363\007J\000\364\007F\000\365\007F\000\366\007J\000\367\007J\000"
+        "\370\007D\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG
